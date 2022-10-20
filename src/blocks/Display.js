@@ -1,9 +1,21 @@
-import React from 'react'
+import React, { useState, useContext } from 'react'
+import { configContext } from '../configContext'
 
 import Slider from "../reusable/Slider"
 import Pair from "../reusable/Pair"
 
+
+
+
 const Display = () => {
+
+    const [aimPrice, setAimPrice] = useState(0)
+    const { config } = useContext(configContext) 
+
+    const entryOrder =  (config.amount * config.leverage)/config.entryPrice
+    const aimOrder = entryOrder * aimPrice
+    const pnl =  aimOrder - entryOrder
+
   return (
     <div className='block' id='displayRoot'>
         <div className='container' id='displayContainer'>
@@ -14,19 +26,19 @@ const Display = () => {
                     
                     
                     <div className='numContainer container' id='currentPriceContainer'>
-                        <p className='num bigNum' id='currentPriceNum'>19387</p>
+                        <p className='num bigNum' id='currentPriceNum'>{aimPrice}</p>
                     </div>
                     <div className=''>
-                        <Pair type="inform" first="ROI:" second="505"/>
-                        <Pair type="inform" first="PNL" second="303" />
+                        <Pair type={"inform"} first={"result"}
+                        second={pnl} />
                     </div>
                 
                 
             </div>
             <div className='sliderControlContainer'>
-            <Pair type="inform" first="max" second="19700" />
-            <Slider />
-            <Pair type="inform" first="min" second="19200" />
+            <Pair type="inform" first="max" second={config.max} />
+            <Slider aimPrice={aimPrice} setAimPrice={setAimPrice}/>
+            <Pair type="inform" first="min" second={config.min} />
             </div>
             
         </div>

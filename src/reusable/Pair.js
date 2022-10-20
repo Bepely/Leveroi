@@ -1,14 +1,25 @@
 import React from 'react'
 import "../styles/pair.css"
+import { useContext } from 'react'
 
-const Pair = ({type, first, second}) => {
+import { configContext } from "../configContext"
+
+const Pair = ({type, first, second, target}) => {
+    const { config, setConfig } = useContext(configContext) 
+ 
+    let onChange = (e) => {
+        console.log(e.target.value);
+        setConfig(config => ({...config, [first]:e.target.value})) 
+       
+    }
+
   return (
     <div className='pairHolder container reuse' id={type+"-"+first+"-"+second}>
        {type === "input"
         ?    
             <div className='inputPair pair'>
                  <p className='pairFirst pairText pairChild hText'>{first}</p>  
-                 <input className='pairSecond pairChild pairInput' type="text" name={second} id={second} placeholder={second}/> 
+                 <input className='pairSecond pairChild pairInput' type="text" name={second} id={second} placeholder={second} onChange={onChange}/> 
             </div>
         :
         type === "inform"

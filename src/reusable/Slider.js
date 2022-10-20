@@ -1,6 +1,18 @@
 import React from 'react'
+import { useContext } from 'react'
 
-const Slider = () => {
+import { configContext } from '../configContext'
+
+const Slider = ({aimPrice, setAimPrice}) => {
+
+  const {config} = useContext(configContext)
+  
+
+  const changePrice = (e) => {
+    setAimPrice(aimPrice => e.target.value)
+    console.log(aimPrice);
+    }
+
   return (
     <div className='sliderContainer'>
         <input 
@@ -8,7 +20,12 @@ const Slider = () => {
          type="range"
          orient="vertial"
          name="priceSlider"
-         id="priceSlider" />
+         id="priceSlider"
+         min={config.min}
+         max={config.max}
+         value={aimPrice}
+         onChange={(changePrice)}
+          />
     </div>
   )
 }
