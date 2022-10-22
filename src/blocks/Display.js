@@ -2,6 +2,7 @@ import { useState, useEffect} from 'react'
 
 import Slider from "../reusable/Slider"
 import Pair from "../reusable/Pair"
+import Results from "./Results"
 
 
 const Display = ({openConfig, init}) => {
@@ -63,6 +64,10 @@ const Display = ({openConfig, init}) => {
                     :({...closeOrder, long: true}))
     }
 
+
+
+
+
   return (
     <div className='block' id='displayRoot'>
         
@@ -90,14 +95,8 @@ const Display = ({openConfig, init}) => {
                     <div className='numContainer container' id='currentPriceContainer'>
                         <p className='num bigNum' id='currentPriceNum'>{closeOrder.closePrice}</p>
                     </div>
-                    <div className=''>
-
-                        {closeOrder.long === true ? 
-                        <Pair type={"inform"} first={"PNL Long"}
-                        second={"LONG"} /> :
-                        <Pair type={"inform"} first={"PNL Short"}
-                        second={"SHORT"} />}
-                    </div>
+                    <Results close={closeOrder} open={openOrder}/>
+                    
                 
                 
             </div>
