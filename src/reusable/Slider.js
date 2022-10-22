@@ -1,17 +1,10 @@
 import React from 'react'
-import { useContext } from 'react'
 
-import { configContext } from '../configContext'
 
-const Slider = ({aimPrice, setAimPrice}) => {
 
-  const {config} = useContext(configContext)
+
+const Slider = ({closeOrder, changeClosePrice}) => {
   
-
-  const changePrice = (e) => {
-    setAimPrice(aimPrice => e.target.value)
-    console.log(aimPrice);
-    }
 
   return (
     <div className='sliderContainer'>
@@ -21,13 +14,22 @@ const Slider = ({aimPrice, setAimPrice}) => {
          orient="vertial"
          name="priceSlider"
          id="priceSlider"
-         min={config.min}
-         max={config.max}
-         value={aimPrice}
-         onChange={(changePrice)}
+         min={closeOrder.min}
+         max={closeOrder.max}
+         value={closeOrder.closePrice}
+         onChange={changeClosePrice}
           />
     </div>
   )
+}
+
+Slider.defaultProps = {
+  closeOrder:{
+    min: 0,
+    max:1337,
+    value: 420
+
+  }
 }
 
 export default Slider

@@ -1,16 +1,11 @@
 import React from 'react'
 import "../styles/pair.css"
-import { useContext } from 'react'
 
-import { configContext } from "../configContext"
 
-const Pair = ({type, first, second, target}) => {
-    const { config, setConfig } = useContext(configContext) 
+const Pair = ({type, first, second, subState, setSubState}) => { 
  
     let onChange = (e) => {
-        console.log(e.target.value);
-        setConfig(config => ({...config, [first]:e.target.value})) 
-       
+        setSubState(subState => ({...subState, [first]:e.target.value})) 
     }
 
   return (

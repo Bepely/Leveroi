@@ -2,13 +2,35 @@ import React from 'react'
 import Pair from "../reusable/Pair"
 import "../styles/pair.css"
 
-import { useContext } from 'react'
-import { configContext } from '../configContext'
+import { useState } from 'react'
 
 
-const Controls = () => {
 
-  const { config, setConfig } = useContext(configContext) 
+const Controls = ({openOrderFires, init, _setInit}) => {
+
+  const [openOrder, setOpenOrder] = useState({
+    amount: 0,
+    leverage: 1,
+    price: 100
+  })
+
+
+  let transfer = {}
+
+  const sendToDisplay = () => {
+    transfer = openOrder
+    transfer.value = transfer.amount * transfer.leverage
+    transfer.initialised = false
+    openOrderFires(transfer)
+    _setInit()
+
+    setOpenOrder(openOrder => ({
+        amount: transfer.amount,
+        leverage: transfer.leverage,
+        price: transfer.price
+              }))
+    
+  }
 
   
 
@@ -16,36 +38,24 @@ const Controls = () => {
   return (
     
     <div className='block' id='controlsRoot'>
+      {init === false ? 
 <div className='container' id='controlsContainer'>
-      {Object.keys(config).map((key, index)=>{
+      {Object.keys(openOrder).map((key, index)=>{
            return (
-            <Pair type="input" key={index} first={key} second=""/>
+            <Pair type="input"
+             key={index} first={key} second=""
+             subState={openOrder}
+             setSubState={setOpenOrder}/>
            )
           })}
-
-</div>
-      
-
-
-
-
-       {/* <div className='container' id='controlsContainer'>
-            <Pair type="input" first="amount" second=""
-             config={config} setConfig={setConfig} target={0}/>
-            <Pair type="input" first="entry price" second=""
-             config={config} setConfig={setConfig} target={1} />
-            <Pair type="input" first="leverage" second=""
-             config={config} setConfig={setConfig} target={2}/>
-            <Pair type="inform" first="After leverage" second=""
-            config={config} setConfig={setConfig} />
-            <Pair type="input" first="min" second=""
-             config={config} setConfig={setConfig} target={3}/>
-            <Pair type="input" first="max" second=""
-             config={config} setConfig={setConfig} target={4}/>
-  */}
-       
-
+      <button onClick={sendToDisplay}>Create order</button>
     </div>
+    : 
+    <div className='container' id='controlsContainer'>
+      <button onClick={_setInit}> configurate new order</button>
+    </div>
+    }
+</div>
   )
 }
 
