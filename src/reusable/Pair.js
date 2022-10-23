@@ -5,6 +5,7 @@ import "../styles/pair.css"
 const Pair = ({type, first, second, subState, setSubState}) => { 
  
     let onChange = (e) => {
+        console.log(subState[first]);
         setSubState(subState => ({...subState, [first]:e.target.value})) 
     }
 
@@ -14,7 +15,9 @@ const Pair = ({type, first, second, subState, setSubState}) => {
         ?    
             <div className='inputPair pair'>
                  <p className='pairFirst pairText pairChild hText'>{first}</p>  
-                 <input className='pairSecond pairChild pairInput' type="text" name={second} id={second} placeholder={second} onChange={onChange}/> 
+                 <input className='pairSecond pairChild pairInput' 
+                 type="text" name={second} id={second} placeholder={second} 
+                 value={subState[first]} onChange={onChange}/> 
             </div>
         :
         type === "inform"

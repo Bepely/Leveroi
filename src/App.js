@@ -1,8 +1,9 @@
 import Header from "./blocks/Header"
 import Display from "./blocks/Display"
 import Controls from "./blocks/Controls"
+import Results from "./blocks/Results"
 
-import { useState, useContext } from "react"
+import { useState } from "react"
 
 
 import "./styles/major.css"
@@ -10,14 +11,21 @@ import "./styles/minor.css"
 import "./styles/text.css"
 
 function App() {
- 
 
-  const [config, setConfig] = useState({})
+ 
+  const [closeOrder, setCloseOrder] = useState({
+    long: true,
+    closePrice: 100,
+    min: 0,
+    max: 200
+})
+
+  const [openOrder, setOpenOrder] = useState({})
   const [init, setInit] = useState(init => false)
 
   const openOrderFires=(x)=>{
       console.log(x);
-      setConfig(config => ({...x}))
+      setOpenOrder(openOrder => ({...x}))
       }
   const _setInit = ()=>{
     setInit(init => !init)
@@ -26,13 +34,26 @@ function App() {
  
 
   return (
+    
     <div id="root">
       <Header />
       
-        <Display openConfig={config}
-         init={init}/>
+        <Display 
+         init={init}
+         openOrder={openOrder}
+         closeOrder={closeOrder} setCloseOrder={setCloseOrder}/>
+         {init === true ? 
+          <Results open={openOrder} close={closeOrder}
+          setClose={setCloseOrder} setOpen={setOpenOrder}
+          init={init}/>
+          :
+          <></>
+        }
+        
+         
         <Controls openOrderFires={openOrderFires}
          init={init} _setInit={_setInit}/>
+
 
     </div>
   )

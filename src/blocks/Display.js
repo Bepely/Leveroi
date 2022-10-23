@@ -1,22 +1,16 @@
-import { useState, useEffect} from 'react'
+import { useEffect} from 'react'
 
 import Slider from "../reusable/Slider"
-import Pair from "../reusable/Pair"
-import Results from "./Results"
+import Graph from "./Graph"
 
 
-const Display = ({openConfig, init}) => {
+const Display = ({openOrder, init, closeOrder, setCloseOrder}) => {
 
     {/*
         Declaring a main state object of a Display component
     */}
 
-    const [closeOrder, setCloseOrder] = useState({
-        long: true,
-        closePrice: 100,
-        min: 0,
-        max: 200
-    })
+   
 
         {/*
             Declaring a fucnction to change an aim price
@@ -24,6 +18,13 @@ const Display = ({openConfig, init}) => {
         */}
     const changeClosePrice = (e) => {
         setCloseOrder(closeOrder => ({...closeOrder, closePrice:e.target.value}))
+    }
+    const changeMin = (e) => {
+        setCloseOrder(closeOrder => ({...closeOrder, min:e.target.value}))
+    }
+    const changeMax = (e) => {
+        setCloseOrder(closeOrder => ({...closeOrder, max:e.target.value}))
+        
     }
 
 
@@ -34,7 +35,7 @@ const Display = ({openConfig, init}) => {
         Open orders 
     */}
 
-    const openOrder = openConfig
+    
     const onCloseChange = () => {
             setCloseOrder(closeOrder => ({...closeOrder,
                 min:openOrder.price*0.75,
@@ -58,11 +59,7 @@ const Display = ({openConfig, init}) => {
         Switching Long/Short simulation order
         that is a property of a closeOrder state
     */}
-    const longShortChange = () => {
-        setCloseOrder(closeOrder => closeOrder.long === true
-                    ?({...closeOrder, long: false})
-                    :({...closeOrder, long: true}))
-    }
+  
 
 
 
@@ -75,8 +72,15 @@ const Display = ({openConfig, init}) => {
 
             {init === false ? 
 
-            <div className='container' id='displayContainer'>
+            <div className='container' id='newOrderInstructions'>
             <div>NEED TO CONFIGURATE FIRST!</div>
+            -------------------------------------
+            <div>1. ENTER AN AMOUNT</div>
+            <div>2. ENTER A LEVERAGE</div>
+            <div>3. ENTER A PRICE OF ENTRY</div>
+            <div>4. PRESS A BUTTON "CREATE"</div>
+            <div>5. FUCK AROUND</div>
+
             </div>
 
 
@@ -85,25 +89,27 @@ const Display = ({openConfig, init}) => {
 
             <div className='container' id='displayContainer'>
             <div className='container' id='graphContainer'>
-                <div>
-                    <button onClick={longShortChange}>{closeOrder.long === true ? "Long" : "Short"}</button>                   
-                </div>
+               
                 
-                <div className='graph container' id='graph'> </div>
+                <div className='graph container' id='graph'>
+                    <Graph close={closeOrder} open={openOrder}/>
+                </div>
+                  
                     
-                    
-                    <div className='numContainer container' id='currentPriceContainer'>
-                        <p className='num bigNum' id='currentPriceNum'>{closeOrder.closePrice}</p>
-                    </div>
-                    <Results close={closeOrder} open={openOrder}/>
                     
                 
                 
             </div>
             <div className='sliderControlContainer'>
-            <Pair type="inform" first="max" second={closeOrder.max} />
+                <div className='minMax container' id="maxContainer"> 
+                    <h5>MAX</h5>
+                    <input type="text" onChange={changeMax} placeholder={closeOrder.max}/>
+                </div>
             <Slider closeOrder={closeOrder} changeClosePrice={changeClosePrice}/>
-            <Pair type="inform" first="min" second={closeOrder.min} />
+                <div className='minMax container' id="maxContainer"> 
+                    <h5>MIN</h5>
+                    <input type="text" onChange={changeMin} placeholder={closeOrder.min}/>
+                </div>
             </div>
             
         </div>
