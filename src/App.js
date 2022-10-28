@@ -35,7 +35,7 @@ function App() {
 
   return (
     
-    <div id="root">
+    <div id={init === true ? "root1" : "root2"}>
       <Header />
       
         <Display 

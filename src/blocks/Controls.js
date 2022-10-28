@@ -37,7 +37,7 @@ const Controls = ({openOrderFires, init, _setInit}) => {
   
   return (
     
-    <div className='block' id='controlsRoot'>
+    <div className='block' id={init === true ? 'controlsRoot' : 'controlsRootNoResult' }>
       {init === false ? 
 <div className='container' id='controlsContainer'>
       {Object.keys(openOrder).map((key, index)=>{
