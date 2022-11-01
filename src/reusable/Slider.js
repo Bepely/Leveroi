@@ -1,35 +1,33 @@
 import React from 'react'
 
+import MSlider from "@mui/material/Slider"
+
+
 
 
 
 const Slider = ({closeOrder, changeClosePrice}) => {
-  
+
 
   return (
-    <div className='sliderContainer'>
-        <input 
-         className='priceSlider'
-         type="range"
-         orient="vertial"
-         name="priceSlider"
-         id="priceSlider"
-         min={closeOrder.min}
-         max={closeOrder.max}
-         value={closeOrder.closePrice}
-         onChange={changeClosePrice}
-          />
+    <div className='sliderContainer'> 
+      <MSlider
+          sx={{
+            '& input[type="range"]': {
+              WebkitAppearance: 'slider-vertical',
+                },
+              }}
+          orientation="vertical"
+          valueLabelDisplay="on"
+          value={Number(closeOrder.closePrice)}
+          min={closeOrder.min}
+          max={closeOrder.max}
+          onChange={changeClosePrice}
+      />
     </div>
   )
 }
 
-Slider.defaultProps = {
-  closeOrder:{
-    min: 0,
-    max:1337,
-    value: 420
 
-  }
-}
 
 export default Slider

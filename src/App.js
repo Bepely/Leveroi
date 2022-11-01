@@ -3,6 +3,11 @@ import Display from "./blocks/Display"
 import Controls from "./blocks/Controls"
 import Results from "./blocks/Results"
 
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+
 import { useState } from "react"
 
 
@@ -23,6 +28,15 @@ function App() {
   const [openOrder, setOpenOrder] = useState({})
   const [init, setInit] = useState(init => false)
 
+  const[session, setSession] = useState({
+    open: 0,
+    close: 0,
+    pnl: 0,
+    orders: []
+  })
+
+
+
   const openOrderFires=(x)=>{
       console.log(x);
       setOpenOrder(openOrder => ({...x}))
@@ -35,7 +49,7 @@ function App() {
 
   return (
     
-    <div id={init === true ? "root1" : "root2"}>
+    <div id="root">
       <Header />
       
         <Display 
@@ -45,14 +59,14 @@ function App() {
          {init === true ? 
           <Results open={openOrder} close={closeOrder}
           setClose={setCloseOrder} setOpen={setOpenOrder}
-          init={init}/>
+          init={init} _setInit={_setInit}/>
           :
-          <></>
+          <Controls openOrderFires={openOrderFires}
+          init={init} _setInit={_setInit}/>
         }
         
          
-        <Controls openOrderFires={openOrderFires}
-         init={init} _setInit={_setInit}/>
+       
 
 
     </div>

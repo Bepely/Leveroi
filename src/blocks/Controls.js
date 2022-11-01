@@ -37,22 +37,26 @@ const Controls = ({openOrderFires, init, _setInit}) => {
   
   return (
     
-    <div className='block' id={init === true ? 'controlsRoot' : 'controlsRootNoResult' }>
+    <div className='block resultControls' id={init === true ? 'controlsRoot' : 'controlsRootNoResult' }>
       {init === false ? 
-<div className='container' id='controlsContainer'>
-      {Object.keys(openOrder).map((key, index)=>{
-           return (
-            <Pair type="input"
-             key={index} first={key} second=""
-             subState={openOrder}
-             setSubState={setOpenOrder}/>
-           )
-          })}
-      <button onClick={sendToDisplay}>Create order</button>
-    </div>
+      <div id='controlsWrapper'>
+        <div className='container' id='controlsContainer'>
+              {Object.keys(openOrder).map((key, index)=>{
+                return (
+                  <Pair type="input"
+                  key={index} first={key} second=""
+                  subState={openOrder}
+                  setSubState={setOpenOrder}/>
+                )
+              })}
+        </div>
+
+      <button className='crButton' onClick={sendToDisplay}>Create order</button>
+      </div>
+
     : 
     <div className='container' id='controlsContainer'>
-      <button onClick={_setInit}> configurate new order</button>
+      <button className='crButton' onClick={_setInit}> configurate new order</button>
     </div>
     }
 </div>

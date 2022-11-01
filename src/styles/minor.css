@@ -18,6 +18,7 @@
 
 
 
+
 #currentPriceContainer{
     display: grid;
     border: 1px solid black;
@@ -28,11 +29,12 @@
 
 #reactiveResultsContainer{
     display: grid;
+    grid-template-rows: 5fr 1fr;
     place-items: center;
-
-    width: 75%;
-    height: 75%;
+    height: 80%;
+    width: 95%;
 }
+
 #reactiveResults{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -41,7 +43,9 @@
     border: 2px solid black;
     padding: 20px;
     border-radius: 5px;
+    width: 500px;
 }
+
 
 
 .longShortBtnHolder{
@@ -76,4 +80,17 @@
     padding: 2px;
     text-align: center;
     width: 100%;
+}
+
+@media (max-width: 1024px){
+    #reactiveResults{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 5px;
+        place-items: center;
+        border: 2px solid black;
+        padding: 20px;
+        border-radius: 5px;
+        width: 100%;
+    }
 }

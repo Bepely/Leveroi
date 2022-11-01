@@ -1,4 +1,4 @@
-const Results = ({close, setClose, open, setOpen, init}) => {
+const Results = ({close, setClose, open, setOpen, init, _setInit}) => {
 
   const resultStages = [
     "Trader not a Gambler🤡","You are done😰", "Liquidated🌋", "Almost Liquidated🔥", "Oh⚡", "Wrong way!🌠",
@@ -61,6 +61,7 @@ const Results = ({close, setClose, open, setOpen, init}) => {
     shortResults.marginPercent = (shortResults.margin*100/open.amount).toFixed(2)
 
     commentSelection()
+    
 
   
  
@@ -69,7 +70,7 @@ const Results = ({close, setClose, open, setOpen, init}) => {
   
  return (
    
-  <div id="results">
+  <div className="resultControls" id="results">
   <div  id='reactiveResultsContainer'>
 
     
@@ -131,13 +132,23 @@ const Results = ({close, setClose, open, setOpen, init}) => {
           </div>
     
         }
+        <button className='crButton' onClick={_setInit}> configurate new order</button>
      </div>
+     
      </div>
                     
   )
         
  
   
+}
+
+Results.defaultProps = {
+  close:{
+    closePrice: 420,
+    max: 1337,
+    min: 322
+  }
 }
 
 export default Results
