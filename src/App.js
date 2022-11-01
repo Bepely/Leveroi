@@ -12,8 +12,8 @@ import { useState } from "react"
 
 
 import "./styles/major.css"
-import "./styles/minor.css"
-import "./styles/text.css"
+
+
 
 function App() {
 

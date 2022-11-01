@@ -1,0 +1,26 @@
+/* TOTAL LEVEL */
+#graphContainer{
+    
+    width: 100%;
+    height: 100%;
+    
+    display: grid;
+    place-items: center;
+    grid-template-rows: 9fr 2fr;
+}
+
+#graph{
+    width: 90%;
+    height: 90%; 
+}
+
+
+/* PC LEVEL */
+
+
+/* MOBILE LEVEL */
+
+@media (max-width:1024px){
+    
+
+}

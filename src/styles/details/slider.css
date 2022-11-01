@@ -1,0 +1,54 @@
+/* TOTAL LEVEL */
+.minMax{
+    display: grid;
+    width: 80%;
+    height: 100%;
+
+    grid-template-rows: 1fr 1fr;
+    place-items: center;
+}
+
+.minMax>input{
+    width: 100%;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#currentPriceContainer{
+    display: grid;
+    border: 1px solid black;
+    width: 100%;
+    height: 100%;
+    place-items: center;
+}
+
+.sliderControlContainer{
+    display: grid;
+    grid-template-rows: 1fr 6fr 1fr;
+}
+.sliderContainer{
+    width: 100%;
+    height: 100%;
+    padding: 10%;
+    display: grid;
+    place-items: center;
+}
+.priceSlider{
+    
+    background: #bbbbbb;
+    width: 8px;
+    height: 85%;
+
+
+}
+
+
+/* PC LEVEL */
+
+
+/* MOBILE LEVEL */
+
+@media (max-width:1024px){
+    
+
+}

@@ -1,0 +1,45 @@
+/* TOTAL LEVEL */
+.resultControls{
+    grid-area: rc;
+    width: 100%;
+    height: 100%;
+}
+
+#controlsRoot{
+    display: grid;
+    place-items: center;
+
+}
+#controlsWrapper{
+    display: grid;
+    grid-template-rows: 5fr 1fr;
+    place-items: center;
+}
+.crButton{
+    padding: 10px 20px;
+    
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+#controlsRootNoResult{
+    
+    display: grid;
+    place-items: center;
+    
+
+}
+
+
+/* PC LEVEL */
+
+
+/* MOBILE LEVEL */
+
+@media (max-width:1024px){
+    .resultControls{
+        grid-area: rc;
+        width: 100vw;
+        height: 100%;
+    }
+}

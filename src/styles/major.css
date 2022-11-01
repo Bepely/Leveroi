@@ -1,24 +1,11 @@
-/*  
-    Major CSS file do styling for major app Components
-    such as Blocks, Root etc. 
-    
-    At the top goes main configs for both PC and Mobile view
-    Then goes Mobile
-    Then goes PC
-
-    Through all CSS files will be comments for a clarity
-
-    */
-
-
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Courier New', Courier, monospace;
-}
 
-/* start of the APP level */
+    transition: all .4s ease;
+}
 
 #root{
     display: grid;
@@ -27,223 +14,19 @@
     grid-template-areas:"h h"
                         "d rc";
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 9fr;
-    
-}
-
-
-/* end of the APP level */
-
-/*Start of the header part*/
-header{
-    display: grid;
-    place-items: center;
-
-    background-color: lightgray;
-
-    grid-area: h;
-}
-
-#navContainer{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    place-items: center;
-    width: 100%;
-    height: 100%;
-}
-/*End of the header part*/
-
-
-/*start of the Results part*/
-
-#results{
-    display: grid;
-    place-items: center;
-    width: 100%;
-    height: 100%;
-}
-
-.resultControls{
-    grid-area: rc;
-    width: 100%;
-    height: 100%;
-}
-
-
-/*end of the Results part*/
-
-/*Start of the Display part*/
-#displayRoot{
-    
-
-    
-    display: grid;
-    place-items: center;
-    grid-area: d;
-}
-
-#displayContainer{
-    border-radius: 3px;
-    background-color: #eeeeee;
-
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    place-items: center;
-}
-
-#newOrderInstructions{
-    display: grid;
-    place-items: center;
-}
-#newOrderInstructions>div{
-    background-color: #eeeeee;
-}
-
-#graphContainer{
-    
-    width: 100%;
-    height: 100%;
-    
-    display: grid;
-    place-items: center;
-    grid-template-rows: 9fr 2fr;
-}
-
-#graph{
-    width: 90%;
-    height: 90%;
-    
-    
+    grid-template-rows: 1fr 9fr;  
 }
 
 
 
-.sliderControlContainer{
-    display: grid;
-    grid-template-rows: 1fr 6fr 1fr;
-}
-.sliderContainer{
-    width: 100%;
-    height: 100%;
-    padding: 10%;
-    display: grid;
-    place-items: center;
-}
-.priceSlider{
-    writing-mode: bt-lr; /* IE */
-    -webkit-appearance: slider-vertical; /* Chromium */
-    background: #bbbbbb;
-    width: 8px;
-    height: 85%;
 
-
-}
-.priceSlider::-webkit-slider-thumb {
-background: #bbbbbb;
-}
-
-
-
-/*End of the Display part*/
-
-/*Start of the Controls part*/
-
-#controlsRoot{
-    display: grid;
-    place-items: center;
-
-}
-#controlsWrapper{
-    display: grid;
-    grid-template-rows: 5fr 1fr;
-    place-items: center;
-}
-.crButton{
-    padding: 10px 20px;
-    
-    border-radius: 5px;
-    border: 1px solid black;
-}
-
-#controlsRootNoResult{
-    
-        display: grid;
-        place-items: center;
-        
-    
-}
-
-
-/*End of the Controls part*/
 
 @media (max-width:1024px) {
-
-    /* start of the APP level */
-
-/* #root1{
-    grid-template-areas:"h"
-                        "d"
-                        "r"
-                        "c";
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 5fr 4fr 1fr;
-}
-
-#root2{
-    grid-template-areas:"h"
-                        "d"
-                        "c";
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 5fr 2fr;
-} */
-#root{
-    grid-template-areas:"h"
-    "d"
-    "rc";
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 6fr 3fr;
-}
-
-    /* end of the APP level */
-
-
-    /*Start of the Header part */
-    header{
-        width: 100vw;
-        height: 100%;
-
-        grid-template-rows: 2fr 1fr;
-       
+    #root{
+        grid-template-areas:"h"
+        "d"
+        "rc";
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 6fr 3fr;
     }
-    /*End of the Header part*/
-
-    /*start of the Results part*/
-
-#results{
-    width: 100vw;
-    height: 100%;
-}
-
-.resultControls{
-    grid-area: rc;
-    width: 100vw;
-    height: 100%;
-}
-/*end of the Results part*/
-
-    /*Start of the Display part*/
-
-    #displayRoot{
-        width: 100vw;
-        height: 100%;
-    }
-
-    /*End of the Display part*/
-
-    /*Start of the Controls part*/
-
-    /*End of the Controls part*/
-
-
-
 }

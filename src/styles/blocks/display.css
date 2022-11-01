@@ -1,0 +1,35 @@
+/* TOTAL LEVEL */
+#displayRoot{
+    display: grid;
+    place-items: center;
+    grid-area: d;
+}
+
+#displayContainer{
+    border-radius: 3px;
+    background-color: #eeeeee;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    place-items: center;
+}
+
+#newOrderInstructions{
+    display: grid;
+    place-items: center;
+}
+#newOrderInstructions>div{
+    background-color: #eeeeee;
+}
+
+
+/* PC LEVEL */
+
+
+/* MOBILE LEVEL */
+
+@media (max-width:1024px){
+    #displayRoot{
+        width: 100vw;
+        height: 100%;
+    }
+}

@@ -3,28 +3,42 @@ import { useEffect} from 'react'
 import Slider from "../reusable/Slider"
 import Graph from "./Graph"
 
+import "../styles/blocks/display.css"
+import { Alarm } from '@mui/icons-material'
+
 
 const Display = ({openOrder, init, closeOrder, setCloseOrder}) => {
+  
+    
+        
 
-    {/*
-        Declaring a main state object of a Display component
-    */}
-
-   
-
-        {/*
-            Declaring a fucnction to change an aim price
-            to pass it to the Slider component
-        */}
     const changeClosePrice = (e) => {
         setCloseOrder(closeOrder => ({...closeOrder, closePrice:e.target.value}))
     }
     const changeMin = (e) => {
-        setCloseOrder(closeOrder => ({...closeOrder, min:e.target.value}))
+        let toSet = Number(e.target.value)
+        if(toSet >= closeOrder.max){
+            setCloseOrder(closeOrder => ({...closeOrder,
+                                         max:toSet+1,
+                                         min:toSet}))
+        } else if(toSet <= 0 || toSet === null){
+           
+        } 
+        else{setCloseOrder(closeOrder => ({...closeOrder, min:toSet}))}
+        e.target.value = null
     }
     const changeMax = (e) => {
-        setCloseOrder(closeOrder => ({...closeOrder, max:e.target.value}))
-        
+        let toSet = Number(e.target.value)
+
+        if(toSet <= 0 || toSet === null){}
+        else if(toSet <= closeOrder.min){
+           
+            setCloseOrder(closeOrder => ({...closeOrder,
+                                     min:toSet-1,
+                                     max:toSet}))}
+        else{setCloseOrder(closeOrder => ({...closeOrder, max:toSet}))} 
+            e.target.value = null
+            console.log("MIN > MAX", closeOrder);
     }
 
 
@@ -103,12 +117,12 @@ const Display = ({openOrder, init, closeOrder, setCloseOrder}) => {
             <div className='sliderControlContainer'>
                 <div className='minMax container' id="maxContainer"> 
                     <h5>MAX</h5>
-                    <input type="text" onChange={changeMax} placeholder={closeOrder.max}/>
+                    <input type="number" onBlur={changeMax} placeholder={closeOrder.max}/>
                 </div>
             <Slider closeOrder={closeOrder} changeClosePrice={changeClosePrice}/>
                 <div className='minMax container' id="maxContainer"> 
                     <h5>MIN</h5>
-                    <input type="text" onChange={changeMin} placeholder={closeOrder.min}/>
+                    <input type="number" onBlur={changeMin}  placeholder={closeOrder.min}/>
                 </div>
             </div>
             

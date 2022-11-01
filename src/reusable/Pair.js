@@ -1,5 +1,5 @@
 import React from 'react'
-import "../styles/pair.css"
+import "../styles/details/pair.css"
 
 
 const Pair = ({type, first, second, subState, setSubState}) => { 
@@ -16,7 +16,7 @@ const Pair = ({type, first, second, subState, setSubState}) => {
             <div className='inputPair pair'>
                  <p className='pairFirst pairText pairChild hText'>{first}</p>  
                  <input className='pairSecond pairChild pairInput' 
-                 type="text" name={second} id={second} placeholder={second} 
+                 type="number" name={second} id={second} placeholder={second} 
                  value={subState[first]} onChange={onChange}/> 
             </div>
         :

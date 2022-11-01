@@ -1,30 +1,9 @@
-
-
-.minMax{
+/* TOTAL LEVEL */
+#results{
     display: grid;
-    width: 80%;
-    height: 100%;
-
-    grid-template-rows: 1fr 1fr;
     place-items: center;
-}
-
-.minMax>input{
-    width: 100%;
-    border-radius: 5px;
-    text-align: center;
-}
-
-
-
-
-
-#currentPriceContainer{
-    display: grid;
-    border: 1px solid black;
     width: 100%;
     height: 100%;
-    place-items: center;
 }
 
 #reactiveResultsContainer{
@@ -46,13 +25,12 @@
     width: 500px;
 }
 
-
-
 .longShortBtnHolder{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 5px;
     width: 100%;
+    
 }
 
 .openResults, .closeResults{
@@ -71,8 +49,6 @@
     text-align: center;
 }
 
-
-
 .priceHolder{
     border: 1px solid black;
     border-radius: 3px;
@@ -82,7 +58,20 @@
     width: 100%;
 }
 
-@media (max-width: 1024px){
+
+
+
+/* PC LEVEL */
+
+
+/* MOBILE LEVEL */
+
+@media (max-width:1024px){
+    #results{
+        width: 100vw;
+        height: 100%;
+    }
+
     #reactiveResults{
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -93,4 +82,6 @@
         border-radius: 5px;
         width: 100%;
     }
+    
+    
 }

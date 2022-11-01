@@ -1,3 +1,5 @@
+import "../styles/blocks/results.css"
+
 const Results = ({close, setClose, open, setOpen, init, _setInit}) => {
 
   const resultStages = [
@@ -85,7 +87,7 @@ const Results = ({close, setClose, open, setOpen, init, _setInit}) => {
                </div>
 
               <div>
-                <h4>Open opder</h4>
+                <h4>Open order</h4>
                 <h5>Amount: {open.amount}</h5>
                 <h5>Leverage: {open.leverage}</h5>
               </div>
@@ -101,8 +103,8 @@ const Results = ({close, setClose, open, setOpen, init, _setInit}) => {
                   <p>{comment}</p>
                 </div>
             </div>
-            <div className="priceHolder"><h5>Entry Price: {open.price}</h5></div>
-            <div className="priceHolder"> <h5>Close Price: {close.closePrice}</h5></div>
+            <div className="priceHolder"><h5>Entry Price: {Number(open.price).toFixed(2)}</h5></div>
+            <div className="priceHolder"> <h5>Close Price: {Number(close.closePrice).toFixed(2)}</h5></div>
           </div>
           :
           <div id='reactiveResults'>
@@ -113,7 +115,7 @@ const Results = ({close, setClose, open, setOpen, init, _setInit}) => {
             <button className={"btn btnPicked"} disabled={true} onClick={longShortChange}>SHORT</button>
             </div>
             <div>
-                <h4>Open opder</h4>
+                <h4>Open order</h4>
                 <h5>Amount: {open.amount}</h5>
                 <h5>Leverage: {open.leverage}</h5>
             </div>
@@ -127,8 +129,8 @@ const Results = ({close, setClose, open, setOpen, init, _setInit}) => {
                   <p>{comment}</p>
                 </div>
             </div>
-            <div className="priceHolder"><h5>Entry Price: {open.price}</h5></div>
-            <div className="priceHolder"> <h5>Close Price: {close.closePrice}</h5></div>
+            <div className="priceHolder"><h5>Entry Price: {Number(open.price).toFixed(2)}</h5></div>
+            <div className="priceHolder"> <h5>Close Price: {Number(close.closePrice).toFixed(2)}</h5></div>
           </div>
     
         }
