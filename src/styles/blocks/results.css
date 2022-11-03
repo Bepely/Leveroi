@@ -9,7 +9,7 @@
 
 #reactiveResultsContainer{
     display: grid;
-    grid-template-rows: 1fr 8fr 1fr;
+    grid-template-rows: 2fr 1fr;
     place-items: center;
     height: 80%;
     width: 85%;
@@ -42,6 +42,9 @@
 .openResults, .closeResults{
     width: 100%;
     height: 100%;
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+    place-items: center;
 }
 
 .orderData{
@@ -55,9 +58,15 @@
 #openInfo{
     width: 100%;
 }
-
+#orderTitle{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    place-items: center;
+}
 #resultsHeader{
     text-align: center;
+    font-size: 1em;
+    font-weight: bolder;
 }
 
 .pnlResults{
@@ -66,12 +75,28 @@
 .pnlResults>p{
     text-align: center;
 }
+.pnlContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border-bottom: 2px solid black;
+}
+.pnlContainer>*{
+    border-right: 2px solid black;
+    text-align: center;
+    padding: 5px;
+}
+.totalContainer{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    text-align: center;
+}
+.totalContainer>*{
+    border-right: 2px solid black;
+    padding: 5px
+}
 
 .priceHolder{
-    border: 1px solid black;
-    border-radius: 3px;
-    
-    padding: 2px;
+   
     text-align: center;
     width: 100%;
 }
@@ -84,21 +109,7 @@
     padding: 0px 2px;
     background-color: #ddaaaa}
 
-#comment{
-    
-    text-align: center;
-    width: 50%;
-    height: 100%;
-    
-    border: 2px solid black;
-    border-radius: 5px;
-    
-    background-color: #eeeeee;
-    box-shadow: 7px 7px rgba(0,0,0,.30);
-    display: grid;
-    place-items: center;
-    
-}
+
 
 
 
@@ -127,7 +138,7 @@
     }
     #reactiveResultsContainer{
         display: grid;
-        grid-template-rows: 1fr 8fr 1fr;
+        grid-template-rows: 2fr 1fr;
         place-items: center;
         height: 80%;
         width: 85%;

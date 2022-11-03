@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {VictoryChart, VictoryLine} from 'victory'
+import {VictoryChart, VictoryLine, VictoryLabel, VictoryScatter} from 'victory'
 
 import "../styles/details/graph.css"
 
@@ -17,22 +17,35 @@ const Graph = ({close, open}) => {
 
 
   
-const victoryData = 
-  [{x: "Open order", y: open.price},
-   {x: "Close order", y: close.closePrice}]
-
+let victoryData = 
+  [{x: "Open", y: Number(open.price), size: 1},
+   {x: "Close", y: Number(close.closePrice), label: close.closePrice, size: 4 }, ]
 
   return (
     <div className='graph container' id='graph'>
-    <VictoryChart  width={window.innerWidth/widthScale} height={window.innerHeight/heightScale}
+    <VictoryChart padding={{top: 50, bottom: 50, left: 55, right: 50}}  width={window.innerWidth/widthScale} height={window.innerHeight/heightScale}
     domain={{y: [close.min, close.max]}}
     
     > 
+  
 
     <VictoryLine
+
         data={victoryData} 
-              
+        style={{ data: { stroke: "#000000", strokeWidth: 3 } }}  
       />
+      <VictoryScatter data={victoryData}
+      style={{ data: {fill:"#000000"}}}
+      labelComponent={
+       <VictoryLabel 
+       data={victoryData}
+       dx={10}
+       dy={-20}
+       style={[
+         {fontSize: "18"}
+       ]}/> 
+      }
+        />
 
     </VictoryChart>
    

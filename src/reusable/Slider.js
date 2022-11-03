@@ -25,18 +25,20 @@ else{whatFix = 7}
   return (
     <div className='sliderContainer'> 
       <MSlider
+          id="exactSlider"
           sx={{
             '& input[type="range"]': {
               WebkitAppearance: 'slider-vertical',
                 },
               }}
           orientation="vertical"
-          valueLabelDisplay="on"
+          valueLabelDisplay="off"
           value={Number(closeOrder.closePrice).toFixed(whatFix)}
           min={Number(closeOrder.min)}
           max={Number(closeOrder.max)}
           step={subtraction/1000}
           onChange={changeClosePrice}
+          color="primary"
       />
     </div>
   )

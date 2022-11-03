@@ -3,9 +3,9 @@ import "../styles/blocks/results.css"
 const Results = ({close, setClose, open, setOpen, init, _setInit}) => {
 
   const resultStages = [
-    "Trader not a Gambler🤡","You are done😰", "Liquidated💥", "Almost Liquidated🔥", "Oh⚡", "Wrong way!🌠",
-    "🎰🎰🎰",
-      "That way!🌟", "Now we talking🐗", "Doubling✨", "To the Moon!🌚", "Feels good🏆", "Trader not a Gambler🤡" ]
+    "🤡","😰", "💥", "🔥", "⚡", "🌠",
+    "🎰",
+      "🌟", "🐗", "✨", "🌚", "🏆", "🤡" ]
 
 
   let longResults = {
@@ -74,7 +74,6 @@ const Results = ({close, setClose, open, setOpen, init, _setInit}) => {
    
   <div className="resultControls" id="results">
   <div  id='reactiveResultsContainer'>
-  <div id="comment"><p>{comment}</p></div>
         {close.long === true 
           ? 
           <div id='reactiveResults'>
@@ -93,7 +92,7 @@ const Results = ({close, setClose, open, setOpen, init, _setInit}) => {
                 <h5>Leverage:{open.leverage}</h5>
               </div>
                 <div id="liquidation">
-                  <h5>💥 <br/> {Number(open.price-(open.price/open.leverage).toFixed(2))}</h5>
+                  <h5>💥 <br/> {(Number(open.price)-Number(open.price/open.leverage)).toFixed(2)}</h5>
                 </div>
             </div>
               
@@ -102,14 +101,25 @@ const Results = ({close, setClose, open, setOpen, init, _setInit}) => {
             </div>
 
             <div className="closeResults exactResults">
-                <h3 id="resultsHeader">Long Order Results</h3>
+            <div id="orderTitle">
+               <p>{comment}</p>
+               <h3 id="resultsHeader">Long Order</h3>
+                 </div> 
                 <div className="pnlResults"> 
-                  <h5 >PNL:{longResults.margin} {longResults.marginPercent}%</h5>
-                  <h4>Total:{longResults.total}</h4>
+                  <div className="pnlContainer">
+                    <h4>PNL</h4>
+                    <h5>{longResults.margin}</h5>
+                    <h5>{longResults.marginPercent}%</h5>
+                  </div>
+                  <div className="totalContainer">
+                    <h4>Total</h4>
+                    <h5>{longResults.total}</h5>
+                  </div>
+                  
                 </div>
             </div>
-            <div className="priceHolder"><h5>Entry Price:{Number(open.price).toFixed(2)}</h5></div>
-            <div className="priceHolder"> <h5>Close Price:{Number(close.closePrice).toFixed(2)}</h5></div>
+            <div className="priceHolder"><h5>Entry:{Number(open.price).toFixed(2)}</h5></div>
+            <div className="priceHolder"> <h5>Close:{Number(close.closePrice).toFixed(2)}</h5></div>
           </div>
           :
           <div id='reactiveResults'>
@@ -132,15 +142,26 @@ const Results = ({close, setClose, open, setOpen, init, _setInit}) => {
             </div>
 
             <div className="closeResults">
-                <h3 id="resultsHeader">Short Order Results</h3>
+               <div id="orderTitle">
+               <p>{comment}</p>
+               <h3 id="resultsHeader">Short Order</h3>
+                 </div> 
                 <div className="pnlResults"> 
-                  <h5 >PNL: {shortResults.margin} {shortResults.marginPercent}%</h5>
-                  <h4>Total : {shortResults.total}</h4>
+                <div className="pnlContainer">
+                    <h4>PNL</h4>
+                    <h5>{shortResults.margin}</h5>
+                    <h5>{shortResults.marginPercent}%</h5>
+                  </div>
+                  <div className="totalContainer">
+                    <h4>Total</h4>
+                    <h5>{shortResults.total}</h5>
+                  </div>
+
                  
                 </div>
             </div>
-            <div className="priceHolder"><h5>Entry Price: {Number(open.price).toFixed(2)}</h5></div>
-            <div className="priceHolder"> <h5>Close Price: {Number(close.closePrice).toFixed(2)}</h5></div>
+            <div className="priceHolder"><h5>Entry:{Number(open.price).toFixed(2)}</h5></div>
+            <div className="priceHolder"> <h5>Close:{Number(close.closePrice).toFixed(2)}</h5></div>
           </div>
     
         }

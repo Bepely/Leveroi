@@ -1,9 +1,8 @@
 /* TOTAL LEVEL */
 header{
     display: grid;
-    place-items: center;
+    place-items: end center;
 
-    background-color: lightgray;
 
     grid-area: h;
 }
@@ -16,6 +15,23 @@ header{
     height: 100%;
 }
 
+#headerContainer{
+    
+    text-align: center;
+    width: 50%;
+    height: 50%;
+    
+    border: 2px solid black;
+    border-radius: 5px;
+    
+    background-color: #eeeeee;
+    box-shadow: 7px 7px rgba(0,0,0,.30);
+    display: grid;
+    grid-template-rows: 2fr 1fr;
+    place-items: center;
+    
+}
+
 /* PC LEVEL */
 
 
@@ -24,10 +40,12 @@ header{
 @media (max-aspect-ratio: 1/1){
     header{
         width: 100vw;
-        height: 100%;
-
-        grid-template-rows: 2fr 1fr;
-       
+        height: 100%;       
     }
 
+    #headerContainer{
+        width: 70%;
+        height: 80%;
+        
+    }
 }

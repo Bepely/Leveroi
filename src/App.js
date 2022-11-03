@@ -49,13 +49,12 @@ function App() {
 
   return (
     
-    <div id="root">
-      <Header />
-      
+    <div id="root">      
         <Display 
          init={init}
          openOrder={openOrder}
          closeOrder={closeOrder} setCloseOrder={setCloseOrder}/>
+         <Header />
          {init === true ? 
           <Results open={openOrder} close={closeOrder}
           setClose={setCloseOrder} setOpen={setOpenOrder}
