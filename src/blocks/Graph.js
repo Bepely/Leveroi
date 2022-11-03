@@ -4,17 +4,45 @@ import {VictoryChart, VictoryLine, VictoryLabel, VictoryScatter} from 'victory'
 
 import "../styles/details/graph.css"
 
-const defaultScale = 2.6
-let widthScale = defaultScale + ((window.innerWidth - window.innerHeight)/1000)
-let heightScale = defaultScale - ((window.innerWidth - window.innerHeight)/1000)
-console.log(widthScale, heightScale);
 
 
+let scaleRange = [1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5,
+                  2.6,
+                  2.7, 2.8, 2.9, 3, 3.1, 3.2, 3.3]
+
+                  const defaultScale = Math.ceil((scaleRange.length/2))
+                  let widthScale
+                  let heightScale
+
+
+let scaleMeasure = () => {
+  let widthScaleNum
+  let heightScaleNum
+
+  if(window.innerWidth < window.innerHeight){
+  widthScaleNum = defaultScale - (((window.innerHeight - window.innerWidth)-(window.innerHeight - window.innerWidth) % 100)/100)
+  heightScaleNum = defaultScale + widthScaleNum
+  console.log("WIDTH < HEIGHT",widthScaleNum, heightScaleNum);
+  } else if (window.innerWidth === window.innerHeight) {
+    widthScaleNum = defaultScale
+    heightScaleNum = defaultScale
+    console.log("WIDTH = HEIGHT",widthScaleNum, heightScaleNum);
+  } else {
+    widthScaleNum = scaleRange.length - (((window.innerWidth - window.innerHeight)-(window.innerWidth - window.innerHeight) % 100)/100)
+    heightScaleNum = scaleRange.length - widthScaleNum+1
+    console.log("WIDTH > HEIGHT",widthScaleNum, heightScaleNum)
+  }
+
+  widthScale = scaleRange[widthScaleNum-1]
+  heightScale = scaleRange[heightScaleNum-1]
+
+  console.log("RESULT", widthScale, heightScale);
+}
 
 
 const Graph = ({close, open}) => {
 
-
+scaleMeasure()
 
   
 let victoryData = 
