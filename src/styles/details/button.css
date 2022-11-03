@@ -1,0 +1,22 @@
+
+
+.greenButton{
+    background: rgba(0, 255, 0, 0.1);
+    width: 100%;
+}
+
+.redButton{
+    background-color: rgba(255, 0, 0, 0.1);
+    width: 100%;
+}
+
+
+.defButton{
+    border: 2px solid black;
+}
+.defButton:hover, .defButton:focus{
+    font-weight: bold;
+    font-size: 0.9em;
+    margin: 2px;
+    box-shadow: 7px 7px rgba(0,0,0,.1);
+}

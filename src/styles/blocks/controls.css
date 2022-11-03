@@ -3,6 +3,7 @@
     grid-area: rc;
     width: 100%;
     height: 100%;
+    
 }
 
 #controlsRoot{
@@ -14,10 +15,12 @@
     display: grid;
     grid-template-rows: 5fr 1fr;
     place-items: center;
+    width: 80%;
+    height: 80%;
+    
 }
 .crButton{
     padding: 10px 20px;
-    
     border-radius: 5px;
     border: 1px solid black;
 }
@@ -30,16 +33,34 @@
 
 }
 
+#controlsContainer{
+    width: 90%;
+    height: 200px;
+    border-radius: 7px;
+    box-shadow: 10px 10px rgba(0,0,0,.30);
+    background-color: #dddddd;
+    display: grid;
+    place-items: center;
+    border: 2px solid black;
+}
+
 
 /* PC LEVEL */
 
 
 /* MOBILE LEVEL */
 
-@media (max-width:1024px){
+@media (max-aspect-ratio: 1/1){
     .resultControls{
         grid-area: rc;
         width: 100vw;
         height: 100%;
+    }
+    #controlsContainer{
+        max-height: 90%;
+    }
+    #reactiveResultsContainer{
+        max-height: 90%;
+        
     }
 }

@@ -105,9 +105,9 @@ const Display = ({openOrder, init, closeOrder, setCloseOrder}) => {
             <div className='container' id='graphContainer'>
                
                 
-                <div className='graph container' id='graph'>
+                
                     <Graph close={closeOrder} open={openOrder}/>
-                </div>
+                
                   
                     
                     

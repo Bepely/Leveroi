@@ -4,14 +4,16 @@
     place-items: center;
     width: 100%;
     height: 100%;
+    
 }
 
 #reactiveResultsContainer{
     display: grid;
-    grid-template-rows: 5fr 1fr;
+    grid-template-rows: 1fr 8fr 1fr;
     place-items: center;
     height: 80%;
-    width: 95%;
+    width: 85%;
+    
 }
 
 #reactiveResults{
@@ -23,6 +25,8 @@
     padding: 20px;
     border-radius: 5px;
     width: 500px;
+    background-color: #eeeeee;
+    box-shadow: 7px 7px rgba(0,0,0,.30);
 }
 
 .longShortBtnHolder{
@@ -30,12 +34,26 @@
     grid-template-columns: 1fr 1fr;
     grid-gap: 5px;
     width: 100%;
+    padding: 5px;
+    
     
 }
 
 .openResults, .closeResults{
     width: 100%;
     height: 100%;
+}
+
+.orderData{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-radius: 4px;
+    margin: 6px;
+    padding: 4px;
+    grid-gap: 0px 3px;
+}
+#openInfo{
+    width: 100%;
 }
 
 #resultsHeader{
@@ -57,6 +75,30 @@
     text-align: center;
     width: 100%;
 }
+#liquidation{
+    text-align: center;
+    width: 100%;
+    border-radius: 3px;
+    display: grid;
+    place-items: center;
+    padding: 0px 2px;
+    background-color: #ddaaaa}
+
+#comment{
+    
+    text-align: center;
+    width: 50%;
+    height: 100%;
+    
+    border: 2px solid black;
+    border-radius: 5px;
+    
+    background-color: #eeeeee;
+    box-shadow: 7px 7px rgba(0,0,0,.30);
+    display: grid;
+    place-items: center;
+    
+}
 
 
 
@@ -66,7 +108,7 @@
 
 /* MOBILE LEVEL */
 
-@media (max-width:1024px){
+@media (max-aspect-ratio: 1/1){
     #results{
         width: 100vw;
         height: 100%;
@@ -81,6 +123,15 @@
         padding: 20px;
         border-radius: 5px;
         width: 100%;
+
+    }
+    #reactiveResultsContainer{
+        display: grid;
+        grid-template-rows: 1fr 8fr 1fr;
+        place-items: center;
+        height: 80%;
+        width: 85%;
+        
     }
     
     

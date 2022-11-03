@@ -1,28 +1,13 @@
 import React from 'react';
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-} from 'chart.js';
-import { Line } from 'react-chartjs-2';
+
+import {VictoryChart, VictoryLine} from 'victory'
 
 import "../styles/details/graph.css"
 
-
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend
-);
+const defaultScale = 2.6
+let widthScale = defaultScale + ((window.innerWidth - window.innerHeight)/1000)
+let heightScale = defaultScale - ((window.innerWidth - window.innerHeight)/1000)
+console.log(widthScale, heightScale);
 
 
 
@@ -30,43 +15,28 @@ ChartJS.register(
 const Graph = ({close, open}) => {
 
 
-  const options = {
-    responsive: true,
-    aspectRatio: 1,
-    plugins: {
-      legend: {
-        position: 'top',
-      },
-      title: {
-        display: true,
-        text: "",
-      },
-    },
-  };
-  
-  const labels = ["Open", "Close"];
-  
-  
 
-
- const data = {
-    labels,
-    datasets: [
-      {
-        label: close.long === true ? "Long Order" : "Short Order",
-        data: [open.price, close.closePrice],
-        borderColor: close.long === true ? 'rgb(100, 180, 110)' : 'rgb(180, 100, 110)',
-        backgroundColor: (open.price < close.closePrice && close.long === true) || 
-        (open.price > close.closePrice && close.long === false)
-        ? 'rgb(100, 210, 110)' : 'rgb(210, 100, 110)',
-        fill: false,
-      }
-    ],
-  };
+  
+const victoryData = 
+  [{x: "Open order", y: open.price},
+   {x: "Close order", y: close.closePrice}]
 
 
   return (
-    <Line options={options} data={data}/>
+    <div className='graph container' id='graph'>
+    <VictoryChart  width={window.innerWidth/widthScale} height={window.innerHeight/heightScale}
+    domain={{y: [close.min, close.max]}}
+    
+    > 
+
+    <VictoryLine
+        data={victoryData} 
+              
+      />
+
+    </VictoryChart>
+   
+   </div>
   )
 }
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import Pair from "../reusable/Pair"
 import "../styles/blocks/controls.css"
+import "../styles/details/button.css"
 
 
 import { useState } from 'react'
@@ -52,14 +53,14 @@ const Controls = ({openOrderFires, init, _setInit}) => {
               })}
         </div>
         {openOrder.amount <= 0 || openOrder.price <= 0 || openOrder.leverage < 1
-        ? <button className='crButton' disabled>Values shoud be valid</button> :
-        <button className='crButton' onClick={sendToDisplay}>Create order</button>}
+        ? <button className='crButton defButton' disabled>Values shoud be valid</button> :
+        <button className='crButton defButton' onClick={sendToDisplay}>Create order</button>}
       
       </div>
 
     : 
     <div className='container' id='controlsContainer'>
-      <button className='crButton' onClick={_setInit}> configurate new order</button>
+      <button className='crButton defButton' onClick={_setInit}> configurate new order</button>
     </div>
     }
 </div>

@@ -1,33 +1,28 @@
 .pairHolder{
     width: 100%;
+    margin: 5px;
 }
 
 .pair{
     display: grid;
     place-items: center;
-    
+
     grid-template-columns: 1fr 1fr;
-    padding: 5px;
+    margin: 5px;
     
 
     border-radius: 0% 0% 0% 0% / 0% 0% 0% 0% ;
     color: black;
-    box-shadow: -15px 0px rgba(0,0,0,.15);
     transition: all .4s ease;
 
    
 }
 
-.pair:hover{
-    border-radius: 0% 0% 50% 50% / 0% 0% 5% 5% ;
-    box-shadow: -15px 0px rgba(0,0,0,.30);
-    font-weight:bold;
-    
-}
-.pair:hover, .pair:focus > .pairSecond, .pairSecond:focus{
+.pair:hover, .pair:focus > .pairSecond{
     font-weight:bolder;
     padding: 10px;
-    margin: 10px;
+    margin: 5px;
+    
 }
 
 .pairChild{

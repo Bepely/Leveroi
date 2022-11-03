@@ -1,17 +1,16 @@
 /* TOTAL LEVEL */
 #graphContainer{
     
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 80%;
     
     display: grid;
     place-items: center;
-    grid-template-rows: 9fr 2fr;
 }
 
 #graph{
-    width: 90%;
-    height: 90%; 
+    
+    height: 100%; 
 }
 
 
@@ -20,7 +19,7 @@
 
 /* MOBILE LEVEL */
 
-@media (max-width:1024px){
+@media (max-aspect-ratio: 1/1){
     
 
 }

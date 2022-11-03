@@ -15,18 +15,20 @@
                         "d rc";
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 9fr;  
+
+    background-color: rgba(0, 0, 0, 0.03);
 }
 
 
 
 
 
-@media (max-width:1024px) {
+@media (max-aspect-ratio: 1/1) {
     #root{
         grid-template-areas:"h"
         "d"
         "rc";
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr 6fr 3fr;
+        grid-template-rows: 1fr 6fr 4fr;
     }
 }
