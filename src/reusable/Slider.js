@@ -9,6 +9,7 @@ import "../styles/details/slider.css"
 
 
 const Slider = ({closeOrder, changeClosePrice}) => {
+
 let subtraction = Number(closeOrder.max - closeOrder.min)
 let whatFix;
 
@@ -24,24 +25,37 @@ else{whatFix = 7}
 
   return (
     <div className='sliderContainer'> 
-      <MSlider
-          id="exactSlider"
-          sx={{
-            '& input[type="range"]': {
-              WebkitAppearance: 'slider-vertical',
-                },
-              }}
-          orientation="vertical"
-          valueLabelDisplay="off"
-          value={Number(closeOrder.closePrice).toFixed(whatFix)}
-          min={Number(closeOrder.min)}
-          max={Number(closeOrder.max)}
-          step={subtraction/50}
-          onChange={changeClosePrice}
-          color="primary"
-      />
+    {closeOrder.min && closeOrder.max
+    ? <MSlider
+    id="exactSlider"
+    sx={{
+      '& input[type="range"]': {
+        WebkitAppearance: 'slider-vertical',
+          },
+        }}
+    orientation="vertical"
+    valueLabelDisplay="off"
+    value={closeOrder.closePrice ? Number(Number(closeOrder.closePrice).toFixed(whatFix)) : 0}
+    min={Number(closeOrder.min)}
+    max={Number(closeOrder.max)}
+    step={subtraction/50}
+    onChange={changeClosePrice}
+    color="primary"
+/>
+:
+<>Loading...</>}
+      
     </div>
   )
+}
+
+Slider.defaultProps = {
+  closeOrder:{
+    closePrice: 420,
+    max: 1337,
+    min: 322,
+    long: true
+  }
 }
 
 

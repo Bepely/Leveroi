@@ -40,5 +40,6 @@
 @media (min-aspect-ratio: 1/1){
     #appRoot{
         height: 100vh;
+        padding: 5%;
     }
 }

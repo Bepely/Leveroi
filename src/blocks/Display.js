@@ -4,7 +4,6 @@ import Slider from "../reusable/Slider"
 import Graph from "./Graph"
 
 import "../styles/blocks/display.css"
-import { Alarm } from '@mui/icons-material'
 
 
 const Display = ({openOrder, init, closeOrder, setCloseOrder}) => {
@@ -98,7 +97,10 @@ const Display = ({openOrder, init, closeOrder, setCloseOrder}) => {
                 You can monitor dynamic ROI, liquidation price 
                 and representative graph.
             </p>
+            <div id="initComment">
             <h5>Leveroy is in beta. Feel free to report on bugs.</h5>
+            </div>
+            
 
 
             </article>
@@ -123,12 +125,12 @@ const Display = ({openOrder, init, closeOrder, setCloseOrder}) => {
             <div className='sliderControlContainer'>
                 <div className='minMax container' id="maxContainer"> 
                     <h5>MAX</h5>
-                    <input type="number" onBlur={changeMax} placeholder={closeOrder.max}/>
+                    <input type="number" onBlur={changeMax} placeholder={closeOrder.max ? closeOrder.max : 1}/>
                 </div>
             <Slider closeOrder={closeOrder} changeClosePrice={changeClosePrice}/>
                 <div className='minMax container' id="maxContainer"> 
                     <h5>MIN</h5>
-                    <input type="number" onBlur={changeMin}  placeholder={closeOrder.min}/>
+                    <input type="number" onBlur={changeMin}  placeholder={closeOrder.min ? closeOrder.min : 0}/>
                 </div>
             </div>
             

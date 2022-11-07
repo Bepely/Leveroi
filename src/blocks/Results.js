@@ -185,8 +185,15 @@ Results.defaultProps = {
   close:{
     closePrice: 420,
     max: 1337,
-    min: 322
-  }
+    min: 322,
+    long: true
+  },
+  open:{
+    amount: 420,
+    leverage: 69,
+    price: 1337
+  },
+  init: true
 }
 
 export default Results

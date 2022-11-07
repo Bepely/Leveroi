@@ -18,8 +18,7 @@ header{
 #headerContainer{
     
     text-align: center;
-    width: 50%;
-    height: 50%;
+    width: 50%; 
     
     border: 2px solid black;
     border-radius: 5px;
@@ -27,8 +26,8 @@ header{
     background-color: #eeeeee;
     box-shadow: 7px 7px rgba(0,0,0,.30);
     display: grid;
-    grid-template-rows: 2fr 1fr;
     place-items: center;
+    min-height: fit-content;
     
 }
 
