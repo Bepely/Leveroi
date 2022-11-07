@@ -7,10 +7,12 @@
     transition: all .4s ease;
 }
 
-#root{
+
+#appRoot{
     display: grid;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    max-height: min-content;
+    align-items: stretch;
     grid-template-areas:"d h"
                         "d rc"
                         "d rc";
@@ -25,11 +27,18 @@
 
 
 @media (max-aspect-ratio: 1/1) {
-    #root{
+    #appRoot{
         grid-template-areas:"h"
         "d"
         "rc";
         grid-template-columns: 1fr;
         grid-template-rows: 2fr 7fr 7fr;
+        
+    }
+}
+
+@media (min-aspect-ratio: 1/1){
+    #appRoot{
+        height: 100vh;
     }
 }

@@ -1,13 +1,21 @@
 
 
 .greenButton{
-    background: rgba(0, 255, 0, 0.1);
     width: 100%;
+    border: 2px solid black;
+}
+.greenButton:disabled{
+    background: rgba(0, 255, 0, 0.3);
+    border: 2px solid rgb(0, 155, 0);
 }
 
 .redButton{
-    background-color: rgba(255, 0, 0, 0.1);
+    border: 2px solid black;
     width: 100%;
+}
+.redButton:disabled{
+    background-color: rgba(255, 0, 0, 0.3);
+    border: 2px solid rgba(155, 0, 0) ;
 }
 
 

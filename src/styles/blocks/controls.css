@@ -53,8 +53,8 @@
 @media (max-aspect-ratio: 1/1){
     .resultControls{
         grid-area: rc;
-        width: 100vw;
-        height: 100%;
+        width: 100%;
+        height: 40vh;
     }
     #controlsContainer{
         max-height: 90%;

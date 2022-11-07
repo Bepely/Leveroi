@@ -118,8 +118,10 @@ const Results = ({close, setClose, open, setOpen, init, _setInit}) => {
                   
                 </div>
             </div>
-            <div className="priceHolder"><h5>Entry:{Number(open.price).toFixed(2)}</h5></div>
-            <div className="priceHolder"> <h5>Close:{Number(close.closePrice).toFixed(2)}</h5></div>
+            <div className="priceHolder">
+              <h5>Entry:{Number(open.price).toFixed(2)}</h5>
+              <h5>Close:{Number(close.closePrice).toFixed(2)}</h5>
+            </div>
           </div>
           :
           <div id='reactiveResults'>
@@ -160,8 +162,10 @@ const Results = ({close, setClose, open, setOpen, init, _setInit}) => {
                  
                 </div>
             </div>
-            <div className="priceHolder"><h5>Entry:{Number(open.price).toFixed(2)}</h5></div>
-            <div className="priceHolder"> <h5>Close:{Number(close.closePrice).toFixed(2)}</h5></div>
+            <div className="priceHolder">
+              <h5>Entry:{Number(open.price).toFixed(2)}</h5>
+              <h5>Close:{Number(close.closePrice).toFixed(2)}</h5>
+            </div>
           </div>
     
         }

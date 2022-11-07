@@ -86,16 +86,22 @@ const Display = ({openOrder, init, closeOrder, setCloseOrder}) => {
 
             {init === false ? 
 
-            <div className='container' id='newOrderInstructions'>
-            <div>NEED TO CONFIGURATE FIRST!</div>
-            -------------------------------------
-            <div>1. ENTER AN AMOUNT</div>
-            <div>2. ENTER A LEVERAGE</div>
-            <div>3. ENTER A PRICE OF ENTRY</div>
-            <div>4. PRESS A BUTTON "CREATE"</div>
-            <div>5. FUCK AROUND</div>
+            <article className='container' id='newOrderInstructions'>
+            <h3>How to use Leveroi?</h3>
+            <ul>
+                <li>Input your order data</li>
+                <li>Click "Create Order"</li>
+                <li>Switch between Long/Short</li>
+                <li>Simulate your close price</li>
+            </ul>
+            <p>Leveroy is a Futures Market Simulator. <br/>
+                You can monitor dynamic ROI, liquidation price 
+                and representative graph.
+            </p>
+            <h5>Leveroy is in beta. Feel free to report on bugs.</h5>
 
-            </div>
+
+            </article>
 
 
             : 

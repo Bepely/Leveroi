@@ -36,7 +36,7 @@ else{whatFix = 7}
           value={Number(closeOrder.closePrice).toFixed(whatFix)}
           min={Number(closeOrder.min)}
           max={Number(closeOrder.max)}
-          step={subtraction/1000}
+          step={subtraction/50}
           onChange={changeClosePrice}
           color="primary"
       />

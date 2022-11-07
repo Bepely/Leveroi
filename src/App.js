@@ -49,7 +49,7 @@ function App() {
 
   return (
     
-    <div id="root">      
+    <div id="appRoot">      
         <Display 
          init={init}
          openOrder={openOrder}

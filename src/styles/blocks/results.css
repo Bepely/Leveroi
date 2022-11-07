@@ -4,6 +4,7 @@
     place-items: center;
     width: 100%;
     height: 100%;
+   
     
 }
 
@@ -19,12 +20,10 @@
 #reactiveResults{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 5px;
     place-items: center;
     border: 2px solid black;
-    padding: 20px;
     border-radius: 5px;
-    width: 500px;
+    width: 100%;
     background-color: #eeeeee;
     box-shadow: 7px 7px rgba(0,0,0,.30);
 }
@@ -49,6 +48,7 @@
 
 .orderData{
     display: grid;
+    width: 80%;
     grid-template-columns: 1fr 1fr;
     border-radius: 4px;
     margin: 6px;
@@ -71,11 +71,15 @@
 
 .pnlResults{
     display: grid;
+    width: 80%;
+    height: 80%;
 }
 .pnlResults>p{
     text-align: center;
 }
 .pnlContainer{
+    width: 100%;
+    height: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     border-bottom: 2px solid black;
@@ -98,7 +102,13 @@
 .priceHolder{
    
     text-align: center;
-    width: 100%;
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 2px;
+}
+.priceHolder > *{
+padding: 2px;
 }
 #liquidation{
     text-align: center;
@@ -121,26 +131,24 @@
 
 @media (max-aspect-ratio: 1/1){
     #results{
-        width: 100vw;
-        height: 100%;
+        width: 100%;
+        height: 40vh;
     }
 
     #reactiveResults{
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-gap: 5px;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
         place-items: center;
         border: 2px solid black;
-        padding: 20px;
+        
         border-radius: 5px;
-        width: 100%;
+        height: 100%;
+        width: 100%
 
     }
     #reactiveResultsContainer{
-        display: grid;
-        grid-template-rows: 2fr 1fr;
-        place-items: center;
-        height: 80%;
+        
         width: 85%;
         
     }

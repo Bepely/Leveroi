@@ -22,6 +22,7 @@
 #newOrderInstructions{
     display: grid;
     place-items: center;
+    text-align: center;
     border: 2px solid black;
     width: 80%;
     height: 80%;
@@ -29,8 +30,8 @@
     box-shadow: 10px 10px rgba(0,0,0,.30);
     background-color: #eeeeee;
 }
-#newOrderInstructions>div{
-    background-color: #ffffff;
+#newOrderInstructions>*{
+    width: 85%;
 }
 
 
@@ -41,8 +42,8 @@
 
 @media (max-aspect-ratio: 1/1){
     #displayRoot{
-        width: 100vw;
-        height: 100%;
+        width: 100%;
+        height: 50vh;
     }
     #displayContainer{
         height: 90%;
