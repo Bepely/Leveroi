@@ -11,8 +11,8 @@ header{
 #headerContainer{
     
     text-align: center;
-    width: 80%; 
-    height: 40%;
+    width: 42.5%; 
+    height: 22.5%;
     
     display: grid;
     place-items: center;

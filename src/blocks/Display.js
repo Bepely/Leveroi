@@ -76,12 +76,12 @@ const Display = ({openOrder, init, closeOrder, setCloseOrder, inDis}) => {
                     </p>
                     <div>
                  <h3>How to use Leveroi?</h3>
-                <ul>
+                <div>
                     <li>Input your order data</li>
                     <li>Click "Create Order"</li>
                     <li>Switch between Long/Short</li>
                     <li>Simulate your close price</li>
-                </ul>
+                </div>
                 </div>
                 
                 <div id="initComment">

@@ -120,7 +120,7 @@ padding: 2px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     place-items: center;
-    height: 50%;
+    max-height: 150px;
     width: 90%;
     grid-gap: 10px;
 }
@@ -136,8 +136,7 @@ padding: 2px;
 @media (max-aspect-ratio: 1/1){
     #results{
         width: 100%;
-        
-        margin-top: 10px;
+        place-items: center;
     }
 
     #reactiveResults{
@@ -151,10 +150,10 @@ padding: 2px;
         margin-bottom: 15px;
 
     }
-    #reactiveResultsContainer{
-        
+    #reactiveResultsContainer {
         width: 85%;
-        
+        grid-template-rows: 8fr 1fr;
+        grid-gap: 5%;
     }
     
     

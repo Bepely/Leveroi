@@ -13,10 +13,11 @@
 }
 #controlsWrapper{
     display: grid;
-    grid-template-rows: 5fr 1fr;
+
     place-items: center;
     width: 80%;
-    height: 80%;
+    height: 100%;
+
     
 }
 .crButton{
@@ -28,12 +29,12 @@
 #controlsRootNoResult{
     
     display: grid;
-    justify-items: center;
+    place-items: center;
 
 }
 
 #controlsContainer{
-    width: 90%;
+    width: 100%;
     height: 200px;
     border-radius: 7px;
     display: grid;
@@ -52,6 +53,7 @@
         grid-area: rc;
         width: 100%;
         align-items: start;
+        
     }
     #controlsContainer{
         max-height: 100%;
@@ -61,4 +63,5 @@
         max-height: 90%;
         
     }
+    
 }

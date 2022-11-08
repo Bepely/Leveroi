@@ -8,7 +8,9 @@
 
     color: #161217 
 }
-
+#root{
+    min-height: 100vh;
+}
 
 
 #appRoot{
@@ -19,7 +21,7 @@
                         "d rc"
                         "d rc";
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 5fr;
+    
 }
 
 .containerBox{
@@ -55,8 +57,11 @@ background-color: #F5F5F5;
         grid-template-areas:"h"
         "rc"
         "d";
-        grid-template-columns: 1fr;    
-        width: fit-content;    
+        grid-gap: 10px;
+        grid-template-columns: 1fr;   
+        width: 100vw;
+        height: fit-content;
+        min-height: 100vh; 
     }
 }
 
