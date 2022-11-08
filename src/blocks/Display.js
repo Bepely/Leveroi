@@ -2,14 +2,13 @@ import { useEffect} from 'react'
 
 import Slider from "../reusable/Slider"
 import Graph from "./Graph"
+import Platforms from "../reusable/Platforms"
 
 import "../styles/blocks/display.css"
 
 
-const Display = ({openOrder, init, closeOrder, setCloseOrder}) => {
+const Display = ({openOrder, init, closeOrder, setCloseOrder, inDis}) => {
   
-    
-        
 
     const changeClosePrice = (e) => {
         setCloseOrder(closeOrder => ({...closeOrder, closePrice:e.target.value}))
@@ -40,15 +39,6 @@ const Display = ({openOrder, init, closeOrder, setCloseOrder}) => {
             console.log("MIN > MAX", closeOrder);
     }
 
-
-     {/*
-        Declaring a clone object of an openConfig state
-        for avoiding unwanted renders
-        Then Declaring a function to catch configured 
-        Open orders 
-    */}
-
-    
     const onCloseChange = () => {
             setCloseOrder(closeOrder => ({...closeOrder,
                 min:openOrder.price*0.75,
@@ -56,71 +46,64 @@ const Display = ({openOrder, init, closeOrder, setCloseOrder}) => {
                 closePrice:openOrder.price,              
                })) 
         } 
-     {/*
-        Catching a config of an order, we specified 
-        in the Controls component by useEffect Hook
-        with a dependency on an init state, that works as a 
-        trigger-switcher.
-    */}
-
     
        useEffect(()=>{
             onCloseChange()
        },[init])
 
-   {/*
-        Switching Long/Short simulation order
-        that is a property of a closeOrder state
-    */}
-  
-
-
-
-
 
   return (
     <div className='block' id='displayRoot'>
-        
-            {/* Display */}
 
             {init === false ? 
-
-            <article className='container' id='newOrderInstructions'>
-            <h3>How to use Leveroi?</h3>
-            <ul>
-                <li>Input your order data</li>
-                <li>Click "Create Order"</li>
-                <li>Switch between Long/Short</li>
-                <li>Simulate your close price</li>
-            </ul>
-            <p>Leveroy is a Futures Market Simulator. <br/>
-                You can monitor dynamic ROI, liquidation price 
-                and representative graph.
-            </p>
-            <div id="initComment">
-            <h5>Leveroy is in beta. Feel free to report on bugs.</h5>
-            </div>
-            
-
-
-            </article>
+               
+                <article className='backLayer2 dropShadow container containerBox' id='newOrderInstructions'>
+                
+                {inDis === true
+                ?
+                <div id='inDisPlatforms'>
+                    <h3>Real Market Trading</h3>
+                    <p>For real-market perpetual trading, you have to use <br/>
+                    trading platforms. Here you can find a few of them.
+                    </p>
+                    <Platforms />
+                </div>
+                :
+                <div id="inDisInstructions">
+                <h3>Perpetual trading calculator</h3>
+                    <p>
+                        Leveroi provides you with some handy tools to simulate perpetual trading. <br/>
+                    </p>
+                    <div>
+                 <h3>How to use Leveroi?</h3>
+                <ul>
+                    <li>Input your order data</li>
+                    <li>Click "Create Order"</li>
+                    <li>Switch between Long/Short</li>
+                    <li>Simulate your close price</li>
+                </ul>
+                </div>
+                
+                <div id="initComment">
+                <h5>Leveroy is in beta. Feel free to report bugs.</h5>
+          
+                    <h5>made by <a href='https://github.com/Bepely'>Bepely</a></h5>
+                
+                </div>
+                </div>
+                }
+                </article>
+                
+          
 
 
             : 
 
 
-            <div className='container' id='displayContainer'>
+            <div className='backLayer2 dropShadow container containerBox' id='displayContainer'>
             <div className='container' id='graphContainer'>
-               
-                
-                
+
                     <Graph close={closeOrder} open={openOrder}/>
-                
-                  
-                    
-                    
-                
-                
             </div>
             <div className='sliderControlContainer'>
                 <div className='minMax container' id="maxContainer"> 

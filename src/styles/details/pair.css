@@ -18,7 +18,7 @@
    
 }
 
-.pair:hover, .pair:focus > .pairSecond{
+.pair:hover > .pairSecond, .pair:hover > .pairFirst{
     font-weight:bolder;
     padding: 10px;
     margin: 5px;
@@ -36,8 +36,19 @@
 
 .pairSecond{
     border: 1px solid black;
-    width: 100%;
+    width: 50%;
     border-radius: 3px;
     padding: 2px;
     
+}
+
+.pairSecond::-webkit-outer-spin-button,
+.pairSecond::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.pairSecond[type=number] {
+  -moz-appearance: textfield;
 }

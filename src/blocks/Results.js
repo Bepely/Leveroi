@@ -73,10 +73,11 @@ const Results = ({close, setClose, open, setOpen, init, _setInit}) => {
  return (
    
   <div className="resultControls" id="results">
+    
   <div  id='reactiveResultsContainer'>
         {close.long === true 
           ? 
-          <div id='reactiveResults'>
+          <div className="backLayer2 dropShadow containerBox" id='reactiveResults'>
             <div className="openResults exactResults">
 
               <div className="longShortBtnHolder">
@@ -124,7 +125,7 @@ const Results = ({close, setClose, open, setOpen, init, _setInit}) => {
             </div>
           </div>
           :
-          <div id='reactiveResults'>
+          <div className="backLayer2 dropShadow containerBox" id='reactiveResults'>
            <div className="openResults">
             <div className="longShortBtnHolder">
 
@@ -169,9 +170,11 @@ const Results = ({close, setClose, open, setOpen, init, _setInit}) => {
           </div>
     
         }
-        
-        <button className='crButton defButton' onClick={_setInit}> configurate new order</button>
-     </div>
+        <div>
+       <button className='crButton defButton' onClick={_setInit}> Configurate new order</button>
+       </div>
+       </div>
+     
      
      </div>
                     

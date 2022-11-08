@@ -3,7 +3,8 @@
     display: grid;
     place-items: center;
     width: 100%;
-    height: 100%;
+    height: 90%;
+    
    
     
 }
@@ -21,11 +22,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     place-items: center;
-    border: 2px solid black;
-    border-radius: 5px;
     width: 100%;
-    background-color: #eeeeee;
-    box-shadow: 7px 7px rgba(0,0,0,.30);
 }
 
 .longShortBtnHolder{
@@ -119,7 +116,14 @@ padding: 2px;
     padding: 0px 2px;
     background-color: #ddaaaa}
 
-
+#btnsHolder{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+    height: 50%;
+    width: 90%;
+    grid-gap: 10px;
+}
 
 
 
@@ -132,7 +136,8 @@ padding: 2px;
 @media (max-aspect-ratio: 1/1){
     #results{
         width: 100%;
-        height: 40vh;
+        
+        margin-top: 10px;
     }
 
     #reactiveResults{
@@ -140,11 +145,10 @@ padding: 2px;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr;
         place-items: center;
-        border: 2px solid black;
-        
-        border-radius: 5px;
+       
         height: 100%;
-        width: 100%
+        width: 100%;
+        margin-bottom: 15px;
 
     }
     #reactiveResultsContainer{

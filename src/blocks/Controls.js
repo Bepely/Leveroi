@@ -8,7 +8,7 @@ import { useState } from 'react'
 
 
 
-const Controls = ({openOrderFires, init, _setInit}) => {
+const Controls = ({openOrderFires, init, _setInit, setInDis, inDis}) => {
 
   const [openOrder, setOpenOrder] = useState({
     amount: 420,
@@ -34,15 +34,19 @@ const Controls = ({openOrderFires, init, _setInit}) => {
     
   }
 
+  const inDisSwitch = () =>{
+    setInDis(inDis => !inDis)
+  }
+
   
 
   
   return (
     
-    <div className='block resultControls' id={init === true ? 'controlsRoot' : 'controlsRootNoResult' }>
+    <div className=' block resultControls' id={init === true ? 'controlsRoot' : 'controlsRootNoResult' }>
       {init === false ? 
       <div id='controlsWrapper'>
-        <div className='container' id='controlsContainer'>
+        <div className='backLayer2 dropShadow container containerBox' id='controlsContainer'>
               {Object.keys(openOrder).map((key, index)=>{
                 return (
                   <Pair type="input"
@@ -52,10 +56,15 @@ const Controls = ({openOrderFires, init, _setInit}) => {
                 )
               })}
         </div>
+        <div id='btnsHolder'>
+        <button className='crButton defButton' onClick={inDisSwitch}>
+          {inDis ? "Show Instructions" : "Show Trading Platforms"}
+        </button>
         {openOrder.amount <= 0 || openOrder.price <= 0 || openOrder.leverage < 1
         ? <button className='crButton defButton' disabled>Values shoud be valid</button> :
         <button className='crButton defButton' onClick={sendToDisplay}>Create order</button>}
-      
+        </div>
+        
       </div>
 
     : 

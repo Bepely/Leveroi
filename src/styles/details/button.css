@@ -23,10 +23,12 @@
 
 .defButton{
     border: 2px solid black;
+    height: 100%;
 }
-.defButton:hover, .defButton:focus{
+.defButton:hover{
     font-weight: bold;
     font-size: 0.9em;
     margin: 2px;
-    box-shadow: 7px 7px rgba(0,0,0,.1);
+    
 }
+

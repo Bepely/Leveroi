@@ -24,7 +24,7 @@ function App() {
     min: 0,
     max: 200
 })
-
+  const [inDis, setInDis] = useState(inDis => false)
   const [openOrder, setOpenOrder] = useState({})
   const [init, setInit] = useState(init => false)
 
@@ -42,16 +42,20 @@ function App() {
       setOpenOrder(openOrder => ({...x}))
       }
   const _setInit = ()=>{
+    setInDis(inDis => true)
     setInit(init => !init)
+  }
+  const _setInDis = ()=>{
+    setInDis(inDis => !inDis)
   }
 
  
 
   return (
     
-    <div id="appRoot">      
+    <div className="backLayer1" id="appRoot">      
         <Display 
-         init={init}
+         init={init} inDis={inDis}
          openOrder={openOrder}
          closeOrder={closeOrder} setCloseOrder={setCloseOrder}/>
          <Header />
@@ -61,7 +65,8 @@ function App() {
           init={init} _setInit={_setInit}/>
           :
           <Controls openOrderFires={openOrderFires}
-          init={init} _setInit={_setInit}/>
+          init={init} _setInit={_setInit}
+          inDis={inDis} setInDis={_setInDis}/>
         }
         
          

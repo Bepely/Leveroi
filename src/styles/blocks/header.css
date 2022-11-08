@@ -7,27 +7,15 @@ header{
     grid-area: h;
 }
 
-#navContainer{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    place-items: center;
-    width: 100%;
-    height: 100%;
-}
 
 #headerContainer{
     
     text-align: center;
-    width: 50%; 
+    width: 80%; 
+    height: 40%;
     
-    border: 2px solid black;
-    border-radius: 5px;
-    
-    background-color: #eeeeee;
-    box-shadow: 7px 7px rgba(0,0,0,.30);
     display: grid;
     place-items: center;
-    min-height: fit-content;
     
 }
 
@@ -44,7 +32,7 @@ header{
 
     #headerContainer{
         width: 70%;
-        height: 80%;
+        height: 75%;
         
     }
 }

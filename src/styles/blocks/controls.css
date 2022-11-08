@@ -28,8 +28,7 @@
 #controlsRootNoResult{
     
     display: grid;
-    place-items: center;
-    
+    justify-items: center;
 
 }
 
@@ -37,11 +36,9 @@
     width: 90%;
     height: 200px;
     border-radius: 7px;
-    box-shadow: 10px 10px rgba(0,0,0,.30);
-    background-color: #eeeeee;
     display: grid;
     place-items: center;
-    border: 2px solid black;
+    
 }
 
 
@@ -54,10 +51,11 @@
     .resultControls{
         grid-area: rc;
         width: 100%;
-        height: 40vh;
+        align-items: start;
     }
     #controlsContainer{
-        max-height: 90%;
+        max-height: 100%;
+        margin: 0;
     }
     #reactiveResultsContainer{
         max-height: 90%;
