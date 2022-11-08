@@ -28,12 +28,6 @@ function App() {
   const [openOrder, setOpenOrder] = useState({})
   const [init, setInit] = useState(init => false)
 
-  const[session, setSession] = useState({
-    open: 0,
-    close: 0,
-    pnl: 0,
-    orders: []
-  })
 
 
 
