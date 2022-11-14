@@ -15,20 +15,28 @@
 
 #appRoot{
     display: grid;
-    max-height: min-content;
     align-items: stretch;
     grid-template-areas:"d h"
                         "d rc"
                         "d rc";
     grid-template-columns: 1fr 1fr;
+<<<<<<< HEAD
     
+=======
+
+    min-height: 100vh;
+    min-width: 100vw;
+>>>>>>> main
 }
 
 .containerBox{
     border: 2px solid #161217;
     border-radius: 7px;
 }
-
+#root{
+    min-width: 100vw;
+    min-height: 100vh;
+}
 
 .backLayer3{
 background-color: #F5F5F5;
@@ -57,11 +65,16 @@ background-color: #F5F5F5;
         grid-template-areas:"h"
         "rc"
         "d";
+<<<<<<< HEAD
         grid-gap: 10px;
         grid-template-columns: 1fr;   
         width: 100vw;
         height: fit-content;
         min-height: 100vh; 
+=======
+        grid-template-columns: 1fr;    
+           
+>>>>>>> main
     }
 }
 
