@@ -28,7 +28,7 @@ const Graph = ({close, open}) => {
   
 let victoryData = 
   [{x: "Open", y: Number(open.price), size: 1},
-   {x: "Close", y: Number(close.closePrice),
+   {x: "Close", y: close.closePrice !== NaN ? Number(close.closePrice) : 69,
     label: close.closePrice !== NaN ? close.closePrice : 69, size: 4 }, ]
 
   return (

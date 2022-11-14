@@ -52,8 +52,8 @@
     .resultControls{
         grid-area: rc;
         width: 100%;
-        align-items: start;
-        
+        align-self: start;
+        height: 100%;
     }
     #controlsContainer{
         max-height: 100%;

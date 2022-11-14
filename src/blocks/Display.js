@@ -11,7 +11,11 @@ const Display = ({openOrder, init, closeOrder, setCloseOrder, inDis}) => {
   
 
     const changeClosePrice = (e) => {
-        setCloseOrder(closeOrder => ({...closeOrder, closePrice:e.target.value}))
+        setCloseOrder(closeOrder => ({...closeOrder, closePrice:(e.target.value).toFixed(2)}))
+
+        // let _price = e.target.value
+        // _price = _price.toFixed(2)
+        // setCloseOrder(closeOrder => ({...closeOrder, closePrice:_price}))
     }
     const changeMin = (e) => {
         let toSet = Number(e.target.value)

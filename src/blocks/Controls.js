@@ -1,5 +1,6 @@
 import React from 'react'
 import Pair from "../reusable/Pair"
+import Currency from "../reusable/Currency"
 import "../styles/blocks/controls.css"
 import "../styles/details/button.css"
 
@@ -14,6 +15,12 @@ const Controls = ({openOrderFires, init, _setInit, setInDis, inDis}) => {
     amount: 420,
     leverage: 1,
     price: 1337
+  })
+  const [loadedCurrency, setLoadedCurrency] = useState({
+      bitcoin: false,
+      ethereum: false,
+      binancecoin: false,
+      ripple: false
   })
 
 
@@ -46,6 +53,10 @@ const Controls = ({openOrderFires, init, _setInit, setInDis, inDis}) => {
     <div className=' block resultControls' id={init === true ? 'controlsRoot' : 'controlsRootNoResult' }>
       {init === false ? 
       <div id='controlsWrapper'>
+
+        <Currency subState={openOrder} setSubState={setOpenOrder}
+        loadedCurrency={loadedCurrency} setLoadedCurrency={setLoadedCurrency} />
+       
         <div className='backLayer2 dropShadow container containerBox' id='controlsContainer'>
               {Object.keys(openOrder).map((key, index)=>{
                 return (

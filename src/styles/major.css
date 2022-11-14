@@ -20,13 +20,9 @@
                         "d rc"
                         "d rc";
     grid-template-columns: 1fr 1fr;
-<<<<<<< HEAD
-    
-=======
 
     min-height: 100vh;
     min-width: 100vw;
->>>>>>> main
 }
 
 .containerBox{
@@ -65,16 +61,8 @@ background-color: #F5F5F5;
         grid-template-areas:"h"
         "rc"
         "d";
-<<<<<<< HEAD
-        grid-gap: 10px;
-        grid-template-columns: 1fr;   
-        width: 100vw;
-        height: fit-content;
-        min-height: 100vh; 
-=======
         grid-template-columns: 1fr;    
            
->>>>>>> main
     }
 }
 
