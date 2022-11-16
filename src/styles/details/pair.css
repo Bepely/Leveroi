@@ -1,14 +1,15 @@
 .pairHolder{
     width: 100%;
-    margin: 5px;
+    height: 100%;
 }
 
 .pair{
     display: grid;
     place-items: center;
+    width: 100%;
+    height: 100%;
 
     grid-template-columns: 1fr 1fr;
-    margin: 5px;
     
 
     border-radius: 0% 0% 0% 0% / 0% 0% 0% 0% ;
@@ -20,8 +21,6 @@
 
 .pair:hover > .pairSecond, .pair:hover > .pairFirst{
     font-weight:bolder;
-    padding: 10px;
-    margin: 5px;
     
 }
 
@@ -35,10 +34,15 @@
 }
 
 .pairSecond{
-    border: 1px solid black;
-    width: 50%;
-    border-radius: 3px;
-    padding: 2px;
+    border: 0px;
+    border-left: 2px solid black;
+    width: 70%;
+    height: 50%;
+    border-radius: 0px;
+    padding: 0px;
+    border-right: 0px;
+    background-color: #F5F5F5;
+    justify-self: end;
     
 }
 

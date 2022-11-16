@@ -67,9 +67,6 @@ const Display = ({openOrder, init, closeOrder, setCloseOrder, inDis}) => {
                 ?
                 <div id='inDisPlatforms'>
                     <h3>Real Market Trading</h3>
-                    <p>For real-market perpetual trading, you have to use <br/>
-                    trading platforms. Here you can find a few of them.
-                    </p>
                     <Platforms />
                 </div>
                 :

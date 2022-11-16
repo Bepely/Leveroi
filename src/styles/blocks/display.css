@@ -43,10 +43,9 @@
 
 #inDisPlatforms{
     display: grid;
-    grid-template-rows: 1fr 2fr 5fr;
     place-items: center;
     width: 90%;
-    height: 90%;
+    max-height: max-content;
 }
 #inDisInstructions{
     display: grid;
