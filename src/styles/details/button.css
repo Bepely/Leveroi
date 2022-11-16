@@ -22,13 +22,76 @@
 
 
 .defButton{
+    display: grid;
     border: 2px solid black;
-    height: 100%;
+    height: 75%;
+    width: 100%;
+    place-content: center;
 }
 .defButton:hover{
     font-weight: bold;
-    font-size: 0.9em;
-    margin: 2px;
+    height: 90%;
+    width: 100%;
     
+}
+
+/* CONTROLS BUTTONS */
+/* PRICE BUTTONS */
+
+#currencyHolder{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 100%;
+    align-self: end;
+    margin: 0;
+}
+
+.currencyBtn{
+   border: 1px solid black;
+   border-top: 0;
+   border-radius: 0px;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    
+}
+#btcBtn{
+    border-left: 0;
+    border-bottom-left-radius: 5px;
+}
+#xrpBtn{
+    border-right: 0;
+    border-bottom-right-radius: 5px;
+}
+
+.pickedCurrencyBtn{
+    box-shadow: 0px -2px 2px 0px #f2a900;
+}
+/* LEVERAGE BUTTONS */
+
+#leverageHolder, #amountHolder{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    width: 100%;
+    align-self: end;
+    margin: 0;
+    padding: 0;
+}
+
+.leverageBtn, .amountBtn{
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+    border-top: 0;
+    border-bottom: 2px solid black;
+}
+#lvr1, #amt10{
+    border-left: 0;
+}
+#lvr50, #amt500{
+    border-right: 0;
+}
+.pickedLeverageBtn, .pickedAmountBtn{
+    box-shadow: 0px -2px 2px 0px #f2a900;
 }
 

@@ -1,5 +1,10 @@
 import React from 'react'
 import Pair from "../reusable/Pair"
+
+import Currency from "../reusable/Currency"
+import Leverage from "../reusable/Leverage"
+import Amount from "../reusable/Amount"
+
 import "../styles/blocks/controls.css"
 import "../styles/details/button.css"
 
@@ -8,10 +13,10 @@ import { useState } from 'react'
 
 
 
-const Controls = ({openOrderFires, init, _setInit, setInDis, inDis}) => {
+const Controls = ({openOrderFires, init, _setInit, setInDis, inDis, marketPrice}) => {
 
   const [openOrder, setOpenOrder] = useState({
-    amount: 420,
+    amount: 100,
     leverage: 1,
     price: 1337
   })
@@ -46,13 +51,27 @@ const Controls = ({openOrderFires, init, _setInit, setInDis, inDis}) => {
     <div className=' block resultControls' id={init === true ? 'controlsRoot' : 'controlsRootNoResult' }>
       {init === false ? 
       <div id='controlsWrapper'>
+
+        
+       
         <div className='backLayer2 dropShadow container containerBox' id='controlsContainer'>
               {Object.keys(openOrder).map((key, index)=>{
                 return (
+                  <div className='controlsPoint' key={index} id={key === "amount" ? "amountControlsPoint" : ""}>
                   <Pair type="input"
                   key={index} first={key} second=""
                   subState={openOrder}
                   setSubState={setOpenOrder}/>
+                  {key === "price" ?
+                  <Currency subState={openOrder} setSubState={setOpenOrder}
+                  marketPrice={marketPrice}/>
+                 : key === "leverage" ?
+                  <Leverage subState={openOrder} setSubState={setOpenOrder}/>
+                : key === "amount" ?
+                  <Amount subState={openOrder} setSubState={setOpenOrder}/>
+              : <></> }
+                  
+                  </div>
                 )
               })}
         </div>

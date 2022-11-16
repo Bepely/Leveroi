@@ -8,7 +8,7 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 
 import "./styles/major.css"
@@ -28,11 +28,29 @@ function App() {
   const [openOrder, setOpenOrder] = useState({})
   const [init, setInit] = useState(init => false)
 
+  const [marketPrice, setMarketPrice] = useState({
+    bitcoin: 0,
+    ethereum: 0,
+    binancecoin: 0,
+    ripple: 0
+  })
+
+  useEffect(()=>{
+    fetch("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Cethereum%2Cbinancecoin%2Cripple&vs_currencies=usd")
+    .then((res) => res.json().then(data => {
+        setMarketPrice(marketPrice => ({...marketPrice, 
+          bitcoin: data.bitcoin.usd,
+          ethereum: data.ethereum.usd,
+          binancecoin: data.binancecoin.usd,
+          ripple: data.ripple.usd}))
+
+    }))
+  }, [init])
+
 
 
 
   const openOrderFires=(x)=>{
-      console.log(x);
       setOpenOrder(openOrder => ({...x}))
       }
   const _setInit = ()=>{
@@ -60,7 +78,8 @@ function App() {
           :
           <Controls openOrderFires={openOrderFires}
           init={init} _setInit={_setInit}
-          inDis={inDis} setInDis={_setInDis}/>
+          inDis={inDis} setInDis={_setInDis}
+          marketPrice={marketPrice}/>
         }
         
          
