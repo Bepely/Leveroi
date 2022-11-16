@@ -37,8 +37,8 @@ let liquidationDataLong = [
   { x: "Close", y: close.closePrice !== NaN ? Number(((open.price)-(open.price/open.leverage)).toFixed(2)) : 0, size:1}
 ]
 let liquidationDataShort = [
-  {x: "Open", y: close.closePrice !== NaN ? Number(((open.price)-(open.price/open.leverage)).toFixed(2)) : 100000, size:1},
-  { x: "Close", y: close.closePrice !== NaN ? Number(((open.price)-(open.price/open.leverage)).toFixed(2)) : 100000, size:1}
+  {x: "Open", y: close.closePrice !== NaN ? Number(((open.price)+(open.price/open.leverage)).toFixed(2)) : 100000, size:1},
+  { x: "Close", y: close.closePrice !== NaN ? Number(((open.price)+(open.price/open.leverage)).toFixed(2)) : 100000, size:1}
 ]
   return (
     
