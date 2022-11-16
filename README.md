@@ -1,6 +1,6 @@
 # Leveroi 
 ## Futures Market Simulator 
-Leveroi v0.0.1
+Leveroi v0.1.1
 With Leveroi, you can simulate long and short futures orders.
 
 ## Done: 
