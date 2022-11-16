@@ -57,18 +57,18 @@ const Controls = ({openOrderFires, init, _setInit, setInDis, inDis, marketPrice}
         <div className='backLayer2 dropShadow container containerBox' id='controlsContainer'>
               {Object.keys(openOrder).map((key, index)=>{
                 return (
-                  <div className='controlsPoint' id={key === "amount" ? "amountControlsPoint" : ""}>
+                  <div className='controlsPoint' key={index} id={key === "amount" ? "amountControlsPoint" : ""}>
                   <Pair type="input"
                   key={index} first={key} second=""
                   subState={openOrder}
                   setSubState={setOpenOrder}/>
                   {key === "price" ?
-                  <Currency key={"picker"+index} subState={openOrder} setSubState={setOpenOrder}
+                  <Currency subState={openOrder} setSubState={setOpenOrder}
                   marketPrice={marketPrice}/>
                  : key === "leverage" ?
-                  <Leverage key={"picker" + index} subState={openOrder} setSubState={setOpenOrder}/>
+                  <Leverage subState={openOrder} setSubState={setOpenOrder}/>
                 : key === "amount" ?
-                  <Amount key={"picker" + index} subState={openOrder} setSubState={setOpenOrder}/>
+                  <Amount subState={openOrder} setSubState={setOpenOrder}/>
               : <></> }
                   
                   </div>

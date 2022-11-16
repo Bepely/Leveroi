@@ -44,7 +44,6 @@ function App() {
           binancecoin: data.binancecoin.usd,
           ripple: data.ripple.usd}))
 
-        console.log("MARKET DATA LOADED - ", marketPrice);
     }))
   }, [init])
 
@@ -52,7 +51,6 @@ function App() {
 
 
   const openOrderFires=(x)=>{
-      console.log(x);
       setOpenOrder(openOrder => ({...x}))
       }
   const _setInit = ()=>{
