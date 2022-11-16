@@ -11,36 +11,58 @@ const Display = ({openOrder, init, closeOrder, setCloseOrder, inDis}) => {
   
 
     const changeClosePrice = (e) => {
-        setCloseOrder(closeOrder => ({...closeOrder, closePrice:(e.target.value).toFixed(2)}))
+        
+            let x = Number(e.target.value)       
+             x = x.toFixed(2)
+             x = Number(x)
+             
+           
+             setCloseOrder(closeOrder => ({...closeOrder, closePrice:x}))
+           
+        e.target.value = null
+
+        if(x > closeOrder.max)
+        {setCloseOrder(closeOrder => ({...closeOrder, max:x}))}
+       else if (x < closeOrder.min) 
+       {setCloseOrder(closeOrder => ({...closeOrder, min:x}))}
+       
+
+     
+        
 
         // let _price = e.target.value
         // _price = _price.toFixed(2)
         // setCloseOrder(closeOrder => ({...closeOrder, closePrice:_price}))
     }
     const changeMin = (e) => {
-        let toSet = Number(e.target.value)
-        if(toSet >= closeOrder.max){
+        let x = Number(e.target.value)       
+             x = x.toFixed(2)
+             x = Number(x)
+
+        if(x >= closeOrder.max){
             setCloseOrder(closeOrder => ({...closeOrder,
-                                         max:toSet+1,
-                                         min:toSet}))
-        } else if(toSet <= 0 || toSet === null){
+                                         max:x+1,
+                                         min:x}))
+        } else if(x <= 0 || x === null){
            
         } 
-        else{setCloseOrder(closeOrder => ({...closeOrder, min:toSet}))}
+        else{setCloseOrder(closeOrder => ({...closeOrder, min:x}))}
         e.target.value = null
     }
     const changeMax = (e) => {
-        let toSet = Number(e.target.value)
+        let x = Number(e.target.value)       
+             x = x.toFixed(2)
+             x = Number(x)
 
-        if(toSet <= 0 || toSet === null){}
-        else if(toSet <= closeOrder.min){
+        if(x <= 0 || x === null){}
+        else if(x <= closeOrder.min){
            
             setCloseOrder(closeOrder => ({...closeOrder,
-                                     min:toSet-1,
-                                     max:toSet}))}
-        else{setCloseOrder(closeOrder => ({...closeOrder, max:toSet}))} 
+                                     min:x-1,
+                                     max:x}))}
+        else{setCloseOrder(closeOrder => ({...closeOrder, max:x}))} 
             e.target.value = null
-            console.log("MIN > MAX", closeOrder);
+           
     }
 
     const onCloseChange = () => {
@@ -101,21 +123,28 @@ const Display = ({openOrder, init, closeOrder, setCloseOrder, inDis}) => {
             : 
 
 
+            
             <div className='backLayer2 dropShadow container containerBox' id='displayContainer'>
-            <div className='container' id='graphContainer'>
+                <div id="minMaxCurContainer">
+                <div className='minMax container' id="minContainer"> 
+                    <h5>MIN</h5>
+                    <input type="number" onBlur={changeMin}  placeholder={closeOrder.min ? Number(closeOrder.min) : 0}/>
+                    </div>
+                <div className='minMax container' id="currContainer"> 
+                    <h5>Close</h5>
+                    <input type="number" max={closeOrder.max} min={closeOrder.min} onBlur={changeClosePrice}  placeholder={closeOrder.closePrice}/>
+                </div>
+                <div className='minMax container' id="maxContainer"> 
+                    <h5>MAX</h5>
+                    <input type="number" onBlur={changeMax} placeholder={closeOrder.max ? Number(closeOrder.max) : 1}/>
+                </div>
 
+                </div>
+            <div className='container' id='graphContainer'>
                     <Graph close={closeOrder} open={openOrder}/>
             </div>
             <div className='sliderControlContainer'>
-                <div className='minMax container' id="maxContainer"> 
-                    <h5>MAX</h5>
-                    <input type="number" onBlur={changeMax} placeholder={closeOrder.max ? closeOrder.max : 1}/>
-                </div>
-            <Slider closeOrder={closeOrder} changeClosePrice={changeClosePrice}/>
-                <div className='minMax container' id="maxContainer"> 
-                    <h5>MIN</h5>
-                    <input type="number" onBlur={changeMin}  placeholder={closeOrder.min ? closeOrder.min : 0}/>
-                </div>
+            <Slider closeOrder={closeOrder} changeClosePrice={changeClosePrice}/>  
             </div>
             
         </div>

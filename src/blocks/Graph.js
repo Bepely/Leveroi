@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {VictoryChart, VictoryLine, VictoryLabel, VictoryScatter} from 'victory'
+import {VictoryChart, VictoryLine, VictoryLabel, VictoryScatter, VictoryArea} from 'victory'
 import {useRef, useEffect, useState} from "react"
 
 import "../styles/details/graph.css"
@@ -25,12 +25,21 @@ const Graph = ({close, open}) => {
    
   },[width])
 
+
   
 let victoryData = 
   [{x: "Open", y: Number(open.price), size: 1},
    {x: "Close", y: close.closePrice !== NaN ? Number(close.closePrice) : 69,
-    label: close.closePrice !== NaN ? close.closePrice : 69, size: 4 }, ]
+    label: close.closePrice !== NaN ? close.closePrice : 69, size: 4 },]
 
+let liquidationDataLong = [
+  {x: "Open", y: Number(((open.price)-(open.price/open.leverage)).toFixed(2)), size:1},
+  { x: "Close", y: Number(((open.price)-(open.price/open.leverage)).toFixed(2)), size:1}
+]
+let liquidationDataShort = [
+  {x: "Open", y: Number(((open.price)+(open.price/open.leverage)).toFixed(2)), size:1},
+  { x: "Close", y: Number(((open.price)+(open.price/open.leverage)).toFixed(2)), size:1}
+]
   return (
     
     
@@ -40,19 +49,25 @@ let victoryData =
       <VictoryChart 
       height={window.innerWidth-window.innerHeight < 0 ? window.innerHeight/3 :  height*0.9  }
       width={width}
+      style={!close.long ? {background: { fill: "#9B000030" }} : {data: {fill: "#ECE9EC30"}}}
      padding={{top: 50, bottom: 50, left: 55, right: 50}} 
     domain={{y: [close.min, close.max]}}
     animate={false}
     
     > 
-  
+   <VictoryArea
+      key={"liquidation"}
+      style={close.long ? {data : {fill: "#9B000030"}} : {data: {fill: "#ECE9EC"}}}
+      data={close.long ? liquidationDataLong : liquidationDataShort}
+      />
 
     <VictoryLine
-
+        key={"orderLine"}
         data={victoryData} 
         style={{ data: { stroke: "#000000", strokeWidth: 3 } }}  
         animate={false}
       />
+     
       <VictoryScatter data={victoryData}
       animate={false}
       style={{ data: {fill:"#000000"}}}
@@ -67,6 +82,7 @@ let victoryData =
        ]}/> 
       }
         />
+        
 
     </VictoryChart>
     :
