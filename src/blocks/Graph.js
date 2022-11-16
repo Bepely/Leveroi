@@ -33,12 +33,12 @@ let victoryData =
     label: close.closePrice !== NaN ? close.closePrice : 69, size: 4 },]
 
 let liquidationDataLong = [
-  {x: "Open", y: Number(((open.price)-(open.price/open.leverage)).toFixed(2)), size:1},
-  { x: "Close", y: Number(((open.price)-(open.price/open.leverage)).toFixed(2)), size:1}
+  {x: "Open", y: close.closePrice !== NaN ? Number(((open.price)-(open.price/open.leverage)).toFixed(2)) : 0, size:1},
+  { x: "Close", y: close.closePrice !== NaN ? Number(((open.price)-(open.price/open.leverage)).toFixed(2)) : 0, size:1}
 ]
 let liquidationDataShort = [
-  {x: "Open", y: Number(((open.price)+(open.price/open.leverage)).toFixed(2)), size:1},
-  { x: "Close", y: Number(((open.price)+(open.price/open.leverage)).toFixed(2)), size:1}
+  {x: "Open", y: close.closePrice !== NaN ? Number(((open.price)-(open.price/open.leverage)).toFixed(2)) : 100000, size:1},
+  { x: "Close", y: close.closePrice !== NaN ? Number(((open.price)-(open.price/open.leverage)).toFixed(2)) : 100000, size:1}
 ]
   return (
     
