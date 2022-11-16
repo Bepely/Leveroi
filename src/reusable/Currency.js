@@ -19,10 +19,10 @@ const Currency = ({subState, setSubState, marketPrice}) => {
     <div id='currencyHolder'>
     <button 
      className={marketPrice.bitcoin === subState.price ? "currencyBtn pickedCurrencyBtn" : "currencyBtn" } 
-     id='btcBtn' p={"bitcoin"} onClick={onClick}>Bitcoin</button>
+     id='btcBtn' p={"bitcoin"} onClick={onClick}>BTC</button>
     <button 
      className={marketPrice.ethereum === subState.price ? "currencyBtn pickedCurrencyBtn" : "currencyBtn" }
-      id='ethBtn' p={"ethereum"} onClick={onClick}>Ethereum</button>
+      id='ethBtn' p={"ethereum"} onClick={onClick}>ETH</button>
     <button
      className={marketPrice.binancecoin === subState.price ? "currencyBtn pickedCurrencyBtn" : "currencyBtn"}
        id='bnbBtn' p={"binancecoin"} onClick={onClick}>BNB</button>

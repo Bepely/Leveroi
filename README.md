@@ -8,7 +8,7 @@ With Leveroi, you can simulate long and short futures orders.
 • Reactive close price simulation  
 • Order Results (PNL, Liquidation, etc.)  
 • Interactive Graph  
-• Enhanced graph interactivity          | v0.1.1 
+• Enhanced graph interactivity          | v0.1.1  
 • Real-time trading pair prices         | v0.1.1  
 
 

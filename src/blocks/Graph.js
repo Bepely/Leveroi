@@ -49,7 +49,7 @@ let liquidationDataShort = [
       <VictoryChart 
       height={window.innerWidth-window.innerHeight < 0 ? window.innerHeight/3 :  height*0.9  }
       width={width}
-      style={!close.long ? {background: { fill: "#9B000030" }} : {data: {fill: "#ECE9EC30"}}}
+      style={!close.long ? {background: { fill: "#9B000030", fontFamily:'Rubik' }} : {data: {fill: "#ECE9EC30", fontFamily:'Rubik'}}}
      padding={{top: 50, bottom: 50, left: 55, right: 50}} 
     domain={{y: [close.min, close.max]}}
     animate={false}
@@ -57,8 +57,8 @@ let liquidationDataShort = [
     > 
    <VictoryArea
       key={"liquidation"}
-      style={close.long ? {data : {fill: "#9B000030"}} : {data: {fill: "#ECE9EC"}}}
       data={close.long ? liquidationDataLong : liquidationDataShort}
+      style={close.long ? {data : {fill: "#9B000030", fontFamily:'Rubik'}} : {data: {fill: "#ECE9EC", fontFamily:'Rubik'}}}
       />
 
     <VictoryLine
@@ -70,7 +70,7 @@ let liquidationDataShort = [
      
       <VictoryScatter data={victoryData}
       animate={false}
-      style={{ data: {fill:"#000000"}}}
+      style={{ data: {fill:"#000000", fontFamily:'Rubik'}}}
       labelComponent={
        <VictoryLabel 
        animate={false}
@@ -78,7 +78,7 @@ let liquidationDataShort = [
        dx={10}
        dy={-20}
        style={[
-         {fontSize: "18"}
+         {fontSize: "18", fontFamily:'Rubik'}
        ]}/> 
       }
         />

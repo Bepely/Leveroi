@@ -54,10 +54,10 @@ const Controls = ({openOrderFires, init, _setInit, setInDis, inDis, marketPrice}
 
         
        
-        <div className='backLayer2 dropShadow container containerBox' id='controlsContainer'>
+        <div className='controlsHolder' id='controlsContainer'>
               {Object.keys(openOrder).map((key, index)=>{
                 return (
-                  <div className='controlsPoint' key={index} id={key === "amount" ? "amountControlsPoint" : ""}>
+                  <div className='controlsPoint backLayer2 dropShadow containerBox' key={index} id={key === "amount" ? "amountControlsPoint" : ""}>
                   <Pair type="input"
                   key={index} first={key} second=""
                   subState={openOrder}
@@ -76,20 +76,18 @@ const Controls = ({openOrderFires, init, _setInit, setInDis, inDis, marketPrice}
               })}
         </div>
         <div id='btnsHolder'>
-        <button className='crButton defButton' onClick={inDisSwitch}>
+        <button className='crButton defButton dropShadow' onClick={inDisSwitch}>
           {inDis ? "Show Instructions" : "Show Trading Platforms"}
         </button>
         {openOrder.amount <= 0 || openOrder.price <= 0 || openOrder.leverage < 1
-        ? <button className='crButton defButton' disabled>Values shoud be valid</button> :
-        <button className='crButton defButton' onClick={sendToDisplay}>Create order</button>}
+        ? <button className='crButton defButton dropShadow' disabled>Values shoud be valid</button> :
+        <button className='crButton defButton dropShadow' onClick={sendToDisplay}>Create order</button>}
         </div>
         
       </div>
 
     : 
-    <div className='container' id='controlsContainer'>
-      <button className='crButton defButton' onClick={_setInit}> configurate new order</button>
-    </div>
+    <></>
     }
 </div>
   )

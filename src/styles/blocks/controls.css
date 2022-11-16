@@ -20,11 +20,7 @@
 
     
 }
-.crButton{
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: 1px solid black;
-}
+
 
 #controlsRootNoResult{
     
@@ -34,11 +30,11 @@
 }
 
 #controlsContainer{
-    width: 100%;
-    height: 200px;
+    width: 90%;
+    height: 100%;
     border-radius: 7px;
     display: grid;
-    place-items: center;
+    align-content: space-between ;
     
 }
 
@@ -72,6 +68,10 @@
     #reactiveResultsContainer{
         max-height: 90%;
         
+    }
+    .controlsPoint{
+        height: 90%;
+        margin-top: 5px;
     }
     
 }

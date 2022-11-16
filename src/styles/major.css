@@ -1,13 +1,21 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;800;900&display=swap');
+
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Rubik', sans-serif;
 
     transition: all .4s ease;
 
-    color: #161217 
+    color: #161217;
+
+    text-decoration: none;
 }
+
+
 #root{
     min-height: 100vh;
 }
@@ -56,13 +64,36 @@ background-color: #F5F5F5;
     background-color: #ECE9EC;
 }
 .backLayer1{
-    background-color: #D9D1DB;
+    background: linear-gradient(0deg,#f4a1a1,#8ee489);
+  background-size: 120% 120%;
+  animation:  10s ease infinite;
+  animation-name: rootBack;
 }
 
+@keyframes rootBack {
+    0% {
+      background-position: 50% 50%;
+    }
+    25% {
+      background-position: 100% 0%;
+    }
+    50% {
+      background-position: 50% 50%;
+    }
+    75%{
+        background-position: 0% 100%
+    }
+    100%{
+        background-position: 50% 50%;
+    }
+  }
 
 
 .dropShadow{
-    box-shadow: 7px 7px #423645aa;
+    box-shadow: 6px 6px #937d9944;
+}
+.dropShadow:hover, .dropShadow:focus{
+    box-shadow: 7px 7px #937d99aa;
 }
 
 

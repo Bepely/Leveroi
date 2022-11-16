@@ -76,39 +76,55 @@ const Display = ({openOrder, init, closeOrder, setCloseOrder, inDis}) => {
 
             {init === false ? 
                
-                <article className='backLayer2 dropShadow container containerBox' id='newOrderInstructions'>
+                <div className='backLayer2 dropShadow container containerBox' id='newOrderInstructions'>
                 
                 {inDis === true
                 ?
                 <div id='inDisPlatforms'>
                     <h3>Real Market Trading</h3>
                     <Platforms />
+                    <div id="initComment">
+                <h5>Leveroy is in beta. Feel free to report bugs.</h5>
+                    <h5> <a target="_blank" href='https://twitter.com/o6morok'>twitter: @o6morok</a> |
+                    | <a target="_blank" href='https://www.youtube.com/@Bepely'>youtube: @bepely</a> |
+                    | <a target="_blank" href='https://github.com/Bepely'>github: @bepely</a></h5>
+                
+                </div>
                 </div>
                 :
                 <div id="inDisInstructions">
-                <h3>Perpetual trading calculator</h3>
+                    <article>
+                    <h3>Profit / Loss Calculator</h3>
                     <p>
-                        Leveroi provides you with some handy tools to simulate perpetual trading. <br/>
+                        Calculating your outcomes of futures orders is easy. <br/>
+                        Enter Amount, Leverage and Price of your order. <br/>
+                        Then "Create Order" and simulate market movements. <br/>
+                        See dynamic results on a Graph and Results blocks.
                     </p>
+                    </article>
+                
                     <div>
-                 <h3>How to use Leveroi?</h3>
+                 <h3>Disclaimer</h3>
                 <div>
-                    <li>Input your order data</li>
-                    <li>Click "Create Order"</li>
-                    <li>Switch between Long/Short</li>
-                    <li>Simulate your close price</li>
-                </div>
+                    
+               <ul> 
+                <li> Real-market trading platforms may have different calculating formulas.</li>
+                <li>Leveroi information is approximate and may differ from real-market platforms.</li>
+                </ul>
+
+</div>
                 </div>
                 
                 <div id="initComment">
                 <h5>Leveroy is in beta. Feel free to report bugs.</h5>
-          
-                    <h5>made by <a href='https://github.com/Bepely'>Bepely</a></h5>
+                    <h5> <a target="_blank" href='https://twitter.com/o6morok'>twitter: @o6morok</a> |
+                    | <a target="_blank" href='https://www.youtube.com/@Bepely'>youtube: @bepely</a> |
+                    | <a target="_blank" href='https://github.com/Bepely'>github: @bepely</a></h5>
                 
                 </div>
                 </div>
                 }
-                </article>
+                </div>
                 
           
 

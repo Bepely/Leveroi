@@ -3,30 +3,36 @@
     display: grid;
     width: 100%;
     height: 100%;
-    max-height: 40px;
+    max-height: 100px;
 
     grid-template-columns: 1fr 1fr;
     place-items: center;
     border-bottom: 2px solid black;
+    padding: 5px;
+    background-color: #D9D1DB;
+    border-radius:0px;
+    
+}
+
+#minContainer{
+    border-top-left-radius: 7px;
+}
+#maxContainer{
+    border-top-right-radius: 7px;
 }
 
 .minMax>input{
     width: 100%;
-    height: 100%;
-    border: 0;
-    border-left: 2px solid black;
+    height: 40%;
+    border: 2px solid black;
     text-align: center;
-    padding: 3px;
-    margin-right: 3px;
+    border-radius: 7px;
     background-color: #F5F5F5;
     font-size: 0.6em;
     font-weight: bold;
 
 }
-#maxContainer > input{
-    border-top-right-radius: 5px;
-    
-}
+
 
 #currentPriceContainer{
     display: grid;
@@ -71,6 +77,22 @@
 /* MOBILE LEVEL */
 
 @media (max-aspect-ratio: 1/1){
+    .minMax>input{
+        width: 100%;
+        height: 100%;
+        border: 0;
+        border-radius: 0;
+        text-align: center;
+        padding: 3px;
+        margin-right: 3px;
+        background-color: #F5F5F5;
+        font-size: 0.6em;
+        font-weight: bold;
     
+    }
+    #maxContainer > input{
+        border-top-right-radius: 5px;
+        
+    }
 
 }

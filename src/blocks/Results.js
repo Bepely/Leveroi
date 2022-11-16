@@ -171,7 +171,7 @@ const Results = ({close, setClose, open, setOpen, init, _setInit}) => {
     
         }
         <div>
-       <button className='crButton defButton' onClick={_setInit}> Configurate new order</button>
+       <button className='crButton defButton dropShadow' onClick={_setInit}> Configurate new order</button>
        </div>
        </div>
      

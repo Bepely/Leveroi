@@ -19,10 +19,6 @@
    
 }
 
-.pair:hover > .pairSecond, .pair:hover > .pairFirst{
-    font-weight:bolder;
-    
-}
 
 .pairChild{
     text-align: center;
@@ -35,13 +31,11 @@
 }
 
 .pairSecond{
-    border: 0px;
-    border-left: 2px solid black;
+    border: 2px solid black;
+    
     width: 70%;
-    height: 50%;
-    border-radius: 0px;
-    padding: 0px;
-    border-right: 0px;
+    height: 55%;
+    border-radius: 7px;
     background-color: #F5F5F5;
     justify-self: start;
     
