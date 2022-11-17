@@ -1,7 +1,30 @@
 import "../styles/blocks/results.css"
+import html2canvas from 'html2canvas';
+
+import {useRef} from "react"
 
 const Results = ({close, setClose, open, setOpen, init, _setInit}) => {
 
+    const snap = useRef()
+
+    const onSnap = async () => {
+      const element = snap.current;
+      const canvas = await html2canvas(element, {backgroundColor: null});
+  
+      const data = canvas.toDataURL('image/png');
+      const link = document.createElement('a');
+  
+      if (typeof link.download === 'string') {
+        link.href = data;
+        link.download = `Leveroi ${close.long ? "Long" : "Short"} • by Bepely`;
+  
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      } else {
+        window.open(data);
+      }
+    }
   const resultStages = [
     "🤡","😰", "💥", "🔥", "⚡", "🌠",
     "🎰",
@@ -20,12 +43,6 @@ const Results = ({close, setClose, open, setOpen, init, _setInit}) => {
         total: 0
     }
     
-
-    const longShortChange = () => {
-      setClose(close => close.long === true
-                  ?({...close, long: false})
-                  :({...close, long: true}))
-  }
   let comment = resultStages[6]
 
   const commentSelection = () => {
@@ -74,17 +91,11 @@ const Results = ({close, setClose, open, setOpen, init, _setInit}) => {
    
   <div className="resultControls" id="results">
     
-  <div  id='reactiveResultsContainer'>
+  <div  id='reactiveResultsContainer' >
         {close.long === true 
           ? 
-          <div className="backLayer2 dropShadow containerBox" id='reactiveResults'>
-            <div className="openResults exactResults">
-
-              <div className="longShortBtnHolder">
-                <button className={"btn picked greenButton"} disabled={true} onClick={longShortChange}>LONG</button>
-                <button className={"btn toPick redButton"} onClick={longShortChange}>SHORT</button>
-               </div>
-
+          <div className="backLayer2 dropShadow containerBox" id='reactiveResults' ref={snap}>
+            <div className="openResults exactResults" >
              
               <div className="orderData">
               <div id="openInfo">
@@ -125,13 +136,8 @@ const Results = ({close, setClose, open, setOpen, init, _setInit}) => {
             </div>
           </div>
           :
-          <div className="backLayer2 dropShadow containerBox" id='reactiveResults'>
+          <div className="backLayer2 dropShadow containerBox" id='reactiveResults' ref={snap}>
            <div className="openResults">
-            <div className="longShortBtnHolder">
-
-            <button className={"btn btnToPick greenButton"} onClick={longShortChange}>LONG</button>
-            <button className={"btn btnPicked redButton"} disabled={true} onClick={longShortChange}>SHORT</button>
-            </div>
             <div className="orderData">
             <div id="openInfo">
                 <h4>Bid:{open.amount*open.leverage}</h4>
@@ -170,8 +176,9 @@ const Results = ({close, setClose, open, setOpen, init, _setInit}) => {
           </div>
     
         }
-        <div>
-       <button className='crButton defButton dropShadow' onClick={_setInit}> Configurate new order</button>
+        <div id="btnsHolder">
+        <button className='crButton defButton dropShadow' onClick={onSnap}>Make a Snap</button>
+        <button className='crButton defButton dropShadow' onClick={_setInit}> Configurate new order</button>
        </div>
        </div>
      

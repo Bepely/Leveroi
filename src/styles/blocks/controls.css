@@ -65,10 +65,7 @@
         max-height: 100%;
         margin: 0;
     }
-    #reactiveResultsContainer{
-        max-height: 90%;
-        
-    }
+    
     .controlsPoint{
         height: 90%;
         margin-top: 5px;

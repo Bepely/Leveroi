@@ -5,8 +5,8 @@ import "../styles/details/pair.css"
 const Pair = ({type, first, second, subState, setSubState}) => { 
  
     let onChange = (e) => {
-        console.log(subState[first]);
-        setSubState(subState => ({...subState, [first]:e.target.value})) 
+        console.log(typeof subState[first]);
+        setSubState(subState => ({...subState, [first]:Number(e.target.value)})) 
     }
 
   return (

@@ -57,6 +57,13 @@ const Display = ({openOrder, init, closeOrder, setCloseOrder, inDis}) => {
            
     }
 
+    //onClick={longShortChange} to put in longshortButtons
+    const longShortChange = () => {
+        setCloseOrder(closeOrder => closeOrder.long === true
+                    ?({...closeOrder, long: false})
+                    :({...closeOrder, long: true}))
+    }
+
     const onCloseChange = () => {
             setCloseOrder(closeOrder => ({...closeOrder,
                 min:openOrder.price*0.75,
@@ -135,6 +142,14 @@ const Display = ({openOrder, init, closeOrder, setCloseOrder, inDis}) => {
             
             <div className='backLayer2 dropShadow container containerBox' id='displayContainer'>
                 <div id="minMaxCurContainer">
+                <div className="longShortBtnHolder">
+                <button className={`btn ${closeOrder.long ? `picked` : `toPick`} greenButton`} 
+                disabled={closeOrder.long ? true : false} 
+                onClick={longShortChange}>LONG</button>
+                <button className={`btn ${!closeOrder.long ? `picked` : `toPick`} redButton`} 
+                disabled={closeOrder.long ? false : true} 
+                onClick={longShortChange}>SHORT</button>
+               </div>
                 <div className='minMax container' id="minContainer"> 
                     <h5>MIN</h5>
                     <input type="number" onBlur={changeMin}  placeholder={closeOrder.min ? Number(closeOrder.min) : 0}/>
@@ -147,6 +162,7 @@ const Display = ({openOrder, init, closeOrder, setCloseOrder, inDis}) => {
                     <h5>MAX</h5>
                     <input type="number" onBlur={changeMax} placeholder={closeOrder.max ? Number(closeOrder.max) : 1}/>
                 </div>
+                
 
                 </div>
             <div className='container' id='graphContainer'>

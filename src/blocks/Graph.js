@@ -29,16 +29,16 @@ const Graph = ({close, open}) => {
   
 let victoryData = 
   [{x: "Open", y: Number(open.price), size: 1},
-   {x: "Close", y: close.closePrice !== NaN ? Number(close.closePrice) : 69,
-    label: close.closePrice !== NaN ? close.closePrice : 69, size: 4 },]
+   {x: "Close", y:  Number(close.closePrice),
+    label:  close.closePrice, size: 4 },]
 
 let liquidationDataLong = [
-  {x: "Open", y: close.closePrice !== NaN ? Number(((open.price)-(open.price/open.leverage)).toFixed(2)) : 0, size:1},
-  { x: "Close", y: close.closePrice !== NaN ? Number(((open.price)-(open.price/open.leverage)).toFixed(2)) : 0, size:1}
+  {x: "Open", y:  Number(((open.price)-(open.price/open.leverage)).toFixed(2)), size:1},
+  { x: "Close", y:  Number(((open.price)-(open.price/open.leverage)).toFixed(2)), size:1}
 ]
 let liquidationDataShort = [
-  {x: "Open", y: close.closePrice !== NaN ? Number(((open.price)+(open.price/open.leverage)).toFixed(2)) : 100000, size:1},
-  { x: "Close", y: close.closePrice !== NaN ? Number(((open.price)+(open.price/open.leverage)).toFixed(2)) : 100000, size:1}
+  {x: "Open", y:  Number(((open.price)+(open.price/open.leverage)).toFixed(2)), size:1},
+  { x: "Close", y:  Number(((open.price)+(open.price/open.leverage)).toFixed(2)), size:1}
 ]
   return (
     

@@ -1,5 +1,7 @@
 .greenButton{
-    width: 100%;
+    width: 75%;
+    min-height: 17px;
+    height: 65%;
     border: 2px solid black;
     border-radius: 7px;
 }
@@ -11,7 +13,9 @@
 
 .redButton{
     border: 2px solid black;
-    width: 100%;
+    width: 75%;
+    min-height: 17px;
+    height: 65%;
     border-radius: 7px;
 }
 .redButton:disabled{
@@ -77,5 +81,37 @@
 
 .pickedLeverageBtn, .pickedAmountBtn, .pickedCurrencyBtn{
     box-shadow: 0px -2px 2px 0px #f2a900;
+
+}
+
+
+@media (max-aspect-ratio: 1/1){
+
+    .greenButton,
+    .greenButton:disabled,
+    .redButton,
+    .redButton:disabled{
+        margin: -2px 0px 2px 0px;
+       
+        border-radius: 0px 0px 7px 7px;
+        border: 2px solid black;
+        border-top: 0;
+    }
+
+    .redButton:disabled{
+        background-color: #cf5656;
+        box-shadow: 0px -3px 8px #cf5656;
+  
+    }
+    .greenButton:disabled{
+        background-color: #64c564;
+        box-shadow: 0px -3px 8px  #64c564;
+        
+    }
+    .greenButton,
+    .redButton{
+    background-color: #ECE9EC;
+    }
+    
 
 }
