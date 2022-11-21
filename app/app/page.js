@@ -1,18 +1,23 @@
-import Header from "./blocks/Header"
-import Display from "./blocks/Display"
-import Controls from "./blocks/Controls"
-import Results from "./blocks/Results"
+'use client'
 
-import '@fontsource/roboto/300.css';
-import '@fontsource/roboto/400.css';
-import '@fontsource/roboto/500.css';
-import '@fontsource/roboto/700.css';
+import Header from "../../src/appComponents/blocks/Header"
+import Display from "../../src/appComponents/blocks/Display"
+import Controls from "../../src/appComponents/blocks/Controls"
+import Results from "../../src/appComponents/blocks/Results"
+
 
 import { useState, useEffect } from "react"
 
 
-import "./styles/major.css"
+import '../../src/styles/blocks/header.css'
+import '../../src/styles/blocks/controls.css'
+import '../../src/styles/blocks/display.css'
+import '../../src/styles/blocks/results.css'
 
+
+import '../../src/styles/details/graph.css'
+import '../../src/styles/details/pair.css'
+import '../../src/styles/details/slider.css'
 
 
 function App() {

@@ -4,7 +4,6 @@ import Slider from "../reusable/Slider"
 import Graph from "./Graph"
 import Platforms from "../reusable/Platforms"
 
-import "../styles/blocks/display.css"
 
 
 const Display = ({openOrder, init, closeOrder, setCloseOrder, inDis}) => {

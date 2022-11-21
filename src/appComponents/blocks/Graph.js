@@ -3,7 +3,7 @@ import React from 'react';
 import {VictoryChart, VictoryLine, VictoryLabel, VictoryScatter, VictoryArea} from 'victory'
 import {useRef, useEffect, useState} from "react"
 
-import "../styles/details/graph.css"
+
 
 
 

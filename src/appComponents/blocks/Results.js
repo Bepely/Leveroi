@@ -1,4 +1,4 @@
-import "../styles/blocks/results.css"
+
 import html2canvas from 'html2canvas';
 
 import {useRef} from "react"
@@ -15,12 +15,16 @@ const Results = ({close, setClose, open, setOpen, init, _setInit}) => {
       const link = document.createElement('a');
   
       if (typeof link.download === 'string') {
+        
         link.href = data;
-        link.download = `Leveroi ${close.long ? "Long" : "Short"} • by Bepely`;
-  
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+        link.download = `Leveroi ${close.long ? "Long" : "Short"}`;
+
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+          
+
+        
       } else {
         window.open(data);
       }
@@ -177,7 +181,7 @@ const Results = ({close, setClose, open, setOpen, init, _setInit}) => {
     
         }
         <div id="btnsHolder">
-        <button className='crButton defButton dropShadow' onClick={onSnap}>Make a Snap</button>
+        <button className='crButton defButton dropShadow' onClick={onSnap}>Make Order Snap</button>
         <button className='crButton defButton dropShadow' onClick={_setInit}> Configurate new order</button>
        </div>
        </div>

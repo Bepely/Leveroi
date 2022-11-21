@@ -2,7 +2,6 @@ import React from 'react'
 
 import MSlider from "@mui/material/Slider"
 
-import "../styles/details/slider.css"
 
 
 

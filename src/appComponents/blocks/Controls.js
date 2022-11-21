@@ -5,8 +5,6 @@ import Currency from "../reusable/Currency"
 import Leverage from "../reusable/Leverage"
 import Amount from "../reusable/Amount"
 
-import "../styles/blocks/controls.css"
-import "../styles/details/button.css"
 
 
 import { useState } from 'react'
