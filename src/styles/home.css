@@ -1,3 +1,11 @@
+*{
+    margin: 0;
+    padding: 0;
+
+    text-align: center;
+
+    transition: all .2s ease;
+}
 #homeRoot{
     display: grid;
     min-height: 100vh;
@@ -5,47 +13,126 @@
     gap: 20px;
     place-items: center;
 }
+
 .homePointArticle{
-    display: grid;    
+    display: flex;  
     text-align: center;
+    justify-content: center;
+    align-content: center;
     width: 100%;
     height: 100%;
-    grid-template-columns: 1fr 1fr;
+    flex-direction: row;
+    gap: 20px;
+    padding: 10px;
+}
+.homePointArticle > div{
+    display: grid;
+    place-items: center;
 }
 .homePoint{
+    width: 100%;
+    height: 100%;
+    grid-area: block;
+}
+#headerHome{
     width: 80%;
+    height: fit-content;
+}
+#headerHome>header{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+}
+
+#useApp{
+    display: grid;
+    place-items: center;
+    border: 2px solid black;
+
+    width: 50%;
+    height: 100%;
+    font-size: 1.5em;
+
+    border-radius: 7px;
+    transition: all .6s ease;
+
+    place-self: end;
+}
+#useApp:hover{
+    border: 2px solid #f2a900;
+    box-shadow: 0px 0px 5px 5px #f2a900;
+}
+
+
+.leftPoint{
+ grid-template-areas: "block media";
+ grid-template-columns: 3fr 1fr;
+}
+.rightPoint{
+    grid-template-areas:  "media block";
+    grid-template-columns: 1fr 3fr;
+}
+
+
+.pointHolder{
+    width: 80%;
+    height: 100%;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+
+#justEmoji{
+    font-size: 3em;
+}
+
+
+#mediaWrapper{
+    width: 100%;
     height: 100%;
 }
 
-.leftPoint{
- grid-template-areas: "home_header home_image"
-                      "home_article home_image"
-                      "home_link home_image";
-}
-.rightPoint{
-    grid-template-areas:  "home_image home_header"
-                          "home_image home_article"
-                          "home_image home_link";
-}
-
-
-#homePointHeader{grid-area: home_header; display: grid; place-items: center}
-#homePointText{grid-area: home_article; display: grid; place-items: center}
-#homePointLink{grid-area: home_link; display: grid; place-items: center}
-#homePointImage{grid-area: home_image; display: grid; place-items: center}
-
-#homePointImage>div{
+footer{
     width: 100%;
-    height: 60%;
+    text-align: center;
 }
+
+#socials{
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#homePointImage{grid-area: media; display: grid; place-items: center}
+
+#homePointHeader{display: grid; justify-items: center; align-items: center}
+
+#homePointText{display: grid; justify-items: center; align-items: center}
+
+
 
 
 @media (max-aspect-ratio: 1/1) {
-    .homePointArticle{grid-template-columns: 1fr;}
     .leftPoint, .rightPoint{
         grid-template-areas: "home_header"
                              "home_article"
-                             "home_link";
        }
-       #homePointImage{display: none;}
+       #homePointImage, #justEmoji{display: none;}
+       #useApp{
+        display: grid;
+        place-items: center;
+        border: 2px solid black;
+    
+        width: 80%;
+        height: 80%;
+        font-size: 1em;
+    
+        border-radius: 7px;
+        transition: all .2s ease;
+    }
+    #useApp:hover{
+        font-size: 1.2em;
+        width: 80%;
+        height: 80%;
+    }
 }

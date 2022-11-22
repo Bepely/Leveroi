@@ -1,37 +1,42 @@
 'use client'
 import React from 'react'
 
-import Pair from '../appComponents/reusable/Pair'
-import Amount from '../appComponents/reusable/Amount'
-
 import {useState} from "react"
 
 import "../styles/details/pair.css"
 
-const Point = ({side, header, article, action, link, type}) => {
-    const [demo, setDemo] = useState({amount: 0})
+const Point = ({side, header, text, article, emoji}) => {
+    const [showContent, setShowContent] = useState(false)
+
+    
+    const toShowContent = () => setShowContent(!showContent)
 
     return (
-      <div className="homePoint containerBox dropShadow backLayer2">
-    <artice className={side+"Point homePointArticle"}>
-        <div id='homePointHeader'><h2>{header}</h2></div>
-        <div id='homePointText'><p >{article}</p></div>
-        <div id='homePointLink'><a href={link}><h5>{action}</h5></a></div>
-        <div id='homePointImage'>
-
-            {type === "config" ?
-            <div>
-                <Pair key={0} first="amount" second="" type="input"
-                subState={demo} setSubState={setDemo}/>
-                <Amount subState={demo} setSubState={setDemo}/>
-            </div>
-            : type === "graph" ? 
-            <div></div>
-            : 
-            <div></div>
-            }
+      <div className={side+'Point pointHolder'}>
+      <div className="homePoint containerBox dropShadow backLayer2"
+      id={!showContent ? "" : "pickedPointHeader"} onClick={toShowContent}>
+    <artice className={"homePointArticle"} >
+    
+        {!showContent ?
+        <>
+        <div id="homePointHeader" ><h2>{header}</h2></div>
+        <div id='homePointText homeContentShown'>
+        <h4>{text}</h4>
         </div>
-    </artice>
+        </>
+      :
+      <div id='homePointText homeContentHidden'>
+        <div id="homePointHeader" ><h2>{header}</h2></div>
+          <h4>{text}</h4>
+          <p >{article}</p>
+        </div>
+      }
+        </artice>
+    </div>
+        <div id={showContent ? "justEmoji" :'homePointImage'}>
+          <h1>{!showContent ? "👀" : emoji}</h1>
+        </div>
+    
     </div>
   )
 }
