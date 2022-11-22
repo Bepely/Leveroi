@@ -3,8 +3,6 @@ import React from 'react'
 
 import {useState} from "react"
 
-import "../styles/details/pair.css"
-
 const Point = ({side, header, text, article, emoji}) => {
     const [showContent, setShowContent] = useState(false)
 

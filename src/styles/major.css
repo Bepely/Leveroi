@@ -107,7 +107,7 @@ background-color: #F5F5F5;
         grid-template-areas:"h"
         "rc"
         "d";
-        grid-template-columns: 1fr;    
+        grid-template-columns: 1fr;  
            
     }
 }
