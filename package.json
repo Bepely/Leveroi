@@ -11,12 +11,9 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "chart.js": "^3.9.1",
-    "graphjs": "^0.0.3",
     "html2canvas": "^1.4.1",
     "next": "^13.0.4",
     "react": "^18.2.0",
-    "react-chartjs-2": "^4.3.1",
     "react-dom": "^18.2.0",
     "victory": "^36.6.8",
     "web-vitals": "^2.1.4"
@@ -43,8 +40,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "typescript": "4.9.3"
   }
 }

@@ -1,4 +1,5 @@
- import Point from "../src/homeComponents/Point"
+'use client'
+import Point from "../src/homeComponents/Point"
 
 import '../src/styles/home.css'
 
@@ -56,13 +57,13 @@ return <div className="backLayer1" id="homeRoot">
             <h5>Leveroi is in beta. Feeel free to repot on bugs.</h5>
             <h5>bepely.contact@gmail.com</h5>
             <div id="socials">
-                <a href="https://www.youtube.com/@Bepely">
+                <a target="_blank" href="https://www.youtube.com/@Bepely">
                     <p>YouTube</p>
                 </a>
-                <a href="https://github.com/Bepely">
+                <a target="_blank" href="https://github.com/Bepely">
                     <p>GitHub</p>
                 </a>
-                <a href="https://tiktok.com/@bepely7">
+                <a target="_blank" href="https://tiktok.com/@bepely7">
                     <p>TikTok</p>
                 </a>
             </div>

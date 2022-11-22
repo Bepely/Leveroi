@@ -64,6 +64,7 @@
     place-items: center;
     height: 100%;
     width: 90%;
+    padding: 10px 0px;
     max-height: max-content;
 }
 #inDisInstructions{
@@ -106,6 +107,7 @@
         height: 90%;
     }
     #newOrderInstructions{
+        width: 85%;
         height: fit-content;
         margin-bottom: 3%;
     }
