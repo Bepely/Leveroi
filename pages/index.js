@@ -1,5 +1,6 @@
 'use client'
 import Point from "../src/homeComponents/Point"
+import Head from "next/head"
 
 
 
@@ -8,6 +9,23 @@ export default (()=>{
 
     
 return <div className="backLayer1" id="homeRoot">
+    <Head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta
+      name="description"
+      content="Home Page of the Leveroi project made by Bepely. Here you can find information about Leveroi app and instructions to use it."
+    />
+    <meta name="keywords" content="Profit, Loss, Calculator, Roi, Futures, Leverage, Order"/>
+    <meta name="google-site-verification" content="R432kLJXvfXUt9dWFETX7b_PQpgkOuhY5SEbo-PmVx0" />
+
+
+    <link rel="icon" href="logo.svg" type="image/icon type" />
+    <title>Leveroi Home</title>
+
+      <meta content="width=device-width, initial-scale=1" name="viewport" />
+      <link rel="icon" href="/favicon.ico" />
+    </Head>
         <div className="sectionHome" id="headerHome">
             <header>
                 <div>
