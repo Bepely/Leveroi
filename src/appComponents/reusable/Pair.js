@@ -5,7 +5,6 @@ import React from 'react'
 const Pair = ({type, first, second, subState, setSubState}) => { 
  
     let onChange = (e) => {
-        console.log(typeof subState[first]);
         setSubState(subState => ({...subState, [first]:Number(e.target.value)})) 
     }
 
@@ -26,6 +25,15 @@ const Pair = ({type, first, second, subState, setSubState}) => {
                 <p className='pairFirst pairChild hText'>{first}</p>  
                 <p className='pairSecond pairChild hText'>{second}</p>  
             </div>
+       :
+       type === "checkmark"
+       ?
+            <div className='inputPair pair'>
+                <input type="checkbox" name="pairCheckbox" id="pairCheckbox"
+                onChange={()=>setSubState({...subState, ["on"]:!subState.on})} />
+                <label htmlFor="pairCheckbox">{first} enable fee</label>
+            </div>
+
        :
             <div className='inputPair pair'>
                 <p className='pairChild hText'>PAIR ERROR| FIRST:{first} | SECOND:{second} | TYPE: {type}</p>  

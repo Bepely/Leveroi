@@ -2,8 +2,11 @@
 import html2canvas from 'html2canvas';
 
 import {useRef} from "react"
+import {leveroi} from "../../orderCalculations"
 
 const Results = ({close, setClose, open, setOpen, init, _setInit}) => {
+
+  console.log(open);
 
     const snap = useRef()
 
@@ -49,13 +52,33 @@ const Results = ({close, setClose, open, setOpen, init, _setInit}) => {
     
   let comment = resultStages[6]
 
+  const calcLiquidation = (f) => {
+    if(f === "icon"){
+    return ("")
+    }
+    else if(f === "long"){
+    return ((open.price-((open.price/open.leverage)-(open.amount*open.leverage)*(open.fee/100)))).toFixed(2)
+    }else if(f === "short"){
+     return ((open.price-((open.amount*open.leverage)*(open.fee/100))+(open.price/open.leverage))).toFixed(2)
+    }
+  }
+
+  const feeCoef = (toCalcFee) => {
+    return( (toCalcFee/100) * open.fee)
+  }
+
   const commentSelection = () => {
     let asignee
+
+    
+
     if (close.long === true) {asignee = longResults.marginPercent} else if (close.long === false) {asignee = shortResults.marginPercent}
+
+    console.log(asignee, open.fee-100);
 
     if (asignee <= -1500)    {comment = resultStages[0]}
     else if(asignee <= -500) {comment = resultStages[1]}
-    else if(asignee <= -100) {comment = resultStages[2]}
+    else if(asignee <= open.fee-100) {comment = resultStages[2]}
     else if(asignee <= -80)  {comment = resultStages[3]}
     else if(asignee <= -40)  {comment = resultStages[4]}
     else if(asignee <= -5)   {comment = resultStages[5]}
@@ -103,12 +126,13 @@ const Results = ({close, setClose, open, setOpen, init, _setInit}) => {
              
               <div className="orderData">
               <div id="openInfo">
-                <h4>Bid:{open.amount*open.leverage}</h4>
+                <h4>Bid:{(open.amount*open.leverage)-(open.fee*open.leverage)}</h4>
                 <h5>Amount:{open.amount}</h5>
                 <h5>Leverage:{open.leverage}</h5>
+                <h5>{open.fee && open.fee !== 0 ? "Fee:" + open.fee + "%" : "No Fee"}</h5>
               </div>
                 <div id="liquidation">
-                  <h5>💥 <br/> {(Number(open.price)-Number(open.price/open.leverage)).toFixed(2)}</h5>
+                  <h5>💥 <br/> {calcLiquidation("long")}</h5>
                 </div>
             </div>
               
@@ -144,12 +168,13 @@ const Results = ({close, setClose, open, setOpen, init, _setInit}) => {
            <div className="openResults">
             <div className="orderData">
             <div id="openInfo">
-                <h4>Bid:{open.amount*open.leverage}</h4>
+                <h4>Bid:{(open.amount*open.leverage)-(open.fee*open.leverage) }</h4>
                 <h5>Amount:{open.amount}</h5>
                 <h5>Leverage:{open.leverage}</h5>
+                <h5>{open.fee && open.fee !== 0 ? "Fee:" + open.fee + "%" : "No Fee"}</h5>
               </div>
                 <div id="liquidation">
-                  <h5>💥 <br/> {(Number(open.price)+Number(open.price/open.leverage)).toFixed(2)}</h5>
+                  <h5>💥 <br/> {calcLiquidation("short")}</h5>
                 </div>
             </div>
             </div>
