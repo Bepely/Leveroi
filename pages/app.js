@@ -16,7 +16,7 @@ function App() {
  
   const [closeOrder, setCloseOrder] = useState({
     long: true,
-    closePrice: 100,
+    price: 100,
     min: 0,
     max: 200
 })

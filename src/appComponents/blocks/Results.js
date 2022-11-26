@@ -2,11 +2,10 @@
 import html2canvas from 'html2canvas';
 
 import {useRef} from "react"
-import {leveroi} from "../../orderCalculations"
+import * as lcl from "../../lcl"
 
 const Results = ({close, setClose, open, setOpen, init, _setInit}) => {
 
-  console.log(open);
 
     const snap = useRef()
 
@@ -38,43 +37,15 @@ const Results = ({close, setClose, open, setOpen, init, _setInit}) => {
       "🌟", "🐗", "✨", "🌚", "🏆", "🤡" ]
 
 
-  let longResults = {
-        margin: 0,
-        marginPercent: 0,
-        total: 0
-  }
-
-    let shortResults = {
-        margin: 0,
-        marginPercent: 0,
-        total: 0
-    }
     
   let comment = resultStages[6]
-
-  const calcLiquidation = (f) => {
-    if(f === "icon"){
-    return ("")
-    }
-    else if(f === "long"){
-    return ((open.price-((open.price/open.leverage)-(open.amount*open.leverage)*(open.fee/100)))).toFixed(2)
-    }else if(f === "short"){
-     return ((open.price-((open.amount*open.leverage)*(open.fee/100))+(open.price/open.leverage))).toFixed(2)
-    }
-  }
-
-  const feeCoef = (toCalcFee) => {
-    return( (toCalcFee/100) * open.fee)
-  }
 
   const commentSelection = () => {
     let asignee
 
     
 
-    if (close.long === true) {asignee = longResults.marginPercent} else if (close.long === false) {asignee = shortResults.marginPercent}
-
-    console.log(asignee, open.fee-100);
+    asignee = lcl.marginPercent(open, close)
 
     if (asignee <= -1500)    {comment = resultStages[0]}
     else if(asignee <= -500) {comment = resultStages[1]}
@@ -92,19 +63,6 @@ const Results = ({close, setClose, open, setOpen, init, _setInit}) => {
     else if(asignee >= 40)   {comment = resultStages[8]}
     else if(asignee >= 5)    {comment = resultStages[7]}
     }
-      
-    
-  
-  
-
-
-    longResults.margin = Number((((1/close.closePrice)-(1/open.price))*(close.closePrice * -1)*open.value)).toFixed(2)
-    longResults.total = (Number(longResults.margin) + Number(open.amount)).toFixed(2)
-    longResults.marginPercent = (longResults.margin*100/open.amount).toFixed(2)
-
-    shortResults.margin = Number((((1/open.price)-(1/close.closePrice))*(open.value * -1)*close.closePrice)).toFixed(2)
-    shortResults.total = (Number(shortResults.margin) + Number(open.amount)).toFixed(2)
-    shortResults.marginPercent = (shortResults.margin*100/open.amount).toFixed(2)
 
     commentSelection()
     
@@ -119,8 +77,8 @@ const Results = ({close, setClose, open, setOpen, init, _setInit}) => {
   <div className="resultControls" id="results">
     
   <div  id='reactiveResultsContainer' >
-        {close.long === true 
-          ? 
+        
+          
           <div className="backLayer2 dropShadow containerBox" id='reactiveResults' ref={snap}>
             <div className="openResults exactResults" >
              
@@ -132,7 +90,7 @@ const Results = ({close, setClose, open, setOpen, init, _setInit}) => {
                 <h5>{open.fee && open.fee !== 0 ? "Fee:" + open.fee + "%" : "No Fee"}</h5>
               </div>
                 <div id="liquidation">
-                  <h5>💥 <br/> {calcLiquidation("long")}</h5>
+                  <h5>💥 <br/> {lcl.liquidation(open, close)}</h5>
                 </div>
             </div>
               
@@ -143,68 +101,27 @@ const Results = ({close, setClose, open, setOpen, init, _setInit}) => {
             <div className="closeResults exactResults">
             <div id="orderTitle">
                <p>{comment}</p>
-               <h3 id="resultsHeader">Long Order</h3>
+               <h3 id="resultsHeader">{close.long ? "Long Order" : "Short Order"}</h3>
                  </div> 
                 <div className="pnlResults"> 
                   <div className="pnlContainer">
                     <h4>PNL</h4>
-                    <h5>{longResults.margin}</h5>
-                    <h5>{longResults.marginPercent}%</h5>
+                    <h5>{lcl.margin(open, close)}</h5>
+                    <h5>{lcl.marginPercent(open, close)}%</h5>
                   </div>
                   <div className="totalContainer">
                     <h4>Total</h4>
-                    <h5>{longResults.total}</h5>
+                    <h5>{lcl.total(open, close)}</h5>
                   </div>
                   
                 </div>
             </div>
             <div className="priceHolder">
               <h5>Entry:{Number(open.price).toFixed(2)}</h5>
-              <h5>Close:{Number(close.closePrice).toFixed(2)}</h5>
+              <h5>Close:{Number(close.price).toFixed(2)}</h5>
             </div>
           </div>
-          :
-          <div className="backLayer2 dropShadow containerBox" id='reactiveResults' ref={snap}>
-           <div className="openResults">
-            <div className="orderData">
-            <div id="openInfo">
-                <h4>Bid:{(open.amount*open.leverage)-(open.fee*open.leverage) }</h4>
-                <h5>Amount:{open.amount}</h5>
-                <h5>Leverage:{open.leverage}</h5>
-                <h5>{open.fee && open.fee !== 0 ? "Fee:" + open.fee + "%" : "No Fee"}</h5>
-              </div>
-                <div id="liquidation">
-                  <h5>💥 <br/> {calcLiquidation("short")}</h5>
-                </div>
-            </div>
-            </div>
-
-            <div className="closeResults">
-               <div id="orderTitle">
-               <p>{comment}</p>
-               <h3 id="resultsHeader">Short Order</h3>
-                 </div> 
-                <div className="pnlResults"> 
-                <div className="pnlContainer">
-                    <h4>PNL</h4>
-                    <h5>{shortResults.margin}</h5>
-                    <h5>{shortResults.marginPercent}%</h5>
-                  </div>
-                  <div className="totalContainer">
-                    <h4>Total</h4>
-                    <h5>{shortResults.total}</h5>
-                  </div>
-
-                 
-                </div>
-            </div>
-            <div className="priceHolder">
-              <h5>Entry:{Number(open.price).toFixed(2)}</h5>
-              <h5>Close:{Number(close.closePrice).toFixed(2)}</h5>
-            </div>
-          </div>
-    
-        }
+        
         <div id="btnsHolder">
         <button className='crButton defButton dropShadow' onClick={onSnap}>Make Order Snap</button>
         <button className='crButton defButton dropShadow' onClick={_setInit}> Configurate new order</button>
@@ -222,7 +139,7 @@ const Results = ({close, setClose, open, setOpen, init, _setInit}) => {
 
 Results.defaultProps = {
   close:{
-    closePrice: 420,
+    price: 420,
     max: 1337,
     min: 322,
     long: true

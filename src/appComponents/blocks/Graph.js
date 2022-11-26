@@ -3,6 +3,8 @@ import React from 'react';
 import {VictoryChart, VictoryLine, VictoryLabel, VictoryScatter, VictoryArea} from 'victory'
 import {useRef, useEffect, useState} from "react"
 
+import * as lcl from "../../lcl"
+
 
 
 
@@ -29,16 +31,16 @@ const Graph = ({close, open}) => {
   
 let victoryData = 
   [{x: "Open", y: Number(open.price), size: 1},
-   {x: "Close", y:  Number(close.closePrice),
-    label:  close.closePrice, size: 4 },]
+   {x: "Close", y:  Number(close.price),
+    label:  close.price, size: 4 },]
 
 let liquidationDataLong = [
-  {x: "Open", y:  Number(((open.price)-(open.price/open.leverage)).toFixed(2)), size:1},
-  { x: "Close", y:  Number(((open.price)-(open.price/open.leverage)).toFixed(2)), size:1}
+  {x: "Open", y:  lcl.liquidation(open,close), size:1},
+  { x: "Close", y:  lcl.liquidation(open,close), size:1}
 ]
 let liquidationDataShort = [
-  {x: "Open", y:  Number(((open.price)+(open.price/open.leverage)).toFixed(2)), size:1},
-  { x: "Close", y:  Number(((open.price)+(open.price/open.leverage)).toFixed(2)), size:1}
+  {x: "Open", y:  lcl.liquidation(open,close), size:1},
+  { x: "Close", y:  lcl.liquidation(open,close), size:1}
 ]
   return (
     
@@ -97,7 +99,7 @@ let liquidationDataShort = [
 
 Graph.defaultProps = {
   close:{
-    closePrice: 420,
+    price: 420,
     max: 1337,
     min: 322,
     long: true

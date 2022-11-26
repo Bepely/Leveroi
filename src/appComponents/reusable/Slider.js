@@ -34,7 +34,7 @@ else{whatFix = 7}
         }}
     orientation="vertical"
     valueLabelDisplay="off"
-    value={closeOrder.closePrice ? Number(Number(closeOrder.closePrice).toFixed(whatFix)) : 0}
+    value={closeOrder.price ? Number(Number(closeOrder.price).toFixed(whatFix)) : 0}
     min={Number((closeOrder.min).toFixed(2))}
     max={Number((closeOrder.max).toFixed(2))}
     step={subtraction/50}
@@ -50,7 +50,7 @@ else{whatFix = 7}
 
 Slider.defaultProps = {
   closeOrder:{
-    closePrice: 420,
+    price: 420,
     max: 1337,
     min: 322,
     long: true

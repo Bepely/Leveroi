@@ -15,7 +15,7 @@ const Display = ({openOrder, init, closeOrder, setCloseOrder, inDis}) => {
              x = x.toFixed(2)
              x = Number(x)
             
-             setCloseOrder(closeOrder => ({...closeOrder, closePrice:x}))
+             setCloseOrder(closeOrder => ({...closeOrder, price:x}))
            
         e.target.value = null
 
@@ -67,7 +67,7 @@ const Display = ({openOrder, init, closeOrder, setCloseOrder, inDis}) => {
             setCloseOrder(closeOrder => ({...closeOrder,
                 min:openOrder.price*0.75,
                 max:openOrder.price*1.25,
-                closePrice:openOrder.price,              
+                price:openOrder.price,              
                })) 
         } 
     
@@ -155,7 +155,7 @@ const Display = ({openOrder, init, closeOrder, setCloseOrder, inDis}) => {
                     </div>
                 <div className='minMax container' id="currContainer"> 
                     <h5>Close</h5>
-                    <input type="number" onBlur={changeClosePrice}  placeholder={closeOrder.closePrice}/>
+                    <input type="number" onBlur={changeClosePrice}  placeholder={closeOrder.price}/>
                 </div>
                 <div className='minMax container' id="maxContainer"> 
                     <h5>MAX</h5>
@@ -181,7 +181,7 @@ const Display = ({openOrder, init, closeOrder, setCloseOrder, inDis}) => {
 
 Display.defaultProps = {
     closeOrder:{
-      closePrice: 420,
+      price: 420,
       max: 1337,
       min: 322,
       long: true
