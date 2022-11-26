@@ -84,7 +84,7 @@ const Results = ({close, setClose, open, setOpen, init, _setInit}) => {
              
               <div className="orderData">
               <div id="openInfo">
-                <h4>Bid:{(open.amount*open.leverage)-(open.fee*open.leverage)}</h4>
+                <h4>Bid:{open.value}</h4>
                 <h5>Amount:{open.amount}</h5>
                 <h5>Leverage:{open.leverage}</h5>
                 <h5>{open.fee && open.fee !== 0 ? "Fee:" + open.fee + "%" : "No Fee"}</h5>
