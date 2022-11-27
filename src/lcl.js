@@ -27,7 +27,7 @@
         if (open.fee === 0) {
             return _margin
         } else {
-            return Number((_margin - feeCoef(_margin, open.fee)*2).toFixed(2))
+            return Number((_margin - feeCoef(_margin, open.fee, 2)).toFixed(2))
         }
     }
     // total is returning amount + margin
@@ -43,9 +43,9 @@
     export const liquidation = (open, close) => {
         let _liq
         if(close.long){
-             _liq =  Number(((open.price-((open.price/open.leverage)-(open.value)*(open.fee/100)))).toFixed(2))
+             _liq =  Number(((open.price-((open.price/open.leverage)-(feeCoef(open.value, open.fee, 2))))).toFixed(2))
             }else{
-             _liq = Number(((open.price-((open.value)*(open.fee/100))+(open.price/open.leverage))).toFixed(2))
+             _liq = Number(((open.price-(feeCoef(open.value, open.fee, 2))+(open.price/open.leverage))).toFixed(2))
             }
         return _liq
     }
@@ -62,6 +62,8 @@
 
     
     //feeCoef returns the amount of fee, from an exact number
-    export const feeCoef = (target, fee) =>{
-        return((target/100)*fee)
+    export const feeCoef = (target, fee, transactions) =>{
+
+        return((target/100)*((fee/100)*transactions))
+        
     }
