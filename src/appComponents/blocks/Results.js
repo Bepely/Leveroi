@@ -1,27 +1,26 @@
 
 import html2canvas from 'html2canvas';
 
-import {useRef} from "react"
+import {useRef, useState} from "react"
 import * as lcl from "../../lcl"
 
 const Results = ({close, setClose, open, setOpen, init, _setInit}) => {
+
+  const [shareSwitch, useShareSwitch] = useState(false)
+  const shareClick = () => {useShareSwitch(shareSwitch => !shareSwitch)}
+
   let orderConfigParams = "";
 
-  orderConfigParams = `
-?
-am=${open.amount}&
-lev=${open.leverage}&
-op=${open.price}&
-fee=${open.fee}&
-long=${close.long}&
-cp=${close.price}&
-min=${close.min}&
-max=${close.max}`
+  orderConfigParams = `?am=${open.amount}&lev=${open.leverage}&op=${open.price}&fee=${open.fee}&long=${close.long}&cp=${close.price}&min=${close.min}&max=${close.max}`
 
- const onCopy = () => { navigator.clipboard.writeText("https://bepely.space/app"+orderConfigParams).then(() => {
-  console.log('Async: Copying to clipboard was successful!');
+const getEncodedConfigParams = () => {return encodeURIComponent(`https://bepely.space/app${orderConfigParams}`)}
+const getDecodedConfigParams = (p) => {return decodeURIComponent(p)}
+
+ const onCopy = () => {
+   navigator.clipboard.writeText(`https://bepely.space/app${orderConfigParams}`).then(() => {
+  
   }, (err) => {
-  console.error('Async: Could not copy text: ', err);
+  console.error('Could not copy text || ', err);
   });
  }
 
@@ -144,13 +143,24 @@ max=${close.max}`
             </div>
           </div>
         
-        <div>
+        <div id='shareHolderContainer'>
           <div id='shareHolder'>
-            <button onClick={onCopy}>Copy</button>
             <input type="text" readOnly value={"https://bepely.space/app"+orderConfigParams}/>
           </div>
-        <div id="btnsHolder">
-        <button className='crButton defButton dropShadow' onClick={onSnap}>Make Order Snap</button>
+          {shareSwitch ? <div id='hiddenShareButtonsHolder'>
+          <a className='crButton defButton dropShadow shareBtn' id="shareBtnTG" href={`https://t.me/share/url?url=${getEncodedConfigParams()} 
+&text=I am sharing ${close.long ? "Long" : "Short"} order simulation with ${lcl.margin(open, close)} profit || Made with Leveroi`
+        }> Telegram </a>  
+        <button className='crButton defButton dropShadow shareBtn' id="shareBtnSnap" onClick={onSnap}> Make a Snap </button> 
+        <button className='crButton defButton dropShadow shareBtn' id="shareBtnCopy" onClick={onCopy}> Copy URL </button> 
+          </div>
+          :
+          <></>
+          }
+        <div id="btnsHolder">          
+                
+          
+        <button className='crButton defButton dropShadow' onClick={shareClick}> {!shareSwitch ? "Share 👀" : "Hide Share"}</button>
         <button className='crButton defButton dropShadow' onClick={_setInit}> Configurate new order</button>
        </div>
        </div>

@@ -82,11 +82,21 @@
 
 #shareHolder{
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    height: 100%;
     gap: 10px;
 }
-#shareHolder > *{
+#shareHolder > input{
+    border: 2px solid black;
     border-radius: 4px;
+    height: 75%;
+    width: 100%;
+    padding: 10px;
+}
+.shareBtn{
+    background-color: #ECE9EC
+}
+#shareHolderContainer{
+    width: 100%;
 }
 
 

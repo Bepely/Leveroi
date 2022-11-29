@@ -46,6 +46,7 @@ textarea:focus, input:focus{
 
     min-height: 100vh;
     min-width: 100vw;
+    gap: 10px;
 }
 
 .containerBox{

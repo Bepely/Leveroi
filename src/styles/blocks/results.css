@@ -129,7 +129,14 @@ padding: 2px;
     gap: 10px;
 }
 
-
+#hiddenShareButtonsHolder{
+    grid-template-columns: 1fr 1fr 1fr;
+    display: grid;
+    place-items: center;
+    max-height: 150px;
+    width: 100%;
+    gap: 10px;
+}
 
 
 /* PC LEVEL */
@@ -160,13 +167,14 @@ padding: 2px;
                             "calc"
                             "price";
        
-        max-height: 100%;
+       
         width: 100%;
         padding: 5px 0px;
 
     }
     #reactiveResultsContainer {
         width: 85%;
+        height: fit-content;
 
     }
     

@@ -67,7 +67,6 @@ const Display = ({openOrder, setOpenOrder, init, closeOrder, setCloseOrder, inDi
 
     const onCloseChange = () => {
 
-        console.log(isQue);
         
             if(Object.getOwnPropertyNames(router.query).length <= 0){
 
@@ -83,7 +82,6 @@ const Display = ({openOrder, setOpenOrder, init, closeOrder, setCloseOrder, inDi
                     
             
             } else {
-           
 
                 setOpenOrder(openOrder = ({...openOrder, 
                     amount: Number(router.query.am),
@@ -93,7 +91,7 @@ const Display = ({openOrder, setOpenOrder, init, closeOrder, setCloseOrder, inDi
                 }))
                 setCloseOrder(closeOrder => ({...closeOrder, 
                     price: Number(router.query.cp),
-                    long: Boolean(router.query.long),
+                    long: router.query.long === "true" ? true : false,
                     min: Number(router.query.min),
                     max: Number(router.query.max)
                 }))

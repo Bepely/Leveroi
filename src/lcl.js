@@ -19,9 +19,9 @@
     export const margin = (open, close) => {
        let _margin
          if(close.long === false){
-           _margin = Number(((((1/open.price)-(1/close.price))*(-open.amount * open.leverage))*close.price).toFixed(2))
+           _margin = Number(((((1/open.price)-(1/close.price))*-(Number(open.amount) * Number(open.leverage)))*close.price).toFixed(2))
         }else{
-           _margin = Number(((((1/open.price)-(1/close.price))*(open.amount * open.leverage))*close.price).toFixed(2))
+           _margin = Number(((((1/open.price)-(1/close.price))*(Number(open.amount) * Number(open.leverage)))*close.price).toFixed(2))
         }
 
         if (open.fee === 0) {

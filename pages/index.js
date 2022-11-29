@@ -63,7 +63,7 @@ return <div className="backLayer1" id="homeRoot">
         side={"left"} 
         header={"Share Results"}
         text={"It is easy to save and share order simulation results. "}
-        article={"By clicking “Make a Snap” you will download a snap or the Results Display to your device. You can share it wherever you want, from text chats to your tinder account. "}
+        article={"Share your simulation with a variety of options: Copy the URL to your clipboard, download a screenshot of the results on your device, or share the link on Telegram. The order will be recreated by clicking the generated link."}
         action={"Try Leveroi"}
         link={"/app"}
         type={"result"}
