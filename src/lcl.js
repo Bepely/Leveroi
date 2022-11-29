@@ -32,7 +32,7 @@
     }
     // total is returning amount + margin
     export const total = (open, close) => {
-           return Number(Number(margin(open,close) + open.amount).toFixed(2))
+           return Number((Number(margin(open,close) + open.amount)-feeCoef(Number(open.amount * open.leverage), open.fee, 2)).toFixed(2))
     }
     // margin percent in a percent of margin to initial amount
     export const marginPercent = (open, close) => {
