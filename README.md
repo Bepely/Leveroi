@@ -7,7 +7,8 @@ Order profit calculator
 • Config, Order, Results                | v0.1.0 |  
 • Graph, Real-time API                  | v0.1.1 | 07.11.22  
 • NEXTjs, Home/App routes               | v0.1.2 | 22.11.22  
-• LCL - Leveroi Calculations Library    | v0.1.2a| 27.11.22
+• LCL - Leveroi Calculations Library    | v0.1.2a| 27.11.22  
+• Order Share/Save                      | v0.1.2b| 29.11.22  
   
   
 ## Coming Up 

@@ -1,3 +1,4 @@
+import Head from "next/head"
 
 import '../src/styles/blocks/header.css'
 import '../src/styles/blocks/controls.css'
@@ -14,6 +15,16 @@ import '../src/styles/major.css'
 import '../src/styles/home.css'
 
 const MyApp = ({ Component, pageProps }) => {
-    return <Component {...pageProps} />
+
+    return (
+    
+    <>
+    <Head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    </Head>
+    <Component {...pageProps} />
+    
+    </>
+    )
   }
   export default MyApp
