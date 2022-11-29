@@ -1,12 +1,13 @@
 import { useEffect} from 'react'
 
+
 import Slider from "../reusable/Slider"
 import Graph from "./Graph"
 import Platforms from "../reusable/Platforms"
 
 
 
-const Display = ({openOrder, init, closeOrder, setCloseOrder, inDis}) => {
+const Display = ({openOrder, setOpenOrder, init, closeOrder, setCloseOrder, inDis, router, isQue, setIsQue}) => {
   
 
     const changeClosePrice = (e) => {
@@ -58,22 +59,53 @@ const Display = ({openOrder, init, closeOrder, setCloseOrder, inDis}) => {
 
     //onClick={longShortChange} to put in longshortButtons
     const longShortChange = () => {
+        
         setCloseOrder(closeOrder => closeOrder.long === true
                     ?({...closeOrder, long: false})
                     :({...closeOrder, long: true}))
     }
 
     const onCloseChange = () => {
-            setCloseOrder(closeOrder => ({...closeOrder,
-                min:openOrder.price*0.75,
-                max:openOrder.price*1.25,
-                price:openOrder.price,              
-               })) 
+
+        console.log(isQue);
+        
+            if(Object.getOwnPropertyNames(router.query).length <= 0){
+
+             if(!isQue){
+                setCloseOrder(closeOrder => ({...closeOrder,
+                    min:openOrder.price*0.75,
+                    max:openOrder.price*1.25,
+                    price:openOrder.price,              
+                   })) 
+                
+             }
+                   
+                    
+            
+            } else {
+           
+
+                setOpenOrder(openOrder = ({...openOrder, 
+                    amount: Number(router.query.am),
+                    leverage: Number(router.query.lev),
+                    price:  Number(router.query.op),
+                    fee: Number(router.query.fee)
+                }))
+                setCloseOrder(closeOrder => ({...closeOrder, 
+                    price: Number(router.query.cp),
+                    long: Boolean(router.query.long),
+                    min: Number(router.query.min),
+                    max: Number(router.query.max)
+                }))
+                router.replace('/app', undefined, { shallow: true });
+
+             
+            }
         } 
     
        useEffect(()=>{
             onCloseChange()
-       },[init])
+       },[init, router])
 
        
 
@@ -184,7 +216,13 @@ Display.defaultProps = {
       price: 420,
       max: 1337,
       min: 322,
-      long: true
+      long: false
+    },
+    openOrder:{
+        price: 420,
+        leverage: 1,
+        amount: 100,
+        fee: 1
     }
   }
 

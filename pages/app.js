@@ -1,5 +1,6 @@
 'use client'
 import Head from "next/head"
+import {useRouter} from "next/router"
 
 import Header from "../src/appComponents/blocks/Header"
 import Display from "../src/appComponents/blocks/Display"
@@ -12,16 +13,25 @@ import { useState, useEffect } from "react"
 
 
 function App() {
-
+  const router = useRouter()
+ 
+ 
+  const [isQue, setIsQue] = useState(isQue => false)
+  
  
   const [closeOrder, setCloseOrder] = useState({
     long: true,
-    price: 100,
+    price: 0.08808,
     min: 0,
     max: 200
 })
   const [inDis, setInDis] = useState(inDis => false)
-  const [openOrder, setOpenOrder] = useState({})
+  const [openOrder, setOpenOrder] = useState({
+    amount: 100,
+    leverage: 1,
+    price: 1337,
+    fee: 0
+  })
   const [init, setInit] = useState(init => false)
 
   const [marketPrice, setMarketPrice] = useState({
@@ -46,17 +56,31 @@ function App() {
 
 
 
+
+
   const openOrderFires=(x)=>{
       setOpenOrder(openOrder => ({...x}))
       }
   const _setInit = ()=>{
+    if(isQue){setIsQue(isQue => false)}
     setInDis(inDis => true)
     setInit(init => !init)
+
   }
   const _setInDis = ()=>{
     setInDis(inDis => !inDis)
   }
 
+  
+
+
+  useEffect(()=>{
+    if(Object.getOwnPropertyNames(router.query).length > 0){
+      setIsQue(isQue => true)
+      setInit(init => true)
+    }
+  }, [router.query])
+    
  
 
   return (
@@ -81,8 +105,10 @@ function App() {
  <link rel="icon" href="/favicon.ico" /></Head>   
         <Display 
          init={init} inDis={inDis}
-         openOrder={openOrder}
-         closeOrder={closeOrder} setCloseOrder={setCloseOrder}/>
+         openOrder={openOrder} setOpenOrder={setOpenOrder}
+         closeOrder={closeOrder} setCloseOrder={setCloseOrder}
+         router={router}
+         isQue = {isQue} setIsQue = {setIsQue}/>
          <Header />
          {init === true ? 
           <Results open={openOrder} close={closeOrder}
@@ -92,7 +118,8 @@ function App() {
           <Controls openOrderFires={openOrderFires}
           init={init} _setInit={_setInit}
           inDis={inDis} setInDis={_setInDis}
-          marketPrice={marketPrice}/>
+          marketPrice={marketPrice}
+          openOrder={openOrder} setOpenOrder={setOpenOrder}/>
         }
         
          

@@ -8,44 +8,22 @@ import Fee from "../reusable/Fee"
 
 
 
-import { useState } from 'react'
+const Controls = ({openOrderFires, init, _setInit, setInDis, inDis, marketPrice, openOrder, setOpenOrder}) => {
 
-
-
-const Controls = ({openOrderFires, init, _setInit, setInDis, inDis, marketPrice}) => {
-
-  const [openOrder, setOpenOrder] = useState({
-    amount: 100,
-    leverage: 1,
-    price: 1337,
-    fee: 0
-  })
+  
 
 
   let transfer = {}
 
   const sendToDisplay = () => {
     transfer = openOrder
-    transfer.value = transfer.amount * transfer.leverage
-    transfer.initialised = false
     openOrderFires(transfer)
     _setInit()
+}
 
-    setOpenOrder(openOrder => ({
-        amount: Number(transfer.amount),
-        leverage: Number(transfer.leverage),
-        price: Number(transfer.price),
-        fee: Number(transfer.fee)
-              }))
-    
-  }
-
-  const inDisSwitch = () =>{
-    setInDis(inDis => !inDis)
-  }
-
-  
-
+const inDisSwitch = () =>{
+  setInDis(inDis => !inDis)
+}
   
   return (
     

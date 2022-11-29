@@ -19,9 +19,9 @@
     export const margin = (open, close) => {
        let _margin
          if(close.long === false){
-           _margin = Number(((((1/open.price)-(1/close.price))*(-open.value))*close.price).toFixed(2))
+           _margin = Number(((((1/open.price)-(1/close.price))*(-open.amount * open.leverage))*close.price).toFixed(2))
         }else{
-           _margin = Number(((((1/open.price)-(1/close.price))*(open.value))*close.price).toFixed(2))
+           _margin = Number(((((1/open.price)-(1/close.price))*(open.amount * open.leverage))*close.price).toFixed(2))
         }
 
         if (open.fee === 0) {
@@ -43,9 +43,9 @@
     export const liquidation = (open, close) => {
         let _liq
         if(close.long){
-             _liq =  Number(((open.price-((open.price/open.leverage)-(feeCoef(open.value, open.fee, 2))))).toFixed(2))
+             _liq =  Number(((open.price-((open.price/open.leverage)-(feeCoef((open.amount * open.leverage), open.fee, 2))))).toFixed(2))
             }else{
-             _liq = Number(((open.price-(feeCoef(open.value, open.fee, 2))+(open.price/open.leverage))).toFixed(2))
+             _liq = Number(((open.price-(feeCoef((open.amount * open.leverage), open.fee, 2))+(open.price/open.leverage))).toFixed(2))
             }
         return _liq
     }

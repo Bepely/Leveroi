@@ -5,16 +5,38 @@ import {useRef} from "react"
 import * as lcl from "../../lcl"
 
 const Results = ({close, setClose, open, setOpen, init, _setInit}) => {
+  let orderConfigParams = "";
 
+  orderConfigParams = `
+?
+am=${open.amount}&
+lev=${open.leverage}&
+op=${open.price}&
+fee=${open.fee}&
+long=${close.long}&
+cp=${close.price}&
+min=${close.min}&
+max=${close.max}`
+
+ const onCopy = () => { navigator.clipboard.writeText("https://bepely.space/app"+orderConfigParams).then(() => {
+  console.log('Async: Copying to clipboard was successful!');
+  }, (err) => {
+  console.error('Async: Could not copy text: ', err);
+  });
+ }
 
     const snap = useRef()
 
     const onSnap = async () => {
+      
+
       const element = snap.current;
       const canvas = await html2canvas(element, {backgroundColor: null});
   
       const data = canvas.toDataURL('image/png');
       const link = document.createElement('a');
+
+     
   
       if (typeof link.download === 'string') {
         
@@ -84,7 +106,7 @@ const Results = ({close, setClose, open, setOpen, init, _setInit}) => {
              
               <div className="orderData">
               <div id="openInfo">
-                <h4>Bid:{open.value}</h4>
+                <h4>Bid:{open.amount * open.leverage}</h4>
                 <h5>Amount:{open.amount}</h5>
                 <h5>Leverage:{open.leverage}</h5>
                 <h5>{open.fee && open.fee !== 0 ? "Fee:" + open.fee + "%" : "No Fee"}</h5>
@@ -122,9 +144,15 @@ const Results = ({close, setClose, open, setOpen, init, _setInit}) => {
             </div>
           </div>
         
+        <div>
+          <div id='shareHolder'>
+            <button onClick={onCopy}>Copy</button>
+            <input type="text" readOnly value={"https://bepely.space/app"+orderConfigParams}/>
+          </div>
         <div id="btnsHolder">
         <button className='crButton defButton dropShadow' onClick={onSnap}>Make Order Snap</button>
         <button className='crButton defButton dropShadow' onClick={_setInit}> Configurate new order</button>
+       </div>
        </div>
        </div>
      
