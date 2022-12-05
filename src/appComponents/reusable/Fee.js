@@ -8,7 +8,7 @@ const Fee = ({subState, setSubState}) => {
 
     let onClick = (e) => {
             let newAmount = e.target.getAttribute("p");
-            setSubState(subState => ({...subState, fee:newAmount}))       
+            setSubState(subState => ({...subState, fee:Number(newAmount)}))       
     }
 
   return (
@@ -28,17 +28,17 @@ const Fee = ({subState, setSubState}) => {
           className={subState.fee == 0 ? "amountBtn pickedAmountBtn" : "amountBtn" } 
           id='amt10' p={0} onClick={onClick}>0</button>
          <button 
-          className={subState.fee == 0.25 ? "amountBtn pickedAmountBtn" : "amountBtn" }
-           id='amt50' p={0.25} onClick={onClick}>0.25</button>
+          className={subState.fee == 0.1 ? "amountBtn pickedAmountBtn" : "amountBtn" }
+           id='amt50' p={0.1} onClick={onClick}>0.1</button>
          <button
-          className={subState.fee == 0.5 ? "amountBtn pickedAmountBtn" : "amountBtn"}
-            id='amt100' p={0.5} onClick={onClick}>0.5</button>
+          className={subState.fee == 0.2 ? "amountBtn pickedAmountBtn" : "amountBtn"}
+            id='amt100' p={0.2} onClick={onClick}>0.2</button>
          <button 
-          className={subState.fee == 0.75 ? "amountBtn pickedAmountBtn" : "amountBtn" }
-           id='amt250' p={0.75} onClick={onClick}>0.75</button>
+          className={subState.fee == 0.3 ? "amountBtn pickedAmountBtn" : "amountBtn" }
+           id='amt250' p={0.3} onClick={onClick}>0.3</button>
           <button 
-          className={subState.fee == 1 ? "amountBtn pickedAmountBtn" : "amountBtn" }
-           id='amt500' p={1} onClick={onClick}>1</button>
+          className={subState.fee == 0.4 ? "amountBtn pickedAmountBtn" : "amountBtn" }
+           id='amt500' p={0.4} onClick={onClick}>0.4</button>
          </div>
          </>
       

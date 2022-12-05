@@ -14,9 +14,6 @@ import * as lcl from "../../lcl"
 const Graph = ({close, open}) => {
   
 
-
-
-
   const [height, setHeight] = useState()
   const [width, setWidth] = useState()
   const ref = useRef(null)

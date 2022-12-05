@@ -63,7 +63,6 @@ const getDecodedConfigParams = (p) => {return decodeURIComponent(p)}
 
   const commentSelection = () => {
     let asignee
-
     
 
     asignee = lcl.marginPercent(open, close)
@@ -138,8 +137,8 @@ const getDecodedConfigParams = (p) => {return decodeURIComponent(p)}
                 </div>
             </div>
             <div className="priceHolder">
-              <h5>Entry:{Number(open.price).toFixed(2)}</h5>
-              <h5>Close:{Number(close.price).toFixed(2)}</h5>
+              <h5>Entry:{lcl.fixCoef(open.price)}</h5>
+              <h5>Close:{lcl.fixCoef(close.price)}</h5>
             </div>
           </div>
         
@@ -148,7 +147,7 @@ const getDecodedConfigParams = (p) => {return decodeURIComponent(p)}
             <input type="text" readOnly value={"https://bepely.space/app"+orderConfigParams}/>
           </div>
           {shareSwitch ? <div id='hiddenShareButtonsHolder'>
-          <a className='crButton defButton dropShadow shareBtn' id="shareBtnTG" href={`https://t.me/share/url?url=${getEncodedConfigParams()} 
+          <a className='crButton defButton dropShadow shareBtn' id="shareBtnTG" target="_blank" href={`https://t.me/share/url?url=${getEncodedConfigParams()} 
 &text=I am sharing ${close.long ? "Long" : "Short"} order simulation with ${lcl.margin(open, close)} profit || Made with Leveroi`
         }> Telegram </a>  
         <button className='crButton defButton dropShadow shareBtn' id="shareBtnSnap" onClick={onSnap}> Make a Snap </button> 

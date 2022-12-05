@@ -5,6 +5,8 @@ import Slider from "../reusable/Slider"
 import Graph from "./Graph"
 import Platforms from "../reusable/Platforms"
 
+import * as lcl from "../../lcl"
+
 
 
 const Display = ({openOrder, setOpenOrder, init, closeOrder, setCloseOrder, inDis, router, isQue, setIsQue}) => {
@@ -12,11 +14,8 @@ const Display = ({openOrder, setOpenOrder, init, closeOrder, setCloseOrder, inDi
 
     const changeClosePrice = (e) => {
         
-            let x = Number(e.target.value)       
-             x = x.toFixed(2)
-             x = Number(x)
-            
-             setCloseOrder(closeOrder => ({...closeOrder, price:x}))
+            let x = lcl.fixCoef(e.target.value)       
+            setCloseOrder(closeOrder => ({...closeOrder, price:x}))
            
         e.target.value = null
 
@@ -27,11 +26,9 @@ const Display = ({openOrder, setOpenOrder, init, closeOrder, setCloseOrder, inDi
        }
 
     const changeMin = (e) => {
-        let x = Number(e.target.value)       
-             x = x.toFixed(2)
-             x = Number(x)
-
-        if(x >= closeOrder.max){
+            console.log(e.target.value);
+            let x = lcl.fixCoef(e.target.value)       
+            if(x >= closeOrder.max){
             setCloseOrder(closeOrder => ({...closeOrder,
                                          max:x+1,
                                          min:x}))
@@ -42,14 +39,12 @@ const Display = ({openOrder, setOpenOrder, init, closeOrder, setCloseOrder, inDi
         e.target.value = null
     }
     const changeMax = (e) => {
-        let x = Number(e.target.value)       
-             x = x.toFixed(2)
-             x = Number(x)
 
+        let x = lcl.fixCoef(e.target.value)       
         if(x <= 0 || x === null){}
         else if(x <= closeOrder.min){
            
-            setCloseOrder(closeOrder => ({...closeOrder,
+        setCloseOrder(closeOrder => ({...closeOrder,
                                      min:x-1,
                                      max:x}))}
         else{setCloseOrder(closeOrder => ({...closeOrder, max:x}))} 
@@ -84,16 +79,16 @@ const Display = ({openOrder, setOpenOrder, init, closeOrder, setCloseOrder, inDi
             } else {
 
                 setOpenOrder(openOrder = ({...openOrder, 
-                    amount: Number(router.query.am),
-                    leverage: Number(router.query.lev),
-                    price:  Number(router.query.op),
-                    fee: Number(router.query.fee)
+                    amount: lcl.fixCoef(router.query.am),
+                    leverage: lcl.fixCoef(router.query.lev),
+                    price:  lcl.fixCoef(router.query.op),
+                    fee: lcl.fixCoef(router.query.fee)
                 }))
                 setCloseOrder(closeOrder => ({...closeOrder, 
-                    price: Number(router.query.cp),
+                    price: lcl.fixCoef(router.query.cp),
                     long: router.query.long === "true" ? true : false,
-                    min: Number(router.query.min),
-                    max: Number(router.query.max)
+                    min: lcl.fixCoef(router.query.min),
+                    max: lcl.fixCoef(router.query.max)
                 }))
                 router.replace('/app', undefined, { shallow: true });
 
@@ -181,7 +176,7 @@ const Display = ({openOrder, setOpenOrder, init, closeOrder, setCloseOrder, inDi
                </div>
                 <div className='minMax container' id="minContainer"> 
                     <h5>MIN</h5>
-                    <input type="number" onBlur={changeMin}  placeholder={closeOrder.min ? Number(closeOrder.min) : 0}/>
+                    <input type="number" onBlur={changeMin}  placeholder={closeOrder.min ? lcl.fixCoef(closeOrder.min) : 0}/>
                     </div>
                 <div className='minMax container' id="currContainer"> 
                     <h5>Close</h5>
@@ -189,7 +184,7 @@ const Display = ({openOrder, setOpenOrder, init, closeOrder, setCloseOrder, inDi
                 </div>
                 <div className='minMax container' id="maxContainer"> 
                     <h5>MAX</h5>
-                    <input type="number" onBlur={changeMax} placeholder={closeOrder.max ? Number(closeOrder.max) : 1}/>
+                    <input type="number" onBlur={changeMax} placeholder={closeOrder.max ? lcl.fixCoef(closeOrder.max) : 1}/>
                 </div>
                 
 

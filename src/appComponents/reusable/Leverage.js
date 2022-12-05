@@ -4,7 +4,7 @@ const Leverage = ({subState, setSubState}) => {
 
     let onClick = (e) => {
         let newLeverage = e.target.getAttribute("p");
-        setSubState(subState => ({...subState, leverage:newLeverage}))
+        setSubState(subState => ({...subState, leverage:Number(newLeverage)}))
     }
 
   return (

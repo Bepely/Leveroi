@@ -2,24 +2,14 @@ import React from 'react'
 
 import MSlider from "@mui/material/Slider"
 
+import * as lcl from "../../lcl"
 
 
 
 
 
 const Slider = ({closeOrder, changeClosePrice}) => {
-
 let subtraction = Number(closeOrder.max - closeOrder.min)
-let whatFix;
-
-if(subtraction > 1000){whatFix = 0}
-else if(subtraction > 100){whatFix = 1}
-else if(subtraction > 10){whatFix = 2}
-else if(subtraction > 1){whatFix = 3}
-else if(subtraction > 0.1){whatFix = 4}
-else if(subtraction > 0.01){whatFix = 5}
-else if(subtraction > 0.001){whatFix = 6}
-else{whatFix = 7}
 
 
   return (
@@ -34,9 +24,9 @@ else{whatFix = 7}
         }}
     orientation="vertical"
     valueLabelDisplay="off"
-    value={closeOrder.price ? Number(Number(closeOrder.price).toFixed(whatFix)) : 0}
-    min={Number((closeOrder.min).toFixed(2))}
-    max={Number((closeOrder.max).toFixed(2))}
+    value={closeOrder.price ? lcl.fixCoef(closeOrder.price) : 0}
+    min={lcl.fixCoef(closeOrder.min)}
+    max={lcl.fixCoef(closeOrder.max)}
     step={subtraction/50}
     onChange={changeClosePrice}
     color="primary"
