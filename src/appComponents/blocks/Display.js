@@ -160,36 +160,43 @@ const Display = ({openOrder, setOpenOrder, init, closeOrder, setCloseOrder, inDi
 
             
             <div className='layerFloor multiVert blockCard'>
-                <div id="minMaxCurContainer">
-                <div className="longShortBtnHolder">
-                <button className={`btn ${closeOrder.long ? `picked` : `toPick`} greenButton`} 
-                disabled={closeOrder.long ? true : false} 
-                onClick={longShortChange}>LONG</button>
-                <button className={`btn ${!closeOrder.long ? `picked` : `toPick`} redButton`} 
-                disabled={closeOrder.long ? false : true} 
-                onClick={longShortChange}>SHORT</button>
-               </div>
-                <div className='minMax container' id="minContainer"> 
-                    <h5>MIN</h5>
-                    <input type="number" onBlur={changeMin}  placeholder={closeOrder.min ? lcl.fixCoef(closeOrder.min) : 0}/>
+                <div className="layerFloorNested multiHor" >
+                    
+                    <div className="layerFloorNested multiHor" id='longShortPicker'>
+                    <button className={`btn ${closeOrder.long ? `picked` : `toPick`} greenButton`} 
+                    disabled={closeOrder.long ? true : false} 
+                    onClick={longShortChange}>LONG</button>
+                    <button className={`btn ${!closeOrder.long ? `picked` : `toPick`} redButton`} 
+                    disabled={closeOrder.long ? false : true} 
+                    onClick={longShortChange}>SHORT</button>
                     </div>
-                <div className='minMax container' id="currContainer"> 
-                    <h5>Close</h5>
-                    <input type="number" onBlur={changeClosePrice}  placeholder={closeOrder.price}/>
+
+                    
+                
                 </div>
-                <div className='minMax container' id="maxContainer"> 
-                    <h5>MAX</h5>
-                    <input type="number" onBlur={changeMax} placeholder={closeOrder.max ? lcl.fixCoef(closeOrder.max) : 1}/>
+
+                 <div className='layerTable multiHor' id='graphSlider'>
+                    <Graph close={closeOrder} open={openOrder}/>
+                    <Slider closeOrder={closeOrder} changeClosePrice={changeClosePrice}/>  
                 </div>
                 
-
-                </div>
-            <div className='container' id='graphContainer'>
-                    <Graph close={closeOrder} open={openOrder}/>
-            </div>
-            <div className='sliderControlContainer'>
-            <Slider closeOrder={closeOrder} changeClosePrice={changeClosePrice}/>  
-            </div>
+           
+           
+            <div className='layerFloorNested multiHor' id='minMaxOpt'>
+                    <div className='layerTable minMaxCurInput'> 
+                        <input type="number" onBlur={changeMin}  placeholder={closeOrder.min ? lcl.fixCoef(closeOrder.min) : 0}/>
+                        <h5>MIN</h5>
+                        </div>
+                    <div className='layerTable minMaxCurInput'> 
+                        <input type="number" onBlur={changeClosePrice}  placeholder={closeOrder.price}/>
+                        <h5>Close</h5>
+                    </div>
+                    <div className='layerTable minMaxCurInput'> 
+                        
+                        <input type="number"  onBlur={changeMax} placeholder={closeOrder.max ? lcl.fixCoef(closeOrder.max) : 1}/>
+                        <h5>MAX</h5>
+                    </div>
+                    </div>
             
         </div>
             }

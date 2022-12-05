@@ -22,7 +22,7 @@ const Graph = ({close, open}) => {
     setHeight(ref.current.clientHeight)
     setWidth(ref.current.clientWidth)
    
-  },[width])
+  },[width, height])
 
 
   
@@ -42,7 +42,7 @@ let liquidationDataShort = [
   return (
     
     
-    <div className='graph container' id='graph' ref={ref}>
+    <div className='soloCenter layerTable' id='graph' ref={ref}>
       {close && open && height && width
       ?
       <VictoryChart 

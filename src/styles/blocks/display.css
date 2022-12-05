@@ -8,14 +8,37 @@
 #displayBaseNested{
     width: 80%;
 }
-
-
-#displayRoot{
-    display: grid;
-    place-items: center;
-    grid-area: d;
-    height: 100%;
+#longShortPicker{
+    align-self: flex-start;
+    width: 75%;
 }
+
+#minMaxOpt{
+    width: 100%;
+}
+.minMaxCurInput{
+    width: 50%;
+    
+}
+.minMaxCurInput>input{
+    width: 50%;
+    margin: -1px 0 0 1px;
+    
+}
+
+
+    .redButton:disabled{
+        background-color: #cf5656;
+        box-shadow: 0px -3px 8px #cf5656;
+  
+    }
+    .greenButton:disabled{
+        background-color: #64c564;
+        box-shadow: 0px -3px 8px  #64c564;
+        
+    }
+    
+   
 
 #displayContainer{
     display: grid;
@@ -100,7 +123,7 @@
     border-top-left-radius: 7px;
     border-top-right-radius: 7px;
 
-    background-color: #D9D1DB;
+    background-color: #faf4fa;
     
     
 }

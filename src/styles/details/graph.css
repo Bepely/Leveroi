@@ -16,11 +16,21 @@
 
 }
 
-#graph{
-    width: 90%;
-    height: 80%; 
+#graphSlider{
+    display: grid;
+    grid-template-columns: 7fr 2fr;
+    height: 90%;
 }
 
+.minMaxCurInput>input{ 
+    border: 2px solid black;
+    border-radius: 7px;
+}
+
+#graph{
+    height: 100%;
+    width: 100%;
+}
 
 /* PC LEVEL */
 

@@ -6,7 +6,7 @@ const Amount = ({subState, setSubState, optName, optConfig, eventAPI}) => {
 
     let onClick = (e) => {
         let newAmount = e.target.getAttribute("p");
-        setSubState(subState => ({...subState, [optName]:newAmount}))
+        setSubState(subState => ({...subState, [optName]:Number(newAmount)}))
     }
 
   return (
