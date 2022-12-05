@@ -1,4 +1,15 @@
 /* TOTAL LEVEL */
+#displayBase{
+    height: 80%;
+    width: 80%;
+    place-self: center;
+}
+
+#displayBaseNested{
+    width: 80%;
+}
+
+
 #displayRoot{
     display: grid;
     place-items: center;
@@ -100,15 +111,8 @@
 /* MOBILE LEVEL */
 
 @media (max-aspect-ratio: 1/1){
-    #displayRoot{
+    #displayBase{
         width: 100%;
-    }
-    #displayContainer{
         height: 100%;
-    }
-    #newOrderInstructions{
-        width: 85%;
-        height: fit-content;
-        margin-bottom: 3%;
     }
 }

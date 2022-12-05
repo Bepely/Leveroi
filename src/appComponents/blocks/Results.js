@@ -4,6 +4,8 @@ import html2canvas from 'html2canvas';
 import {useRef, useState} from "react"
 import * as lcl from "../../lcl"
 
+import Note from "../reusable/Note"
+
 const Results = ({close, setClose, open, setOpen, init, _setInit}) => {
 
   const [shareSwitch, useShareSwitch] = useState(false)
@@ -94,7 +96,8 @@ const getDecodedConfigParams = (p) => {return decodeURIComponent(p)}
   
  return (
    
-  <div className="resultControls" id="results">
+  <>
+
     
   <div  id='reactiveResultsContainer' >
         
@@ -165,8 +168,7 @@ const getDecodedConfigParams = (p) => {return decodeURIComponent(p)}
        </div>
        </div>
      
-     
-     </div>
+       </>
                     
   )
         

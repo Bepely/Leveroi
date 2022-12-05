@@ -1,0 +1,38 @@
+.layerGround{
+    background: linear-gradient(0deg,#f4a1a1,#8ee489);
+    background-size: 120% 120%;
+    animation:  10s ease infinite;
+    animation-name: rootBack;
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+    max-width: 100vw;
+    
+}
+
+.layerBase{
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+}
+
+.layerFloor{
+    background-color: #ece9ec;
+    border: 2px solid #1d1e1d;
+    border-radius: 7px;
+}
+
+.layerTable{
+    background-color: #ece9ec;
+}
+
+
+@media (max-aspect-ratio: 1/1){
+.layerGround{
+    flex-direction: column-reverse;
+    height: 100%;
+    width: 100%;
+    padding: 20px 0;
+}
+}
+

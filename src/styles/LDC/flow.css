@@ -1,0 +1,28 @@
+.soloCenter{
+    display: grid;
+    align-items: center;
+    align-content: stretch;
+    justify-content: center;
+    justify-items: center;
+    
+}
+
+.multiHor{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: stretch;
+    justify-content: center;
+    justify-items: center;
+    gap: 20px;
+}
+
+.multiVer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: stretch;
+    justify-content: center;
+    justify-items: center;
+    gap: 20px;
+}

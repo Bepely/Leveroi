@@ -9,7 +9,7 @@ const Pair = ({type, first, second, subState, setSubState}) => {
     }
 
   return (
-    <div className='pairHolder container reuse' id={type+"-"+first+"-"+second}>
+    <div className='pairHolder layerFloorNested' id={type+"-"+first+"-"+second}>
        {type === "input"
         ?    
             <div className='inputPair pair'>
@@ -17,21 +17,6 @@ const Pair = ({type, first, second, subState, setSubState}) => {
                  <input className='pairSecond pairChild pairInput' 
                  type="number" name={second} id={second} placeholder={second} 
                  value={subState[first]} onChange={onChange}/> 
-            </div>
-        :
-        type === "inform"
-        ?
-            <div className='inputPair pair'>
-                <p className='pairFirst pairChild hText'>{first}</p>  
-                <p className='pairSecond pairChild hText'>{second}</p>  
-            </div>
-       :
-       type === "checkmark"
-       ?
-            <div className='inputPair pair'>
-                <input type="checkbox" name="pairCheckbox" id="pairCheckbox"
-                onChange={()=>setSubState({...subState, ["on"]:!subState.on})} />
-                <label htmlFor="pairCheckbox">{first} enable fee</label>
             </div>
 
        :

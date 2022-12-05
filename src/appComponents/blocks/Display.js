@@ -103,27 +103,28 @@ const Display = ({openOrder, setOpenOrder, init, closeOrder, setCloseOrder, inDi
        
 
   return (
-    <div className='block' id='displayRoot'>
+    <div className='layerBase soloCenter' id='displayBaseNested' >
 
             {init === false ? 
                
-                <div className='backLayer2 dropShadow container containerBox' id='newOrderInstructions'>
+                <>
                 
                 {inDis === true
                 ?
-                <div id='inDisPlatforms'>
-                    <h3>Real Market Trading</h3>
-                    <Platforms />
-                    <div id="initComment">
-                <h5>Leveroy is in beta. Feel free to report bugs.</h5>
-                    <h5> <a target="_blank" href='https://twitter.com/o6morok'>twitter: @o6morok</a> |
-                    | <a target="_blank" href='https://www.youtube.com/@Bepely'>youtube: @bepely</a> |
-                    | <a target="_blank" href='https://github.com/Bepely'>github: @bepely</a></h5>
-                
+                <div className='layerFloor multiVer blockCard contentCard'>
+                    
+                        <h3>Real Market Trading</h3>
+                        <Platforms />
+                        <div id="initComment">
+                        <h5>Leveroy is in beta. Feel free to report bugs.</h5>
+                        <h5> <a target="_blank" href='https://twitter.com/o6morok'>twitter: @o6morok</a> |
+                        | <a target="_blank" href='https://www.youtube.com/@Bepely'>youtube: @bepely</a> |
+                        | <a target="_blank" href='https://github.com/Bepely'>github: @bepely</a></h5>
+                   
                 </div>
                 </div>
                 :
-                <div id="inDisInstructions">
+                <div className='layerFloor multiVer blockCard contentCard' >
                     <article>
                     <h3>Profit / Loss Calculator</h3>
                     <p>
@@ -134,17 +135,11 @@ const Display = ({openOrder, setOpenOrder, init, closeOrder, setCloseOrder, inDi
                     </p>
                     </article>
                 
-                    <div>
-                 <h3>Disclaimer</h3>
-                <div>
                     
-               <ul> 
-                <li> Real-market trading platforms may have different calculating formulas.</li>
-                <li>Leveroi information is approximate and may differ from real-market platforms.</li>
-                </ul>
-
-</div>
-                </div>
+                 <h3>Disclaimer</h3>
+                    <li> Real-market trading platforms may have different calculating formulas.</li>
+                    <li>Leveroi information is approximate and may differ from real-market platforms.</li>
+                
                 
                 <div id="initComment">
                 <h5>Leveroy is in beta. Feel free to report bugs.</h5>
@@ -155,7 +150,7 @@ const Display = ({openOrder, setOpenOrder, init, closeOrder, setCloseOrder, inDi
                 </div>
                 </div>
                 }
-                </div>
+                </>
                 
           
 
@@ -164,7 +159,7 @@ const Display = ({openOrder, setOpenOrder, init, closeOrder, setCloseOrder, inDi
 
 
             
-            <div className='backLayer2 dropShadow container containerBox' id='displayContainer'>
+            <div className='layerFloor multiVert blockCard'>
                 <div id="minMaxCurContainer">
                 <div className="longShortBtnHolder">
                 <button className={`btn ${closeOrder.long ? `picked` : `toPick`} greenButton`} 

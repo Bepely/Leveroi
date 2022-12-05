@@ -1,0 +1,42 @@
+.blockField{
+
+}
+
+.blockButton{
+
+
+}
+
+.blockCard{
+    width: 100%;
+    height: 100%;
+    
+    box-shadow: 6px 6px #937d9944;
+    
+}
+.blockCard:hover, .blockCard:focus{
+    box-shadow: 7px 7px #937d99aa;
+}
+
+.contentCard{
+    padding: 20px 10px;
+}
+
+
+
+
+#interfaceBase{
+    height: 80%;
+    width: 80%;
+    place-self: center;
+    justify-content: space-between;
+}
+
+@media (max-aspect-ratio: 1/1){
+    #interfaceBase{
+        height: 100%;
+        width: 100%;
+    }
+    }
+
+
