@@ -1,4 +1,4 @@
-'use client'
+
 import Point from "../src/homeComponents/Point"
 import Head from "next/head"
 
@@ -59,7 +59,7 @@ return <div className="backLayer1" id="homeRoot">
         emoji={"🌊"}
         />
 
-<Point 
+        <Point 
         side={"left"} 
         header={"Share Results"}
         text={"It is easy to save and share order simulation results. "}
