@@ -1,10 +1,8 @@
-'use client'
 import React from 'react'
-import Pair from "../reusable/Pair"
 
 import Option from "../reusable/Option"
 
-import ControlsButtons from '../controls/controlsButtons'
+import ControlsButtons from '../controls/ControlsButtons'
 
 
 
