@@ -1,25 +1,34 @@
 /* TOTAL LEVEL */
-
-#reactiveResultsContainer{
-    display: grid;
-    grid-template-rows: 2fr 1fr;
-    place-items: center;
-    height: 80%;
+#resultsCardFloor{
     width: 80%;
-    
 }
 
-#reactiveResults{
+#resultsFloor{
     display: grid;
-    grid-template-columns: 1fr 1fr;
-
     grid-template-areas: "num calc"
-                         "price calc"  ;
-
-    place-items: center;
+                         "price calc";
     width: 100%;
-    padding: 10px 0px;
+    border-radius: 7px;
+    justify-items: center;
+    align-items: center;
 }
+
+#shareHolder{
+    display: grid;
+    height: 100%;
+    gap: 10px;
+}
+#shareHolder > input{
+    border: 2px solid black;
+    border-radius: 4px;
+    height: 75%;
+    width: 100%;
+    padding: 10px;
+}
+.shareBtn{
+    background-color: #ECE9EC
+}
+
 
 
 
@@ -148,7 +157,7 @@ padding: 2px;
         width: 85%;
     }
 
-    #reactiveResults{
+    #resultsFloor{
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 2fr 2fr 1fr;

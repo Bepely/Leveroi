@@ -1,3 +1,4 @@
+'use client'
 import { useEffect, useRef} from 'react'
 
 
@@ -101,7 +102,7 @@ const Display = ({openOrder, setOpenOrder, init, closeOrder, setCloseOrder, inDi
             {init === false ? 
                
                 
-                <div className='layerBasNested soloCenter' id='displayBaseNested' >
+                <div className='layerBase soloCenter' id='' >
                 {inDis === true
                 ?
                 <div className='layerFloor multiVer blockCard contentCard'>
@@ -151,12 +152,12 @@ const Display = ({openOrder, setOpenOrder, init, closeOrder, setCloseOrder, inDi
             : 
 
 
-            <div className='layerFloor soloCenter blockCard' id='displayBaseNested' >
+            <div className='layerFloor soloCenter blockCard' id='' >
 
-                <div className='layerFloorNested multiVer blockCardNoShadow' id='displayFloorConfig'>
+                <div className='layerTable multiVer blockCardNoShadow' id=''>
                 
                     
-                    <div className="layerFloorNested multiHor" id='longShortPicker'>
+                    <div className="layerTable nested multiHor" id=''>
                     <button className={`btn ${closeOrder.long ? `picked` : `toPick`} greenButton`} 
                     disabled={closeOrder.long ? true : false} 
                     onClick={longShortChange}>LONG</button>
@@ -166,26 +167,23 @@ const Display = ({openOrder, setOpenOrder, init, closeOrder, setCloseOrder, inDi
                                  
                 </div>
 
-                <div className='layerFloorNested multiHor' id='minMaxOpt' >
-                    <div className='layerTable minMaxCurInput'> 
-                        <input type="number" onKeyDown={enteForceBlur} onBlur={changeMin}  placeholder={closeOrder.min ? lcl.fixCoef(closeOrder.min) : 0}/>
-                        
+                <div className='layerTable multiHor nested' >
+                    <div className='nested layerTable' id=''> 
+                        <div id='blockField'><input type="number" onKeyDown={enteForceBlur} onBlur={changeMin}  placeholder={closeOrder.min ? lcl.fixCoef(closeOrder.min) : 0}/></div>
                         <h5>MIN</h5>
-                        </div>
-                    <div className='layerTable minMaxCurInput'> 
-                        <input type="number" onKeyDown={enteForceBlur} onBlur={changeClosePrice}  placeholder={closeOrder.price}/>
+                    </div>
+                        <div className='nested layerTable' id=''> 
+                        <div id='blockField'><input type="number" onKeyDown={enteForceBlur} onBlur={changeClosePrice}  placeholder={closeOrder.price}/></div>
                         <h5>Close</h5>
                     </div>
-                    <div className='layerTable minMaxCurInput'> 
-                        
-                        <input type="number" onKeyDown={enteForceBlur}  onBlur={changeMax} placeholder={closeOrder.max ? lcl.fixCoef(closeOrder.max) : 1}/>
+                    <div className='nested layerTable' id=''> 
+                        <div id='blockField'><input type="number" onKeyDown={enteForceBlur}  onBlur={changeMax} placeholder={closeOrder.max ? lcl.fixCoef(closeOrder.max) : 1}/></div>
                         <h5>MAX</h5>
-                    
                     </div>
                     </div>
                 </div>
 
-            <div className='layerFloorNested multiVer blockCardNoShadow' id='displayFloor' ref={ref}>
+            <div className='layerTable multiVer blockCardNoShadow' ref={ref}>
                  <div className='layerTable multiHor' id='graphSlider' >
                     <Graph close={closeOrder} open={openOrder} reference={ref}/>
                     <Slider closeOrder={closeOrder} changeClosePrice={changeClosePrice}/>  

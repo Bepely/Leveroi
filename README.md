@@ -1,6 +1,6 @@
 # Leveroi  
 ## Futures Market Simulator  
-Leveroi v0.1.2b
+Leveroi v0.1.2c
 Order profit calculator  
   
 ## Done: 
@@ -9,6 +9,8 @@ Order profit calculator
 • NEXTjs, Home/App routes               | v0.1.2 | 22.11.22  
 • LCL - Leveroi Calculations Library    | v0.1.2a| 27.11.22  
 • Order Share/Save                      | v0.1.2b| 29.11.22  
+• Leveroi Design System                 | v0.1.2c| 06.11.22 
+
   
   
 ## Coming Up 
@@ -25,6 +27,6 @@ and appretiated!
 ____________________________________________  
    
 Bepely  
-27.11.22  
+06.12.2022  
 
 

@@ -9,6 +9,7 @@ import '../src/styles/blocks/header.css'
 import '../src/styles/blocks/controls.css'
 import '../src/styles/blocks/display.css'
 import '../src/styles/blocks/results.css'
+import '../src/styles/blocks/session.css'
 
 
 import '../src/styles/details/graph.css'

@@ -24,7 +24,6 @@ const Controls = ({openOrderFires, init, _setInit, setInDis, inDis, marketPrice,
 const inDisSwitch = () =>{
   setInDis(inDis => !inDis)
 }
-console.log(marketPrice);
   
   return (
     <>
@@ -54,8 +53,9 @@ console.log(marketPrice);
                 
     
 </div>
-
+<div className="soloCenter layerBase" id="contorlsButtionBase">
 <ControlsButtons open={openOrder} inDis={inDis} inDisSwitch={inDisSwitch} sendToDisplay={sendToDisplay} /> 
+</div>
 </>
   )
 } 

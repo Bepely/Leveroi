@@ -1,4 +1,4 @@
-
+'use client'
 import html2canvas from 'html2canvas';
 
 import {useRef, useState} from "react"
@@ -96,10 +96,10 @@ const getDecodedConfigParams = (p) => {return decodeURIComponent(p)}
   <>
 
     
-  <div  id='reactiveResultsContainer' >
+  <div  className='layerFloor multiVer' id='' >
         
           
-          <div className="backLayer2 dropShadow containerBox" id='reactiveResults' ref={snap}>
+          <div className="blockCard layerTable nested " id='resultsFloor' ref={snap}>
             <div className="openResults exactResults" >
              
               <div className="orderData">
@@ -124,44 +124,48 @@ const getDecodedConfigParams = (p) => {return decodeURIComponent(p)}
                <h3 id="resultsHeader">{close.long ? "Long Order" : "Short Order"}</h3>
                  </div> 
                 <div className="pnlResults"> 
-                  <div className="pnlContainer">
+                  <div className="pnlContainer" id='textContent'>
                     <h4>PNL</h4>
                     <h5>{lcl.margin(open, close)}</h5>
                     <h5>{lcl.marginPercent(open, close)}%</h5>
                   </div>
-                  <div className="totalContainer">
+                  <div className="totalContainer" id='textContent'>
                     <h4>Total</h4>
                     <h5>{lcl.total(open, close)}</h5>
                   </div>
                   
                 </div>
             </div>
-            <div className="priceHolder">
+            <div className="priceHolder" id="textContent">
               <h5>Entry:{lcl.fixCoef(open.price)}</h5>
               <h5>Close:{lcl.fixCoef(close.price)}</h5>
             </div>
           </div>
         
-        <div id='shareHolderContainer'>
-          <div id='shareHolder'>
+       </div>
+
+       <div className='layerBase nested multiVer' id=''>
+       
+          <div className='soloCenter layerTable' id='blockField'>
             <input type="text" readOnly value={"https://bepely.space/app"+orderConfigParams}/>
           </div>
-          {shareSwitch ? <div id='hiddenShareButtonsHolder'>
-          <a className='crButton defButton dropShadow shareBtn' id="shareBtnTG" target="_blank" href={`https://t.me/share/url?url=${getEncodedConfigParams()} 
+          {shareSwitch ? <div className='multiHor layerTable' id='blockButton'>
+          <a  target="_blank" href={`https://t.me/share/url?url=${getEncodedConfigParams()} 
 &text=I am sharing ${close.long ? "Long" : "Short"} order simulation with ${lcl.margin(open, close)} profit || Made with Leveroi`
         }> Telegram </a>  
-        <button className='crButton defButton dropShadow shareBtn' id="shareBtnSnap" onClick={onSnap}> Make a Snap </button> 
-        <button className='crButton defButton dropShadow shareBtn' id="shareBtnCopy" onClick={onCopy}> Copy URL </button> 
+          
+            <a onClick={onSnap}> Make a Snap </a> 
+            <a onClick={onCopy}> Copy URL </a> 
+         
           </div>
           :
           <></>
           }
-        <div id="btnsHolder">          
+        <div className="multiHor layerTable" id="blockButton">          
                 
           
-        <button className='crButton defButton dropShadow' onClick={shareClick}> {!shareSwitch ? "Share 👀" : "Hide Share"}</button>
-        <button className='crButton defButton dropShadow' onClick={_setInit}> Configurate new order</button>
-       </div>
+        <a onClick={shareClick}> {!shareSwitch ? "Share 👀" : "Hide Share"}</a>
+        <a onClick={_setInit}> Configurate new order</a>
        </div>
        </div>
      

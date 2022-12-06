@@ -4,10 +4,17 @@
     width: 80%;
     place-self: center;
 }
+#sessionSimulationBase{
+    justify-content: flex-end;
+}
 
 #displayBaseNested{
     width: 80%;
     height: 100%;
+}
+#displayGraphNest{
+    height: fit-content;
+    width: 80%;
 }
 
 #displayFloor{
