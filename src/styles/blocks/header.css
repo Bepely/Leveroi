@@ -1,12 +1,41 @@
 /* TOTAL LEVEL */
-#appHeaderBase{
+#headerRoot{
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    height: fit-content;
-    width: 80%;
-}
-#headerBlock{
+    place-items: center;
+    height: 100%;
     width: 100%;
+    gap: 20px;
+    grid-template-columns: 1fr;
+
+    align-self: center;
+    justify-self: center;
+
+    grid-area: h;
+}
+
+
+#headerContainer{
+    
+    text-align: center;
+    width: 80%; 
+    height: 40%;
+    
+    grid-template-columns: 3fr 1fr;
+    display: grid;
+
+    gap: 20px;
+    
+    place-items: center;
+    padding: 10px 0px;
+    
+}
+
+#headerContainer > div{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+
 }
 
 /* PC LEVEL */
@@ -15,5 +44,15 @@
 /* MOBILE LEVEL */
 
 @media (max-aspect-ratio: 1/1){
-   
+    header{
+        width: 100%;
+        height: 10vh;    
+        place-items: end center;   
+    }
+
+    #headerContainer{
+        width: 85%;
+        height: 75%;
+        
+    }
 }

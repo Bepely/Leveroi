@@ -1,6 +1,6 @@
 {
   "name": "leveroi",
-  "version": "0.1.2c",
+  "version": "0.1.2",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.5",
@@ -24,6 +24,12 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -35,8 +41,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "eslint": "^8.29.0"
   }
 }

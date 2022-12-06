@@ -1,10 +1,9 @@
-'use client'
 import React from 'react'
 
 const Session = () => {
   return (
-    <div className='layerBase soloCenter' id='sessionFloor'>
-        <h3>work in progress</h3>
+    <div className='backLayer2 dropShadow containerBox'>
+        Session
     </div>
   )
 }

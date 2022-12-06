@@ -1,18 +1,17 @@
-'use client'
 import React from 'react'
 
 
 const ControlsButtons = ({open, inDis, inDisSwitch, sendToDisplay}) => {
-
+    console.log(inDis);
 
   return (
-    <div className="multiHor tlayerTable " id="blockButton">
-        <a  onClick={inDisSwitch}>
+    <div className='layerBase multiHor' id='controlsButtonsBase'>
+        <button className='crButton defButton dropShadow' onClick={inDisSwitch}>
           {inDis ? "Instructions" : "Trading Platforms"}
-        </a>
+        </button>
         {open.amount <= 0 || open.price <= 0 || open.leverage < 1
-        ? <a  disabled>Values shoud be valid</a> :
-        <a  onClick={sendToDisplay}>Create order</a>}
+        ? <button className='crButton defButton dropShadow' disabled>Values shoud be valid</button> :
+        <button className='crButton defButton dropShadow' onClick={sendToDisplay}>Create order</button>}
         </div>
   )
 }

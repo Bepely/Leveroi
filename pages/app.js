@@ -6,7 +6,6 @@ import Header from "../src/appComponents/blocks/Header"
 import Display from "../src/appComponents/blocks/Display"
 import Controls from "../src/appComponents/blocks/Controls"
 import Results from "../src/appComponents/blocks/Results"
-import Session from "../src/appComponents/blocks/Session"
 
 
 import { useState, useEffect } from "react"
@@ -14,90 +13,35 @@ import { useState, useEffect } from "react"
 
 
 function App() {
-
-  //----------------------------------------------------------\\
-  //--------------     System Declarations      --------------||
-  //----------------------------------------------------------//
-
-  //Declaring of a router instance
   const router = useRouter()
  
+ 
+  const [isQue, setIsQue] = useState(isQue => false)
   
-
-  //----------------------------------------------------------\\
-  //-------------   Config and Order States    ---------------||
-  //----------------------------------------------------------//
-
-
-  //Session State
-  const [seesion, setSession] = useState({
-    orders: []
-  })
-
-  
-  //Current close Order state
+ 
   const [closeOrder, setCloseOrder] = useState({
     long: true,
     price: 0.08808,
     min: 0,
     max: 200
 })
-  //Current open Order state
+  const [inDis, setInDis] = useState(inDis => false)
   const [openOrder, setOpenOrder] = useState({
     amount: 100,
     leverage: 1,
     price: 1337,
     fee: 0
   })
-
-
-  //----------------------------------------------------------\\
-  //------------   Process and Utility states    -------------||
-  //----------------------------------------------------------//
-
-  //Adv display check state
-  const [inDis, setInDis] = useState(inDis => false)
-  //Session simulation state
   const [init, setInit] = useState(init => false)
-  //Prices API prices state
+
   const [marketPrice, setMarketPrice] = useState({
     bitcoin: 0,
     ethereum: 0,
     binancecoin: 0,
     ripple: 0
   })
- 
 
-  //----------------------------------------------------------\\
-  //-------------     Initial Order Config      --------------||
-  //----------------------------------------------------------//
-
-
-
-  //Configuration of an initial Open order in Session
-  const openOrderFires=(x)=>{
-      setOpenOrder(openOrder => ({...x}))
-      }
-  //Initial Session Switcher
-  const _setInit = ()=>{
-    if(isQue){setIsQue(isQue => false)}
-    setInDis(inDis => true)
-    setInit(init => !init)
-  }
-  //Configuration Display Switcher
-  const _setInDis = ()=>{
-    setInDis(inDis => !inDis)
-  }
-  //Share order Url readiness state
-  const [isQue, setIsQue] = useState(isQue => false)
-
-  
-  //----------------------------------------------------------\\
-  //---------------          Swithcers         ---------------||
-  //----------------------------------------------------------//
-
-   //Loading of an API on simulation/configuration state switch
-   useEffect(()=>{
+  useEffect(()=>{
     fetch("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Cethereum%2Cbinancecoin%2Cripple&vs_currencies=usd")
     .then((res) => res.json().then(data => {
         setMarketPrice(marketPrice => ({...marketPrice, 
@@ -109,7 +53,27 @@ function App() {
     }))
   }, [init])
 
-  //Checker of a Query String in a URL 
+
+
+
+
+
+  const openOrderFires=(x)=>{
+      setOpenOrder(openOrder => ({...x}))
+      }
+  const _setInit = ()=>{
+    if(isQue){setIsQue(isQue => false)}
+    setInDis(inDis => true)
+    setInit(init => !init)
+
+  }
+  const _setInDis = ()=>{
+    setInDis(inDis => !inDis)
+  }
+
+  
+
+
   useEffect(()=>{
     if(Object.getOwnPropertyNames(router.query).length > 0){
       setIsQue(isQue => true)
@@ -122,7 +86,7 @@ function App() {
 
   return (
     
-    <div className="layerGround multiHor" id="appGround">   
+    <div className="backLayer1" id="appRoot">   
     <Head>
     <title>Leveroi App</title>
 
@@ -140,26 +104,17 @@ function App() {
 
  <meta content="width=device-width, initial-scale=1" name="viewport" />
  <link rel="icon" href="/favicon.ico" /></Head>   
-
-
-      <div className="layerBase soloCenter" id="displayBase">
-      <Display 
+        <Display 
          init={init} inDis={inDis}
          openOrder={openOrder} setOpenOrder={setOpenOrder}
          closeOrder={closeOrder} setCloseOrder={setCloseOrder}
          router={router}
          isQue = {isQue} setIsQue = {setIsQue}/>
-      </div>
-        
-        <div className="layerBase multiVer" id="interfaceBase">
-        <Header />
+         <Header />
          {init === true ? 
-           <div className="layerBase multiVer" id="sessionSimulationBase">
-          <Session />
           <Results open={openOrder} close={closeOrder}
           setClose={setCloseOrder} setOpen={setOpenOrder}
           init={init} _setInit={_setInit}/>
-          </div>
           :
           <Controls openOrderFires={openOrderFires}
           init={init} _setInit={_setInit}
@@ -167,8 +122,6 @@ function App() {
           marketPrice={marketPrice}
           openOrder={openOrder} setOpenOrder={setOpenOrder}/>
         }
-        
-        </div>
         
          
        

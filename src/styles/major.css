@@ -13,19 +13,12 @@
     color: #161217;
 
     text-decoration: none;
+}
 
-    min-width: 0;
-    min-height: 0;
-}
-form{
-  display: none;
-}
 
 #root{
     min-height: 100vh;
 }
-
-
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button{
@@ -43,10 +36,26 @@ textarea:focus, input:focus{
 
 
 
+#appRoot{
+    display: grid;
+    align-items: stretch;
+    grid-template-areas:"d h"
+                        "d rc"
+                        "d rc";
+    grid-template-columns: 1fr 1fr;
+
+    min-height: 100vh;
+    min-width: 100vw;
+    gap: 10px;
+}
 
 .containerBox{
     border: 2px solid #161217;
     border-radius: 7px;
+}
+#root{
+    min-width: 100vw;
+    min-height: 100vh;
 }
 
 .backLayer3{
@@ -81,7 +90,7 @@ background-color: #F5F5F5;
   }
 
 
-  .dropShadow{
+.dropShadow{
     box-shadow: 6px 6px #937d9944;
 }
 .dropShadow:hover, .dropShadow:focus{
@@ -94,5 +103,19 @@ background-color: #F5F5F5;
 
 
 
+@media (max-aspect-ratio: 1/1) {
+    #appRoot{
+        grid-template-areas:"h"
+        "rc"
+        "d";
+        grid-template-columns: 1fr;  
+           
+    }
+}
 
-
+@media (min-aspect-ratio: 1/1){
+    #appRoot{
+        height: 100vh;
+        
+    }
+}

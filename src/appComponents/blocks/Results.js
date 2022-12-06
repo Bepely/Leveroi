@@ -1,9 +1,8 @@
-'use client'
+
 import html2canvas from 'html2canvas';
 
 import {useRef, useState} from "react"
 import * as lcl from "../../lcl"
-
 
 const Results = ({close, setClose, open, setOpen, init, _setInit}) => {
 
@@ -53,11 +52,13 @@ const getDecodedConfigParams = (p) => {return decodeURIComponent(p)}
         window.open(data);
       }
     }
-
   const resultStages = [
     "🤡","😰", "💥", "🔥", "⚡", "🌠",
     "🎰",
       "🌟", "🐗", "✨", "🌚", "🏆", "🤡" ]
+
+
+    
   let comment = resultStages[6]
 
   const commentSelection = () => {
@@ -83,7 +84,7 @@ const getDecodedConfigParams = (p) => {return decodeURIComponent(p)}
     else if(asignee >= 5)    {comment = resultStages[7]}
     }
 
-  commentSelection()
+    commentSelection()
     
 
   
@@ -93,13 +94,12 @@ const getDecodedConfigParams = (p) => {return decodeURIComponent(p)}
   
  return (
    
-  <>
-
+  <div className="resultControls" id="results">
     
-  <div  className='layerFloor multiVer' id='' >
+  <div  id='reactiveResultsContainer' >
         
           
-          <div className="blockCard layerTable nested " id='resultsFloor' ref={snap}>
+          <div className="backLayer2 dropShadow containerBox" id='reactiveResults' ref={snap}>
             <div className="openResults exactResults" >
              
               <div className="orderData">
@@ -124,52 +124,49 @@ const getDecodedConfigParams = (p) => {return decodeURIComponent(p)}
                <h3 id="resultsHeader">{close.long ? "Long Order" : "Short Order"}</h3>
                  </div> 
                 <div className="pnlResults"> 
-                  <div className="pnlContainer" id='textContent'>
+                  <div className="pnlContainer">
                     <h4>PNL</h4>
                     <h5>{lcl.margin(open, close)}</h5>
                     <h5>{lcl.marginPercent(open, close)}%</h5>
                   </div>
-                  <div className="totalContainer" id='textContent'>
+                  <div className="totalContainer">
                     <h4>Total</h4>
                     <h5>{lcl.total(open, close)}</h5>
                   </div>
                   
                 </div>
             </div>
-            <div className="priceHolder" id="textContent">
+            <div className="priceHolder">
               <h5>Entry:{lcl.fixCoef(open.price)}</h5>
               <h5>Close:{lcl.fixCoef(close.price)}</h5>
             </div>
           </div>
         
-       </div>
-
-       <div className='layerBase nested multiVer' id=''>
-       
-          <div className='soloCenter layerTable' id='blockField'>
+        <div id='shareHolderContainer'>
+          <div id='shareHolder'>
             <input type="text" readOnly value={"https://bepely.space/app"+orderConfigParams}/>
           </div>
-          {shareSwitch ? <div className='multiHor layerTable' id='blockButton'>
-          <a  target="_blank" href={`https://t.me/share/url?url=${getEncodedConfigParams()} 
+          {shareSwitch ? <div id='hiddenShareButtonsHolder'>
+          <a className='crButton defButton dropShadow shareBtn' id="shareBtnTG" target="_blank" href={`https://t.me/share/url?url=${getEncodedConfigParams()} 
 &text=I am sharing ${close.long ? "Long" : "Short"} order simulation with ${lcl.margin(open, close)} profit || Made with Leveroi`
         }> Telegram </a>  
-          
-            <a onClick={onSnap}> Make a Snap </a> 
-            <a onClick={onCopy}> Copy URL </a> 
-         
+        <button className='crButton defButton dropShadow shareBtn' id="shareBtnSnap" onClick={onSnap}> Make a Snap </button> 
+        <button className='crButton defButton dropShadow shareBtn' id="shareBtnCopy" onClick={onCopy}> Copy URL </button> 
           </div>
           :
           <></>
           }
-        <div className="multiHor layerTable" id="blockButton">          
+        <div id="btnsHolder">          
                 
           
-        <a onClick={shareClick}> {!shareSwitch ? "Share 👀" : "Hide Share"}</a>
-        <a onClick={_setInit}> Configurate new order</a>
+        <button className='crButton defButton dropShadow' onClick={shareClick}> {!shareSwitch ? "Share 👀" : "Hide Share"}</button>
+        <button className='crButton defButton dropShadow' onClick={_setInit}> Configurate new order</button>
+       </div>
        </div>
        </div>
      
-       </>
+     
+     </div>
                     
   )
         

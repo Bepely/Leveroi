@@ -1,8 +1,10 @@
 import React from 'react'
+import Pair from "../reusable/Pair"
 
-import Option from "../reusable/Option"
-
-import ControlsButtons from '../controls/ControlsButtons'
+import Currency from "../reusable/Currency"
+import Leverage from "../reusable/Leverage"
+import Amount from "../reusable/Amount"
+import Fee from "../reusable/Fee"
 
 
 
@@ -24,38 +26,57 @@ const inDisSwitch = () =>{
 }
   
   return (
-    <>
-    <div className='layerBaseNested multiVer' id="controlsBaseNest">
-                      
-                                      
-                    <Option subState={openOrder} setSubState={setOpenOrder}
-                    optName={"amount"} optConfig={[{id: 0, value: 10},{id: 1, value: 50},{id: 2, value: 100},{id:3, value: 250}, {id: 4, value: 500}]}
-                    />
-                   
-                    <Option subState={openOrder} setSubState={setOpenOrder}
-                    optName={"leverage"} optConfig={[{id: 0, value: 1},{id: 1, value: 5},{id: 2, value: 10},{id:3, value: 25}, {id: 4, value: 50}]}
-                    />
-                  
-                    <Option subState={openOrder} setSubState={setOpenOrder}
-                    optName={"price"} optConfig={[
-                      {id: 0, value: marketPrice.bitcoin, name: "BTC"},
-                      {id: 1, value: marketPrice.ethereum, name: "ETH"},
-                      {id: 2, value: marketPrice.binancecoin, name: "BNB"},
-                      {id:3, value: marketPrice.ripple, name: "XRP"}]}
-                    eventAPI={marketPrice}
-                    />
-
-                    <Option subState={openOrder} setSubState={setOpenOrder}
-                    optName={"fee"} optConfig={[{id: 0, value: 0},{id: 1, value: 0.1},{id: 2, value: 0.2},{id: 3, value: 0.3}, {id: 4, value: 0.4}]}
-                    />       
-                
     
+    <div className=' block resultControls' id={init === true ? 'controlsRoot' : 'controlsRootNoResult' }>
+      {init === false ? 
+      <div id='controlsWrapper'>
+
+        
+       
+        <div className='controlsHolder' id='controlsContainer'>
+              {Object.keys(openOrder).map((key, index)=>{
+                if(key !== "fee"){
+                  return (
+                    <div className='controlsPoint backLayer2 dropShadow containerBox' key={index} id={key === "amount" ? "amountControlsPoint" : ""}>
+                    <Pair type="input"
+                    key={index} first={key} second=""
+                    subState={openOrder}
+                    setSubState={setOpenOrder}/>
+                    {key === "price" ?
+                    <Currency subState={openOrder} setSubState={setOpenOrder}
+                    marketPrice={marketPrice}/>
+                   : key === "leverage" ?
+                    <Leverage subState={openOrder} setSubState={setOpenOrder}/>
+                  : key === "amount" ?
+                    <Amount subState={openOrder} setSubState={setOpenOrder}/>
+                : <></> }
+                    
+                    </div>
+                  )
+                } else if(key == "fee") {
+                   return ( <div key="fee" className='controlsPoint backLayer2 dropShadow containerBox' id="">
+                      <Fee subState={openOrder} setSubState={setOpenOrder}/>
+                    </div>)
+                }
+             
+              })}
+        </div>
+        <div id='btnsHolder'>
+        <button className='crButton defButton dropShadow' onClick={inDisSwitch}>
+          {inDis ? "Show Instructions" : "Show Trading Platforms"}
+        </button>
+        {openOrder.amount <= 0 || openOrder.price <= 0 || openOrder.leverage < 1
+        ? <button className='crButton defButton dropShadow' disabled>Values shoud be valid</button> :
+        <button className='crButton defButton dropShadow' onClick={sendToDisplay}>Create order</button>}
+        </div>
+        
+      </div>
+
+    : 
+    <></>
+    }
 </div>
-<div className="soloCenter layerBase" id="contorlsButtionBase">
-<ControlsButtons open={openOrder} inDis={inDis} inDisSwitch={inDisSwitch} sendToDisplay={sendToDisplay} /> 
-</div>
-</>
   )
-} 
+}
 
 export default Controls
