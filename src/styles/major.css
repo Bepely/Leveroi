@@ -13,8 +13,13 @@
     color: #161217;
 
     text-decoration: none;
-}
 
+    min-width: 0;
+    min-height: 0;
+}
+form{
+  display: none;
+}
 
 #root{
     min-height: 100vh;

@@ -22,7 +22,7 @@ const Graph = ({close, open}) => {
     setHeight(ref.current.clientHeight)
     setWidth(ref.current.clientWidth)
    
-  },[width, height])
+  },[height])
 
 
   
@@ -39,6 +39,7 @@ let liquidationDataShort = [
   {x: "Open", y:  lcl.liquidation(open,close), size:1},
   { x: "Close", y:  lcl.liquidation(open,close), size:1}
 ]
+
   return (
     
     

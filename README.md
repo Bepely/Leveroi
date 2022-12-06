@@ -1,6 +1,6 @@
 # Leveroi  
 ## Futures Market Simulator  
-Leveroi v0.1.2a
+Leveroi v0.1.2b
 Order profit calculator  
   
 ## Done: 

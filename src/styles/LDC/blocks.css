@@ -14,6 +14,13 @@
     box-shadow: 6px 6px #937d9944;
     
 }
+
+.blockCardNoShadow{
+    width: 100%;
+    height: 100%;
+    box-shadow: none;
+}
+
 .blockCard:hover, .blockCard:focus{
     box-shadow: 7px 7px #937d99aa;
 }

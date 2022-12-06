@@ -1,4 +1,4 @@
-import { useEffect} from 'react'
+import { useEffect, useRef} from 'react'
 
 
 import Slider from "../reusable/Slider"
@@ -11,46 +11,38 @@ import * as lcl from "../../lcl"
 
 const Display = ({openOrder, setOpenOrder, init, closeOrder, setCloseOrder, inDis, router, isQue, setIsQue}) => {
   
+    const ref = useRef(null)
 
     const changeClosePrice = (e) => {
-        
+        if(e.target.value){
             let x = lcl.fixCoef(e.target.value)       
             setCloseOrder(closeOrder => ({...closeOrder, price:x}))
-           
-        e.target.value = null
-
-        if(x > closeOrder.max)
-        {setCloseOrder(closeOrder => ({...closeOrder, max:x}))}
-       else if (x < closeOrder.min) 
-       {setCloseOrder(closeOrder => ({...closeOrder, min:x}))}
-       }
-
-    const changeMin = (e) => {
-            console.log(e.target.value);
-            let x = lcl.fixCoef(e.target.value)       
-            if(x >= closeOrder.max){
-            setCloseOrder(closeOrder => ({...closeOrder,
-                                         max:x+1,
-                                         min:x}))
-        } else if(x <= 0 || x === null){
-           
-        } 
-        else{setCloseOrder(closeOrder => ({...closeOrder, min:x}))}
-        e.target.value = null
-    }
-    const changeMax = (e) => {
-
-        let x = lcl.fixCoef(e.target.value)       
-        if(x <= 0 || x === null){}
-        else if(x <= closeOrder.min){
-           
-        setCloseOrder(closeOrder => ({...closeOrder,
-                                     min:x-1,
-                                     max:x}))}
-        else{setCloseOrder(closeOrder => ({...closeOrder, max:x}))} 
             e.target.value = null
-           
-    }
+            if(x > closeOrder.max)
+            {setCloseOrder(closeOrder => ({...closeOrder, max:x}))}
+            else if (x < closeOrder.min) 
+            {setCloseOrder(closeOrder => ({...closeOrder, min:x}))}
+        }else{}}
+    const changeMin = (e) => {
+        if(e.target.value){
+            let x = lcl.fixCoef(e.target.value)       
+            if(x >= closeOrder.max){console.log("preventMoreOne");}
+            else if(x <= 0 || x === null){} 
+            else{setCloseOrder(closeOrder => ({...closeOrder, min:x}))}
+            e.target.value = null
+        }else{}}
+
+    const changeMax = (e) => {
+        if(e.target.value){
+            let x = lcl.fixCoef(e.target.value)       
+            if(x <= 0 || x === null){}
+            else if(x <= closeOrder.min){console.log("preventLessOne");}
+            else{setCloseOrder(closeOrder => ({...closeOrder, max:x}))} 
+            e.target.value = null
+        }else{}}
+
+    const enteForceBlur = (e) =>{if (e.key === 'Enter'){e.target.blur()}}
+    
 
     //onClick={longShortChange} to put in longshortButtons
     const longShortChange = () => {
@@ -103,12 +95,13 @@ const Display = ({openOrder, setOpenOrder, init, closeOrder, setCloseOrder, inDi
        
 
   return (
-    <div className='layerBase soloCenter' id='displayBaseNested' >
+    <>
+   
 
             {init === false ? 
                
-                <>
                 
+                <div className='layerBasNested soloCenter' id='displayBaseNested' >
                 {inDis === true
                 ?
                 <div className='layerFloor multiVer blockCard contentCard'>
@@ -150,17 +143,18 @@ const Display = ({openOrder, setOpenOrder, init, closeOrder, setCloseOrder, inDi
                 </div>
                 </div>
                 }
-                </>
+                
                 
           
-
+                </div>
 
             : 
 
 
-            
-            <div className='layerFloor multiVert blockCard'>
-                <div className="layerFloorNested multiHor" >
+            <div className='layerFloor soloCenter blockCard' id='displayBaseNested' >
+
+                <div className='layerFloorNested multiVer blockCardNoShadow' id='displayFloorConfig'>
+                
                     
                     <div className="layerFloorNested multiHor" id='longShortPicker'>
                     <button className={`btn ${closeOrder.long ? `picked` : `toPick`} greenButton`} 
@@ -169,40 +163,39 @@ const Display = ({openOrder, setOpenOrder, init, closeOrder, setCloseOrder, inDi
                     <button className={`btn ${!closeOrder.long ? `picked` : `toPick`} redButton`} 
                     disabled={closeOrder.long ? false : true} 
                     onClick={longShortChange}>SHORT</button>
-                    </div>
-
-                    
-                
+                                 
                 </div>
 
-                 <div className='layerTable multiHor' id='graphSlider'>
-                    <Graph close={closeOrder} open={openOrder}/>
-                    <Slider closeOrder={closeOrder} changeClosePrice={changeClosePrice}/>  
-                </div>
-                
-           
-           
-            <div className='layerFloorNested multiHor' id='minMaxOpt'>
+                <div className='layerFloorNested multiHor' id='minMaxOpt' >
                     <div className='layerTable minMaxCurInput'> 
-                        <input type="number" onBlur={changeMin}  placeholder={closeOrder.min ? lcl.fixCoef(closeOrder.min) : 0}/>
+                        <input type="number" onKeyDown={enteForceBlur} onBlur={changeMin}  placeholder={closeOrder.min ? lcl.fixCoef(closeOrder.min) : 0}/>
+                        
                         <h5>MIN</h5>
                         </div>
                     <div className='layerTable minMaxCurInput'> 
-                        <input type="number" onBlur={changeClosePrice}  placeholder={closeOrder.price}/>
+                        <input type="number" onKeyDown={enteForceBlur} onBlur={changeClosePrice}  placeholder={closeOrder.price}/>
                         <h5>Close</h5>
                     </div>
                     <div className='layerTable minMaxCurInput'> 
                         
-                        <input type="number"  onBlur={changeMax} placeholder={closeOrder.max ? lcl.fixCoef(closeOrder.max) : 1}/>
+                        <input type="number" onKeyDown={enteForceBlur}  onBlur={changeMax} placeholder={closeOrder.max ? lcl.fixCoef(closeOrder.max) : 1}/>
                         <h5>MAX</h5>
+                    
                     </div>
                     </div>
-            
-        </div>
-            }
-            
+                </div>
 
-    </div>
+            <div className='layerFloorNested multiVer blockCardNoShadow' id='displayFloor' ref={ref}>
+                 <div className='layerTable multiHor' id='graphSlider' >
+                    <Graph close={closeOrder} open={openOrder} reference={ref}/>
+                    <Slider closeOrder={closeOrder} changeClosePrice={changeClosePrice}/>  
+                </div>  
+            </div>
+            </div>
+    }
+            
+            
+    </>
   )
 }
 

@@ -4,7 +4,6 @@ import html2canvas from 'html2canvas';
 import {useRef, useState} from "react"
 import * as lcl from "../../lcl"
 
-import Note from "../reusable/Note"
 
 const Results = ({close, setClose, open, setOpen, init, _setInit}) => {
 
@@ -54,13 +53,11 @@ const getDecodedConfigParams = (p) => {return decodeURIComponent(p)}
         window.open(data);
       }
     }
+
   const resultStages = [
     "🤡","😰", "💥", "🔥", "⚡", "🌠",
     "🎰",
       "🌟", "🐗", "✨", "🌚", "🏆", "🤡" ]
-
-
-    
   let comment = resultStages[6]
 
   const commentSelection = () => {
@@ -86,7 +83,7 @@ const getDecodedConfigParams = (p) => {return decodeURIComponent(p)}
     else if(asignee >= 5)    {comment = resultStages[7]}
     }
 
-    commentSelection()
+  commentSelection()
     
 
   

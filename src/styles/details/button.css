@@ -7,11 +7,10 @@
 
  .redButton, .greenButton{
     border: 2px solid black;
-    width: 75%;
-    min-height: 17px;
-    height: 65%;
+   
+    
     border-radius: 7px;
-    background-color: #ECE9EC;
+    
 }
 .redButton:disabled{
     background-color: rgba(255, 0, 0, 0.3);
@@ -20,15 +19,17 @@
 }
 
 
-.greenButton,
+    .greenButton,
     .greenButton:disabled,
     .redButton,
     .redButton:disabled{
-        margin: -2px 0px 2px 0px;
-       
-        border-radius: 0px 0px 7px 7px;
+        margin: 10px 0px;
+        border-radius: 7px;
         border: 2px solid black;
-        border-top: 0;
+        background-color: #f8f8f8;
+        min-width: 100px;
+        width: 16.5vw;
+        min-height: 25px;
     }
     
     .redButton:disabled{
@@ -41,10 +42,7 @@
         box-shadow: 0px -3px 8px  #64c564;
         
     }
-    .greenButton,
-    .redButton{
-    background-color: #ECE9EC;
-    }
+    
 
 
 
@@ -122,6 +120,29 @@
 
 @media (max-aspect-ratio: 1/1){
 
+    .greenButton,
+    .greenButton:disabled,
+    .redButton,
+    .redButton:disabled{
+        min-height: 17px;
+        margin: -2px 0px 2px 0px;
+        width: 30vw;
+        border-radius: 0px 0px 7px 7px;
+        border: 2px solid black;
+        border-top: 0;
+        
+    }
+
+    .redButton:disabled{
+        background-color: #cf5656;
+        box-shadow: 0px -3px 8px #cf5656;
+  
+    }
+    .greenButton:disabled{
+        background-color: #64c564;
+        box-shadow: 0px -3px 8px  #64c564;
+        
+    }
     
 
     

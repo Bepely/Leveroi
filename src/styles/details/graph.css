@@ -19,8 +19,12 @@
 #graphSlider{
     display: grid;
     grid-template-columns: 7fr 2fr;
-    height: 90%;
+    width: 100%;
+    min-height: 100%;
+    background-color: transparent;
+    
 }
+
 
 .minMaxCurInput>input{ 
     border: 2px solid black;
@@ -30,6 +34,9 @@
 #graph{
     height: 100%;
     width: 100%;
+    background-color: transparent;
+    overflow: hidden;
+    
 }
 
 /* PC LEVEL */
@@ -38,6 +45,10 @@
 /* MOBILE LEVEL */
 
 @media (max-aspect-ratio: 1/1){
-    
+    #graphSlider{
+        display: grid;
+        grid-template-columns: 7fr 2fr;
+        
+    }
 
 }
