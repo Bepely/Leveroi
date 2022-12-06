@@ -114,8 +114,15 @@ footer{
 
 @media (max-aspect-ratio: 1/1) {
     .leftPoint, .rightPoint{
+        grid-template-columns: 1fr;
+       }
+       #homePoint{
+        grid-template-rows: 1fr;
         grid-template-areas: "home_header"
                              "home_article"
+       }
+       .homePointArticle{
+        flex-direction: column;
        }
        #homePointImage, #justEmoji{display: none;}
        #useApp{
