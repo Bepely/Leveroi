@@ -144,12 +144,12 @@ const getDecodedConfigParams = (p) => {return decodeURIComponent(p)}
         
        </div>
 
-       <div className='layerBase nested multiVer' id=''>
+       <div className='layerBase nested multiVer' id='layerBaseFooterResults'>
        
           <div className='soloCenter layerTable' id='blockField'>
             <input type="text" readOnly value={"https://bepely.space/app"+orderConfigParams}/>
           </div>
-          {shareSwitch ? <div className='multiHor layerTable' id='blockButton'>
+          {shareSwitch ? <div className='multiHor layerTable' id='blockButton3'>
           <a  target="_blank" href={`https://t.me/share/url?url=${getEncodedConfigParams()} 
 &text=I am sharing ${close.long ? "Long" : "Short"} order simulation with ${lcl.margin(open, close)} profit || Made with Leveroi`
         }> Telegram </a>  
@@ -161,7 +161,7 @@ const getDecodedConfigParams = (p) => {return decodeURIComponent(p)}
           :
           <></>
           }
-        <div className="multiHor layerTable" id="blockButton">          
+        <div className="multiHor layerTable" id="blockButton2">          
                 
           
         <a onClick={shareClick}> {!shareSwitch ? "Share 👀" : "Hide Share"}</a>

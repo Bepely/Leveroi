@@ -1,9 +1,11 @@
 /* TOTAL LEVEL */
 #appHeaderBase{
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 3fr 1fr;
+    width: 100%;
     height: fit-content;
-    width: 80%;
+    place-self: start center;
+    gap: 10px;
 }
 #headerBlock{
     width: 100%;
@@ -15,5 +17,7 @@
 /* MOBILE LEVEL */
 
 @media (max-aspect-ratio: 1/1){
-   
+ #appHeaderBase{
+    width: 90%;
+ }  
 }

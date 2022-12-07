@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 
 import Option from "../reusable/Option"
@@ -25,7 +26,7 @@ const inDisSwitch = () =>{
   
   return (
     <>
-    <div className='layerBaseNested multiVer' id="controlsBaseNest">
+    <div className='layerBase multiVer' id="controlsBaseNest">
                       
                                       
                     <Option subState={openOrder} setSubState={setOpenOrder}
@@ -51,7 +52,7 @@ const inDisSwitch = () =>{
                 
     
 </div>
-<div className="soloCenter layerBase" id="contorlsButtionBase">
+<div className="soloCenter layerBase">
 <ControlsButtons open={openOrder} inDis={inDis} inDisSwitch={inDisSwitch} sendToDisplay={sendToDisplay} /> 
 </div>
 </>
