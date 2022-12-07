@@ -1,22 +1,16 @@
-.greenButton{
-    width: 75%;
-    min-height: 17px;
-    height: 65%;
-    border: 2px solid black;
-    border-radius: 7px;
-}
 .greenButton:disabled{
     background: rgba(0, 255, 0, 0.3);
     border: 2px solid rgb(0, 155, 0);
     color: black;
+    
 }
 
-.redButton{
+ .redButton, .greenButton{
     border: 2px solid black;
-    width: 75%;
-    min-height: 17px;
-    height: 65%;
+   
+    
     border-radius: 7px;
+    
 }
 .redButton:disabled{
     background-color: rgba(255, 0, 0, 0.3);
@@ -25,8 +19,36 @@
 }
 
 
+    .greenButton,
+    .greenButton:disabled,
+    .redButton,
+    .redButton:disabled{
+        margin: 10px 0px;
+        border-radius: 7px;
+        border: 2px solid black;
+        background-color: #f8f8f8;
+        min-width: 100px;
+        width: 16.5vw;
+        min-height: 25px;
+    }
+    
+    .redButton:disabled{
+        background-color: #cf5656;
+        box-shadow: 0px -3px 8px #cf5656;
+  
+    }
+    .greenButton:disabled{
+        background-color: #64c564;
+        box-shadow: 0px -3px 8px  #64c564;
+        
+    }
+    
+
+
+
+
 .crButton{
-    padding: 10px 20px;
+    padding: 10px 2px;
     border-radius: 5px;
     border: 1px solid black;
 }
@@ -35,7 +57,7 @@
 .defButton{
     display: grid;
     border: 2px solid black;
-    height: 75%;
+    height: 100%;
     width: 100%;
     place-content: center;
 }
@@ -43,20 +65,16 @@
 /* CONTROLS BUTTONS */
 
 
-#leverageHolder, #amountHolder, #currencyHolder{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+#controlsOptionsHolder{
+    display: flex;
+    flex-direction: row;
     width: 100%;
-    align-self: end;
+    justify-content: space-evenly;
     margin: 0;
     padding: 0;
 }
-#currencyHolder{
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-}
 
-
-.leverageBtn, .amountBtn, .currencyBtn{
+.controlsOptionBtn{
     width: 100%;
     height: 100%;
     border: 1px solid black;
@@ -66,38 +84,21 @@
     background-color: #ECE9EC;
     padding-bottom: 2px;
 }
-#lvr1, #amt10, #btcBtn{
+.controlsOptionBtn:first-child{
     border-left: 0;
     border-bottom-left-radius: 5px;
 }
-#lvr50, #amt500, #xrpBtn{
+.controlsOptionBtn:last-child{
     border-right: 0;
     border-bottom-right-radius: 5px;
 }
 
-.pickedLeverageBtn, .pickedAmountBtn, .pickedCurrencyBtn{
+.pickedControlsOptionBtn{
     box-shadow: 0px -2px 2px 0px #f2a900;
 
 }
 
-#shareHolder{
-    display: grid;
-    height: 100%;
-    gap: 10px;
-}
-#shareHolder > input{
-    border: 2px solid black;
-    border-radius: 4px;
-    height: 75%;
-    width: 100%;
-    padding: 10px;
-}
-.shareBtn{
-    background-color: #ECE9EC
-}
-#shareHolderContainer{
-    width: 100%;
-}
+
 
 
 @media (max-aspect-ratio: 1/1){
@@ -106,11 +107,13 @@
     .greenButton:disabled,
     .redButton,
     .redButton:disabled{
+        min-height: 17px;
         margin: -2px 0px 2px 0px;
-       
+        width: 30vw;
         border-radius: 0px 0px 7px 7px;
         border: 2px solid black;
         border-top: 0;
+        
     }
 
     .redButton:disabled{
@@ -123,10 +126,8 @@
         box-shadow: 0px -3px 8px  #64c564;
         
     }
-    .greenButton,
-    .redButton{
-    background-color: #ECE9EC;
-    }
+    
+
     
 
 }

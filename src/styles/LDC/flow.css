@@ -1,27 +1,26 @@
 .soloCenter{
     display: grid;
     align-items: center;
-    align-content: stretch;
+    align-content: space-around;
     justify-items: center;
     
 }
 
 .multiHor{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 1fr;
     align-content: stretch;
-    justify-content: center;
+    align-items: center;
     justify-items: center;
-    gap: 20px;
 }
 
 .multiVer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
     align-content: stretch;
-    justify-content: center;
+    align-items: center;
     justify-items: center;
-    gap: 20px;
+
 }

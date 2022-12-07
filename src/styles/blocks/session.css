@@ -1,5 +1,5 @@
 #sessionFloor{
-    max-height: 40vh;
+    height: 66%;
     width: 80%;
     cursor: cell;
 }
@@ -11,7 +11,8 @@
   user-select: none; /* Standard syntax */
 }
 #contorlsButtionBase{
-    height: fit-content;
+    height: auto;
+    margin: auto;
     width: 80%;
 }
 @media (max-aspect-ratio: 1/1){

@@ -19,10 +19,12 @@ const Graph = ({close, open}) => {
   const ref = useRef(null)
 
   useEffect(() => {
+    
     setHeight(ref.current.clientHeight)
     setWidth(ref.current.clientWidth)
-   
-  },[width])
+
+  },[height])
+
 
 
   
@@ -39,14 +41,15 @@ let liquidationDataShort = [
   {x: "Open", y:  lcl.liquidation(open,close), size:1},
   { x: "Close", y:  lcl.liquidation(open,close), size:1}
 ]
+
   return (
     
     
-    <div className='graph container' id='graph' ref={ref}>
+    <div className='soloCenter layerTable' id='graph' ref={ref}>
       {close && open && height && width
       ?
       <VictoryChart 
-      height={window.innerWidth-window.innerHeight < 0 ? window.innerHeight/3 :  height*0.9  }
+      height={window.innerWidth-window.innerHeight < 0 ? window.innerHeight/3 :  height  }
       width={width}
       style={!close.long ? {background: { fill: "#9B000030", fontFamily:'Rubik' }} : {data: {fill: "#ECE9EC30", fontFamily:'Rubik'}}}
      padding={{top: 50, bottom: 50, left: 55, right: 50}} 

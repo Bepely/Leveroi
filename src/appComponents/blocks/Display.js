@@ -1,3 +1,4 @@
+'use client'
 import { useEffect} from 'react'
 
 
@@ -13,44 +14,35 @@ const Display = ({openOrder, setOpenOrder, init, closeOrder, setCloseOrder, inDi
   
 
     const changeClosePrice = (e) => {
-        
+        if(e.target.value){
             let x = lcl.fixCoef(e.target.value)       
             setCloseOrder(closeOrder => ({...closeOrder, price:x}))
-           
-        e.target.value = null
-
-        if(x > closeOrder.max)
-        {setCloseOrder(closeOrder => ({...closeOrder, max:x}))}
-       else if (x < closeOrder.min) 
-       {setCloseOrder(closeOrder => ({...closeOrder, min:x}))}
-       }
-
-    const changeMin = (e) => {
-            console.log(e.target.value);
-            let x = lcl.fixCoef(e.target.value)       
-            if(x >= closeOrder.max){
-            setCloseOrder(closeOrder => ({...closeOrder,
-                                         max:x+1,
-                                         min:x}))
-        } else if(x <= 0 || x === null){
-           
-        } 
-        else{setCloseOrder(closeOrder => ({...closeOrder, min:x}))}
-        e.target.value = null
-    }
-    const changeMax = (e) => {
-
-        let x = lcl.fixCoef(e.target.value)       
-        if(x <= 0 || x === null){}
-        else if(x <= closeOrder.min){
-           
-        setCloseOrder(closeOrder => ({...closeOrder,
-                                     min:x-1,
-                                     max:x}))}
-        else{setCloseOrder(closeOrder => ({...closeOrder, max:x}))} 
             e.target.value = null
-           
-    }
+            if(x > closeOrder.max)
+            {setCloseOrder(closeOrder => ({...closeOrder, max:x}))}
+            else if (x < closeOrder.min) 
+            {setCloseOrder(closeOrder => ({...closeOrder, min:x}))}
+        }else{}}
+    const changeMin = (e) => {
+        if(e.target.value){
+            let x = lcl.fixCoef(e.target.value)       
+            if(x >= closeOrder.max){console.log("preventMoreOne");}
+            else if(x <= 0 || x === null){} 
+            else{setCloseOrder(closeOrder => ({...closeOrder, min:x}))}
+            e.target.value = null
+        }else{}}
+
+    const changeMax = (e) => {
+        if(e.target.value){
+            let x = lcl.fixCoef(e.target.value)       
+            if(x <= 0 || x === null){}
+            else if(x <= closeOrder.min){console.log("preventLessOne");}
+            else{setCloseOrder(closeOrder => ({...closeOrder, max:x}))} 
+            e.target.value = null
+        }else{}}
+
+    const enteForceBlur = (e) =>{if (e.key === 'Enter'){e.target.blur()}}
+    
 
     //onClick={longShortChange} to put in longshortButtons
     const longShortChange = () => {
@@ -103,27 +95,29 @@ const Display = ({openOrder, setOpenOrder, init, closeOrder, setCloseOrder, inDi
        
 
   return (
-    <div className='block' id='displayRoot'>
+    <>
+   
 
             {init === false ? 
                
-                <div className='backLayer2 dropShadow container containerBox' id='newOrderInstructions'>
                 
+                <div className='layerBase soloCenter blockCardNoShadow' id='' >
                 {inDis === true
                 ?
-                <div id='inDisPlatforms'>
-                    <h3>Real Market Trading</h3>
-                    <Platforms />
-                    <div id="initComment">
-                <h5>Leveroy is in beta. Feel free to report bugs.</h5>
-                    <h5> <a target="_blank" href='https://twitter.com/o6morok'>twitter: @o6morok</a> |
-                    | <a target="_blank" href='https://www.youtube.com/@Bepely'>youtube: @bepely</a> |
-                    | <a target="_blank" href='https://github.com/Bepely'>github: @bepely</a></h5>
-                
+                <div className='layerFloor multiVer blockCardNoShadow'>
+                    
+                        
+                        <Platforms />
+                        <div id="initComment">
+                        <h5>Leveroy is in beta. Feel free to report bugs.</h5>
+                        <h5> <a target="_blank" href='https://twitter.com/o6morok'>twitter: @o6morok</a> |
+                        | <a target="_blank" href='https://www.youtube.com/@Bepely'>youtube: @bepely</a> |
+                        | <a target="_blank" href='https://github.com/Bepely'>github: @bepely</a></h5>
+                   
                 </div>
                 </div>
                 :
-                <div id="inDisInstructions">
+                <div className='layerFloor blockCardNoShadow contentCard' id='floorDisplayConfiguration' >
                     <article>
                     <h3>Profit / Loss Calculator</h3>
                     <p>
@@ -134,17 +128,11 @@ const Display = ({openOrder, setOpenOrder, init, closeOrder, setCloseOrder, inDi
                     </p>
                     </article>
                 
-                    <div>
-                 <h3>Disclaimer</h3>
-                <div>
                     
-               <ul> 
-                <li> Real-market trading platforms may have different calculating formulas.</li>
-                <li>Leveroi information is approximate and may differ from real-market platforms.</li>
-                </ul>
-
-</div>
-                </div>
+                 <h3>Disclaimer</h3>
+                    <li> Real-market trading platforms may have different calculating formulas.</li>
+                    <li>Leveroi information is approximate and may differ from real-market platforms.</li>
+                
                 
                 <div id="initComment">
                 <h5>Leveroy is in beta. Feel free to report bugs.</h5>
@@ -155,52 +143,58 @@ const Display = ({openOrder, setOpenOrder, init, closeOrder, setCloseOrder, inDi
                 </div>
                 </div>
                 }
-                </div>
+                
                 
           
-
+                </div>
 
             : 
 
+            <div className='layerBase soloCenter' id='' >
 
-            
-            <div className='backLayer2 dropShadow container containerBox' id='displayContainer'>
-                <div id="minMaxCurContainer">
-                <div className="longShortBtnHolder">
-                <button className={`btn ${closeOrder.long ? `picked` : `toPick`} greenButton`} 
-                disabled={closeOrder.long ? true : false} 
-                onClick={longShortChange}>LONG</button>
-                <button className={`btn ${!closeOrder.long ? `picked` : `toPick`} redButton`} 
-                disabled={closeOrder.long ? false : true} 
-                onClick={longShortChange}>SHORT</button>
-               </div>
-                <div className='minMax container' id="minContainer"> 
-                    <h5>MIN</h5>
-                    <input type="number" onBlur={changeMin}  placeholder={closeOrder.min ? lcl.fixCoef(closeOrder.min) : 0}/>
+                <div className='layerFloor multiVer blockCard' id='' >
+
+                    <div className='layerTable multiVer blockCardNoShadow' id=''>
+                    
+                        
+                        <div className="layerTable multiHor" id='nestedTableButtonsDisplay'>
+                        <button className={`btn ${closeOrder.long ? `picked` : `toPick`} greenButton`}
+                        disabled={closeOrder.long ? true : false} 
+                        onClick={longShortChange}>LONG</button>
+                        <button className={`btn ${!closeOrder.long ? `picked` : `toPick`} redButton`} 
+                        disabled={closeOrder.long ? false : true} 
+                        onClick={longShortChange}>SHORT</button>
+                                    
                     </div>
-                <div className='minMax container' id="currContainer"> 
-                    <h5>Close</h5>
-                    <input type="number" onBlur={changeClosePrice}  placeholder={closeOrder.price}/>
-                </div>
-                <div className='minMax container' id="maxContainer"> 
-                    <h5>MAX</h5>
-                    <input type="number" onBlur={changeMax} placeholder={closeOrder.max ? lcl.fixCoef(closeOrder.max) : 1}/>
-                </div>
+
+                    <div className='layerTable multiHor nested' id='nestedTableFieldsDisplay'>
+                        <div className='nested layerTable' id=''> 
+                            <div id='blockField'><input type="number" onKeyDown={enteForceBlur} onBlur={changeMin}  placeholder={closeOrder.min ? lcl.fixCoef(closeOrder.min) : 0}/></div>
+                            <h5>MIN</h5>
+                        </div>
+                            <div className='nested layerTable' id=''> 
+                            <div id='blockField'><input type="number" onKeyDown={enteForceBlur} onBlur={changeClosePrice}  placeholder={closeOrder.price}/></div>
+                            <h5>Close</h5>
+                        </div>
+                        <div className='nested layerTable' id=''> 
+                            <div id='blockField'><input type="number" onKeyDown={enteForceBlur}  onBlur={changeMax} placeholder={closeOrder.max ? lcl.fixCoef(closeOrder.max) : 1}/></div>
+                            <h5>MAX</h5>
+                        </div>
+                        </div>
+                    </div>
+
                 
-
+                    <div className='layerTable multiHor' id='graphSlider' >
+                        <Graph close={closeOrder} open={openOrder}/>
+                        <Slider closeOrder={closeOrder} changeClosePrice={changeClosePrice}/>  
+                    </div>  
+                
                 </div>
-            <div className='container' id='graphContainer'>
-                    <Graph close={closeOrder} open={openOrder}/>
-            </div>
-            <div className='sliderControlContainer'>
-            <Slider closeOrder={closeOrder} changeClosePrice={changeClosePrice}/>  
-            </div>
+                </div>
+    }
             
-        </div>
-            }
             
-
-    </div>
+    </>
   )
 }
 

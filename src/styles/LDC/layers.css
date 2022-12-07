@@ -4,35 +4,64 @@
     animation:  10s ease infinite;
     animation-name: rootBack;
     width: 100vw;
-    height: 100vh;
     min-height: 100vh;
     max-width: 100vw;
-    
 }
 
-.layerBase{
-    background-color: transparent;
-    width: 100%;
+#appGround{
     height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "displayBase interfaceBase";
+    gap: 1.5vh;
+  }
+
+
+
+.layerBase{
+    background-color: transparent; 
+    width: 100%;
+    height:100%;
+    align-content: stretch;
 }
 
 .layerFloor{
-    background-color: #ece9ec;
+    background-color: #ece9ec; 
     border: 2px solid #1d1e1d;
     border-radius: 7px;
+    width: 100% ;
 }
 
 .layerTable{
-    background-color: #ece9ec;
+    display:grid;
+    place-items: center;
+    background-color:#ece9ec; 
+    border-radius: 7px;
 }
+
+
 
 
 @media (max-aspect-ratio: 1/1){
-.layerGround{
+    #appGround{
+        height:100% ;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        grid-template-areas: "interfaceBase"
+                             "displayBase";
+      }
+
+    .layerGround{
     flex-direction: column-reverse;
     height: 100%;
     width: 100%;
-    padding: 20px 0;
-}
+    padding: 4vh 0;
+    }
+
+    .layerFloor{
+    width: 90%;
+    }
 }
 
