@@ -2,7 +2,7 @@ import React from 'react'
 
 import Option from "../reusable/Option"
 
-import ControlsButtons from '../controls/ControlsButtons'
+import ControlsButtons from '../controls/controlsButtons'
 
 
 
