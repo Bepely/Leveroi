@@ -65,18 +65,20 @@ cursor:pointer;
 
 
 #interfaceBase{
+    height: 80%;
     width: 80%;
 }
 
 @media (max-aspect-ratio: 1/1){
     #interfaceBase{
+        height: 100%;
         width: 100%;
     }
     #blockButton{
         height: 100%;
         }
     #blockButton>*{
-        font-size: 1.2vmax;
+        font-size: 1.6vmax;
     }
     }
 

@@ -102,7 +102,7 @@ const Display = ({openOrder, setOpenOrder, init, closeOrder, setCloseOrder, inDi
             {init === false ? 
                
                 
-                <div className='layerBase soloCenter' >
+                <div className='layerBase soloCenter' id='' >
                 {inDis === true
                 ?
                 <div className='layerFloor multiVer blockCard contentCard'>
