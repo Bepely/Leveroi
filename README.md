@@ -1,25 +1,44 @@
+ver 0.1.2c  
 # Leveroi  
-## Futures Market Simulator  
-Leveroi v0.1.2c
-Order profit calculator  
-  
-## Done: 
-• Config, Order, Results                | v0.1.0 |  
-• Graph, Real-time API                  | v0.1.1 | 07.11.22  
-• NEXTjs, Home/App routes               | v0.1.2 | 22.11.22  
-• LCL - Leveroi Calculations Library    | v0.1.2a| 27.11.22  
-• Order Share/Save                      | v0.1.2b| 29.11.22  
-• Leveroi Design System                 | v0.1.2c| 06.11.22 
+## Futures Trading Simulator
 
+Open source tool that helps traders learn about and test their futures trading strategies. With Leveroi, you can simulate buying and selling futures contracts in a simulated market environment, and see how your trades would have performed.  
+
+Our simulator features a reactive graph that updates due to closed order, a results display that shows your profits or losses, and a share functionality that lets you share your simulated trades with others. Plus, it's open source, so anyone can view, modify, and contribute to the code.  
+
+Try out the Leveroi futures trading simulator today and take your futures trading skills to the next level.   
   
-  
-## Coming Up 
-○ Blog route and Blog Preview Slides    |  
-○ Sessions with multiple orders         |  
-○ Session save, load, and share         |   
-○ Profile system                        |  
-○ Connecting crypto wallet (?)          |  
-  
+
+## Roadmap 
+### Version 0.1.0: 
+Core functionality for simulating orders. Allows users to see how their trades would have performed if they had closed them at a specific price.  
+### Version 0.2.0: 
+Trading sessions and profile system. Simulating entire trading sessions, and a profile system for managing multiple users and their simulations. This will allow users to save, load and manage their simulated trades more effectively.  
+### Version 0.3.0: 
+Real market simulation. Take Profit/Stop Loss orders and real-time market simulation. This will make the simulator more realistic and allow users to test out more advanced trading strategies.  
+### Version 0.4.0:
+Trading platforms. Connectivity to real money trading platforms, so users can try out their simulated trades on actual trading platforms. This will make the simulator more useful for users who want to test their strategies before using them in the real world.  
+
+# Version Roadmap
+Done:    
+• ....date.... | v0.1.0 |Config, Order, Results  
+• 07.11.22 | v0.1.1x |Graph, Real-time API            
+• 22.11.22 | v0.1.2x |NEXTjs, Home/App routes                  
+• 27.11.22 | v0.1.2a |LCL - Leveroi Calculations Library       
+• 29.11.22 | v0.1.2b |Order Share/Save                        
+• 06.11.22 | v0.1.2c |Leveroi Design System                 
+
+Coming Up  
+○ Sustainable UI and HomePage           
+○ Documentation                           
+○ Glass Layer            
+○ Carousel                         
+○ Share and Snap Enhancement      
+○ SEO, SSR   
+
+In development  
+Sustainable UI, Homepage and Roadmap   
+
 ____________________________________________  
 This project is made single-handedly.  
 All of the comments and commits will be heard.  
@@ -27,6 +46,4 @@ and appretiated!
 ____________________________________________  
    
 Bepely  
-06.12.2022  
-
-
+08.12.2022  

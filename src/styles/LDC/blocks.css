@@ -12,7 +12,7 @@ max-height: 5vh;
     width: 100%;
     height: 100%;
     border: 2px solid black;
-    padding: 3px 5px;
+
     border-radius: 4px;
 }
 
@@ -99,6 +99,9 @@ gap: 10px;
     }
     #blockField{
         width: 90%;
+    }
+    #blockField>*{
+        max-height: 4.5vw;
     }
     
     #blockButton2>*, #blockButton3>*{
