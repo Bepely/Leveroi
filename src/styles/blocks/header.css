@@ -11,6 +11,17 @@
     width: 100%;
 }
 
+#appHeaderLogo{
+place-self: center end;
+width: 5vh;
+height: 5vh;
+margin: 3px;
+}
+
+#appHeaderText{
+    place-self: center start;
+}
+
 /* PC LEVEL */
 
 

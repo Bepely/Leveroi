@@ -2,13 +2,17 @@
 import Point from "../src/homeComponents/Point"
 import Head from "next/head"
 
-
+import {useState} from 'react'
 
 
 export default (()=>{
 
+    const [currentPoint, setCurrentPoint] = useState(0)
+
+
     
-return <div className="backLayer1" id="homeRoot">
+return <div className="layerGround soloCenter">
+    <div className="layerBase multiVer">
     <Head>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -26,53 +30,68 @@ return <div className="backLayer1" id="homeRoot">
       <meta content="width=device-width, initial-scale=1" name="viewport" />
       <link rel="icon" href="/favicon.ico" />
     </Head>
-        <div className="sectionHome" id="headerHome">
-            <header>
-                <div>
-                <h1>Leveroi</h1>
-                <h3>Order profit calculator</h3>
-                </div>
-                <div id="useApp" className="backLayer2">
-                <a href="/app"><h5>use app</h5></a>
-                </div>
-            </header>
-        </div>
+        <header className="nested layerBase multiHor" id="homeHeaderBase">  
+
+                <div className="multiHor">
+                    <div className="multiHor" id="logoHeaderMOB"> 
+                    {currentPoint === 0 
+                    ?  <img src="logo.svg" alt=""id="homeHeaderLogo" />:
+                    currentPoint === 1
+                    ? <h1>💸</h1> :
+                    currentPoint === 2
+                    ? <h1>✍️</h1>:
+                      <h1>👨‍💻</h1> }
+                    </div>
+
+                    <div className="multiHor" id="logoHeaderPC">
+                     <img src="logo.svg" alt=""id="homeHeaderLogo" />
+                    </div>
+                        <h1>Leveroi</h1> 
+                    </div>
+                
+                
+                
+                <a className="layerTable soloCenter blockCard" id="homeHeaderButtonToApp" href="/app"><h5>use app</h5></a>
+                
+        </header>
+
+
         <Point 
         side={"left"} 
-        header={"Easy ROI"}
+        header={"Order returns"}
         text={"Calculate the potential return of your futures orders is easy."}
-        article={"Input amount, leverage and price of an open order, then Leveroi will provide you with an intuitive interface to simulate market moves and the dynamic results of your order."}
-        action={"Try Leveroi"}
-        link={"/app"}
-        type={"config"}
-        emoji={"🍰"}
+        article={"Leveroi is an app that helps traders learn about and test their futures trading strategies. With Leveroi, you can simulate buying and selling futures contracts in a simulated market environment, and see how your trades would have performed."}
+        emoji={"📈📉"}
+        id={1}
+        currentPoint = {currentPoint}
+        setCurrentPoint = {setCurrentPoint}
         />
         
         <Point 
         side={"right"} 
-        header={"Dynamic"}
-        text={"Simulate price moves and get dynamic results of your order."}
-        article={"Leveroi provides you with an easy and fast way to simulate price moves and get dynamic results of your order. Change Long or Short positions without creating new orders, and see how it will affect your outcomes."}
-        action={"Try Leveroi"}
-        link={"/app"}
-        type={"graph"}
-        emoji={"🌊"}
+        header={"Handy"}
+        text={"Try dynamic, handy tools to test trading strategies."}
+        article={"Leveroi features a reactive graph that updates due to closed order, a results display that shows your profits or losses, and a share functionality that lets you share your simulated trades with others."}
+        emoji={"✍️"}
+        id={2}
+        currentPoint = {currentPoint}
+        setCurrentPoint = {setCurrentPoint}
         />
 
-<Point 
+        <Point 
         side={"left"} 
-        header={"Share Results"}
-        text={"It is easy to save and share order simulation results. "}
-        article={"Share your simulation with a variety of options: Copy the URL to your clipboard, download a screenshot of the results on your device, or share the link on Telegram. The order will be recreated by clicking the generated link."}
-        action={"Try Leveroi"}
-        link={"/app"}
-        type={"result"}
-        emoji={"🤝"}
+        header={"Open source"}
+        text={"Leveroi is open source, so anyone can view, modify, and contribute to the code."}
+        article={"This project is developed by one person, and you are more than welcome to contribute on GitHub, see the development journal on YouTube, or offer me a job. Feel free to contact me for any particular reason."}
+        emoji={"👨‍💻"}
+        id={3}
+        currentPoint = {currentPoint}
+        setCurrentPoint = {setCurrentPoint}
         />
         
         
         <footer>
-            <h5>Leveroi is in beta. Feeel free to repot on bugs.</h5>
+            <h5>Leveroi is in beta. Feel free to repot on bugs.</h5>
             <h5>bepely.contact@gmail.com</h5>
             <div id="socials">
                 <a target="_blank" href="https://www.youtube.com/@Bepely">
@@ -87,5 +106,6 @@ return <div className="backLayer1" id="homeRoot">
             </div>
           
         </footer>
+        </div>
 </div>
 })

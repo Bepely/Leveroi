@@ -20,7 +20,7 @@ import '../src/styles/details/button.css'
 import "../src/styles/reusable/note.css"
 
 import '../src/styles/major.css'
-import '../src/styles/home.css'
+import '../src/styles//home/home.css'
 
 const MyApp = ({ Component, pageProps }) => {
 

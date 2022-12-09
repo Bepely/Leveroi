@@ -4,7 +4,7 @@ ver 0.1.2c
 
 Open source tool that helps traders learn about and test their futures trading strategies. With Leveroi, you can simulate buying and selling futures contracts in a simulated market environment, and see how your trades would have performed.  
 
-Our simulator features a reactive graph that updates due to closed order, a results display that shows your profits or losses, and a share functionality that lets you share your simulated trades with others. Plus, it's open source, so anyone can view, modify, and contribute to the code.  
+Leveroi features a reactive graph that updates due to closed order, a results display that shows your profits or losses, and a share functionality that lets you share your simulated trades with others. Plus, it's open source, so anyone can view, modify, and contribute to the code.  
 
 Try out the Leveroi futures trading simulator today and take your futures trading skills to the next level.   
   
@@ -26,7 +26,7 @@ Done:
 • 22.11.22 | v0.1.2x |NEXTjs, Home/App routes                  
 • 27.11.22 | v0.1.2a |LCL - Leveroi Calculations Library       
 • 29.11.22 | v0.1.2b |Order Share/Save                        
-• 06.11.22 | v0.1.2c |Leveroi Design System                 
+• 06.12.22 | v0.1.2c |Leveroi Design System                 
 
 Coming Up  
 ○ Sustainable UI and HomePage           

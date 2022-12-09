@@ -3,19 +3,29 @@ import React from 'react'
 
 import {useState} from "react"
 
-const Point = ({side, header, text, article, emoji}) => {
-    const [showContent, setShowContent] = useState(false)
+const Point = ({side, header, text, article, emoji, currentPoint, setCurrentPoint, id}) => {
 
-    
-    const toShowContent = () => setShowContent(!showContent)
+
+    const [showContent, setShowContent] = useState(false) 
+
+    const onPointEnter = () => {setShowContent(true)}
+    const onPointLeave = () => {setShowContent(false)}
+
+    const changeCurrentPoint = () => {
+      if (currentPoint === id) {
+        setCurrentPoint(0)
+      } else {
+        setCurrentPoint(id)
+      }
+    }
 
     return (
-      <div className={side+'Point pointHolder'}>
+      <div className={side+'Point pointHolder'} onMouseEnter={onPointEnter} onMouseLeave={onPointLeave}>
       <div className="homePoint containerBox dropShadow backLayer2"
-      id={!showContent ? "" : "pickedPointHeader"} onClick={toShowContent}>
+      id={currentPoint !== id ? "" : "pickedPointHeader"} onClick={changeCurrentPoint} >
     <artice className={"homePointArticle"} >
     
-        {!showContent ?
+        {currentPoint !== id ?
         <>
         <div id="homePointHeader" ><h2>{header}</h2></div>
         <div id='homePointText homeContentShown'>
@@ -31,8 +41,8 @@ const Point = ({side, header, text, article, emoji}) => {
       }
         </artice>
     </div>
-        <div id={showContent ? "justEmoji" :'homePointImage'}>
-          <h1>{!showContent ? "👀" : emoji}</h1>
+        <div id={currentPoint === id ? "justEmoji" : 'homePointImage'}>
+          <h1>{currentPoint !== id && showContent ? "👀" : currentPoint !== id  && !showContent ? "" : emoji}</h1>
         </div>
     
     </div>
