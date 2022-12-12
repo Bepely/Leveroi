@@ -92,7 +92,6 @@ const Display = ({openOrder, setOpenOrder, init, closeOrder, setCloseOrder, inDi
                     
                     <h3>Disclaimer</h3>
                     <p>Please note that the calculations provided by Leveroi are for informational purposes only and may not accurately reflect the results of real-market trading. Leveroi is currently in beta, so please feel free to report any bugs or issues you encounter.</p>
-                    <p>For more information about Leveroi, please contact the developer at:</p>
                 
                     <Contacts />        
                 </div>

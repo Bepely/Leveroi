@@ -24,15 +24,15 @@ const MinMaxCur = ({open, setOpen, close, setClose}) => {
     
     <div className='layerTable' id='nestedTableFieldsDisplay'>
     <div className='layerTable' id=''> 
-        <div id='blockField'><input type="number" onKeyDown={enteForceBlur} onBlur={changeMin}  placeholder={close.min ? lcl.fixCoef(close.min) : 0}/></div>
+       <input type="number" className='blockField' onKeyDown={enteForceBlur} onBlur={changeMin}  placeholder={close.min ? lcl.fixCoef(close.min) : 0}/>
         <h5>MIN</h5>
     </div>
         <div className='layerTable' id=''> 
-        <div id='blockField'><input type="number" onKeyDown={enteForceBlur} onBlur={changeClosePrice}  placeholder={close.price}/></div>
+       <input className="blockField" type="number" onKeyDown={enteForceBlur} onBlur={changeClosePrice}  placeholder={close.price}/>
         <h5>Close</h5>
     </div>
     <div className='layerTable' id=''> 
-        <div id='blockField'><input type="number" onKeyDown={enteForceBlur}  onBlur={changeMax} placeholder={close.max ? lcl.fixCoef(close.max) : 1}/></div>
+       <input className="blockField" type="number" onKeyDown={enteForceBlur}  onBlur={changeMax} placeholder={close.max ? lcl.fixCoef(close.max) : 1}/>
         <h5>MAX</h5>
     </div>
     </div>

@@ -1,32 +1,9 @@
 /* TOTAL LEVEL */
 
-#sessionSimulationBase{
-    gap: 1.5vh
-}
 
-#displayBaseNested{
-    width: 80%;
-    height: 100%;
-}
-#displayGraphNest{
-    min-height: 100%;
-    margin: auto;
-    width: 80%;
-}
-
-#displayFloor{
-
-    height: auto;
-    margin: auto;
-    min-height: 100%;
-    max-width: 100%;
-    overflow: hidden;
-    
-}
 
 
 #nestedTableButtonsDisplay{
-    
     grid-template-columns: 1fr 1fr;
     width: 90%;
     gap: 10px;
@@ -34,22 +11,9 @@
 
 #nestedTableFieldsDisplay{
     width: 90%;
-grid-template-columns: 1fr 1fr 1fr;
-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
 }
-
-
-
-.minMaxCurInput{
-    min-height: 20px;
-    background: transparent;
-    
-}
-.minMaxCurInput>input{
-    width: 66%;
-    
-}
-
 
     .redButton:disabled{
         background-color: #cf5656;
@@ -61,21 +25,6 @@ gap: 10px;
         box-shadow: 0px -3px 8px  #64c564;
         
     }
-    
-   
-
-
-
-
-#newOrderInstructions{
-    display: grid;
-    place-items: center;
-    text-align: center;
-    width: 80%;
-    height: 80%;
-    
-
-}
 
 #affiliateBanner{
     max-width: 66%;
@@ -89,45 +38,9 @@ gap: 10px;
     width: 100%;
 }
 
-#advContainer{
-    height: 100%;
-    width: 75%;
-    display: grid;
-    place-items: center;
-}
-
-#inDisPlatforms{
-    display: grid;
-    place-items: center;
-    height: 100%;
-    width: 90%;
-    padding: 10px 0px;
-    max-height: max-content;
-}
-#inDisInstructions{
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 2fr 2fr 1fr;
-    align-items: center;
-    width: 90%;
-    height: 90%;
-}
 
 
-.longShortBtnHolder{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    /* was gri-gap 5px */
-    width: 100%;
-    height: 100%;
-    align-items: center;
-    justify-items: center;
-    grid-area: longShort;
-    border-top-left-radius: 7px;
-    border-top-right-radius: 7px;
 
-    background-color: #faf4fa;
-}
 
 /* PC LEVEL */
 
@@ -139,22 +52,11 @@ gap: 10px;
         width: 100%;
         height: 100%;
     }
-    #longShortPicker{
-        position: relative;
-    }
     .minMaxCurInput{
         min-height: 5.5%;  
     }
     #nestedTableButtonsDisplay{
         place-self: start center;
-    }
-    
-    #minMaxOpt{
-        position: relative;  
-    }
-    .minMaxCurInput>input{
-        width: 75%;
-        
     }
 
 }

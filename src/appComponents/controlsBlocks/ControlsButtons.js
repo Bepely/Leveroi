@@ -1,6 +1,12 @@
 'use client'
 import React from 'react'
 
+/*  
+This is a controls Button Component. Basically its swithing instructions to Ads and enters simulation
+12.12.22 Bepely
+
+*/
+
 
 const ControlsButtons = ({open, inDis, inDisSwitch, sendToDisplay}) => {
 

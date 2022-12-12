@@ -144,30 +144,27 @@ function App() {
 
       
       <Display 
-         init={init} inDis={inDis}
+         init={init} inDis={inDis} router={router} isQue = {isQue}
          openOrder={openOrder} setOpenOrder={setOpenOrder}
          closeOrder={closeOrder} setCloseOrder={setCloseOrder}
-         router={router}
-         isQue = {isQue} setIsQue = {setIsQue}/>
+         />
       
         
         <div className="layerBase multiVer" id="interfaceBase">
-        <Header />
-         {init === true ? 
-           <div className="layerBase multiVer" id="sessionSimulationBase">
-          <Session />
-          <Results open={openOrder} close={closeOrder}
-          setClose={setCloseOrder} setOpen={setOpenOrder}
-          init={init} _setInit={_setInit}/>
-          </div>
-          :
-          <Controls openOrderFires={openOrderFires}
-          init={init} _setInit={_setInit}
-          inDis={inDis} setInDis={_setInDis}
-          marketPrice={marketPrice}
-          openOrder={openOrder} setOpenOrder={setOpenOrder}/>
-        }
-        
+          <Header />
+          {init === true ? 
+            <div className="layerBase multiVer" id="sessionSimulationBase">
+            <Session />
+            <Results open={openOrder} close={closeOrder} _setInit={_setInit}/>
+            </div>
+            :
+            <Controls openOrderFires={openOrderFires}
+            init={init} _setInit={_setInit}
+            inDis={inDis} setInDis={_setInDis}
+            marketPrice={marketPrice}
+            openOrder={openOrder} setOpenOrder={setOpenOrder}/>
+          }
+          
         </div>
         
          
