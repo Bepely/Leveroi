@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import Pair from "./Pair"
+import Pair from "../reusable/Pair"
 
 const Amount = ({subState, setSubState, optName, optConfig, eventAPI}) => {
 

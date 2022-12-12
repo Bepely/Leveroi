@@ -2,11 +2,11 @@
 import Head from "next/head"
 import {useRouter} from "next/router"
 
-import Header from "../src/appComponents/blocks/Header"
-import Display from "../src/appComponents/blocks/Display"
-import Controls from "../src/appComponents/blocks/Controls"
-import Results from "../src/appComponents/blocks/Results"
-import Session from "../src/appComponents/blocks/Session"
+import Header from "../src/appComponents/Header"
+import Display from "../src/appComponents/Display"
+import Controls from "../src/appComponents/Controls"
+import Results from "../src/appComponents/Results"
+import Session from "../src/appComponents/Session"
 
 
 import { useState, useEffect } from "react"
@@ -142,14 +142,14 @@ function App() {
  <link rel="icon" href="/favicon.ico" /></Head>   
 
 
-      <div className="layerBase soloCenter" id="displayBase">
+      
       <Display 
          init={init} inDis={inDis}
          openOrder={openOrder} setOpenOrder={setOpenOrder}
          closeOrder={closeOrder} setCloseOrder={setCloseOrder}
          router={router}
          isQue = {isQue} setIsQue = {setIsQue}/>
-      </div>
+      
         
         <div className="layerBase multiVer" id="interfaceBase">
         <Header />

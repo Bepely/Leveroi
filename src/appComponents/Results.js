@@ -2,7 +2,7 @@
 import html2canvas from 'html2canvas';
 
 import {useRef, useState} from "react"
-import * as lcl from "../../lcl"
+import * as lcl from "../lcl"
 
 
 const Results = ({close, setClose, open, setOpen, init, _setInit}) => {

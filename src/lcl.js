@@ -85,3 +85,44 @@
             else{return Number(target.toFixed(1))}
         
     }
+
+
+
+    //---------------------------------------------\\
+    //-------------Input-----Functions-------------\\
+    //---------------------------------------------\\
+    //----Functions that interacts with user   ----\\
+    //----   input elements, depends on its    ----\\
+    //----output and change the state of an app ---\\
+    //---------------------------------------------\\
+
+
+    export const changeClosePrice = (close, setClose, value) => {
+        console.log(value);
+        if(value){
+            let x = fixCoef(value)       
+            setClose(close => ({...close, price:x}))
+            value = null
+            if(x > close.max)
+            {setClose(close => ({...close, max:x}))}
+            else if (x < close.min) 
+            {setClose(close => ({...close, min:x}))}
+        }else{}}
+
+    export const changeMin = (close, setClose, value) => {
+        if(value){
+            let x = fixCoef(value)       
+            if(x >= close.max){console.log("preventMoreOne");}
+            else if(x <= 0 || x === null){} 
+            else{setClose(close => ({...close, min:x}))}
+            value = null
+        }else{}}
+
+    export const changeMax = (close, setClose, value) => {
+        if(value){
+            let x = fixCoef(value)       
+            if(x <= 0 || x === null){}
+            else if(x <= close.min){console.log("preventLessOne");}
+            else{setClose(close => ({...close, max:x}))} 
+            value = null
+        }else{}}

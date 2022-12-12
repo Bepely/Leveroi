@@ -23,21 +23,17 @@
     overflow: hidden;
     
 }
-#floorDisplayConfiguration{
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    align-items: center;
-    align-content: stretch;
-    justify-items: center;
-}
+
+
 #nestedTableButtonsDisplay{
-    width: fit-content;
+    
     grid-template-columns: 1fr 1fr;
+    width: 90%;
     gap: 10px;
 }
+
 #nestedTableFieldsDisplay{
-    width: 80%;
+    width: 90%;
 grid-template-columns: 1fr 1fr 1fr;
 gap: 10px;
 }
@@ -86,10 +82,11 @@ gap: 10px;
     border-radius: 7px;
 }
 #initComment{
+    border-radius: 0;
     background-color: transparent;
-    border-top: 1px solid black;
-    font-size: 0.7em;
-
+    border-top: 2px solid black;
+    font-size: 0.9em;
+    width: 100%;
 }
 
 #advContainer{
