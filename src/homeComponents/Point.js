@@ -5,6 +5,12 @@ import {useState} from "react"
 
 const Point = ({side, header, text, article, emoji, currentPoint, setCurrentPoint, id}) => {
 
+  /*
+  This is the mail Content Block of the Homepage of a Leveroi. 
+  
+  12.12.2022 Bepely
+  */
+
 
     const [showContent, setShowContent] = useState(false) 
 
@@ -21,7 +27,7 @@ const Point = ({side, header, text, article, emoji, currentPoint, setCurrentPoin
 
     return (
       <div className={side+'Point pointHolder'} onMouseEnter={onPointEnter} onMouseLeave={onPointLeave}>
-      <div className="homePoint containerBox dropShadow backLayer2"
+      <div className=" homePoint layerFloor blockCard"
       id={currentPoint !== id ? "" : "pickedPointHeader"} onClick={changeCurrentPoint} >
     <artice className={"homePointArticle"} >
     

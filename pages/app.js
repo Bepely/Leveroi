@@ -2,14 +2,25 @@
 import Head from "next/head"
 import {useRouter} from "next/router"
 
-import Header from "../src/appComponents/blocks/Header"
-import Display from "../src/appComponents/blocks/Display"
-import Controls from "../src/appComponents/blocks/Controls"
-import Results from "../src/appComponents/blocks/Results"
-import Session from "../src/appComponents/blocks/Session"
+import Header from "../src/appComponents/Header"
+import Display from "../src/appComponents/Display"
+import Controls from "../src/appComponents/Controls"
+import Results from "../src/appComponents/Results"
+import Session from "../src/appComponents/Session"
 
 
 import { useState, useEffect } from "react"
+
+
+/*
+This is a root component of my app
+It is a Main Node of a data flow, so it contains a lot of functions 
+
+I do understand that this is a bad pattern, but for now it works
+Sonner or later I will reorganize it, but today it is alright =/
+
+12.12.22 Bepely
+*/
 
 
 
@@ -142,32 +153,29 @@ function App() {
  <link rel="icon" href="/favicon.ico" /></Head>   
 
 
-      <div className="layerBase soloCenter" id="displayBase">
+      
       <Display 
-         init={init} inDis={inDis}
+         init={init} inDis={inDis} router={router} isQue = {isQue}
          openOrder={openOrder} setOpenOrder={setOpenOrder}
          closeOrder={closeOrder} setCloseOrder={setCloseOrder}
-         router={router}
-         isQue = {isQue} setIsQue = {setIsQue}/>
-      </div>
+         />
+      
         
         <div className="layerBase multiVer" id="interfaceBase">
-        <Header />
-         {init === true ? 
-           <div className="layerBase multiVer" id="sessionSimulationBase">
-          <Session />
-          <Results open={openOrder} close={closeOrder}
-          setClose={setCloseOrder} setOpen={setOpenOrder}
-          init={init} _setInit={_setInit}/>
-          </div>
-          :
-          <Controls openOrderFires={openOrderFires}
-          init={init} _setInit={_setInit}
-          inDis={inDis} setInDis={_setInDis}
-          marketPrice={marketPrice}
-          openOrder={openOrder} setOpenOrder={setOpenOrder}/>
-        }
-        
+          <Header />
+          {init === true ? 
+            <div className="layerBase multiVer" id="sessionSimulationBase">
+            <Session />
+            <Results open={openOrder} close={closeOrder} _setInit={_setInit}/>
+            </div>
+            :
+            <Controls openOrderFires={openOrderFires}
+            init={init} _setInit={_setInit}
+            inDis={inDis} setInDis={_setInDis}
+            marketPrice={marketPrice}
+            openOrder={openOrder} setOpenOrder={setOpenOrder}/>
+          }
+          
         </div>
         
          

@@ -2,6 +2,7 @@
 import Point from "../src/homeComponents/Point"
 import Head from "next/head"
 
+
 import {useState} from 'react'
 
 
@@ -30,9 +31,9 @@ return <div className="layerGround soloCenter">
       <meta content="width=device-width, initial-scale=1" name="viewport" />
       <link rel="icon" href="/favicon.ico" />
     </Head>
-        <header className="nested layerBase multiHor" id="homeHeaderBase">  
+        <header className="layerBase multiHor" id="homeHeaderBase">  
 
-                <div className="multiHor">
+                <div className="multiHor" id="homeHeaderLogoText">
                     <div className="multiHor" id="logoHeaderMOB"> 
                     {currentPoint === 0 
                     ?  <img src="logo.svg" alt=""id="homeHeaderLogo" />:
@@ -51,7 +52,7 @@ return <div className="layerGround soloCenter">
                 
                 
                 
-                <a className="layerTable soloCenter blockCard" id="homeHeaderButtonToApp" href="/app"><h5>use app</h5></a>
+                    <a href="./app" className='layerFloor blockCard soloCenter' id='headerBlock'><h4>Use app</h4></a>
                 
         </header>
 

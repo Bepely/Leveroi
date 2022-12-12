@@ -1,9 +1,8 @@
 'use client'
 import React from 'react'
 
-import Option from "../reusable/Option"
-
-import ControlsButtons from '../controls/ControlsButtons'
+import Option from "./controlsBlocks/Option"
+import ControlsButtons from './controlsBlocks/ControlsButtons'
 
 
 

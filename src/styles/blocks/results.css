@@ -1,3 +1,18 @@
+/*
+TBH it is a shittiest piece of CSS in my APP so far
+I dont know how to resolve all of this shit for real
+
+It is working somehow, so I will not gonna touch it
+Well, one day I'll need to create a new One or to rewrite everything
+
+But for now It is What it is =/
+
+12.12.22 Bepely
+
+*/
+
+
+
 /* TOTAL LEVEL */
 #resultsCardFloor{
     width: 80%;
@@ -25,9 +40,7 @@
     width: 100%;
     padding: 10px;
 }
-.shareBtn{
-    background-color: #ECE9EC
-}
+
 
 
 
@@ -149,17 +162,11 @@ padding: 2px;
 /* MOBILE LEVEL */
 
 @media (max-aspect-ratio: 1/1){
-    #results{
-        width: 100%;
-        max-width: 100%;
-        align-items: center;
-    }
+    
     #results>*{
         overflow: hidden;
     }
-    #controlsWrapper{
-        width: 85%;
-    }
+    
 
     #resultsFloor{
         display: grid;
@@ -172,7 +179,7 @@ padding: 2px;
                             "price";
        
        
-        width: 100%;
+        width: 90%;
         padding: 5px 0px;
 
     }

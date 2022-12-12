@@ -7,70 +7,9 @@
 }
 
 
-#controlsButtonsBase{
-    height: fit-content;
-    width: 80%;
-}
 
 
-#controlsRoot{
-    display: grid;
-    place-items: center;
-}
-#controlsWrapper{
-    display: grid;
 
-    place-items: center;
-    width: 80%;
-    height: 100%;
-}
-#controlsRootNoResult{
-    
-    display: grid;
-    place-items: center;
-
-}
-
-#controlsContainer{
-    width: 100%;
-    height: 100%;
-    border-radius: 7px;
-    display: grid;
-    align-content: space-between ;
-    
-}
-
-.controlsPoint{
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    display: grid;
-    grid-template-rows: 2fr 1fr;
-    place-items: center;
-}
-
-#feeControlsPoint{
-    grid-template-rows: 1fr;
-}
-
-#feeConfigContainer{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-    width: 100%;
-    height: 100%;
-    padding: 7px;
-}
-#feeConfig{
-    display: grid;
-    grid-template-columns: 6fr 1fr;
-    place-items: center;
-}
-#feeDisabledText{
-    display: grid;
-    place-items: center;
-}
 
 
 /* PC LEVEL */
@@ -79,23 +18,6 @@
 /* MOBILE LEVEL */
 
 @media (max-aspect-ratio: 1/1){
-    .resultControls{
-        grid-area: rc;
-        width: 100%;
-        align-self: start;
-        height: 100%;
-    }
-    #controlsContainer{
-        max-height: 100%;
-        margin: 0;
-    }
-    #controlsBaseNest{
-        width: 90%;
-    }
-    
-    .controlsPoint{
-        height: 100%;
-        
-    }
+   
     
 }

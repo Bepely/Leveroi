@@ -1,19 +1,23 @@
 import React from 'react'
 
 import MSlider from "@mui/material/Slider"
-
 import * as lcl from "../../lcl"
 
 
+/*
+Slider Component is a main Order Close Price picker intrerface
+12.12.22 Bepely
+*/
 
 
+const Slider = ({closeOrder, setCloseOrder}) => {
 
-const Slider = ({closeOrder, changeClosePrice}) => {
 let subtraction = Number(closeOrder.max - closeOrder.min)
+const changeClosePrice = (e) => {lcl.changeClosePrice(closeOrder, setCloseOrder, e.target.value)}
 
 
   return (
-    <div className='sliderContainer'> 
+    <div className='layerTable soloCenter blockCardNoShadow paddingContent'> 
     {closeOrder.min && closeOrder.max
     ? <MSlider
     id="exactSlider"

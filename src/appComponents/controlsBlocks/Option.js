@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import Pair from "./Pair"
+import Pair from "../reusable/Pair"
 
 const Amount = ({subState, setSubState, optName, optConfig, eventAPI}) => {
 
@@ -10,9 +10,8 @@ const Amount = ({subState, setSubState, optName, optConfig, eventAPI}) => {
     }
 
   return (
-    <div key={optName} className='controlsPoint backLayer2 dropShadow containerBox' id="">
+    <div key={optName} className='layerFloor multiVer blockCard' id="">
     <Pair type="input" key={optName} first={optName} subState={subState} setSubState={setSubState}/>
-
       <div id='controlsOptionsHolder'>
         {optConfig.map((element, index) => {
           return(

@@ -6,8 +6,24 @@ import {useRef, useEffect, useState} from "react"
 import * as lcl from "../../lcl"
 
 
+/* 
+This is a main Media Component of a whole App
+It is a greactive graph, that represents movement of an order,
+It's Liquidation zone, Open point, Close Point. 
 
+At the moment of writing this *12.12.2022*
+This is the most painful part of an app
+I will need to redo it compeletely. 
+I will need to create my own Canvas Graph or master VictoryJS (which i dont like =c) 
+or learn something else. 
 
+For now, graph is a painful, barely working shit. 
+In case of implementing sessions - i need to make it good-to-perfect
+or at least not sustainable and understandable
+
+God bless it's even working now
+12.12.22 Bepely
+*/
 
 
 
