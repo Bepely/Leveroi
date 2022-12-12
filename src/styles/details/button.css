@@ -39,29 +39,10 @@
     .greenButton:disabled{
         background-color: #64c564;
         box-shadow: none;
-        
         font-weight: bold;
-        
     }
     
 
-
-
-
-.crButton{
-    padding: 10px 2px;
-    border-radius: 5px;
-    border: 1px solid black;
-}
-
-
-.defButton{
-    display: grid;
-    border: 2px solid black;
-    height: 100%;
-    width: 100%;
-    place-content: center;
-}
 
 /* CONTROLS BUTTONS */
 
@@ -96,7 +77,6 @@
 
 .pickedControlsOptionBtn{
     box-shadow: 0px -2px 2px 0px #f2a900;
-
 }
 
 
@@ -114,21 +94,14 @@
         border-radius: 0px 0px 7px 7px;
         border: 2px solid black;
         border-top: 0;
-        
     }
 
     .redButton:disabled{
         background-color: #cf5656;
         box-shadow: 0px -3px 8px #cf5656;
-  
     }
     .greenButton:disabled{
         background-color: #64c564;
-        box-shadow: 0px -3px 8px  #64c564;
-        
+        box-shadow: 0px -3px 8px  #64c564;  
     }
-    
-
-    
-
 }

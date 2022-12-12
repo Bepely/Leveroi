@@ -12,6 +12,17 @@ import Session from "../src/appComponents/Session"
 import { useState, useEffect } from "react"
 
 
+/*
+This is a root component of my app
+It is a Main Node of a data flow, so it contains a lot of functions 
+
+I do understand that this is a bad pattern, but for now it works
+Sonner or later I will reorganize it, but today it is alright =/
+
+12.12.22 Bepely
+*/
+
+
 
 function App() {
 

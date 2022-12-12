@@ -1,4 +1,4 @@
-ver 0.1.2c  
+ver 0.1.3  
 # Leveroi  
 ## Futures Trading Simulator
 
@@ -27,20 +27,20 @@ Done:
 • 27.11.22 | v0.1.2a |LCL - Leveroi Calculations Library       
 • 29.11.22 | v0.1.2b |Order Share/Save                        
 • 06.12.22 | v0.1.2c |Leveroi Design System       
-• 12.12.22 | v0.1.2d |Architectural Pattern (In progress)          
+• 12.12.22 | v0.1.3 |Sustainable UI and HomePage       
 
-Coming Up  
-○ Sustainable UI and HomePage           
-○ Documentation                           
+Coming Up   
+                                   
 ○ Glass Layer            
 ○ Carousel                         
-○ Share and Snap Enhancement      
+○ Share and Snap Enhancement    
+○ Documentation     
 ○ SEO, SSR   
 
 In progress  
-• Implementation of an architectural pattern   
-• Clean up components and sub-components according LDS (remove garbage IDs and classes)   
-• Comment every Component and sub-Component   
+◘ Create Description Block   
+◘ Create Pop-up (Glass layer)    
+◘ Create Carousel
 
 
 
@@ -51,4 +51,4 @@ and appretiated!
 ____________________________________________  
    
 Bepely  
-08.12.2022  
+12.12.2022  

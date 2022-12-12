@@ -1,3 +1,13 @@
+/*
+  Home Page is kinda shit, because of it falls of an app css. It works, kinda. 
+  I dont want to toch it, until I'll know exactly what I want to do with it. 
+  For now, I'l just Make It kinda sustainable. 
+
+  12.12.22 Bepely
+*/
+
+
+
 *{
     margin: 0;
     padding: 0;
@@ -10,6 +20,10 @@
 
 #homeHeaderBase{
     width: 80%;
+    height: fit-content;
+    place-self: center center;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
 }
 
 #homeHeaderLogo{
@@ -52,7 +66,6 @@
 }
 #headerHome>header{
     display: grid;
-    grid-template-columns: 1fr 1fr;
     place-items: center;
 }
 
@@ -138,9 +151,16 @@ footer{
 
 #logoHeaderMOB{
     display: none;
+   
 }
 #logoHeaderPC{
     display: block;
+   
+}
+
+#homeHeaderLogoText{
+    place-self: auto start;
+    padding-left: 10vw; 
 }
 
 
@@ -159,6 +179,10 @@ footer{
         height: 5vh;
         min-height: 32px;
         min-width: 32px;
+    }
+
+    .pointHolder{
+        width: 90%;
     }
 
     .homePointArticle{
