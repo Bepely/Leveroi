@@ -1,6 +1,6 @@
 {
   "name": "leveroi",
-  "version": "0.1.2c",
+  "version": "0.1.2d",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.5",

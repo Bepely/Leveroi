@@ -26,7 +26,8 @@ Done:
 • 22.11.22 | v0.1.2x |NEXTjs, Home/App routes                  
 • 27.11.22 | v0.1.2a |LCL - Leveroi Calculations Library       
 • 29.11.22 | v0.1.2b |Order Share/Save                        
-• 06.12.22 | v0.1.2c |Leveroi Design System                 
+• 06.12.22 | v0.1.2c |Leveroi Design System       
+• 12.12.22 | v0.1.2d |Architectural Pattern (In progress)          
 
 Coming Up  
 ○ Sustainable UI and HomePage           
@@ -36,8 +37,12 @@ Coming Up
 ○ Share and Snap Enhancement      
 ○ SEO, SSR   
 
-In development  
-Sustainable UI, Homepage and Roadmap   
+In progress  
+• Implementation of an architectural pattern   
+• Clean up components and sub-components according LDS (remove garbage IDs and classes)   
+• Comment every Component and sub-Component   
+
+
 
 ____________________________________________  
 This project is made single-handedly.  
