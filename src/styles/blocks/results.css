@@ -96,6 +96,9 @@ But for now It is What it is =/
     justify-items: center;
     align-items: center;
 }
+#TPSLbaseNotToShow{
+    display: none;
+}
 
 #pnlTPSL{
     width: 100%;

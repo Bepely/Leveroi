@@ -103,7 +103,7 @@ gap: 10px;
     }
     
     
-    #blockButton2>*, #blockButton3>*{
+    .blockButton, #blockButton2>*, #blockButton3>*{
         font-size: 1.6vmax;
     }
     }
