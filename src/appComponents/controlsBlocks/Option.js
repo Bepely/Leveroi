@@ -10,7 +10,7 @@ const Amount = ({subState, setSubState, optName, optConfig, eventAPI}) => {
     }
 
   return (
-    <div key={optName} className='layerFloor multiVer blockCard' id="">
+    <div key={optName} className='layerFloor multiVer blockCard whMax' id="">
     <Pair type="input" key={optName} first={optName} subState={subState} setSubState={setSubState}/>
       <div id='controlsOptionsHolder'>
         {optConfig.map((element, index) => {

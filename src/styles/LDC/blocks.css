@@ -9,6 +9,21 @@ height: 100%;
 border-radius: 4px;
 }
 
+.blockButton{
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    min-height: fit-content;
+    border: 2px solid black;
+    border-radius: 4px;
+    background-color: #ece9ec;
+    padding: 3px 5px;
+    font-size: 1vmax;
+}
+.blockButton:hover{
+    background-color: #f5f5f5;
+}
 #blockButton2{grid-template-columns: 1fr 1fr}
 #blockButton3{grid-template-columns: 1fr 1fr 1fr}
 
@@ -40,16 +55,13 @@ gap: 10px;
 }
 
 .blockCard{
-    width: 100%;
-    height: 100%;
     box-shadow: 6px 6px #937d9944;
     background-color: #f5f5f5;;
 }
 
-.blockCardNoShadow{
+.whMax{
     height: 100%;
     width: 100%;
-    box-shadow: none;
 }
 
 .blockCard:hover, .blockCard:focus{

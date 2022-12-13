@@ -32,7 +32,8 @@ Done:
 Coming Up   
                                    
 ○ Glass Layer            
-○ Carousel                         
+○ Carousel   
+○ Take Profit / Stop Loss                         
 ○ Share and Snap Enhancement    
 ○ Documentation     
 ○ SEO, SSR   
@@ -40,8 +41,8 @@ Coming Up
 In progress  
 ◘ Create Description Block   
 ◘ Create Pop-up (Glass layer)    
-◘ Create Carousel
-
+◘ Create Carousel   
+◘ TP/SP   
 
 
 ____________________________________________  
@@ -51,4 +52,4 @@ and appretiated!
 ____________________________________________  
    
 Bepely  
-12.12.2022  
+13.12.2022  

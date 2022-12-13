@@ -4,6 +4,7 @@ import {useRef} from "react"
 
 import OrderResultsCard from "./resultsBlocks/OrderResultsCard"
 import ResultInputs from "./resultsBlocks/ResultInputs"
+import TPSL from "./resultsBlocks/TPSL"
 
 
 /* 
@@ -16,13 +17,13 @@ const Results = ({close, open, _setInit}) => {
 
  return (
    
-  <>
+  <div className="layerBase multiVer" id="sessionSimulationBase">
 
-    
+      <TPSL open={open} close={close}/>
       <OrderResultsCard open={open} close={close} snap={snap}/>
       <ResultInputs open={open} close={close} snap={snap} _setInit={_setInit}/>
      
-  </>
+  </div>
                     
   )
         

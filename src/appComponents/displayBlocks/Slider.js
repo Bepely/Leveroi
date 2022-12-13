@@ -17,7 +17,7 @@ const changeClosePrice = (e) => {lcl.changeClosePrice(closeOrder, setCloseOrder,
 
 
   return (
-    <div className='layerTable soloCenter blockCardNoShadow paddingContent'> 
+    <div className='layerTable soloCenter whMax paddingContent'> 
     {closeOrder.min && closeOrder.max
     ? <MSlider
     id="exactSlider"

@@ -6,7 +6,6 @@ import Header from "../src/appComponents/Header"
 import Display from "../src/appComponents/Display"
 import Controls from "../src/appComponents/Controls"
 import Results from "../src/appComponents/Results"
-import Session from "../src/appComponents/Session"
 
 
 import { useState, useEffect } from "react"
@@ -164,10 +163,9 @@ function App() {
         <div className="layerBase multiVer" id="interfaceBase">
           <Header />
           {init === true ? 
-            <div className="layerBase multiVer" id="sessionSimulationBase">
-            <Session />
+            
             <Results open={openOrder} close={closeOrder} _setInit={_setInit}/>
-            </div>
+           
             :
             <Controls openOrderFires={openOrderFires}
             init={init} _setInit={_setInit}

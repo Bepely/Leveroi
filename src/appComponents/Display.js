@@ -73,12 +73,12 @@ const Display = ({openOrder, setOpenOrder, init, closeOrder, setCloseOrder, inDi
                 <div className='layerBase soloCenter' id='displayBase' >
                 {inDis === true
                 ?
-                <div className='layerFloor multiVer blockCard paddingContent'>
+                <div className='layerFloor multiVer blockCard whMax paddingContent'>
                         <Platforms />
                         <Contacts />
                 </div>
                 :
-                <div className='layerFloor blockCard multiVer paddingContent' >
+                <div className='layerFloor blockCard whMax multiVer paddingContent' >
                     <article>
                     <h3>Profit / Loss Calculator</h3>
                     <p>
@@ -106,13 +106,13 @@ const Display = ({openOrder, setOpenOrder, init, closeOrder, setCloseOrder, inDi
             <div className='layerBase soloCenter' id='displayBase' >
 
                 
-                <div className='layerFloor multiVer blockCardNoShadow'>
+                <div className='layerFloor multiVer whMax'>
                     <LongShortButtons close={closeOrder} setClose={setCloseOrder}/>
                     <MinMaxCur close={closeOrder} setClose={setCloseOrder} />
                 </div>
       
 
-                <div className='layerFloor multiHor blockCardNoShadow paddingContent'  >
+                <div className='layerFloor multiHor whMax paddingContent'  >
                     <Graph close={closeOrder} open={openOrder}/>
                     <Slider closeOrder={closeOrder} setCloseOrder={setCloseOrder}/>  
                 </div>  
