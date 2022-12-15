@@ -1,0 +1,21 @@
+.grey1BG{
+background-color: #f5f5f5;
+}
+.grey2BG{
+    background-color: #ece9ec;
+}
+
+
+.HredBG{
+    background-color: #cf56562c;
+    z-index: 0;
+}
+.HredBG:hover{
+    background-color: #cf5656;
+}
+.HgreenBG{
+    background-color: #64c5642c;
+}
+.HgreenBG:hover{
+    background-color: #64c564
+}

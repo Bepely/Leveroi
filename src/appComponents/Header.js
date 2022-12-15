@@ -10,7 +10,7 @@ const Header = () => {
           <img src="logo.svg" id='appHeaderLogo' alt="" />
           <h1 id='appHeaderText'>Leveroi</h1>
         </div>
-         <a href="../" className='layerFloor blockCard soloCenter' id='headerBlock'><h4>Home</h4></a>
+         <a href="../" className='layerFloor blockCard whMax soloCenter' id='headerBlock'><h4>Home</h4></a>
          
     </header>
   )

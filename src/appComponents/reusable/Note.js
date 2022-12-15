@@ -10,7 +10,7 @@ const Note = (header, text) => {
     <>
     {showNote ? <>
     <div className='noteHolder'>
-        <div className='backLayer2 dropShadow containerBox'>
+        <div className='backLayer2 blockCard whMax'>
             <h1>{header}</h1>
             <p>{text}</p>
         </div>

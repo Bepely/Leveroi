@@ -9,7 +9,7 @@ const Pair = ({first, second, subState, setSubState}) => {
     }
 
   return (
-    <div className='layerTable multiHor blockCardNoShadow'>
+    <div className='layerTable multiHor whMax'>
          
             <div className='inputPair pair paddingContent' >
                  <p className='pairFirst pairText pairChild hText'>{first}</p>  

@@ -98,7 +98,6 @@
 
 
     export const changeClosePrice = (close, setClose, value) => {
-        console.log(value);
         if(value){
             let x = fixCoef(value)       
             setClose(close => ({...close, price:x}))

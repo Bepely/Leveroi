@@ -81,6 +81,37 @@ But for now It is What it is =/
     font-size: 1em;
     font-weight: bolder;
 }
+#layerBaseTPSL{
+gap: 1vw;
+}
+#TPSLbase{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+
+    height: fit-content;
+
+    gap: 1vw;
+
+    justify-items: center;
+    align-items: center;
+}
+#TPSLbaseNotToShow{
+    display: none;
+}
+
+#pnlTPSL{
+    position: relative;
+    width: 100%;
+    height: fit-content;
+    z-index: 1;
+    background-color: #ece9ec;
+    border-radius: 7px;
+}
+#pnlTPSLright{
+    border-right: 0;
+}
+
 
 .pnlResults{
     display: grid;
@@ -109,6 +140,16 @@ But for now It is What it is =/
 }
 .totalContainer>*{
     border-right: 2px solid black;
+    padding: 5px
+}
+.TPSLcontainer{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    text-align: center;
+}
+.TPSLcontainer>*{
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
     padding: 5px
 }
 
@@ -153,6 +194,7 @@ padding: 2px;
 
 #layerBaseFooterResults{
     gap: 1.5vh;
+    
 }
 
 
@@ -167,6 +209,16 @@ padding: 2px;
         overflow: hidden;
     }
     
+    #layerBaseTPSL{
+        width: 90%;
+        margin-top: 1.5vh;
+    }
+    #layerBaseTPSL>.layerFloor{
+        width: 100%;
+    }
+    #TPSLbase>*{
+        width: 100%;
+    }
 
     #resultsFloor{
         display: grid;
@@ -188,6 +240,9 @@ padding: 2px;
         height: auto;
         margin: auto;
 
+    }
+    #layerBaseFooterResults{
+        padding: 1vh 0;;
     }
     
     

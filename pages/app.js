@@ -6,7 +6,6 @@ import Header from "../src/appComponents/Header"
 import Display from "../src/appComponents/Display"
 import Controls from "../src/appComponents/Controls"
 import Results from "../src/appComponents/Results"
-import Session from "../src/appComponents/Session"
 
 
 import { useState, useEffect } from "react"
@@ -51,7 +50,9 @@ function App() {
     long: true,
     price: 0.08808,
     min: 0,
-    max: 200
+    max: 200,
+    lim0: 0,
+    lim1: 0
 })
   //Current open Order state
   const [openOrder, setOpenOrder] = useState({
@@ -87,6 +88,14 @@ function App() {
 
   //Configuration of an initial Open order in Session
   const openOrderFires=(x)=>{
+      setCloseOrder({
+        long: true,
+        price: 0.08808,
+        min: 0,
+        max: 200,
+        lim0: 0,
+        lim1: 0
+    })
       setOpenOrder(openOrder => ({...x}))
       }
   //Initial Session Switcher
@@ -164,10 +173,10 @@ function App() {
         <div className="layerBase multiVer" id="interfaceBase">
           <Header />
           {init === true ? 
-            <div className="layerBase multiVer" id="sessionSimulationBase">
-            <Session />
-            <Results open={openOrder} close={closeOrder} _setInit={_setInit}/>
-            </div>
+            
+            <Results open={openOrder} close={closeOrder}
+            setCloseOrder = {setCloseOrder} _setInit={_setInit}/>
+           
             :
             <Controls openOrderFires={openOrderFires}
             init={init} _setInit={_setInit}

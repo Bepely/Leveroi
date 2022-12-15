@@ -80,6 +80,49 @@
 }
 
 
+.upLeft{
+    padding: 0.5vh 1vw;
+    top: -2.5vh;
+    left: 5%;
+    border: 2px solid black;
+    border-top-right-radius: 7px;
+    border-top-left-radius: 7px;
+    border-bottom: 0px;
+}
+.upLeft:hover{
+    z-index: 1;
+    top:-3.5vh;
+    padding: 1vh 1vw;
+    border-top-right-radius: 7px;
+    border-top-left-radius: 7px;
+}
+.upLeft2{
+    padding: 0.5vh 1vw;
+    top: -2.5vh;
+    left: 25%;
+    border: 2px solid black;
+    border-top-right-radius: 7px;
+    border-top-left-radius: 7px;
+    border-bottom: 0px;
+}
+.upLeft2:hover{
+    z-index: 1;
+    top:-3.5vh;
+    
+    padding: 1vh 1vw;
+    border-top-right-radius: 7px;
+    border-top-left-radius: 7px;
+}
+
+.subButton{
+    position: absolute;
+    z-index: 0;
+    background-color: #ece9ec;
+}
+
+
+
+
 
 
 @media (max-aspect-ratio: 1/1){
@@ -103,5 +146,8 @@
     .greenButton:disabled{
         background-color: #64c564;
         box-shadow: 0px -3px 8px  #64c564;  
+    }
+    .subButton{
+        top: -2.5vh
     }
 }

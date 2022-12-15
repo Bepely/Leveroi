@@ -21,7 +21,7 @@ const ResultInputs = ({open, close, snap, _setInit}) => {
 
   let orderConfigParams = "";
 
-  orderConfigParams = `?am=${open.amount}&lev=${open.leverage}&op=${open.price}&fee=${open.fee}&long=${close.long}&cp=${close.price}&min=${close.min}&max=${close.max}`
+  orderConfigParams = `?am=${open.amount}&lev=${open.leverage}&op=${open.price}&fee=${open.fee}&long=${close.long}&cp=${close.price}&min=${close.min}&max=${close.max}&lim0=${close.lim0}&lim1=${close.lim1}`
 
 const getEncodedConfigParams = () => {return encodeURIComponent(`https://bepely.space/app${orderConfigParams}`)}
 const getDecodedConfigParams = (p) => {return decodeURIComponent(p)}
@@ -70,7 +70,7 @@ const getDecodedConfigParams = (p) => {return decodeURIComponent(p)}
     <div className='layerBase nested multiVer' id='layerBaseFooterResults'>
        
     
-      <input className='blockField' type="text" readOnly value={"https://bepely.space/app"+orderConfigParams}/>
+  
       
     {shareSwitch ? <div className='multiHor layerTable' id='blockButton3'>
     <a  target="_blank" href={`https://t.me/share/url?url=${getEncodedConfigParams()} 

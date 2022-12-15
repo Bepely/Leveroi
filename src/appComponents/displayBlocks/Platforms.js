@@ -7,7 +7,7 @@ This is a collection of Real Trading Platforms affiliate links, that user can us
 
 const Platforms = () => {
   return (
-    <div className='floorTable multiVer blockCardNoShadow'>
+    <div className='floorTable multiVer whMax'>
                 <h3>Real Market Trading</h3>
                 <p>Looking to take your futures trading skills to the next level? Leveroi now offers a list of popular real money trading platforms that you can use to try out your simulated trades and test your strategies in the real world.</p>
                 <a href="https://accounts.binance.com/en-GB/register?ref=O1HCEC51" ><h3>Binance</h3></a>

@@ -27,7 +27,7 @@ const Point = ({side, header, text, article, emoji, currentPoint, setCurrentPoin
 
     return (
       <div className={side+'Point pointHolder'} onMouseEnter={onPointEnter} onMouseLeave={onPointLeave}>
-      <div className=" homePoint layerFloor blockCard"
+      <div className=" homePoint layerFloor  whMax"
       id={currentPoint !== id ? "" : "pickedPointHeader"} onClick={changeCurrentPoint} >
     <artice className={"homePointArticle"} >
     

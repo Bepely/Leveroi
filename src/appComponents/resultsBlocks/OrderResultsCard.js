@@ -57,7 +57,7 @@ const OrderResultsCard = ({open, close, snap}) => {
     
         
           
-          <div className="layerFloor" ref={snap} id='resultsFloor' >
+          <div className="layerFloor " ref={snap} id='resultsFloor' >
             <div className="openResults exactResults" >
              
               <div className="orderData">
