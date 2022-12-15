@@ -1,4 +1,4 @@
-ver 0.1.3  
+ver 0.1.3a
 # Leveroi  
 ## Futures Trading Simulator
 
@@ -27,7 +27,8 @@ Done:
 • 27.11.22 | v0.1.2a |LCL - Leveroi Calculations Library       
 • 29.11.22 | v0.1.2b |Order Share/Save                        
 • 06.12.22 | v0.1.2c |Leveroi Design System       
-• 12.12.22 | v0.1.3 |Sustainable UI and HomePage       
+• 12.12.22 | v0.1.3x |Sustainable UI and HomePage      
+• 15.12.22 | v0.1.3a |Limits 
 
 Coming Up   
                                    
@@ -41,8 +42,7 @@ Coming Up
 In progress  
 ◘ Create Description Block   
 ◘ Create Pop-up (Glass layer)    
-◘ Create Carousel   
-◘ TP/SP   
+◘ Create Carousel     
 
 
 ____________________________________________  

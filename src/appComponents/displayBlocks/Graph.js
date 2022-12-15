@@ -49,6 +49,17 @@ let victoryData =
    {x: "Close", y:  Number(close.price),
     label:  close.price, size: 4 },]
 
+let lim0Data = [
+  {x:"Open", y: Number(close.lim0), size: 1},
+  {x:"Close", y: Number(close.lim0), size: 1,
+  label: `Limit ${close.lim0}`, size: 2}
+]
+let lim1Data = [
+  {x:"Open", y: Number(close.lim1), size: 1},
+  {x:"Close", y: Number(close.lim1), size: 1,
+  label: `Limit ${close.lim1}`, size: 2}
+]
+
 let liquidationDataLong = [
   {x: "Open", y:  lcl.liquidation(open,close), size:1},
   { x: "Close", y:  lcl.liquidation(open,close), size:1}
@@ -79,12 +90,26 @@ let liquidationDataShort = [
       style={close.long ? {data : {fill: "#9B000030", fontFamily:'Rubik'}} : {data: {fill: "#ECE9EC", fontFamily:'Rubik'}}}
       />
 
+<VictoryLine
+        key={"lim0Line"}
+        data={lim0Data} 
+        style={{ data: { stroke: "#888888", strokeWidth: 2 } }}  
+        animate={false}
+      />
+      <VictoryLine
+        key={"lim1Line"}
+        data={lim1Data} 
+        style={{ data: { stroke: "#888888", strokeWidth: 2 } }}  
+        animate={false}
+      />
+
     <VictoryLine
         key={"orderLine"}
         data={victoryData} 
         style={{ data: { stroke: "#000000", strokeWidth: 3 } }}  
         animate={false}
       />
+    
      
       <VictoryScatter data={victoryData}
       animate={false}

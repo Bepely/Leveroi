@@ -40,6 +40,7 @@ const Display = ({openOrder, setOpenOrder, init, closeOrder, setCloseOrder, inDi
 
             } else {
 
+
                 setOpenOrder(openOrder = ({...openOrder, 
                     amount: lcl.fixCoef(router.query.am),
                     leverage: lcl.fixCoef(router.query.lev),
@@ -50,7 +51,9 @@ const Display = ({openOrder, setOpenOrder, init, closeOrder, setCloseOrder, inDi
                     price: lcl.fixCoef(router.query.cp),
                     long: router.query.long === "true" ? true : false,
                     min: lcl.fixCoef(router.query.min),
-                    max: lcl.fixCoef(router.query.max)
+                    max: lcl.fixCoef(router.query.max),
+                    lim0: lcl.fixCoef(router.query.lim0),
+                    lim1: lcl.fixCoef(router.query.lim1)
                 }))
                 router.replace('/app', undefined, { shallow: true });
             }

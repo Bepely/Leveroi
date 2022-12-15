@@ -82,7 +82,7 @@ But for now It is What it is =/
     font-weight: bolder;
 }
 #layerBaseTPSL{
-
+gap: 1vw;
 }
 #TPSLbase{
     display: grid;
@@ -101,8 +101,12 @@ But for now It is What it is =/
 }
 
 #pnlTPSL{
+    position: relative;
     width: 100%;
     height: fit-content;
+    z-index: 1;
+    background-color: #ece9ec;
+    border-radius: 7px;
 }
 #pnlTPSLright{
     border-right: 0;
@@ -190,6 +194,7 @@ padding: 2px;
 
 #layerBaseFooterResults{
     gap: 1.5vh;
+    
 }
 
 
@@ -206,6 +211,10 @@ padding: 2px;
     
     #layerBaseTPSL{
         width: 90%;
+        margin-top: 1.5vh;
+    }
+    #layerBaseTPSL>.layerFloor{
+        width: 100%;
     }
     #TPSLbase>*{
         width: 100%;
@@ -231,6 +240,9 @@ padding: 2px;
         height: auto;
         margin: auto;
 
+    }
+    #layerBaseFooterResults{
+        padding: 1vh 0;;
     }
     
     

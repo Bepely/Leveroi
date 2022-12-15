@@ -5,6 +5,7 @@ import Script from "next/script"
 import '../src/styles/LDC/flow.css'
 import '../src/styles/LDC/blocks.css'
 import '../src/styles/LDC/layers.css'
+import '../src/styles/LDC/bg.css'
 
 import '../src/styles/blocks/simulation.css'
 import '../src/styles/blocks/header.css'

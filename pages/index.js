@@ -52,7 +52,7 @@ return <div className="layerGround soloCenter">
                 
                 
                 
-                    <a href="./app" className='layerFloor blockCard soloCenter' id='headerBlock'><h4>Use app</h4></a>
+                    <a href="./app" className='layerFloor blockCard whMax soloCenter' id='headerBlock'><h4>Use app</h4></a>
                 
         </header>
 

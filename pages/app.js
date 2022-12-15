@@ -50,7 +50,9 @@ function App() {
     long: true,
     price: 0.08808,
     min: 0,
-    max: 200
+    max: 200,
+    lim0: 0,
+    lim1: 0
 })
   //Current open Order state
   const [openOrder, setOpenOrder] = useState({
@@ -86,6 +88,14 @@ function App() {
 
   //Configuration of an initial Open order in Session
   const openOrderFires=(x)=>{
+      setCloseOrder({
+        long: true,
+        price: 0.08808,
+        min: 0,
+        max: 200,
+        lim0: 0,
+        lim1: 0
+    })
       setOpenOrder(openOrder => ({...x}))
       }
   //Initial Session Switcher
@@ -164,7 +174,8 @@ function App() {
           <Header />
           {init === true ? 
             
-            <Results open={openOrder} close={closeOrder} _setInit={_setInit}/>
+            <Results open={openOrder} close={closeOrder}
+            setCloseOrder = {setCloseOrder} _setInit={_setInit}/>
            
             :
             <Controls openOrderFires={openOrderFires}

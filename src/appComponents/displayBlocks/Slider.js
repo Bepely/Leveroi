@@ -31,6 +31,7 @@ const changeClosePrice = (e) => {lcl.changeClosePrice(closeOrder, setCloseOrder,
     value={closeOrder.price ? lcl.fixCoef(closeOrder.price) : 0}
     min={lcl.fixCoef(closeOrder.min)}
     max={lcl.fixCoef(closeOrder.max)}
+    marks={[{label:"Limit 1", value:closeOrder.lim0}, {label:"Limit 2", value:closeOrder.lim1}]}
     step={subtraction/50}
     onChange={changeClosePrice}
     color="primary"

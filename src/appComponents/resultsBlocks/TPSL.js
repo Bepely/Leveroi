@@ -2,109 +2,117 @@ import React from 'react'
 import {useState, useEffect} from 'react'
 import * as lcl from "../../lcl"
 
-const TPSL = ({open, close}) => {
+const TPSL = ({open, close, setCloseOrder}) => {
 
 //init value of TP/SL is a false. 
 //if user set up a value for TP/LS it is no longer false and have a price.
 
-const [limits, setLimits] = useState([-1, -1])
-
-//13.12.22
-//23:53 Bepely
-//Нихуя не работает, я в ахуе. 
-//туплю на ровном месте,, не выкупаю нихуя. 
-//надо сделать тут чтоб было максимум 2 лимита открытых, но если их нет ни 1 - показывай большую кнопку создать
-//если есть 1 лимит из 2 - показывай выставленный лимит и кнопку добавления лимита
-//если создано 2 лимита - показывай 2 лимита и не показывай кнопкую 
-
-//жи есть все просто. я в ахуе туплю и жопу рвет
-//все, в призду, завтра доделаю
+const [limits, setLimits] = useState([close.lim0, close.lim1])
 
 
-const setNewLimit = (item) => {
-  console.log(item);
-  _limits[item.id] = item;
+//15.12.22
+//21:59 Bepely
+//Ну заработало, хоть и перелопатил все и вся и гора хардкода
+//Нужны нормальные css ютилити классы 
+//Дальше на график и на слайдер надо скинуть Лимиты
 
-   
-   
-  }
 
-  const removeLimit = (number) => {
-  
-    _limits = limits
-   
-    _limits.splice(number, 1)
-    _limits = _limits.concat({init: false, price: 0, long:close.long, id:id})
-    
-    
+
+const setNewLimit = (l) => {
+    let _limits = limits
+    _limits[l] = close.price
     setLimits(_limits)
+    setCloseOrder(close => ({...close, lim0:limits[0], lim1:limits[1]}))
+  }
 
-
+  const removeLimit = (l) => {
+    let _limits = limits
+    _limits[l] = 0
+    setLimits(_limits)
+    setCloseOrder(close => ({...close, lim0:limits[0], lim1:limits[1]}))
   }
 
 
 
-useEffect(() => {
-  _limits = limits
- 
-  _limits.forEach((element, index) => {
-    _limits[index].long = close.long;
-  });
 
-  setLimits(limits => _limits)
-  console.log(limits);
+const Limit = ({_limit}) => {
 
-}, [close])
+//    {limits[_limit] > 0 ?  : }
+  return (
+    <>
+    <div className='layerFloor blockCard  miltiVer'>
+    {limits[_limit] > 0 
+    ? <>
+    <div className="pnlResults " id='pnlTPSL'> 
 
+            
+               <div className='TPSLcontainer' id='textContent'>
+                <h5>Limit price</h5>
+                <h6 id='pnlTPSLright'>{limits[_limit]}</h6>
+              </div>
 
+              <div className="pnlContainer " id='textContent'>
+                <h5>PNL</h5>
+                <h6>{lcl.margin(open, {...close, price: limits[_limit]})}</h6>
+                <h6 id='pnlTPSLright'>{lcl.marginPercent(open, {...close, price: limits[_limit]})}%</h6>
+              </div>
+
+              <div className="totalContainer" id='textContent'>
+                <h4>Total</h4>
+                <h6 id='pnlTPSLright'>{lcl.total(open, {...close, price: limits[_limit]})}</h6>
+              </div>
+    </div>
+    
+       <button className="upLeft HredBG subButton" onClick={()=>{removeLimit(_limit)}}><h5>✖️</h5></button>
+       <button className="upLeft2 HgreenBG subButton" onClick={()=>{setNewLimit(_limit)}}><h5>🔄</h5></button>
+      
+      </>
+              
+    :<>
+    <h4>Limit price</h4>  
+    <button className="upLeft subButton" onClick={()=>{setNewLimit(_limit)}}><h5>set</h5></button>
+    </>
+}
+</div></>
+
+)}
 
 
 return (
 
 
-  <div className="layerBase multiHor" id='layerBaseTPSL'>
-      {limits.forEach(l => (
-        <div key={l.id} className="layerBase miltiVer" id={l.id >= 2 ? 'TPSLbaseNotToShow': 'TPSLbase'}>
-          { l.init ?
-                
-            <>
-                  
-            <div className='layerFloor blockCard miltiVer'>
-                <div className="pnlResults" id='pnlTPSL'> 
-
-                          <div className='TPSLcontainer' id='textContent'>
-                            <h4>Limit price</h4>
-                            <h5 id='pnlTPSLright'>{l.price}</h5>
-                          </div>
-
-                          <div className="pnlContainer " id='textContent'>
-                            <h4>PNL</h4>
-                            <h5>{lcl.margin(open, l)}</h5>
-                            <h5 id='pnlTPSLright'>{lcl.marginPercent(open, l)}%</h5>
-                          </div>
-
-                          <div className="totalContainer" id='textContent'>
-                            <h4>Total</h4>
-                            <h5 id='pnlTPSLright'>{lcl.total(open, l)}</h5>
-                          </div>
-                  </div>
-            </div>
-            <button className="blockButton paddingContent" onClick={()=>{removeLimit(l.id)}}>delete limit</button>
-
-          </>
-
-
-            :<></>
-          }
+  <div className="whMax multiHor" id='layerBaseTPSL'>
          
+        {limits[0] > 0 && limits[1] > 0 ?
+        <>
+        <Limit _limit={0}/>
+        <Limit _limit={1}/>
+        </>
+        : limits[0] > 0 ? 
+        <>
+        <Limit _limit={0} /> 
+          <div className='multiVer blockCard layerFloor gray2BG paddingContent' onClick={()=>{setNewLimit(1)}}>
+            <h4>Set another one</h4>            
+          </div>
+        </>
+        : limits[1] > 0 ?
+        <>
+          <div className='multiVer blockCard layerFloor paddingContent' onClick={()=>{setNewLimit(0)}}>
+            <h4>Set another one</h4>
+          </div>
+          <Limit _limit={1} />
+        </>
+        :
+        <>
+          <div className='multiVer blockCard layerFloor paddingContent' onClick={()=>{setNewLimit(0)}}>
+            <h4>Set a limit on the current close price</h4>
+          </div>
+        </>
 
-              
-      </div>
-      ))}
-      {!limits[0].init}
-      <button className="blockButton paddingContent" onClick={()=>setLimits({...limits, })}>
-              Set Limit
-      </button>
+      }         
+        
+        
+
   </div>
 
 )}
