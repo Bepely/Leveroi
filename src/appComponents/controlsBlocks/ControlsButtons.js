@@ -8,16 +8,13 @@ This is a controls Button Component. Basically its swithing instructions to Ads 
 */
 
 
-const ControlsButtons = ({open, inDis, inDisSwitch, sendToDisplay}) => {
+const ControlsButtons = ({open, sendToDisplay}) => {
 
 
  
   return (
-    <div className="multiVer layerTable" id='blockButton2'>
+    <div className="multiVer layerFloor dropShadow blockButton">
       
-        <a  onClick={inDisSwitch}>
-          {inDis ? "Instructions" : "Trading Platforms"}
-        </a>
      
         {open.amount <= 0 || open.price <= 0 || open.leverage < 1
         ? <a  disabled>Values shoud be valid</a> :

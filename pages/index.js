@@ -19,50 +19,60 @@ return <div className="layerGround soloCenter">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta
       name="description"
-      content="Home Page of the Leveroi project made by Bepely. Here you can find information about Leveroi app and instructions to use it."
+      content="On this page, you'll find projects I've built from scratch andinformation about me. With experience in React, Svelte, and web3js, I have the skills and expertise to bring your vision to life. Take a look around and don't hesitate to get in touch if you have any questions or would like to discuss a potential project."
     />
-    <meta name="keywords" content="Profit, Loss, Calculator, Roi, Futures, Leverage, Order"/>
-    <meta name="google-site-verification" content="R432kLJXvfXUt9dWFETX7b_PQpgkOuhY5SEbo-PmVx0" />
+    <meta name="keywords" content="Web development, web design, front-end development, back-end development, web3 technology, React, Svelte, JavaScript, HTML, CSS, responsive design, user experience" />
+
+    <meta name="google-site-verification" content={process.env.GOOGLE_SITE_VERIFICATION} />
 
 
     <link rel="icon" href="logo.svg" type="image/icon type" />
-    <title>Leveroi Home</title>
+    <title>Bepely | Portfolio</title>
 
       <meta content="width=device-width, initial-scale=1" name="viewport" />
       <link rel="icon" href="/favicon.ico" />
     </Head>
-        <header className="layerBase multiHor" id="homeHeaderBase">  
+        <header className="layerBase multiHor">  
+                  
+                        <div className="soloCenter vhMax"><h1>Bepely</h1> </div>
 
-                <div className="multiHor" id="homeHeaderLogoText">
+                    <div className="multiHor whMax" id="logoHeaderPC">
+
+                   
+                    {currentPoint === 0 
+                    ?   <h3>Click on points to explore</h3>  :
+                    currentPoint === 1
+                    ? <h3>Peersonal info, Resume and Details </h3> :
+                    currentPoint === 2
+                    ? <div className="multiHor"><img src="logo.svg" alt=""id="homeHeaderLogo" /><h3>My React Learning Project</h3></div>:
+                      <h3>My Web3 Learning Project</h3> }
+                    
+
+
+                    </div>
+
                     <div className="multiHor" id="logoHeaderMOB"> 
                     {currentPoint === 0 
-                    ?  <img src="logo.svg" alt=""id="homeHeaderLogo" />:
+                    ?   <h1>💻</h1>:
                     currentPoint === 1
-                    ? <h1>💸</h1> :
+                    ? <h1>📜</h1> :
                     currentPoint === 2
-                    ? <h1>✍️</h1>:
-                      <h1>👨‍💻</h1> }
-                    </div>
-
-                    <div className="multiHor" id="logoHeaderPC">
-                     <img src="logo.svg" alt=""id="homeHeaderLogo" />
-                    </div>
-                        <h1>Leveroi</h1> 
+                    ? <img src="logo.svg" alt=""id="homeHeaderLogo" />:
+                      <h1>🚧</h1> }
                     </div>
                 
-                
-                
-                    <a href="./app" className='layerFloor blockCard whMax soloCenter' id='headerBlock'><h4>Use app</h4></a>
                 
         </header>
 
 
+
+
         <Point 
         side={"left"} 
-        header={"Order returns"}
-        text={"Calculate the potential return of your futures orders is easy."}
-        article={"Leveroi is an app that helps traders learn about and test their futures trading strategies. With Leveroi, you can simulate buying and selling futures contracts in a simulated market environment, and see how your trades would have performed."}
-        emoji={"📈📉"}
+        header={"About"}
+        text={"A brief overview of my background"}
+        article={"My name is Nikolay Gogin and I am a web developer with experience in React and Svelte. I am also currently learning web3js and I am actively seeking new job opportunities to bring my skills and enthusiasm to a new team. Feel free to browse my projects and get in touch with any questions."}
+        emoji={"📜"}
         id={1}
         currentPoint = {currentPoint}
         setCurrentPoint = {setCurrentPoint}
@@ -70,21 +80,22 @@ return <div className="layerGround soloCenter">
         
         <Point 
         side={"right"} 
-        header={"Handy"}
-        text={"Try dynamic, handy tools to test trading strategies."}
-        article={"Leveroi features a reactive graph that updates due to closed order, a results display that shows your profits or losses, and a share functionality that lets you share your simulated trades with others."}
-        emoji={"✍️"}
+        header={"Leveroi"}
+        text={"Perpetual options trading simulator"}
+        article={"Open source tool that helps traders learn about and test their futures trading strategies. With Leveroi, you can simulate buying and selling futures contracts in a simulated market environment, and see how your trades would have performed."}
+        emoji={"📈📉"}
         id={2}
+        destination={"/leveroi"}
         currentPoint = {currentPoint}
         setCurrentPoint = {setCurrentPoint}
         />
 
         <Point 
         side={"left"} 
-        header={"Open source"}
-        text={"Leveroi is open source, so anyone can view, modify, and contribute to the code."}
-        article={"This project is developed by one person, and you are more than welcome to contribute on GitHub, see the development journal on YouTube, or offer me a job. Feel free to contact me for any particular reason."}
-        emoji={"👨‍💻"}
+        header={"Web3 Project"}
+        text={"A project in the preparement stage"}
+        article={"The web3 project is currently in the preparement stage, which means that I am still in the process of planning and organizing the project. There isn't much to see right now =c. Stay tuned for updates and check back soon to see what we have in store."}
+        emoji={"🚧"}
         id={3}
         currentPoint = {currentPoint}
         setCurrentPoint = {setCurrentPoint}
@@ -92,7 +103,7 @@ return <div className="layerGround soloCenter">
         
         
         <footer>
-            <h5>Leveroi is in beta. Feel free to repot on bugs.</h5>
+            <h5>Feel free to contact me for any particular reason</h5>
             <h5>bepely.contact@gmail.com</h5>
             <div id="socials">
                 <a target="_blank" href="https://www.youtube.com/@Bepely">

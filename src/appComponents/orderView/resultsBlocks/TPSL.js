@@ -1,8 +1,10 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
-import * as lcl from "../../lcl"
+import * as lcl from "../../../lcl"
 
-const TPSL = ({open, close, setCloseOrder}) => {
+import SubOrderConfig from './SubOrderConfig'
+
+const TPSL = ({open, close, setCloseOrder, session, setSession, subSwitch, setSubSwitch}) => {
 
 //init value of TP/SL is a false. 
 //if user set up a value for TP/LS it is no longer false and have a price.
@@ -37,10 +39,9 @@ const setNewLimit = (l) => {
 
 const Limit = ({_limit}) => {
 
-//    {limits[_limit] > 0 ?  : }
   return (
     <>
-    <div className='layerFloor blockCard  miltiVer'>
+    <div className='layerFloor blockCard wMax miltiVer'>
     {limits[_limit] > 0 
     ? <>
     <div className="pnlResults " id='pnlTPSL'> 
@@ -63,9 +64,14 @@ const Limit = ({_limit}) => {
               </div>
     </div>
     
-       <button className="upLeft HredBG subButton" onClick={()=>{removeLimit(_limit)}}><h5>✖️</h5></button>
-       <button className="upLeft2 HgreenBG subButton" onClick={()=>{setNewLimit(_limit)}}><h5>🔄</h5></button>
+       <button className="upLeft HredBG subButton" id={subSwitch.switch ? "displayNone" : ""}
+        onClick={()=>{removeLimit(_limit)}}><h5>❌</h5></button>
+
+       <button className="upLeft2 HyellowBG subButton" 
+       onClick={()=>{
+        setNewLimit(_limit), setSubSwitch({...subSwitch, price: Number(limits[_limit])})}}><h5>🔄</h5></button>
       
+
       </>
               
     :<>
@@ -77,11 +83,29 @@ const Limit = ({_limit}) => {
 
 )}
 
+const PreLimit = ({_limit}) => {
+
+  return(
+    <div className='multiVer blockCard layerFloor gray2BG paddingContent' id={subSwitch.switch ? "displayNone" : ""} onClick={()=>{setNewLimit(_limit)}}>
+      <h4>Set</h4>
+      <p>{_limit === 0 ? "Stop Loss" : "Take Profit"}</p>            
+   </div>
+  )
+}
+
+const PostLimit = ({}) => {
+  return(
+    <div className='layerBase multiVer toBot' id={!subSwitch.switch ? "displayNone" : ""}>
+    <SubOrderConfig open={open} close={close} _price={subSwitch.price}/>           
+    </div>
+  )
+}
+
 
 return (
 
 
-  <div className="whMax multiHor" id='layerBaseTPSL'>
+  <div className="whMax multiHor toBot" id='layerBaseTPSL'>
          
         {limits[0] > 0 && limits[1] > 0 ?
         <>
@@ -91,22 +115,20 @@ return (
         : limits[0] > 0 ? 
         <>
         <Limit _limit={0} /> 
-          <div className='multiVer blockCard layerFloor gray2BG paddingContent' onClick={()=>{setNewLimit(1)}}>
-            <h4>Set another one</h4>            
-          </div>
+        <PreLimit _limit={1}/>
+        <PostLimit />
         </>
         : limits[1] > 0 ?
         <>
-          <div className='multiVer blockCard layerFloor paddingContent' onClick={()=>{setNewLimit(0)}}>
-            <h4>Set another one</h4>
-          </div>
+          <PostLimit />
+          <PreLimit _limit={0}/>
           <Limit _limit={1} />
+          
         </>
         :
         <>
-          <div className='multiVer blockCard layerFloor paddingContent' onClick={()=>{setNewLimit(0)}}>
-            <h4>Set a limit on the current close price</h4>
-          </div>
+          <PreLimit _limit={0}/>
+          <PreLimit _limit={1}/>
         </>
 
       }         

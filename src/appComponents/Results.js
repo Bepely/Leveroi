@@ -1,27 +1,47 @@
 'use client'
 
-import {useRef} from "react"
+import {useState, useRef} from "react"
 
-import OrderResultsCard from "./resultsBlocks/OrderResultsCard"
-import ResultInputs from "./resultsBlocks/ResultInputs"
-import TPSL from "./resultsBlocks/TPSL"
+
+import OrderResultsCard from "./orderView/resultsBlocks/OrderResultsCard"
+import ResultInputs from "./orderView/resultsBlocks/ResultInputs"
+import TPSL from "./orderView/resultsBlocks/TPSL"
+import ChainOrderConfig from './orderView/resultsBlocks/ChainOrderConfig'
 
 
 /* 
 Result components provides results of an Order and Functionality to share it
 
 12.12.22 Bepely*/
-const Results = ({close, open, _setInit, setCloseOrder}) => {
+const Results = ({close, open, _setInit, setCloseOrder, session, setSession}) => {
 
     const snap = useRef()
+    const [subOrderSwitch, setSubOrderSwitch] = useState({price: 0, switch: false})
+
+    console.log(typeof subOrderSwitch.price);
+
 
  return (
    
   <div className="layerBase multiVer" id="sessionSimulationBase">
 
+     
+      
+      {subOrderSwitch.switch ? 
+      <>
       <OrderResultsCard open={open} close={close} snap={snap}/>
-      <TPSL open={open} close={close} setCloseOrder={setCloseOrder}/>
-      <ResultInputs open={open} close={close} snap={snap} _setInit={_setInit}/>
+      <TPSL open={open} close={close} setCloseOrder={setCloseOrder}   subSwitch={subOrderSwitch} setSubSwitch={setSubOrderSwitch}/>
+      
+      </>
+    
+      :
+      <>
+      <OrderResultsCard open={open} close={close} snap={snap}/>
+      <TPSL open={open} close={close} setCloseOrder={setCloseOrder}   subSwitch={subOrderSwitch} setSubSwitch={setSubOrderSwitch}/>
+      <ResultInputs open={open} close={close} snap={snap} _setInit={_setInit} subSwitch={subOrderSwitch}/>
+      </>
+      }
+     
      
   </div>
                     

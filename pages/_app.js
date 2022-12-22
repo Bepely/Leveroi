@@ -7,12 +7,11 @@ import '../src/styles/LDC/blocks.css'
 import '../src/styles/LDC/layers.css'
 import '../src/styles/LDC/bg.css'
 
-import '../src/styles/blocks/simulation.css'
+
 import '../src/styles/blocks/header.css'
 import '../src/styles/blocks/controls.css'
 import '../src/styles/blocks/display.css'
 import '../src/styles/blocks/results.css'
-import '../src/styles/blocks/session.css'
 
 
 import '../src/styles/details/graph.css'

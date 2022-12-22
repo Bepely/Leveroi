@@ -1,5 +1,5 @@
 import React from 'react'
-import * as lcl from "../../lcl"
+import * as lcl from "../../../lcl"
 
 const OrderResultsCard = ({open, close, snap}) => {
 
@@ -57,7 +57,7 @@ const OrderResultsCard = ({open, close, snap}) => {
     
         
           
-          <div className="layerFloor " ref={snap} id='resultsFloor' >
+          <div className="layerFloor blockCard" ref={snap} id='resultsFloor' >
             <div className="openResults exactResults" >
              
               <div className="orderData">

@@ -51,7 +51,7 @@ const inDisSwitch = () =>{
                 
     
 </div>
-<div className="soloCenter layerBase">
+<div className="soloCenter layerBase  toBot">
 <ControlsButtons open={openOrder} inDis={inDis} inDisSwitch={inDisSwitch} sendToDisplay={sendToDisplay} /> 
 </div>
 </>

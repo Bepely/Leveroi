@@ -3,7 +3,7 @@ import React from 'react'
 
 import {useState} from "react"
 
-const Point = ({side, header, text, article, emoji, currentPoint, setCurrentPoint, id}) => {
+const Point = ({side, header, text, article, emoji, currentPoint, setCurrentPoint, id, destination}) => {
 
   /*
   This is the mail Content Block of the Homepage of a Leveroi. 
@@ -27,20 +27,20 @@ const Point = ({side, header, text, article, emoji, currentPoint, setCurrentPoin
 
     return (
       <div className={side+'Point pointHolder'} onMouseEnter={onPointEnter} onMouseLeave={onPointLeave}>
-      <div className=" homePoint layerFloor  whMax"
+      <div className=" homePoint layerFloor dropShadow whMax"
       id={currentPoint !== id ? "" : "pickedPointHeader"} onClick={changeCurrentPoint} >
     <artice className={"homePointArticle"} >
     
         {currentPoint !== id ?
         <>
-        <div id="homePointHeader" ><h2>{header}</h2></div>
+        <div id="homePointHeader"> <h2>{header}</h2></div>
         <div id='homePointText homeContentShown'>
         <h4>{text}</h4>
         </div>
         </>
       :
       <div id='homePointText homeContentHidden'>
-        <div id="homePointHeader" ><h2>{header}</h2></div>
+        <div id="homePointHeader" ><a href={destination}><h2>{header}</h2></a></div>
           <h4>{text}</h4>
           <p >{article}</p>
         </div>
@@ -48,7 +48,7 @@ const Point = ({side, header, text, article, emoji, currentPoint, setCurrentPoin
         </artice>
     </div>
         <div id={currentPoint === id ? "justEmoji" : 'homePointImage'}>
-          <h1>{currentPoint !== id && showContent ? "👀" : currentPoint !== id  && !showContent ? "" : emoji}</h1>
+          <h1>{currentPoint !== id && showContent ? "👀" : currentPoint !== id  && !showContent ? "" : <a href={destination}>{emoji}</a>}</h1>
         </div>
     
     </div>

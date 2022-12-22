@@ -2,7 +2,7 @@
 import React from 'react'
 
 
-const Header = () => {
+const Header = (open, close) => {
   return (
     <header className='layerBase multiHor' id='appHeaderBase'>
        
