@@ -23,11 +23,11 @@ const ResultInputs = ({open, close, snap, _setInit}) => {
 
   orderConfigParams = `?am=${open.amount}&lev=${open.leverage}&op=${open.price}&fee=${open.fee}&long=${close.long}&cp=${close.price}&min=${close.min}&max=${close.max}&lim0=${close.lim0}&lim1=${close.lim1}`
 
-const getEncodedConfigParams = () => {return encodeURIComponent(`https://bepely.space/app${orderConfigParams}`)}
+const getEncodedConfigParams = () => {return encodeURIComponent(`https://bepely.space/leveroi${orderConfigParams}`)}
 const getDecodedConfigParams = (p) => {return decodeURIComponent(p)}
 
  const onCopy = () => {
-   navigator.clipboard.writeText(`https://bepely.space/app${orderConfigParams}`).then(() => {
+   navigator.clipboard.writeText(`https://bepely.space/leveroi${orderConfigParams}`).then(() => {
   
   }, (err) => {
   console.error('Could not copy text || ', err);
@@ -49,7 +49,7 @@ const getDecodedConfigParams = (p) => {return decodeURIComponent(p)}
         if (typeof link.download === 'string') {
           
           link.href = data;
-          link.download = `Leveroi ${close.long ? "Long" : "Short"}`;
+          link.download = `Leveroi ${close.long ? "Long" : "Short"} Order`;
   
               document.body.appendChild(link);
               link.click();
