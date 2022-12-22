@@ -97,10 +97,8 @@ function App() {
         lim0: 0,
         lim1: 0
     })
-      console.log("TOGO ||||||| ", session);
       setOpenOrder(openOrder => ({...x}))
       setSession(session => ({...session, orders: session.orders = [{open: openOrder, close: closeOrder, layer:0, id: 0}]}))
-      console.log("АФТЕР |||||", session);
       }
   //Initial Session Switcher
   const _setInit = ()=>{

@@ -17,8 +17,8 @@ const ControlsButtons = ({open, sendToDisplay}) => {
       
      
         {open.amount <= 0 || open.price <= 0 || open.leverage < 1
-        ? <a  disabled>Values shoud be valid</a> :
-        <a  onClick={sendToDisplay}>Create order</a>}
+        ? <div  className="whMax" disabled>Values shoud be valid</div> :
+        <div className="whMax"  onClick={sendToDisplay}>Create order</div>}
       
     </div>
   )

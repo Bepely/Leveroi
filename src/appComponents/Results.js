@@ -6,19 +6,16 @@ import {useState, useRef} from "react"
 import OrderResultsCard from "./orderView/resultsBlocks/OrderResultsCard"
 import ResultInputs from "./orderView/resultsBlocks/ResultInputs"
 import TPSL from "./orderView/resultsBlocks/TPSL"
-import ChainOrderConfig from './orderView/resultsBlocks/ChainOrderConfig'
 
 
 /* 
 Result components provides results of an Order and Functionality to share it
 
 12.12.22 Bepely*/
-const Results = ({close, open, _setInit, setCloseOrder, session, setSession}) => {
+const Results = ({close, open, _setInit, setCloseOrder}) => {
 
     const snap = useRef()
     const [subOrderSwitch, setSubOrderSwitch] = useState({price: 0, switch: false})
-
-    console.log(typeof subOrderSwitch.price);
 
 
  return (

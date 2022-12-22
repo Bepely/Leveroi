@@ -53,7 +53,7 @@ const Display = ({openOrder, setOpenOrder, init, closeOrder, setCloseOrder, rout
                     lim0: lcl.fixCoef(router.query.lim0),
                     lim1: lcl.fixCoef(router.query.lim1)
                 }))
-                router.replace('/app', undefined, { shallow: true });
+                router.replace('/leveroi', undefined, { shallow: true });
             }
 
         } 
