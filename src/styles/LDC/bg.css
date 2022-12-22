@@ -13,6 +13,14 @@ background-color: #f5f5f5;
 .HredBG:hover{
     background-color: #cf5656;
 }
+
+.HyellowBG{
+    background-color: #c5bd642c;
+}
+.HyellowBG:hover{
+    background-color: #c5bd64;
+}
+
 .HgreenBG{
     background-color: #64c5642c;
 }

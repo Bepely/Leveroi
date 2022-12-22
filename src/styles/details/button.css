@@ -81,38 +81,44 @@
 
 
 .upLeft{
+    z-index: 10;
     padding: 0.5vh 1vw;
-    top: -2.5vh;
+    top: -3.5vh;
     left: 5%;
     border: 2px solid black;
-    border-top-right-radius: 7px;
-    border-top-left-radius: 7px;
-    border-bottom: 0px;
+    border-radius: 15px;
+    
 }
-.upLeft:hover{
-    z-index: 1;
-    top:-3.5vh;
-    padding: 1vh 1vw;
-    border-top-right-radius: 7px;
-    border-top-left-radius: 7px;
-}
+
 .upLeft2{
+    z-index: 10;
     padding: 0.5vh 1vw;
-    top: -2.5vh;
+    top: -3.5vh;
     left: 25%;
     border: 2px solid black;
-    border-top-right-radius: 7px;
-    border-top-left-radius: 7px;
-    border-bottom: 0px;
+    border-radius: 15px;
 }
-.upLeft2:hover{
-    z-index: 1;
-    top:-3.5vh;
-    
-    padding: 1vh 1vw;
-    border-top-right-radius: 7px;
-    border-top-left-radius: 7px;
+
+
+.upRight{
+    z-index: 10;
+    padding: 0.5vh 1vw;
+    top: -3.5vh;
+    right: 5%;
+    border: 2px solid black;
+    border-radius: 15px;
 }
+
+.upRight2{
+    z-index: 10;
+    padding: 0.5vh 1vw;
+    top: -3.5vh;
+    left: 25%;
+    border: 2px solid black;
+    border-radius: 15px;
+}
+
+
 
 .subButton{
     position: absolute;
@@ -148,6 +154,6 @@
         box-shadow: 0px -3px 8px  #64c564;  
     }
     .subButton{
-        top: -2.5vh
+        top: -4vh
     }
 }

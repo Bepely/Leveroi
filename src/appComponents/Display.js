@@ -7,14 +7,12 @@ import Graph from "./displayBlocks/Graph"
 
 import Platforms from "./displayBlocks/Platforms"
 import Contacts from "./reusable/Contacts"
-import MinMaxCur from "./displayBlocks/MinMaxCur"
-import LongShortButtons from "./displayBlocks/LongShortButtons"
 
 import * as lcl from "../lcl"
 
 
 
-const Display = ({openOrder, setOpenOrder, init, closeOrder, setCloseOrder, inDis, router, isQue, setIsQue}) => {
+const Display = ({openOrder, setOpenOrder, init, closeOrder, setCloseOrder, router, isQue, setIsQue}) => {
   
     /*
     Display block is a base for Interactable sub-blocks, that affects Order Close Price
@@ -74,13 +72,7 @@ const Display = ({openOrder, setOpenOrder, init, closeOrder, setCloseOrder, inDi
                
                 
                 <div className='layerBase soloCenter' id='displayBase' >
-                {inDis === true
-                ?
-                <div className='layerFloor multiVer blockCard whMax paddingContent'>
-                        <Platforms />
-                        <Contacts />
-                </div>
-                :
+               
                 <div className='layerFloor blockCard whMax multiVer paddingContent' >
                     <article>
                     <h3>Profit / Loss Calculator</h3>
@@ -98,7 +90,6 @@ const Display = ({openOrder, setOpenOrder, init, closeOrder, setCloseOrder, inDi
                 
                     <Contacts />        
                 </div>
-                }
                 
                 
           
@@ -108,12 +99,6 @@ const Display = ({openOrder, setOpenOrder, init, closeOrder, setCloseOrder, inDi
 
             <div className='layerBase soloCenter' id='displayBase' >
 
-                
-                <div className='layerFloor multiVer whMax'>
-                    <LongShortButtons close={closeOrder} setClose={setCloseOrder}/>
-                    <MinMaxCur close={closeOrder} setClose={setCloseOrder} />
-                </div>
-      
 
                 <div className='layerFloor multiHor whMax paddingContent'  >
                     <Graph close={closeOrder} open={openOrder}/>

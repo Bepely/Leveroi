@@ -20,6 +20,7 @@ border-radius: 4px;
     background-color: #ece9ec;
     padding: 3px 5px;
     font-size: 1vmax;
+    cursor: pointer;
 }
 .blockButton:hover{
     background-color: #f5f5f5;
@@ -61,6 +62,9 @@ gap: 10px;
 
 .whMax{
     height: 100%;
+    width: 100%;
+}
+.wMax{
     width: 100%;
 }
 

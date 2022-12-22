@@ -6,6 +6,7 @@ import Header from "../src/appComponents/Header"
 import Display from "../src/appComponents/Display"
 import Controls from "../src/appComponents/Controls"
 import Results from "../src/appComponents/Results"
+import CloseConfig from "../src/appComponents/orderView/CloseConfig"
 
 
 import { useState, useEffect } from "react"
@@ -40,7 +41,9 @@ function App() {
 
 
   //Session State
-  const [seesion, setSession] = useState({
+  const [session, setSession] = useState({
+    currentOrder: 0,
+    currentChain: [0],
     orders: []
   })
 
@@ -67,9 +70,7 @@ function App() {
   //------------   Process and Utility states    -------------||
   //----------------------------------------------------------//
 
-  //Adv display check state
-  const [inDis, setInDis] = useState(inDis => false)
-  //Session simulation state
+
   const [init, setInit] = useState(init => false)
   //Prices API prices state
   const [marketPrice, setMarketPrice] = useState({
@@ -96,17 +97,16 @@ function App() {
         lim0: 0,
         lim1: 0
     })
+      console.log("TOGO ||||||| ", session);
       setOpenOrder(openOrder => ({...x}))
+      setSession(session => ({...session, orders: session.orders = [{open: openOrder, close: closeOrder, layer:0, id: 0}]}))
+      console.log("АФТЕР |||||", session);
       }
   //Initial Session Switcher
   const _setInit = ()=>{
     if(isQue){setIsQue(isQue => false)}
-    setInDis(inDis => true)
+
     setInit(init => !init)
-  }
-  //Configuration Display Switcher
-  const _setInDis = ()=>{
-    setInDis(inDis => !inDis)
   }
   //Share order Url readiness state
   const [isQue, setIsQue] = useState(isQue => false)
@@ -149,10 +149,10 @@ function App() {
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <meta
  name="description"
- content="Home Page of the Leveroi project made by Bepely. Here you can find information about Leveroi app and instructions to use it."
+ content="Leveroi is an open source futures trading simulator that helps traders learn about and test their strategies. With a reactive graph, results display, and share function, Leveroi is a powerful tool for anyone looking to take their futures trading skills to the next level. Try it out today!"
 />
-<meta name="keywords" content="Profit, Loss, Calculator, Roi, Futures, Leverage, Order"/>
-<meta name="google-site-verification" content="R432kLJXvfXUt9dWFETX7b_PQpgkOuhY5SEbo-PmVx0" />
+<meta name="keywords" content="futures, trading, perpetuals, contracts, simulation, reactive, graph, results, display, share, function, open source"/>
+<meta name="google-site-verification" content={process.env.GOOGLE_SITE_VERIFICATION} />
 
 
 <link rel="icon" href="logo.svg" type="image/icon type" />
@@ -164,23 +164,29 @@ function App() {
 
       
       <Display 
-         init={init} inDis={inDis} router={router} isQue = {isQue}
+         init={init} router={router} isQue = {isQue}
          openOrder={openOrder} setOpenOrder={setOpenOrder}
          closeOrder={closeOrder} setCloseOrder={setCloseOrder}
+         session={session} setSession={setSession}
          />
       
         
         <div className="layerBase multiVer" id="interfaceBase">
           <Header />
           {init === true ? 
+          <>
+            <CloseConfig open={openOrder} setOpen={setOpenOrder}
+                         close={closeOrder} setClose={setCloseOrder}
+                         session={session} setSession={setSession}/>
             
             <Results open={openOrder} close={closeOrder}
-            setCloseOrder = {setCloseOrder} _setInit={_setInit}/>
+            setCloseOrder = {setCloseOrder} _setInit={_setInit}
+            session={session} setSession={setSession}/>
            
+           </>
             :
             <Controls openOrderFires={openOrderFires}
             init={init} _setInit={_setInit}
-            inDis={inDis} setInDis={_setInDis}
             marketPrice={marketPrice}
             openOrder={openOrder} setOpenOrder={setOpenOrder}/>
           }

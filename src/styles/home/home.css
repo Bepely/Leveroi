@@ -18,12 +18,21 @@
     
 }
 
+.pointHolder a {
+    border-bottom: 4px dotted black;
+    animation-duration: 0ms;
+}
+.pointHolder a:hover{
+    border-bottom: 8px dotted black;
+    
+}
+
 #homeHeaderBase{
     width: 80%;
     height: fit-content;
     place-self: center center;
     display: grid;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 1fr;
 }
 
 #homeHeaderLogo{
@@ -138,24 +147,12 @@ footer{
 
 
 
-#canvasParent{
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-#canvas{
-    width: 100%;
-    height: 100%;
-    border-radius: 7px;
-}
 
 #logoHeaderMOB{
     display: none;
-   
 }
 #logoHeaderPC{
-    display: block;
-   
+    display: grid;
 }
 
 #homeHeaderLogoText{
@@ -169,7 +166,7 @@ footer{
 @media (max-aspect-ratio: 1/1) {
     
     #logoHeaderMOB{
-        display: block;
+        display: grid;
     }
     #logoHeaderPC{
         display: none;

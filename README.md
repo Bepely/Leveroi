@@ -1,4 +1,4 @@
-ver 0.1.3a
+ver 0.1.3b
 # Leveroi  
 ## Futures Trading Simulator
 
