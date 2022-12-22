@@ -1,8 +1,4 @@
-/* TOTAL LEVEL */
-
-
-
-
+/* PC LEVEL */
 #nestedTableButtonsDisplay{
     grid-template-columns: 1fr 1fr;
     width: 90%;
@@ -26,10 +22,7 @@
         
     }
 
-#affiliateBanner{
-    max-width: 66%;
-    border-radius: 7px;
-}
+
 #initComment{
     border-radius: 0;
     background-color: transparent;
@@ -37,13 +30,6 @@
     font-size: 0.9em;
     width: 100%;
 }
-
-
-
-
-
-/* PC LEVEL */
-
 
 /* MOBILE LEVEL */
 

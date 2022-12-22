@@ -72,7 +72,7 @@ let liquidationDataShort = [
   return (
     
     
-    <div className='soloCenter layerTable' id='graph' ref={ref}>
+    <div className='soloCenter whMax' id='graph' ref={ref}>
       {close && open && height && width
       ?
       <VictoryChart 

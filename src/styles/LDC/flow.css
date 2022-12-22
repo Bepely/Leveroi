@@ -26,3 +26,28 @@
     align-items: center;
     justify-items: center;
 }
+
+
+#displayNone{
+    display: none;
+}
+
+.toBot{
+    align-items: end
+}
+.toCenter{
+    align-items: center;
+}
+.toTop{
+    align-items: start;
+}
+
+.selfCenter{
+    place-self: center center;
+}
+.selfTop{
+    place-self: start center;
+}
+.selfBot{
+    place-self: end center;  
+}

@@ -82,6 +82,9 @@ But for now It is What it is =/
     font-weight: bolder;
 }
 #layerBaseTPSL{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    
 gap: 1vw;
 }
 #TPSLbase{

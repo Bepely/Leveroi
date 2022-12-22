@@ -1,5 +1,5 @@
 import React from 'react'
-import * as lcl from "../../lcl"
+import * as lcl from "../../../lcl"
 
 
 /*

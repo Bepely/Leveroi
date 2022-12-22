@@ -7,9 +7,6 @@
     place-self: start center;
     gap: 10px;
 }
-#headerBlock{
-    width: 100%;
-}
 
 #appHeaderLogo{
 place-self: center end;

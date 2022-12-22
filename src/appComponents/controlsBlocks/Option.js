@@ -2,12 +2,16 @@
 import React from 'react'
 import Pair from "../reusable/Pair"
 
-const Amount = ({subState, setSubState, optName, optConfig, eventAPI}) => {
+const Amount = ({subState, setSubState, optName, optConfig, eventAPI, view}) => {
 
     let onClick = (e) => {
         let newAmount = e.target.getAttribute("p");
         setSubState(subState => ({...subState, [optName]:Number(newAmount)}))
     }
+
+    let name;
+    if(view){name = view}else{}
+    
 
   return (
     <div key={optName} className='layerFloor multiVer blockCard whMax' id="">

@@ -1,9 +1,9 @@
 import React from 'react'
 import { useState } from 'react'
-import * as lcl from "../../lcl"
+import * as lcl from "../../../lcl"
 import html2canvas from 'html2canvas';
 
-const ResultInputs = ({open, close, snap, _setInit}) => {
+const ResultInputs = ({open, close, snap, _setInit, subSwitch}) => {
 
     /*
     This is an Interface that provides user to share current order or to configure a new one. 
@@ -67,11 +67,7 @@ const getDecodedConfigParams = (p) => {return decodeURIComponent(p)}
 
 
   return (
-    <div className='layerBase nested multiVer' id='layerBaseFooterResults'>
-       
-    
-  
-      
+    <div className='layerBase nested multiVer' id='layerBaseFooterResults'> 
     {shareSwitch ? <div className='multiHor layerTable' id='blockButton3'>
     <a  target="_blank" href={`https://t.me/share/url?url=${getEncodedConfigParams()} 
 &text=I am sharing ${close.long ? "Long" : "Short"} order simulation with ${lcl.margin(open, close)} profit || Made with Leveroi`
@@ -87,8 +83,13 @@ const getDecodedConfigParams = (p) => {return decodeURIComponent(p)}
   <div className="multiHor layerTable" id="blockButton2">          
           
     
-  <a onClick={shareClick}> {!shareSwitch ? "Share 👀" : "Hide Share"}</a>
-  <a onClick={_setInit}> Configurate new order</a>
+  <a onClick={shareClick}> Share</a>
+  {subSwitch.switch ? 
+      <a onClick={_setInit}> Configurate chain order</a>
+    
+      :
+      <a onClick={_setInit}> Configurate new order</a>
+}
  </div>
  </div>
   )
