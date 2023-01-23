@@ -6,8 +6,8 @@ import * as lcl from "../../lcl"
 
 import { useSelector, useDispatch } from 'react-redux'
 
-import {setAmount, setLeverage, setOpenPrice, setFee, setDefaultOpen} from "../../redux/features/closeOrder/openOrderSlice"
-import {setLong, setShort, setClosePrice, setMin, setMax, setLim0, setLim1, setDefaultClose} from "../../redux/features/openOrder/closeOrderSlice"
+import {setAmount, setLeverage, setOpenPrice, setFee, setDefaultOpen} from "../../redux/features/openOrder/openOrderSlice"
+import {setLong, setShort, setClosePrice, setMin, setMax, setLim0, setLim1, setDefaultClose} from "../../redux/features/closeOrder/closeOrderSlice"
 
 
 /*
@@ -25,7 +25,7 @@ let subtraction = Number(closeOrder.max - closeOrder.min)
 const changeClosePrice = (e) => {
   let value = e.target.value
     if(value){
-      let x = lcl.fixCoef(value)       
+      let x = lcl.fixCoef(value)      
       dispatch(setClosePrice(x))
       value = null
       if(x > close.max)

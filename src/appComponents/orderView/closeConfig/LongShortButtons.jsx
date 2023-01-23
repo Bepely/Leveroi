@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { useSelector, useDispatch } from 'react-redux'
-import {setLong, setShort, setClosePrice, setMin, setMax, setLim0, setLim1, setDefaultClose} from "../../../redux/features/openOrder/closeOrderSlice"
+import {setLong, setShort, setClosePrice, setMin, setMax, setLim0, setLim1, setDefaultClose} from "../../../redux/features/closeOrder/closeOrderSlice"
 
 /*
 This is a Switcher between Long and Short Position

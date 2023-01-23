@@ -2,7 +2,7 @@ import React from 'react'
 import * as lcl from "../../../lcl"
 
 import { useSelector, useDispatch } from 'react-redux'
-import {setLong, setShort, setClosePrice, setMin, setMax, setLim0, setLim1, setDefaultClose} from "../../../redux/features/openOrder/closeOrderSlice"
+import {setLong, setShort, setClosePrice, setMin, setMax, setLim0, setLim1, setDefaultClose} from "../../../redux/features/closeOrder/closeOrderSlice"
 
 
 
@@ -27,6 +27,7 @@ const MinMaxCur = () => {
       let value = e.target.value
         if(value){
           let x = lcl.fixCoef(value)
+          
           if(x >= closeOrder.max){console.log("preventMoreOne")}
           else if(x <= 0 || x === null){}
           else{dispatch(setMin(x))}
@@ -38,7 +39,8 @@ const MinMaxCur = () => {
     const changeMax = (e) => {
       let value = e.target.value
       if(value){
-          let x = fixCoef(value)       
+          let x = fixCoef(value) 
+               
           if(x <= 0 || x === null){}
           else if(x <= closeOrder.min){console.log("preventLessOne");}
           else{dispatch(setMax(x))} 
@@ -52,7 +54,8 @@ const MinMaxCur = () => {
     const changeClosePrice = (e) => {
       let value = e.target.value
         if(value){
-          let x = lcl.fixCoef(value)       
+          
+                  
           dispatch(setClosePrice(x))
           value = null
           if(x > closeOrder.max)

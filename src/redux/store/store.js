@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit"
 
-import openOrderSlice from "../features/closeOrder/openOrderSlice"
-import closeOrderSlice from "../features/openOrder/closeOrderSlice"
+import openOrderSlice from "../features/openOrder/openOrderSlice"
+import closeOrderSlice from "../features/closeOrder/closeOrderSlice"
 import marketPriceSlice from "../features/marketPrice/marketPriceSlice"
 import sessionSlice from "../features/session/sessionSlice"
 

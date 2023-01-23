@@ -2,7 +2,7 @@ import React from 'react'
 
 import { useSelector, useDispatch } from 'react-redux'
 
-import {setAmount, setLeverage, setOpenPrice, setFee, setDefaultOpen} from "../../redux/features/closeOrder/openOrderSlice"
+import {setAmount, setLeverage, setOpenPrice, setFee, setDefaultOpen} from "../../redux/features/openOrder/openOrderSlice"
 import {setBitcoin, setEthereum, setBinancecoin, setRipple } from "../../redux/features/marketPrice/marketPriceSlice"
 
 const Pair = ({first, second}) => { 
@@ -30,7 +30,7 @@ const Pair = ({first, second}) => {
             <div className='inputPair pair paddingContent' >
                  <p className='pairFirst pairText pairChild hText'>{first}</p>  
                  <input className='blockField layerTable' 
-                 type="number" name={second} id={second} placeholder={second} 
+                 type="number" 
                  onChange={(e)=>{onChange(e)}}/> 
             </div>
 

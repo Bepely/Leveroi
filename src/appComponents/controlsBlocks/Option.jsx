@@ -4,8 +4,8 @@ import Pair from "../reusable/Pair"
 
 import { useSelector, useDispatch } from 'react-redux'
 
-import {setAmount, setLeverage, setOpenPrice, setFee, setDefaultOpen} from "../../redux/features/closeOrder/openOrderSlice"
-import {setLong, setShort, setClosePrice, setMin, setMax, setLim0, setLim1, setDefaultClose} from "../../redux/features/openOrder/closeOrderSlice"
+import {setAmount, setLeverage, setOpenPrice, setFee, setDefaultOpen} from "../../redux/features/openOrder/openOrderSlice"
+import {setLong, setShort, setClosePrice, setMin, setMax, setLim0, setLim1, setDefaultClose} from "../../redux/features/closeOrder/closeOrderSlice"
 import {setBitcoin, setEthereum, setBinancecoin, setRipple } from "../../redux/features/marketPrice/marketPriceSlice"
 import {setInitFalse, setInitTrue, setIsQueFalse, setIsQueTrue} from "../../redux/features/session/sessionSlice"
 

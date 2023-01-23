@@ -5,12 +5,13 @@ import html2canvas from 'html2canvas';
 
 
 import { useSelector, useDispatch } from 'react-redux'
-import {setInitFalse, setInitTrue, setIsQueFalse, setIsQueTrue} from "../../../redux/features/session/sessionSlice"
+import { setDefaultClose } from '../../../redux/features/closeOrder/closeOrderSlice';
+import {setInitFalse, setInitTrue, setIsQueFalse, setIsQueTrue, setInDisFalse, setInDisTrue} from "../../../redux/features/session/sessionSlice"
 
 const ResultInputs = ({snap, subSwitch}) => {
 
-  const {open} = useSelector(state => state);
-  const {close} = useSelector(state=>state);
+  const {openOrder} = useSelector(state => state);
+  const {closeOrder} = useSelector(state=>state);
 
   const dispatch = useDispatch()
 
@@ -30,7 +31,7 @@ const ResultInputs = ({snap, subSwitch}) => {
 
   let orderConfigParams = "";
 
-  orderConfigParams = `?am=${open.amount}&lev=${open.leverage}&op=${open.price}&fee=${open.fee}&long=${close.long}&cp=${close.price}&min=${close.min}&max=${close.max}&lim0=${close.lim0}&lim1=${close.lim1}`
+  orderConfigParams = `?am=${openOrder.amount}&lev=${openOrder.leverage}&op=${openOrder.price}&fee=${openOrder.fee}&long=${closeOrder.long}&cp=${closeOrder.price}&min=${closeOrder.min}&max=${closeOrder.max}&lim0=${closeOrder.lim0}&lim1=${closeOrder.lim1}`
 
 const getEncodedConfigParams = () => {return encodeURIComponent(`https://bepely.space/leveroi${orderConfigParams}`)}
 const getDecodedConfigParams = (p) => {return decodeURIComponent(p)}
@@ -58,7 +59,7 @@ const getDecodedConfigParams = (p) => {return decodeURIComponent(p)}
         if (typeof link.download === 'string') {
           
           link.href = data;
-          link.download = `Leveroi ${close.long ? "Long" : "Short"} Order`;
+          link.download = `Leveroi ${closeOrder.long ? "Long" : "Short"} Order`;
   
               document.body.appendChild(link);
               link.click();
@@ -67,7 +68,7 @@ const getDecodedConfigParams = (p) => {return decodeURIComponent(p)}
   
           
         } else {
-          window.open(data);
+          window.openOrder(data);
         }
       }
   
@@ -79,7 +80,7 @@ const getDecodedConfigParams = (p) => {return decodeURIComponent(p)}
     <div className='layerBase nested multiVer' id='layerBaseFooterResults'> 
     {shareSwitch ? <div className='multiHor layerTable' id='blockButton3'>
     <a  target="_blank" href={`https://t.me/share/url?url=${getEncodedConfigParams()} 
-&text=I am sharing ${close.long ? "Long" : "Short"} order simulation with ${lcl.margin(open, close)} profit || Made with Leveroi`
+&text=I am sharing ${closeOrder.long ? "Long" : "Short"} order simulation with ${lcl.margin(openOrder, closeOrder)} profit || Made with Leveroi`
   }> Telegram </a>  
     
       <a onClick={onSnap}> Make a Snap </a> 
@@ -97,7 +98,7 @@ const getDecodedConfigParams = (p) => {return decodeURIComponent(p)}
       <a onClick={_setInit}> Configurate chain order</a>
     
       :
-      <a onClick={()=>{dispatch(setInitFalse)}}> Configurate new order</a>
+      <a onClick={()=>{dispatch(setDefaultClose()); dispatch(setInitFalse())}}> Configurate new order</a>
 }
  </div>
  </div>

@@ -15,8 +15,8 @@ import CloseConfig from "../src/appComponents/orderView/CloseConfig"
 
 import { useSelector, useDispatch } from 'react-redux'
 
-import {setAmount, setLeverage, setOpenPrice, setFee, setDefaultOpen} from "../src/redux/features/closeOrder/openOrderSlice"
-import {setLong, setShort, setClosePrice, setMin, setMax, setLim0, setLim1, setDefaultClose} from "../src/redux/features/openOrder/closeOrderSlice"
+import {setAmount, setLeverage, setOpenPrice, setFee, setDefaultOpen} from "../src/redux/features/openOrder/openOrderSlice"
+import {setLong, setShort, setClosePrice, setMin, setMax, setLim0, setLim1, setDefaultClose} from "../src/redux/features/closeOrder/closeOrderSlice"
 import {setBitcoin, setEthereum, setBinancecoin, setRipple } from "../src/redux/features/marketPrice/marketPriceSlice"
 import {setInitFalse, setInitTrue, setIsQueFalse, setIsQueTrue} from "../src/redux/features/session/sessionSlice"
 

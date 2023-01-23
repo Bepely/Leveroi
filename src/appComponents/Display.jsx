@@ -3,8 +3,8 @@ import { useEffect} from 'react'
 
 import { useSelector, useDispatch } from 'react-redux'
 
-import {setAmount, setLeverage, setOpenPrice, setFee, setDefaultOpen} from "../redux/features/closeOrder/openOrderSlice"
-import {setLong, setShort, setClosePrice, setMin, setMax, setLim0, setLim1, setDefaultClose} from "../redux/features/openOrder/closeOrderSlice"
+import {setAmount, setLeverage, setOpenPrice, setFee, setDefaultOpen} from "../redux/features/openOrder/openOrderSlice"
+import {setLong, setShort, setClosePrice, setMin, setMax, setLim0, setLim1, setDefaultClose} from "../redux/features/closeOrder/closeOrderSlice"
 import {setInitFalse, setInitTrue, setIsQueFalse, setIsQueTrue} from "../redux/features/session/sessionSlice"
 
 
@@ -39,22 +39,23 @@ const Display = ({router}) => {
 
         
             if(Object.getOwnPropertyNames(router.query).length <= 0){
-
+                console.log(`I DID IT`) 
              if(!session.isQue){
-
+                
                 dispatch(setMin(openOrder.price*0.75))
                 dispatch(setMax(openOrder.price*1.25))
                 dispatch(setClosePrice(openOrder.price))
+                
 
             } else {
-                ()=>{
+                
                 dispatch(setAmount(lcl.fixCoef(router.query.am)))
                 dispatch(setLeverage(lcl.fixCoef(router.query.lev)))
                 dispatch(setOpenPrice(lcl.fixCoef(router.query.op)))
                 dispatch(setFee(lcl.fixCoef(router.query.fee)))
-                }
+                
 
-                ()=>{
+                
                     dispatch(setClosePrice(lcl.fixCoef(router.query.cp)))
 
                     if(router.query.long === "true"){
@@ -67,9 +68,10 @@ const Display = ({router}) => {
                     dispatch(setMax(lcl.fixCoef(router.query.max)))
                     dispatch(setLim0(lcl.fixCoef(router.query.lim0)))
                     dispatch(setLim1(lcl.fixCoef(router.query.lim1)))
-                }
+                
                 
                 router.replace('/leveroi', undefined, { shallow: true });
+                console.log(router)
             }
 
         }} 

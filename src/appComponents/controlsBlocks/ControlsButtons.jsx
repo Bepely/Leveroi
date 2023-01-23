@@ -3,7 +3,7 @@ import React from 'react'
 
 import { useSelector, useDispatch } from 'react-redux'
 
-import {setAmount, setLeverage, setOpenPrice, setFee, setDefaultOpen} from "../../redux/features/closeOrder/openOrderSlice"
+import {setAmount, setLeverage, setOpenPrice, setFee, setDefaultOpen} from "../../redux/features/openOrder/openOrderSlice"
 
 /*  
 This is a controls Button Component. Basically its swithing instructions to Ads and enters simulation

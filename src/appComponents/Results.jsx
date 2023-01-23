@@ -10,8 +10,8 @@ import TPSL from "./orderView/resultsBlocks/TPSL"
 
 import { useSelector, useDispatch } from 'react-redux'
 
-import {setAmount, setLeverage, setOpenPrice, setFee, setDefaultOpen} from "../redux/features/closeOrder/openOrderSlice"
-import {setLong, setShort, setClosePrice, setMin, setMax, setLim0, setLim1, setDefaultClose} from "../redux/features/openOrder/closeOrderSlice"
+import {setAmount, setLeverage, setOpenPrice, setFee, setDefaultOpen} from "../redux/features/openOrder/openOrderSlice"
+import {setLong, setShort, setClosePrice, setMin, setMax, setLim0, setLim1, setDefaultClose} from "../redux/features/closeOrder/closeOrderSlice"
 import {setBitcoin, setEthereum, setBinancecoin, setRipple } from "../redux/features/marketPrice/marketPriceSlice"
 import {setInitFalse, setInitTrue, setIsQueFalse, setIsQueTrue} from "../redux/features/session/sessionSlice"
 
@@ -25,7 +25,7 @@ const Results = () => {
 
   const {openOrder} = useSelector(state => state);
   const {closeOrder} = useSelector(state=>state);
-  const {marketPrice} = useSelector(state=>{state});
+  const {marketPrice} = useSelector(state=>state);
   const {session} = useSelector(state=>state)
 
   const dispatch = useDispatch();
@@ -49,9 +49,9 @@ const Results = () => {
     
       :
       <>
-      <OrderResultsCard open={open} close={close} snap={snap}/>
-      <TPSL open={open} close={close} setCloseOrder={setCloseOrder}   subSwitch={subOrderSwitch} setSubSwitch={setSubOrderSwitch}/>
-      <ResultInputs open={open} close={close} snap={snap} _setInit={_setInit} subSwitch={subOrderSwitch}/>
+      <OrderResultsCard snap={snap}/>
+      <TPSL subSwitch={subOrderSwitch} setSubSwitch={setSubOrderSwitch}/>
+      <ResultInputs snap={snap} subSwitch={subOrderSwitch}/>
       </>
       }
      
