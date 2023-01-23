@@ -1,18 +1,22 @@
 'use client'
 import { useEffect} from 'react'
 
+import { useSelector, useDispatch } from 'react-redux'
+
+import {setAmount, setLeverage, setOpenPrice, setFee, setDefaultOpen} from "../redux/features/closeOrder/openOrderSlice"
+import {setLong, setShort, setClosePrice, setMin, setMax, setLim0, setLim1, setDefaultClose} from "../redux/features/openOrder/closeOrderSlice"
+import {setInitFalse, setInitTrue, setIsQueFalse, setIsQueTrue} from "../redux/features/session/sessionSlice"
+
 
 import Slider from "./displayBlocks/Slider"
 import Graph from "./displayBlocks/Graph"
-
-import Platforms from "./displayBlocks/Platforms"
 import Contacts from "./reusable/Contacts"
 
 import * as lcl from "../lcl"
 
 
 
-const Display = ({openOrder, setOpenOrder, init, closeOrder, setCloseOrder, router, isQue, setIsQue}) => {
+const Display = ({router}) => {
   
     /*
     Display block is a base for Interactable sub-blocks, that affects Order Close Price
@@ -22,6 +26,13 @@ const Display = ({openOrder, setOpenOrder, init, closeOrder, setCloseOrder, rout
 
     12.12.22 Bepely
     */
+
+      //This is a default redux boilerplate for components on a remake stage 23.01.2023 Bepely
+  const {openOrder} = useSelector(state => state);
+  const {closeOrder} = useSelector(state=>state);
+  const {session} = useSelector(state=>state)
+
+  const dispatch = useDispatch();
     
 
     const onCloseChange = () => {
@@ -29,38 +40,43 @@ const Display = ({openOrder, setOpenOrder, init, closeOrder, setCloseOrder, rout
         
             if(Object.getOwnPropertyNames(router.query).length <= 0){
 
-             if(!isQue){
-                setCloseOrder(closeOrder => ({...closeOrder,
-                    min:openOrder.price*0.75,
-                    max:openOrder.price*1.25,
-                    price:openOrder.price,              
-                   }))} 
+             if(!session.isQue){
+
+                dispatch(setMin(openOrder.price*0.75))
+                dispatch(setMax(openOrder.price*1.25))
+                dispatch(setClosePrice(openOrder.price))
 
             } else {
+                ()=>{
+                dispatch(setAmount(lcl.fixCoef(router.query.am)))
+                dispatch(setLeverage(lcl.fixCoef(router.query.lev)))
+                dispatch(setOpenPrice(lcl.fixCoef(router.query.op)))
+                dispatch(setFee(lcl.fixCoef(router.query.fee)))
+                }
 
+                ()=>{
+                    dispatch(setClosePrice(lcl.fixCoef(router.query.cp)))
 
-                setOpenOrder(openOrder = ({...openOrder, 
-                    amount: lcl.fixCoef(router.query.am),
-                    leverage: lcl.fixCoef(router.query.lev),
-                    price:  lcl.fixCoef(router.query.op),
-                    fee: lcl.fixCoef(router.query.fee)
-                }))
-                setCloseOrder(closeOrder => ({...closeOrder, 
-                    price: lcl.fixCoef(router.query.cp),
-                    long: router.query.long === "true" ? true : false,
-                    min: lcl.fixCoef(router.query.min),
-                    max: lcl.fixCoef(router.query.max),
-                    lim0: lcl.fixCoef(router.query.lim0),
-                    lim1: lcl.fixCoef(router.query.lim1)
-                }))
+                    if(router.query.long === "true"){
+                        dispatch(setLong())
+                    }else if(router.query.long === "false"){
+                        dispatch(setShort())
+                    }
+
+                    dispatch(setMin(lcl.fixCoef(router.query.min)))
+                    dispatch(setMax(lcl.fixCoef(router.query.max)))
+                    dispatch(setLim0(lcl.fixCoef(router.query.lim0)))
+                    dispatch(setLim1(lcl.fixCoef(router.query.lim1)))
+                }
+                
                 router.replace('/leveroi', undefined, { shallow: true });
             }
 
-        } 
+        }} 
     
        useEffect(()=>{
             onCloseChange()
-       },[init, router])
+       },[session.init, router])
 
        
 
@@ -68,7 +84,7 @@ const Display = ({openOrder, setOpenOrder, init, closeOrder, setCloseOrder, rout
     <>
    
 
-            {init === false ? 
+            {session.init === false ? 
                
                 
                 <div className='layerBase soloCenter' id='displayBase' >
@@ -101,32 +117,21 @@ const Display = ({openOrder, setOpenOrder, init, closeOrder, setCloseOrder, rout
 
 
                 <div className='layerFloor multiHor whMax paddingContent'  >
-                    <Graph close={closeOrder} open={openOrder}/>
-                    <Slider closeOrder={closeOrder} setCloseOrder={setCloseOrder}/>  
+                    <Graph />
+                    <Slider />  
                 </div>  
                 
                 
             </div>
-    }
+             }
             
             
-    </>
-  )
-}
+         </>
+     )
+    } 
 
-Display.defaultProps = {
-    closeOrder:{
-      price: 420,
-      max: 1337,
-      min: 322,
-      long: false
-    },
-    openOrder:{
-        price: 420,
-        leverage: 1,
-        amount: 100,
-        fee: 1
-    }
-  }
+
+
+
 
 export default Display

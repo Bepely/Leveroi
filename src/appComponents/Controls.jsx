@@ -4,9 +4,24 @@ import React from 'react'
 import Option from "./controlsBlocks/Option"
 import ControlsButtons from './controlsBlocks/ControlsButtons'
 
+import { useSelector, useDispatch } from 'react-redux'
+
+import {setAmount, setLeverage, setOpenPrice, setFee, setDefaultOpen} from "../redux/features/closeOrder/openOrderSlice"
+import {setLong, setShort, setClosePrice, setMin, setMax, setLim0, setLim1, setDefaultClose} from "../redux/features/openOrder/closeOrderSlice"
+import {setBitcoin, setEthereum, setBinancecoin, setRipple } from "../redux/features/marketPrice/marketPriceSlice"
+import {setInitFalse, setInitTrue, setIsQueFalse, setIsQueTrue} from "../redux/features/session/sessionSlice"
 
 
-const Controls = ({openOrderFires, init, _setInit, setInDis, inDis, marketPrice, openOrder, setOpenOrder}) => {
+
+const Controls = ({openOrderFires, setInDis, inDis, setOpenOrder}) => {
+
+
+  const {openOrder} = useSelector(state => state);
+  const {closeOrder} = useSelector(state=>state);
+  const {marketPrice} = useSelector(state=>state);
+  const {session} = useSelector(state=>state)
+
+  const dispatch = useDispatch();
 
   
 
@@ -14,14 +29,10 @@ const Controls = ({openOrderFires, init, _setInit, setInDis, inDis, marketPrice,
   let transfer = {}
 
   const sendToDisplay = () => {
-    transfer = openOrder
-    openOrderFires(transfer)
-    _setInit()
+    dispatch(setDefaultClose())
+    dispatch(setInitTrue())
 }
 
-const inDisSwitch = () =>{
-  setInDis(inDis => !inDis)
-}
   
   return (
     <>
@@ -52,7 +63,7 @@ const inDisSwitch = () =>{
     
 </div>
 <div className="soloCenter layerBase  toBot">
-<ControlsButtons open={openOrder} inDis={inDis} inDisSwitch={inDisSwitch} sendToDisplay={sendToDisplay} /> 
+<ControlsButtons sendToDisplay={sendToDisplay} /> 
 </div>
 </>
   )

@@ -1,9 +1,15 @@
 import React from 'react'
 import * as lcl from "../../../lcl"
 
-const OrderResultsCard = ({open, close, snap}) => {
 
 
+import { useSelector} from 'react-redux'
+
+const OrderResultsCard = ({snap}) => {
+
+
+  const {open} = useSelector(state => state);
+  const {close} = useSelector(state=>state);
     /*
     This Blocks provides A result Block, that is showing reactive outecomes of an Order
     Also it Have Coment generator, that in my opiniun looks ugly and optimised too bad

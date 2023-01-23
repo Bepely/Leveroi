@@ -3,6 +3,9 @@ import React from 'react';
 import {VictoryChart, VictoryLine, VictoryLabel, VictoryScatter, VictoryArea} from 'victory'
 import {useRef, useEffect, useState} from "react"
 
+import { useSelector} from 'react-redux'
+
+
 import * as lcl from "../../lcl"
 
 
@@ -27,11 +30,14 @@ God bless it's even working now
 
 
 
-const Graph = ({close, open}) => {
+const Graph = () => {
   
+  const {openOrder} = useSelector(state => state);
+  const {closeOrder} = useSelector(state=>state);
 
   const [height, setHeight] = useState()
   const [width, setWidth] = useState()
+
   const ref = useRef(null)
 
   useEffect(() => {
@@ -45,49 +51,49 @@ const Graph = ({close, open}) => {
 
   
 let victoryData = 
-  [{x: "Open", y: Number(open.price), size: 1},
-   {x: "Close", y:  Number(close.price),
-    label:  close.price, size: 4 },]
+  [{x: "Open", y: Number(openOrder.price), size: 1},
+   {x: "Close", y:  Number(closeOrder.price),
+    label:  closeOrder.price, size: 4 },]
 
 let lim0Data = [
-  {x:"Open", y: Number(close.lim0), size: 1},
-  {x:"Close", y: Number(close.lim0), size: 1,
-  label: `Limit ${close.lim0}`, size: 2}
+  {x:"Open", y: Number(closeOrder.lim0), size: 1},
+  {x:"Close", y: Number(closeOrder.lim0), size: 1,
+  label: `Limit ${closeOrder.lim0}`, size: 2}
 ]
 let lim1Data = [
-  {x:"Open", y: Number(close.lim1), size: 1},
-  {x:"Close", y: Number(close.lim1), size: 1,
-  label: `Limit ${close.lim1}`, size: 2}
+  {x:"Open", y: Number(closeOrder.lim1), size: 1},
+  {x:"Close", y: Number(closeOrder.lim1), size: 1,
+  label: `Limit ${closeOrder.lim1}`, size: 2}
 ]
 
 let liquidationDataLong = [
-  {x: "Open", y:  lcl.liquidation(open,close), size:1},
-  { x: "Close", y:  lcl.liquidation(open,close), size:1}
+  {x: "Open", y:  lcl.liquidation(openOrder,closeOrder), size:1},
+  { x: "Close", y:  lcl.liquidation(openOrder,closeOrder), size:1}
 ]
 let liquidationDataShort = [
-  {x: "Open", y:  lcl.liquidation(open,close), size:1},
-  { x: "Close", y:  lcl.liquidation(open,close), size:1}
+  {x: "Open", y:  lcl.liquidation(openOrder,closeOrder), size:1},
+  { x: "Close", y:  lcl.liquidation(openOrder,closeOrder), size:1}
 ]
 
   return (
     
     
     <div className='soloCenter whMax' id='graph' ref={ref}>
-      {close && open && height && width
+      {closeOrder && openOrder && height && width
       ?
       <VictoryChart 
       height={window.innerWidth-window.innerHeight < 0 ? window.innerHeight/3 :  height  }
       width={width}
-      style={!close.long ? {background: { fill: "#9B000030", fontFamily:'Rubik' }} : {data: {fill: "#ECE9EC30", fontFamily:'Rubik'}}}
+      style={!closeOrder.long ? {background: { fill: "#9B000030", fontFamily:'Rubik' }} : {data: {fill: "#ECE9EC30", fontFamily:'Rubik'}}}
      padding={{top: 50, bottom: 50, left: 55, right: 50}} 
-    domain={{y: [close.min, close.max]}}
+    domain={{y: [closeOrder.min, closeOrder.max]}}
     animate={false}
     
     > 
    <VictoryArea
       key={"liquidation"}
-      data={close.long ? liquidationDataLong : liquidationDataShort}
-      style={close.long ? {data : {fill: "#9B000030", fontFamily:'Rubik'}} : {data: {fill: "#ECE9EC", fontFamily:'Rubik'}}}
+      data={closeOrder.long ? liquidationDataLong : liquidationDataShort}
+      style={closeOrder.long ? {data : {fill: "#9B000030", fontFamily:'Rubik'}} : {data: {fill: "#ECE9EC", fontFamily:'Rubik'}}}
       />
 
 <VictoryLine
@@ -136,20 +142,6 @@ let liquidationDataShort = [
    
    </div>
   )
-}
-
-Graph.defaultProps = {
-  close:{
-    price: 420,
-    max: 1337,
-    min: 322,
-    long: true
-  },
-  open:{
-    amount: 420,
-    leverage: 69,
-    price: 1337
-  }
 }
 
 

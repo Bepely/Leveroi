@@ -3,7 +3,16 @@ import { useState } from 'react'
 import * as lcl from "../../../lcl"
 import html2canvas from 'html2canvas';
 
-const ResultInputs = ({open, close, snap, _setInit, subSwitch}) => {
+
+import { useSelector, useDispatch } from 'react-redux'
+import {setInitFalse, setInitTrue, setIsQueFalse, setIsQueTrue} from "../../../redux/features/session/sessionSlice"
+
+const ResultInputs = ({snap, subSwitch}) => {
+
+  const {open} = useSelector(state => state);
+  const {close} = useSelector(state=>state);
+
+  const dispatch = useDispatch()
 
     /*
     This is an Interface that provides user to share current order or to configure a new one. 
@@ -88,7 +97,7 @@ const getDecodedConfigParams = (p) => {return decodeURIComponent(p)}
       <a onClick={_setInit}> Configurate chain order</a>
     
       :
-      <a onClick={_setInit}> Configurate new order</a>
+      <a onClick={()=>{dispatch(setInitFalse)}}> Configurate new order</a>
 }
  </div>
  </div>

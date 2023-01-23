@@ -3,14 +3,14 @@ import React from 'react'
 import LongShortButtons from './closeConfig/LongShortButtons'
 import MinMaxCur from './closeConfig/MinMaxCur'
 
-const CloseConfig = ({open, close, setOpen, setClose}) => {
+const CloseConfig = () => {
 
 
 
   return (
     <div className='layerFloor blockCard multiVer'>
-        <LongShortButtons close={close} setClose={setClose}/>
-        <MinMaxCur close={close} setClose={setClose} />
+        <LongShortButtons />
+        <MinMaxCur/>
     </div>
   )
 }

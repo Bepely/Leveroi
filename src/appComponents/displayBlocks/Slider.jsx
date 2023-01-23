@@ -1,7 +1,13 @@
+'use client'
 import React from 'react'
 
 import MSlider from "@mui/material/Slider"
 import * as lcl from "../../lcl"
+
+import { useSelector, useDispatch } from 'react-redux'
+
+import {setAmount, setLeverage, setOpenPrice, setFee, setDefaultOpen} from "../../redux/features/closeOrder/openOrderSlice"
+import {setLong, setShort, setClosePrice, setMin, setMax, setLim0, setLim1, setDefaultClose} from "../../redux/features/openOrder/closeOrderSlice"
 
 
 /*
@@ -10,10 +16,26 @@ Slider Component is a main Order Close Price picker intrerface
 */
 
 
-const Slider = ({closeOrder, setCloseOrder}) => {
+const Slider = () => {
+  const dispatch = useDispatch();
+  const {closeOrder} = useSelector(state=>state);
 
 let subtraction = Number(closeOrder.max - closeOrder.min)
-const changeClosePrice = (e) => {lcl.changeClosePrice(closeOrder, setCloseOrder, e.target.value)}
+
+const changeClosePrice = (e) => {
+  let value = e.target.value
+    if(value){
+      let x = lcl.fixCoef(value)       
+      dispatch(setClosePrice(x))
+      value = null
+      if(x > close.max)
+      {dispatch(setMax(x))}
+      else if (x < close.min) 
+      {dispatch(setMin(x))}
+  }else{}}
+
+
+  
 
 
   return (
@@ -42,16 +64,6 @@ const changeClosePrice = (e) => {lcl.changeClosePrice(closeOrder, setCloseOrder,
     </div>
   )
 }
-
-Slider.defaultProps = {
-  closeOrder:{
-    price: 420,
-    max: 1337,
-    min: 322,
-    long: true
-  }
-}
-
 
 
 export default Slider

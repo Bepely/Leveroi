@@ -1,6 +1,10 @@
 'use client'
 import React from 'react'
 
+import { useSelector, useDispatch } from 'react-redux'
+
+import {setAmount, setLeverage, setOpenPrice, setFee, setDefaultOpen} from "../../redux/features/closeOrder/openOrderSlice"
+
 /*  
 This is a controls Button Component. Basically its swithing instructions to Ads and enters simulation
 12.12.22 Bepely
@@ -8,7 +12,8 @@ This is a controls Button Component. Basically its swithing instructions to Ads 
 */
 
 
-const ControlsButtons = ({open, sendToDisplay}) => {
+const ControlsButtons = ({sendToDisplay}) => {
+  const {openOrder} = useSelector(state => state)
 
 
  
@@ -16,7 +21,7 @@ const ControlsButtons = ({open, sendToDisplay}) => {
     <div className="multiVer layerFloor dropShadow blockButton">
       
      
-        {open.amount <= 0 || open.price <= 0 || open.leverage < 1
+        {openOrder.amount <= 0 || openOrder.price <= 0 || openOrder.leverage < 1
         ? <div  className="whMax" disabled>Values shoud be valid</div> :
         <div className="whMax"  onClick={sendToDisplay}>Create order</div>}
       

@@ -4,7 +4,15 @@ import * as lcl from "../../../lcl"
 
 import SubOrderConfig from './SubOrderConfig'
 
-const TPSL = ({open, close, setCloseOrder, session, setSession, subSwitch, setSubSwitch}) => {
+
+import { useSelector } from 'react-redux'
+
+
+
+const TPSL = ({subSwitch, setSubSwitch}) => {
+  
+  const {openOrder} = useSelector(state => state);
+  const {closeOrder} = useSelector(state=>state);
 
 //init value of TP/SL is a false. 
 //if user set up a value for TP/LS it is no longer false and have a price.

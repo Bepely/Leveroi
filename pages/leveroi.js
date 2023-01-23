@@ -1,12 +1,24 @@
 'use client'
 import Head from "next/head"
+
 import {useRouter} from "next/router"
+
+
+
+
 
 import Header from "../src/appComponents/Header"
 import Display from "../src/appComponents/Display"
 import Controls from "../src/appComponents/Controls"
 import Results from "../src/appComponents/Results"
 import CloseConfig from "../src/appComponents/orderView/CloseConfig"
+
+import { useSelector, useDispatch } from 'react-redux'
+
+import {setAmount, setLeverage, setOpenPrice, setFee, setDefaultOpen} from "../src/redux/features/closeOrder/openOrderSlice"
+import {setLong, setShort, setClosePrice, setMin, setMax, setLim0, setLim1, setDefaultClose} from "../src/redux/features/openOrder/closeOrderSlice"
+import {setBitcoin, setEthereum, setBinancecoin, setRipple } from "../src/redux/features/marketPrice/marketPriceSlice"
+import {setInitFalse, setInitTrue, setIsQueFalse, setIsQueTrue} from "../src/redux/features/session/sessionSlice"
 
 
 import { useState, useEffect } from "react"
@@ -26,6 +38,10 @@ Sonner or later I will reorganize it, but today it is alright =/
 
 function App() {
 
+  const {session} = useSelector(state=>state)
+
+  const dispatch = useDispatch();
+
   //----------------------------------------------------------\\
   //--------------     System Declarations      --------------||
   //----------------------------------------------------------//
@@ -35,105 +51,29 @@ function App() {
  
   
 
-  //----------------------------------------------------------\\
-  //-------------   Config and Order States    ---------------||
-  //----------------------------------------------------------//
-
-
-  //Session State
-  const [session, setSession] = useState({
-    currentOrder: 0,
-    currentChain: [0],
-    orders: []
-  })
-
-  
-  //Current close Order state
-  const [closeOrder, setCloseOrder] = useState({
-    long: true,
-    price: 0.08808,
-    min: 0,
-    max: 200,
-    lim0: 0,
-    lim1: 0
-})
-  //Current open Order state
-  const [openOrder, setOpenOrder] = useState({
-    amount: 100,
-    leverage: 1,
-    price: 1337,
-    fee: 0
-  })
-
-
-  //----------------------------------------------------------\\
-  //------------   Process and Utility states    -------------||
-  //----------------------------------------------------------//
-
-
-  const [init, setInit] = useState(init => false)
-  //Prices API prices state
-  const [marketPrice, setMarketPrice] = useState({
-    bitcoin: 0,
-    ethereum: 0,
-    binancecoin: 0,
-    ripple: 0
-  })
- 
-
-  //----------------------------------------------------------\\
-  //-------------     Initial Order Config      --------------||
-  //----------------------------------------------------------//
-
-
-
-  //Configuration of an initial Open order in Session
-  const openOrderFires=(x)=>{
-      setCloseOrder({
-        long: true,
-        price: 0.08808,
-        min: 0,
-        max: 200,
-        lim0: 0,
-        lim1: 0
-    })
-      setOpenOrder(openOrder => ({...x}))
-      setSession(session => ({...session, orders: session.orders = [{open: openOrder, close: closeOrder, layer:0, id: 0}]}))
-      }
-  //Initial Session Switcher
-  const _setInit = ()=>{
-    if(isQue){setIsQue(isQue => false)}
-
-    setInit(init => !init)
-  }
-  //Share order Url readiness state
-  const [isQue, setIsQue] = useState(isQue => false)
-
-  
-  //----------------------------------------------------------\\
-  //---------------          Swithcers         ---------------||
-  //----------------------------------------------------------//
-
    //Loading of an API on simulation/configuration state switch
    useEffect(()=>{
     fetch("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Cethereum%2Cbinancecoin%2Cripple&vs_currencies=usd")
     .then((res) => res.json().then(data => {
-        setMarketPrice(marketPrice => ({...marketPrice, 
-          bitcoin: data.bitcoin.usd,
-          ethereum: data.ethereum.usd,
-          binancecoin: data.binancecoin.usd,
-          ripple: data.ripple.usd}))
-
+          dispatch(setBitcoin(data.bitcoin.usd))
+          dispatch(setEthereum(data.ethereum.usd))
+          dispatch(setBinancecoin(data.binancecoin.usd))
+          dispatch(setRipple(data.ripple.usd))
     }))
-  }, [init])
+  }, [session.init])
 
   //Checker of a Query String in a URL 
   useEffect(()=>{
     if(Object.getOwnPropertyNames(router.query).length > 0){
-      setIsQue(isQue => true)
-      setInit(init => true)
+      dispatch(setIsQueTrue())
+      dispatch(setInitTrue())
     }
   }, [router.query])
+
+
+
+
+
 
     
  
@@ -161,41 +101,25 @@ function App() {
 
 
       
-      <Display 
-         init={init} router={router} isQue = {isQue}
-         openOrder={openOrder} setOpenOrder={setOpenOrder}
-         closeOrder={closeOrder} setCloseOrder={setCloseOrder}
-         session={session} setSession={setSession}
-         />
-      
-        
+          <Display router={router}/>
         <div className="layerBase multiVer" id="interfaceBase">
-          <Header />
-          {init === true ? 
+            <Header router={router}/>
+          {session.init === true ? 
           <>
-            <CloseConfig open={openOrder} setOpen={setOpenOrder}
-                         close={closeOrder} setClose={setCloseOrder}
-                         session={session} setSession={setSession}/>
-            
-            <Results open={openOrder} close={closeOrder}
-            setCloseOrder = {setCloseOrder} _setInit={_setInit}
-            session={session} setSession={setSession}/>
-           
-           </>
+            <CloseConfig/>
+            <Results />
+          </>
             :
-            <Controls openOrderFires={openOrderFires}
-            init={init} _setInit={_setInit}
-            marketPrice={marketPrice}
-            openOrder={openOrder} setOpenOrder={setOpenOrder}/>
+            <Controls />
           }
           
         </div>
         
-         
-       
+      
+      
+            
+</div>
 
-
-    </div>
   )
 
 }
