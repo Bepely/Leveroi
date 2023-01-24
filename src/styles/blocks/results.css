@@ -45,7 +45,7 @@ But for now It is What it is =/
 
 
 
-.openResults, .closeResults{
+.openOrderResults, .closeOrderResults{
     width: 100%;
     height: 100%;
     display: grid;
@@ -54,7 +54,7 @@ But for now It is What it is =/
 .openResults{
     grid-area: num;
 }
-.closeResults{
+.closeOrderResults{
     grid-template-rows: 1fr 2fr;
     grid-area: calc;
 }

@@ -105,6 +105,12 @@ gap: 10px;
     .blockField{
         width: 90%;
     }
+
+    #displayBase{
+        height: 100%;
+        width: 100%;
+        grid-area: displayBase;
+    }
     
     
     .blockButton, #blockButton2>*, #blockButton3>*{
