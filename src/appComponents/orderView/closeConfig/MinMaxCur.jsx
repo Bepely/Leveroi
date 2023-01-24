@@ -39,7 +39,7 @@ const MinMaxCur = () => {
     const changeMax = (e) => {
       let value = e.target.value
       if(value){
-          let x = fixCoef(value) 
+          let x = lcl.fixCoef(value) 
                
           if(x <= 0 || x === null){}
           else if(x <= closeOrder.min){console.log("preventLessOne");}
@@ -54,7 +54,7 @@ const MinMaxCur = () => {
     const changeClosePrice = (e) => {
       let value = e.target.value
         if(value){
-          
+          let x = lcl.fixCoef(value)
                   
           dispatch(setClosePrice(x))
           value = null

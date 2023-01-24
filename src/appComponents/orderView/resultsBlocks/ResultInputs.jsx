@@ -5,7 +5,7 @@ import html2canvas from 'html2canvas';
 
 
 import { useSelector, useDispatch } from 'react-redux'
-import { setDefaultClose } from '../../../redux/features/closeOrder/closeOrderSlice';
+import { setDefaultClose, setLim0 } from '../../../redux/features/closeOrder/closeOrderSlice';
 import {setInitFalse, setInitTrue, setIsQueFalse, setIsQueTrue, setInDisFalse, setInDisTrue} from "../../../redux/features/session/sessionSlice"
 
 const ResultInputs = ({snap, subSwitch}) => {
@@ -98,7 +98,10 @@ const getDecodedConfigParams = (p) => {return decodeURIComponent(p)}
       <a onClick={_setInit}> Configurate chain order</a>
     
       :
-      <a onClick={()=>{dispatch(setDefaultClose()); dispatch(setInitFalse())}}> Configurate new order</a>
+      <a onClick={()=>{
+        dispatch(setDefaultClose());
+        dispatch(setInitFalse());
+        }}> Configurate new order</a>
 }
  </div>
  </div>

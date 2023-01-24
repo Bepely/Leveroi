@@ -5,19 +5,23 @@ import * as lcl from "../../../lcl"
 import SubOrderConfig from './SubOrderConfig'
 
 
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+
+import {setLong, setShort, setClosePrice, setMin, setMax, setLim0, setLim1, setDefaultClose} from "../../../redux/features/closeOrder/closeOrderSlice"
 
 
 
 const TPSL = ({subSwitch, setSubSwitch}) => {
   
-  const {openOrder} = useSelector(state => state);
-  const {closeOrder} = useSelector(state=>state);
+  const {openOrder, closeOrder, session} = useSelector(state => state);
+
+
+  const dispatch = useDispatch();
 
 //init value of TP/SL is a false. 
 //if user set up a value for TP/LS it is no longer false and have a price.
 
-const [limits, setLimits] = useState([close.lim0, close.lim1])
+const [limits, setLimits] = useState([closeOrder.lim0, closeOrder.lim1])
 
 
 //15.12.22
@@ -27,19 +31,29 @@ const [limits, setLimits] = useState([close.lim0, close.lim1])
 //Дальше на график и на слайдер надо скинуть Лимиты
 
 
+useEffect(()=>{
+  if(!session.isQue){
+    setLimits([0, 0])
+  }
+
+}, [session.init])
+
 
 const setNewLimit = (l) => {
     let _limits = limits
-    _limits[l] = close.price
-    setLimits(_limits)
-    setCloseOrder(close => ({...close, lim0:limits[0], lim1:limits[1]}))
+    _limits[l] = closeOrder.price
+    dispatch(setLim0(limits[0]))
+    dispatch(setLim1(limits[1]))
+
   }
 
   const removeLimit = (l) => {
     let _limits = limits
     _limits[l] = 0
     setLimits(_limits)
-    setCloseOrder(close => ({...close, lim0:limits[0], lim1:limits[1]}))
+    dispatch(setLim0(limits[0]))
+    dispatch(setLim1(limits[1]))
+
   }
 
 
@@ -62,13 +76,13 @@ const Limit = ({_limit}) => {
 
               <div className="pnlContainer " id='textContent'>
                 <h5>PNL</h5>
-                <h6>{lcl.margin(open, {...close, price: limits[_limit]})}</h6>
-                <h6 id='pnlTPSLright'>{lcl.marginPercent(open, {...close, price: limits[_limit]})}%</h6>
+                <h6>{lcl.margin(openOrder, {...closeOrder, price: limits[_limit]})}</h6>
+                <h6 id='pnlTPSLright'>{lcl.marginPercent(openOrder, {...closeOrder, price: limits[_limit]})}%</h6>
               </div>
 
               <div className="totalContainer" id='textContent'>
                 <h4>Total</h4>
-                <h6 id='pnlTPSLright'>{lcl.total(open, {...close, price: limits[_limit]})}</h6>
+                <h6 id='pnlTPSLright'>{lcl.total(openOrder, {...closeOrder, price: limits[_limit]})}</h6>
               </div>
     </div>
     
@@ -104,7 +118,7 @@ const PreLimit = ({_limit}) => {
 const PostLimit = ({}) => {
   return(
     <div className='layerBase multiVer toBot' id={!subSwitch.switch ? "displayNone" : ""}>
-    <SubOrderConfig open={open} close={close} _price={subSwitch.price}/>           
+    <SubOrderConfig open={openOrder} close={closeOrder} _price={subSwitch.price}/>           
     </div>
   )
 }

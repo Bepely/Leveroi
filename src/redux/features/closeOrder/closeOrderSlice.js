@@ -18,7 +18,7 @@ const closeOrderSlice = createSlice({
         setShort: (state) => {state.long = false},
         setClosePrice: (state, action) => {state.price = action.payload},
         setMin: (state, action) => {state.min = action.payload},
-        setMax: (state, action) => {state.min = action.payload},
+        setMax: (state, action) => {state.max = action.payload},
         setLim0: (state, action) => {state.lim0 = action.payload},
         setLim1: (state, action) => {state.lim1 = action. payload},
 

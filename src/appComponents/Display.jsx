@@ -37,10 +37,9 @@ const Display = ({router}) => {
 
     const onCloseChange = () => {
 
-        
             if(Object.getOwnPropertyNames(router.query).length <= 0){
-                console.log(`I DID IT`) 
-             if(!session.isQue){
+                
+             
                 
                 dispatch(setMin(openOrder.price*0.75))
                 dispatch(setMax(openOrder.price*1.25))
@@ -49,6 +48,8 @@ const Display = ({router}) => {
 
             } else {
                 
+             
+
                 dispatch(setAmount(lcl.fixCoef(router.query.am)))
                 dispatch(setLeverage(lcl.fixCoef(router.query.lev)))
                 dispatch(setOpenPrice(lcl.fixCoef(router.query.op)))
@@ -71,10 +72,10 @@ const Display = ({router}) => {
                 
                 
                 router.replace('/leveroi', undefined, { shallow: true });
-                console.log(router)
+                
             }
 
-        }} 
+        }
     
        useEffect(()=>{
             onCloseChange()

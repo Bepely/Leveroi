@@ -10,6 +10,7 @@ import {setAmount, setLeverage, setOpenPrice, setFee, setDefaultOpen} from "../.
 import {setLong, setShort, setClosePrice, setMin, setMax, setLim0, setLim1, setDefaultClose} from "../../redux/features/closeOrder/closeOrderSlice"
 
 
+
 /*
 Slider Component is a main Order Close Price picker intrerface
 12.12.22 Bepely

@@ -30,6 +30,7 @@ const Pair = ({first, second}) => {
             <div className='inputPair pair paddingContent' >
                  <p className='pairFirst pairText pairChild hText'>{first}</p>  
                  <input className='blockField layerTable' 
+                 name={second} id={second} placeholder={second} 
                  type="number" 
                  onChange={(e)=>{onChange(e)}}/> 
             </div>
