@@ -1,4 +1,4 @@
-ver 0.1.3b
+ver 0.1.4
 # Leveroi  
 ## Futures Trading Simulator
 
@@ -19,7 +19,8 @@ Real market simulation. Take Profit/Stop Loss orders and real-time market simula
 ### Version 0.4.0:
 Trading platforms. Connectivity to real money trading platforms, so users can try out their simulated trades on actual trading platforms. This will make the simulator more useful for users who want to test their strategies before using them in the real world.  
 
-# Version Roadmap
+
+# Changelog
 Done:    
 • ....date.... | v0.1.0 |Config, Order, Results  
 • 07.11.22 | v0.1.1x |Graph, Real-time API            
@@ -28,21 +29,14 @@ Done:
 • 29.11.22 | v0.1.2b |Order Share/Save                        
 • 06.12.22 | v0.1.2c |Leveroi Design System       
 • 12.12.22 | v0.1.3x |Sustainable UI and HomePage      
-• 15.12.22 | v0.1.3a |Limits 
+• 15.12.22 | v0.1.3a |Limits   
+• 24.12.23 | v0.1.4x |Redux-toolkit    
 
-Coming Up   
-                                   
-○ Glass Layer            
-○ Carousel   
-○ Take Profit / Stop Loss                         
-○ Share and Snap Enhancement    
-○ Documentation     
-○ SEO, SSR   
-
-In progress  
-◘ Create Description Block   
-◘ Create Pop-up (Glass layer)    
-◘ Create Carousel     
+# To Do   
+○ CMS for blogs   
+○ Mobile app   
+○ Profile system   
+○ Blockchain interactivity  
 
 
 ____________________________________________  
@@ -52,4 +46,4 @@ and appretiated!
 ____________________________________________  
    
 Bepely  
-13.12.2022  
+24.01.2023  
